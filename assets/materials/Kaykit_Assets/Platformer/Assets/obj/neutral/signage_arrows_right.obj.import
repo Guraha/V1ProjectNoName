@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dryf2idcia1yr"
+path="res://.godot/imported/signage_arrows_right.obj-7cbef16d78b9c26df27696d7102a446b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/signage_arrows_right.obj-7cbef16d78b9c26df27696d7102a446b.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/neutral/signage_arrows_right.obj"
+dest_files=["res://.godot/imported/signage_arrows_right.obj-7cbef16d78b9c26df27696d7102a446b.mesh", "res://.godot/imported/signage_arrows_right.obj-7cbef16d78b9c26df27696d7102a446b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

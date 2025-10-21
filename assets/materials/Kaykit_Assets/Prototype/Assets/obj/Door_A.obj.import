@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpt3qohhy46np"
+path="res://.godot/imported/Door_A.obj-09f9d4b1c7901e7483443830819e0256.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Door_A.obj-09f9d4b1c7901e7483443830819e0256.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Prototype/Assets/obj/Door_A.obj"
+dest_files=["res://.godot/imported/Door_A.obj-09f9d4b1c7901e7483443830819e0256.mesh", "res://.godot/imported/Door_A.obj-09f9d4b1c7901e7483443830819e0256.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

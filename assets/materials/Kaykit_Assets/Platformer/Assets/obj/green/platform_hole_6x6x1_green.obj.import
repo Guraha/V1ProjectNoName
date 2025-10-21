@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpjqa10id5dcr"
+path="res://.godot/imported/platform_hole_6x6x1_green.obj-175c1c0ec092b6ade5fccd04f61bf330.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_hole_6x6x1_green.obj-175c1c0ec092b6ade5fccd04f61bf330.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/green/platform_hole_6x6x1_green.obj"
+dest_files=["res://.godot/imported/platform_hole_6x6x1_green.obj-175c1c0ec092b6ade5fccd04f61bf330.mesh", "res://.godot/imported/platform_hole_6x6x1_green.obj-175c1c0ec092b6ade5fccd04f61bf330.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

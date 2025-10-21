@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6ry0b0qlgh73"
+path="res://.godot/imported/pipe_90_B_yellow.obj-d98d62bdbbae71b9323cafb0cc1dc28c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pipe_90_B_yellow.obj-d98d62bdbbae71b9323cafb0cc1dc28c.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/yellow/pipe_90_B_yellow.obj"
+dest_files=["res://.godot/imported/pipe_90_B_yellow.obj-d98d62bdbbae71b9323cafb0cc1dc28c.mesh", "res://.godot/imported/pipe_90_B_yellow.obj-d98d62bdbbae71b9323cafb0cc1dc28c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

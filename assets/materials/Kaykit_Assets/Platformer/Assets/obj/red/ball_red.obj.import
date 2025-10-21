@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbxr4tfhmwsg0"
+path="res://.godot/imported/ball_red.obj-112765b788e56be202e875a75c9ed782.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ball_red.obj-112765b788e56be202e875a75c9ed782.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/red/ball_red.obj"
+dest_files=["res://.godot/imported/ball_red.obj-112765b788e56be202e875a75c9ed782.mesh", "res://.godot/imported/ball_red.obj-112765b788e56be202e875a75c9ed782.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

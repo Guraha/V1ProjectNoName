@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvsry0sir1gud"
+path="res://.godot/imported/Pillar_A.obj-7ac5bbfa50a5655f52e8bd2cbd4aa88d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pillar_A.obj-7ac5bbfa50a5655f52e8bd2cbd4aa88d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Prototype/Assets/obj/Pillar_A.obj"
+dest_files=["res://.godot/imported/Pillar_A.obj-7ac5bbfa50a5655f52e8bd2cbd4aa88d.mesh", "res://.godot/imported/Pillar_A.obj-7ac5bbfa50a5655f52e8bd2cbd4aa88d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

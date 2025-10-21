@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cy1q8fhysklyy"
+path="res://.godot/imported/lever_wall_base_B_red_lever_wall_B_red.obj-19e9ae9b8f878ea8cc872f42e3e444cd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lever_wall_base_B_red_lever_wall_B_red.obj-19e9ae9b8f878ea8cc872f42e3e444cd.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/red/lever_wall_base_B_red_lever_wall_B_red.obj"
+dest_files=["res://.godot/imported/lever_wall_base_B_red_lever_wall_B_red.obj-19e9ae9b8f878ea8cc872f42e3e444cd.mesh", "res://.godot/imported/lever_wall_base_B_red_lever_wall_B_red.obj-19e9ae9b8f878ea8cc872f42e3e444cd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

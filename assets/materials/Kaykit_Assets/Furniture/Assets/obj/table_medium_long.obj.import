@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0au8gmrj50hw"
+path="res://.godot/imported/table_medium_long.obj-769e30336ec3d5b58f895de0fba0a085.mesh"
+
+[deps]
+
+files=["res://.godot/imported/table_medium_long.obj-769e30336ec3d5b58f895de0fba0a085.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Furniture/Assets/obj/table_medium_long.obj"
+dest_files=["res://.godot/imported/table_medium_long.obj-769e30336ec3d5b58f895de0fba0a085.mesh", "res://.godot/imported/table_medium_long.obj-769e30336ec3d5b58f895de0fba0a085.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fxxquwxph6c3"
+path="res://.godot/imported/star_blue.obj-740eb8844816fd4034b1a96931bc2eaf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/star_blue.obj-740eb8844816fd4034b1a96931bc2eaf.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/star_blue.obj"
+dest_files=["res://.godot/imported/star_blue.obj-740eb8844816fd4034b1a96931bc2eaf.mesh", "res://.godot/imported/star_blue.obj-740eb8844816fd4034b1a96931bc2eaf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

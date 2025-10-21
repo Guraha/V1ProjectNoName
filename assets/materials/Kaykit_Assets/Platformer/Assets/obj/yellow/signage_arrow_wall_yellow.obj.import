@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://crfqc8j25sac1"
+path="res://.godot/imported/signage_arrow_wall_yellow.obj-c2beebbb7830eb9117630b04746561b1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/signage_arrow_wall_yellow.obj-c2beebbb7830eb9117630b04746561b1.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/yellow/signage_arrow_wall_yellow.obj"
+dest_files=["res://.godot/imported/signage_arrow_wall_yellow.obj-c2beebbb7830eb9117630b04746561b1.mesh", "res://.godot/imported/signage_arrow_wall_yellow.obj-c2beebbb7830eb9117630b04746561b1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

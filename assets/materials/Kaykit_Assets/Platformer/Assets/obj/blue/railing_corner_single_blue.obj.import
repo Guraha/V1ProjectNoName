@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxos3lby01f7v"
+path="res://.godot/imported/railing_corner_single_blue.obj-956dce859cc21e678eaa2225f6ee5e2d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/railing_corner_single_blue.obj-956dce859cc21e678eaa2225f6ee5e2d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/railing_corner_single_blue.obj"
+dest_files=["res://.godot/imported/railing_corner_single_blue.obj-956dce859cc21e678eaa2225f6ee5e2d.mesh", "res://.godot/imported/railing_corner_single_blue.obj-956dce859cc21e678eaa2225f6ee5e2d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

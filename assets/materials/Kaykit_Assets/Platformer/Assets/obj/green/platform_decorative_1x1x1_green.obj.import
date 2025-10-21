@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgd2h3pwvypnv"
+path="res://.godot/imported/platform_decorative_1x1x1_green.obj-ce00fe0eb0629e9f1b3ac7db15e7b66d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_decorative_1x1x1_green.obj-ce00fe0eb0629e9f1b3ac7db15e7b66d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/green/platform_decorative_1x1x1_green.obj"
+dest_files=["res://.godot/imported/platform_decorative_1x1x1_green.obj-ce00fe0eb0629e9f1b3ac7db15e7b66d.mesh", "res://.godot/imported/platform_decorative_1x1x1_green.obj-ce00fe0eb0629e9f1b3ac7db15e7b66d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://inaacc3ox1td"
+path="res://.godot/imported/Primitive_Beam.obj-b7bd95748f905ea4c4575f16ed2d21a3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Primitive_Beam.obj-b7bd95748f905ea4c4575f16ed2d21a3.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Prototype/Assets/obj/Primitive_Beam.obj"
+dest_files=["res://.godot/imported/Primitive_Beam.obj-b7bd95748f905ea4c4575f16ed2d21a3.mesh", "res://.godot/imported/Primitive_Beam.obj-b7bd95748f905ea4c4575f16ed2d21a3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4rgbm7pko2d0"
+path="res://.godot/imported/railing_straight_single_red.obj-4d97e8d3825781dad7308dd2daf6f598.mesh"
+
+[deps]
+
+files=["res://.godot/imported/railing_straight_single_red.obj-4d97e8d3825781dad7308dd2daf6f598.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/red/railing_straight_single_red.obj"
+dest_files=["res://.godot/imported/railing_straight_single_red.obj-4d97e8d3825781dad7308dd2daf6f598.mesh", "res://.godot/imported/railing_straight_single_red.obj-4d97e8d3825781dad7308dd2daf6f598.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

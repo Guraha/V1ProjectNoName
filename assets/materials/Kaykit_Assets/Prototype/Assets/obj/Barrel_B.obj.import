@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ct4cds2kprier"
+path="res://.godot/imported/Barrel_B.obj-a94a60a93fcdc9588a99bb9ddc2588ea.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Barrel_B.obj-a94a60a93fcdc9588a99bb9ddc2588ea.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Prototype/Assets/obj/Barrel_B.obj"
+dest_files=["res://.godot/imported/Barrel_B.obj-a94a60a93fcdc9588a99bb9ddc2588ea.mesh", "res://.godot/imported/Barrel_B.obj-a94a60a93fcdc9588a99bb9ddc2588ea.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

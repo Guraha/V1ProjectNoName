@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://sowe5saodqxd"
+path="res://.godot/imported/button_base_blue.obj-c59abf72a89dbc72fbc5699c6ea54927.mesh"
+
+[deps]
+
+files=["res://.godot/imported/button_base_blue.obj-c59abf72a89dbc72fbc5699c6ea54927.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/button_base_blue.obj"
+dest_files=["res://.godot/imported/button_base_blue.obj-c59abf72a89dbc72fbc5699c6ea54927.mesh", "res://.godot/imported/button_base_blue.obj-c59abf72a89dbc72fbc5699c6ea54927.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

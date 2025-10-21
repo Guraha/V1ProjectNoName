@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0q0pvw7k66r5"
+path="res://.godot/imported/bracing_medium_blue.obj-be65bf6fa6467182596e4ab66455ff45.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bracing_medium_blue.obj-be65bf6fa6467182596e4ab66455ff45.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/bracing_medium_blue.obj"
+dest_files=["res://.godot/imported/bracing_medium_blue.obj-be65bf6fa6467182596e4ab66455ff45.mesh", "res://.godot/imported/bracing_medium_blue.obj-be65bf6fa6467182596e4ab66455ff45.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

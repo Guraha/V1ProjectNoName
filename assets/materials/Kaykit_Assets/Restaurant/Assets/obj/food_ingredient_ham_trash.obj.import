@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2wmpg042beww"
+path="res://.godot/imported/food_ingredient_ham_trash.obj-925690e38ad5b96656c0e84724348b46.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_ingredient_ham_trash.obj-925690e38ad5b96656c0e84724348b46.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/food_ingredient_ham_trash.obj"
+dest_files=["res://.godot/imported/food_ingredient_ham_trash.obj-925690e38ad5b96656c0e84724348b46.mesh", "res://.godot/imported/food_ingredient_ham_trash.obj-925690e38ad5b96656c0e84724348b46.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvvlivmcabvwg"
+path="res://.godot/imported/crate_tomatoes.obj-6b5f677b6982b96589abdea3336bdb01.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate_tomatoes.obj-6b5f677b6982b96589abdea3336bdb01.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/crate_tomatoes.obj"
+dest_files=["res://.godot/imported/crate_tomatoes.obj-6b5f677b6982b96589abdea3336bdb01.mesh", "res://.godot/imported/crate_tomatoes.obj-6b5f677b6982b96589abdea3336bdb01.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://sb6ia84spq6d"
+path="res://.godot/imported/hoop_blue.obj-9a297e9760585e7b0a17bc335b7cade0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hoop_blue.obj-9a297e9760585e7b0a17bc335b7cade0.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/hoop_blue.obj"
+dest_files=["res://.godot/imported/hoop_blue.obj-9a297e9760585e7b0a17bc335b7cade0.mesh", "res://.godot/imported/hoop_blue.obj-9a297e9760585e7b0a17bc335b7cade0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

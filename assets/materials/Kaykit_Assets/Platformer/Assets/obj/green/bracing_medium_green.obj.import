@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwcbivf3gncdi"
+path="res://.godot/imported/bracing_medium_green.obj-f648e9951fdcf37d815d9ba062858d3c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bracing_medium_green.obj-f648e9951fdcf37d815d9ba062858d3c.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/green/bracing_medium_green.obj"
+dest_files=["res://.godot/imported/bracing_medium_green.obj-f648e9951fdcf37d815d9ba062858d3c.mesh", "res://.godot/imported/bracing_medium_green.obj-f648e9951fdcf37d815d9ba062858d3c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

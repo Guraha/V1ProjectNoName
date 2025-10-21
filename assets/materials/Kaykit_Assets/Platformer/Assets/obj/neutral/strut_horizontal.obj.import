@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvuccub78247a"
+path="res://.godot/imported/strut_horizontal.obj-ec90936084c072507b6862b631182afd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/strut_horizontal.obj-ec90936084c072507b6862b631182afd.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/neutral/strut_horizontal.obj"
+dest_files=["res://.godot/imported/strut_horizontal.obj-ec90936084c072507b6862b631182afd.mesh", "res://.godot/imported/strut_horizontal.obj-ec90936084c072507b6862b631182afd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

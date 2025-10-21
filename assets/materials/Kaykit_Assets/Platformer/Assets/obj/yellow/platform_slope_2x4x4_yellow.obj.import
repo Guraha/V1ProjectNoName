@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://nxmx3bhevrir"
+path="res://.godot/imported/platform_slope_2x4x4_yellow.obj-67ab14d0458b136fb200aaa4fed6b6ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_slope_2x4x4_yellow.obj-67ab14d0458b136fb200aaa4fed6b6ed.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/yellow/platform_slope_2x4x4_yellow.obj"
+dest_files=["res://.godot/imported/platform_slope_2x4x4_yellow.obj-67ab14d0458b136fb200aaa4fed6b6ed.mesh", "res://.godot/imported/platform_slope_2x4x4_yellow.obj-67ab14d0458b136fb200aaa4fed6b6ed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

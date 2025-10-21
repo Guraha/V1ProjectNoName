@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctbx4kyu8pgbc"
+path="res://.godot/imported/platform_6x6x1_blue.obj-3284cc7ac891df70d53f1abe4b43de08.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_6x6x1_blue.obj-3284cc7ac891df70d53f1abe4b43de08.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/blue/platform_6x6x1_blue.obj"
+dest_files=["res://.godot/imported/platform_6x6x1_blue.obj-3284cc7ac891df70d53f1abe4b43de08.mesh", "res://.godot/imported/platform_6x6x1_blue.obj-3284cc7ac891df70d53f1abe4b43de08.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

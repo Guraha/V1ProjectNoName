@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbmj10cp4q0oo"
+path="res://.godot/imported/lever_floor_base_yellow.obj-5dafb591c72c10c63b52d79eb9f9eab3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lever_floor_base_yellow.obj-5dafb591c72c10c63b52d79eb9f9eab3.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/yellow/lever_floor_base_yellow.obj"
+dest_files=["res://.godot/imported/lever_floor_base_yellow.obj-5dafb591c72c10c63b52d79eb9f9eab3.mesh", "res://.godot/imported/lever_floor_base_yellow.obj-5dafb591c72c10c63b52d79eb9f9eab3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

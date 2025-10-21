@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8its5nltgyke"
+path="res://.godot/imported/kitchencounter_sink_backsplash.obj-b181b8ff0451cb3c7fda588c12a1df6d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchencounter_sink_backsplash.obj-b181b8ff0451cb3c7fda588c12a1df6d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/kitchencounter_sink_backsplash.obj"
+dest_files=["res://.godot/imported/kitchencounter_sink_backsplash.obj-b181b8ff0451cb3c7fda588c12a1df6d.mesh", "res://.godot/imported/kitchencounter_sink_backsplash.obj-b181b8ff0451cb3c7fda588c12a1df6d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

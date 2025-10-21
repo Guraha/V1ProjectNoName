@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvcecklw5fnrj"
+path="res://.godot/imported/arch_wide_red.obj-289e3850c227df4fc5148336f4b9e1ff.mesh"
+
+[deps]
+
+files=["res://.godot/imported/arch_wide_red.obj-289e3850c227df4fc5148336f4b9e1ff.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/red/arch_wide_red.obj"
+dest_files=["res://.godot/imported/arch_wide_red.obj-289e3850c227df4fc5148336f4b9e1ff.mesh", "res://.godot/imported/arch_wide_red.obj-289e3850c227df4fc5148336f4b9e1ff.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

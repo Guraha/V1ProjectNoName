@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chdqo6633acwe"
+path="res://.godot/imported/ball_yellow.obj-a44d43f760593830e3102f410aa78268.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ball_yellow.obj-a44d43f760593830e3102f410aa78268.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Platformer/Assets/obj/yellow/ball_yellow.obj"
+dest_files=["res://.godot/imported/ball_yellow.obj-a44d43f760593830e3102f410aa78268.mesh", "res://.godot/imported/ball_yellow.obj-a44d43f760593830e3102f410aa78268.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
