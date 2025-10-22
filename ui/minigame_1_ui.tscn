@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4q6vvvomkdw2"]
+[gd_scene load_steps=18 format=3 uid="uid://b4q6vvvomkdw2"]
 
 [ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="1_56wnn"]
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="1_dlupe"]
+[ext_resource type="Script" path="res://ui/minigame_1_ui.gd" id="2_minigame_script"]
+[ext_resource type="Script" path="res://ui/minigame_player1.gd" id="3_minigame_p1"]
+[ext_resource type="Script" path="res://ui/minigame_player2.gd" id="4_minigame_p2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ons6"]
 
@@ -23,23 +26,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8k0x"]
-bg_color = Color(0.764706, 0.188235, 0.164706, 1)
-border_width_bottom = 7
-border_color = Color(0.461176, 0.0923401, 0.078855, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rg8q8"]
-bg_color = Color(0.764706, 0.188235, 0.164706, 1)
-border_width_top = 7
-border_color = Color(0.0745098, 0.407843, 0.380392, 0)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tba4s"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5fq"]
 bg_color = Color(0.354402, 0.468501, 0.929882, 1)
@@ -52,24 +44,6 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4rcw"]
 bg_color = Color(0.352941, 0.466667, 0.929412, 1)
-border_width_top = 7
-border_color = Color(0.0745098, 0.407843, 0.380392, 0)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7s44"]
-bg_color = Color(0.666409, 0.33928, 0.838672, 1)
-border_width_bottom = 7
-border_color = Color(0.437539, 0.166564, 0.571761, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5erbg"]
-bg_color = Color(0.666667, 0.341176, 0.839216, 1)
 border_width_top = 7
 border_color = Color(0.0745098, 0.407843, 0.380392, 0)
 corner_radius_top_left = 5
@@ -95,11 +69,51 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7s44"]
+bg_color = Color(0.666409, 0.33928, 0.838672, 1)
+border_width_bottom = 7
+border_color = Color(0.437539, 0.166564, 0.571761, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5erbg"]
+bg_color = Color(0.666667, 0.341176, 0.839216, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gg4b"]
+bg_color = Color(0.87451, 0.172549, 0.309804, 1)
+border_width_bottom = 7
+border_color = Color(0.67347, 0.0974504, 0.221819, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0k1t"]
+bg_color = Color(0.87451, 0.172549, 0.309804, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="Node2D" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_56wnn")
+script = ExtResource("2_minigame_script")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -117,27 +131,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="ColorRect5" type="ColorRect" parent="ColorRect/HBoxContainer"]
+[node name="Orange" type="ColorRect" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.921569, 0.321569, 0.160784, 1)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect/HBoxContainer"]
+[node name="Yellow" type="ColorRect" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.855854, 0.633912, 0.320204, 1)
 
-[node name="Texts" type="Node" parent="."]
-
-[node name="BigNumber" type="Label" parent="Texts"]
-anchors_preset = -1
+[node name="Goal" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -576.0
-offset_top = 43.0
-offset_right = -2.0
-offset_bottom = 135.0
+offset_left = -287.0
+offset_top = 36.0
+offset_right = 287.0
+offset_bottom = 128.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_dlupe")
 theme_override_font_sizes/font_size = 76
@@ -145,21 +159,54 @@ text = "Goal: 80"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Answer" type="Label" parent="Texts"]
-anchors_preset = -1
+[node name="Player1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_minigame_p1")
+
+[node name="Text" type="Node" parent="Player1"]
+
+[node name="Score" type="Label" parent="Player1/Text"]
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -576.0
-offset_top = 129.0
+offset_top = 157.0
 offset_right = -2.0
-offset_bottom = 221.0
+offset_bottom = 249.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 51
+theme = ExtResource("1_56wnn")
+theme_override_font_sizes/font_size = 58
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Player1/Text"]
+offset_left = 163.0
+offset_top = 571.0
+offset_right = 413.0
+offset_bottom = 608.0
+
+[node name="Panel" type="Panel" parent="Player1/Text/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_56wnn")
+
+[node name="Points" type="Label" parent="Player1/Text/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Player1"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 260.0
@@ -167,7 +214,7 @@ offset_right = 413.0
 offset_bottom = 560.0
 color = Color(1, 1, 1, 0.45098)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect2"]
+[node name="MarginContainer" type="MarginContainer" parent="Player1/ColorRect3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,114 +226,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Player1/ColorRect3/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/MarginContainer/VBoxContainer"]
+[node name="Subtraction" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="Button2" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ki2q3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
-text = "-2"
-
-[node name="Button" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-text = "+15"
-
-[node name="Button3" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_c8k0x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rg8q8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c8k0x")
-text = "CLEAR"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="Button" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-text = "+3"
-
-[node name="Button2" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-text = "+10"
-
-[node name="Button4" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
-text = "x3"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="Button3" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-text = "+20"
-
-[node name="Button2" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ki2q3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
-text = "-5"
-
-[node name="Button5" type="Button" parent="ColorRect2/MarginContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_56wnn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
-text = "x3"
-
-[node name="Buttons" type="Node" parent="."]
-
-[node name="Subtraction" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 224.0
-offset_top = 196.0
-offset_right = 294.0
-offset_bottom = 283.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_56wnn")
@@ -296,36 +243,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
 text = "-2"
 
-[node name="Addition" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 224.0
-offset_top = 99.0
-offset_right = 294.0
-offset_bottom = 186.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Addition" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tba4s")
 text = "+15"
 
-[node name="Multiplication" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 310.0
-offset_top = 99.0
-offset_right = 380.0
-offset_bottom = 186.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Multiplication" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_56wnn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
@@ -334,20 +260,45 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
 text = "x3"
 
-[node name="Division" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 310.0
-offset_top = 196.0
-offset_right = 380.0
-offset_bottom = 283.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Addition2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="Multiplication2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition3" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="NoNumber2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtxix")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8a6eg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtxix")
+
+[node name="Division2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_56wnn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d7s44")
@@ -355,43 +306,172 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5erbg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7s44")
 text = "/5"
 
-[node name="Clear" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
+[node name="Clear" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gg4b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0k1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gg4b")
+text = "Clear"
+
+[node name="Player2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 576.0
+offset_right = 616.0
+offset_bottom = 40.0
+script = ExtResource("4_minigame_p2")
+
+[node name="Text" type="Node" parent="Player2"]
+
+[node name="Score" type="Label" parent="Player2/Text"]
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
+offset_left = -2.0
+offset_top = 157.0
+offset_right = 572.0
+offset_bottom = 249.0
+grow_horizontal = 2
+theme = ExtResource("1_56wnn")
+theme_override_font_sizes/font_size = 58
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Player2/Text"]
+offset_left = 739.0
+offset_top = 571.0
+offset_right = 989.0
+offset_bottom = 608.0
+
+[node name="Panel" type="Panel" parent="Player2/Text/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_56wnn")
+
+[node name="Points" type="Label" parent="Player2/Text/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 310.0
-offset_top = 2.0
-offset_right = 380.0
-offset_bottom = 89.0
+offset_top = -10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "X POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Player2"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 260.0
+offset_right = 413.0
+offset_bottom = 560.0
+color = Color(1, 1, 1, 0.45098)
+
+[node name="MarginContainer" type="MarginContainer" parent="Player2/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Player2/ColorRect3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Subtraction" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ki2q3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
+text = "-2"
+
+[node name="Addition" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tba4s")
+text = "+15"
+
+[node name="Multiplication" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_56wnn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_c8k0x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rg8q8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_c8k0x")
-text = "CLEAR"
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
 
-[node name="NoNumber" type="Button" parent="Buttons"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 224.0
-offset_top = 2.0
-offset_right = 294.0
-offset_bottom = 89.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Addition2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="Multiplication2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition3" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="NoNumber2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_56wnn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jtxix")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8a6eg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jtxix")
+
+[node name="Division2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d7s44")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5erbg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7s44")
+text = "/5"
+
+[node name="Clear" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gg4b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0k1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gg4b")
+text = "Clear"

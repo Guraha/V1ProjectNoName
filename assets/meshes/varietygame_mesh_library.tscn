@@ -1,0 +1,397 @@
+[gd_scene load_steps=132 format=3 uid="uid://3ndjta1p2ou0"]
+
+[ext_resource type="PackedScene" uid="uid://b3ygcqlyenxpy" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamBlue.gltf.glb" id="1_agbwr"]
+[ext_resource type="PackedScene" uid="uid://bl4pshvmrbr30" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamRed.gltf.glb" id="2_wi6ht"]
+[ext_resource type="PackedScene" uid="uid://dlsmn0r4bgy45" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamYellow.gltf.glb" id="3_v622x"]
+[ext_resource type="PackedScene" uid="uid://cobb1nxu6a6pp" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball.gltf.glb" id="4_8wny3"]
+[ext_resource type="PackedScene" uid="uid://b0nv0gcfwjo1o" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamBlue.gltf.glb" id="5_qvh0o"]
+[ext_resource type="PackedScene" uid="uid://dc2kp01pe3ndd" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamRed.gltf.glb" id="6_s3cqn"]
+[ext_resource type="PackedScene" uid="uid://b6iq8pw4aeu02" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamYellow.gltf.glb" id="7_dsb1n"]
+[ext_resource type="PackedScene" uid="uid://bhkh4bwjbta1s" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierFloor.gltf.glb" id="8_beub7"]
+[ext_resource type="PackedScene" uid="uid://dp4u5gief2rll" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierLadder.gltf.glb" id="9_0pxqw"]
+[ext_resource type="PackedScene" uid="uid://cpvfqehklsnpi" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierLarge.gltf.glb" id="10_1sgef"]
+[ext_resource type="PackedScene" uid="uid://bk4yft20cf2f2" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierMedium.gltf.glb" id="11_ugpo8"]
+[ext_resource type="PackedScene" uid="uid://douan5t33yei8" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierSmall.gltf.glb" id="12_wcg35"]
+[ext_resource type="PackedScene" uid="uid://bv71fx47edpwl" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierStrut.gltf.glb" id="13_ejs01"]
+[ext_resource type="PackedScene" uid="uid://b34xqv71cl07t" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamBlue.gltf.glb" id="14_6fk55"]
+[ext_resource type="PackedScene" uid="uid://cqpakk5gvlyr" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamRed.gltf.glb" id="15_0tisy"]
+[ext_resource type="PackedScene" uid="uid://b4tmqncphworl" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamYellow.gltf.glb" id="16_yt3ax"]
+[ext_resource type="PackedScene" uid="uid://c1tufvwggpncy" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamBlue.gltf.glb" id="17_rbvn0"]
+[ext_resource type="PackedScene" uid="uid://cwd2doe01dwra" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamRed.gltf.glb" id="18_yjjs3"]
+[ext_resource type="PackedScene" uid="uid://dex5euseouo2g" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamYellow.gltf.glb" id="19_pkrua"]
+[ext_resource type="PackedScene" uid="uid://c27foykm621r3" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamBlue.gltf.glb" id="20_47iff"]
+[ext_resource type="PackedScene" uid="uid://bj35ijqn56m4q" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamRed.gltf.glb" id="21_3m2ca"]
+[ext_resource type="PackedScene" uid="uid://blttpec5vrce8" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamYellow.gltf.glb" id="22_nb2b6"]
+[ext_resource type="PackedScene" uid="uid://081t01gw3awx" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamBlue.gltf.glb" id="23_6f6gq"]
+[ext_resource type="PackedScene" uid="uid://bfi8vu86rx37p" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamRed.gltf.glb" id="24_qe3vk"]
+[ext_resource type="PackedScene" uid="uid://d0hq3xet8ccd5" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamYellow.gltf.glb" id="25_1h2ew"]
+[ext_resource type="PackedScene" uid="uid://c7g8pm2qctt2i" path="res://assets/materials/Kaykit_Assets/VarietyGame/characer_duck.gltf.glb" id="26_q3lu5"]
+[ext_resource type="PackedScene" uid="uid://dt8b5dtmpldf0" path="res://assets/materials/Kaykit_Assets/VarietyGame/character_bear.gltf.glb" id="27_ewb8a"]
+[ext_resource type="PackedScene" uid="uid://gxh57d2brr60" path="res://assets/materials/Kaykit_Assets/VarietyGame/character_dog.gltf.glb" id="28_at07c"]
+[ext_resource type="PackedScene" uid="uid://djdkaa6sigl5w" path="res://assets/materials/Kaykit_Assets/VarietyGame/detail_desert.gltf.glb" id="29_jq4fr"]
+[ext_resource type="PackedScene" uid="uid://klmhxja3he6c" path="res://assets/materials/Kaykit_Assets/VarietyGame/detail_forest.gltf.glb" id="30_fstkv"]
+[ext_resource type="PackedScene" uid="uid://qa8almgmp165" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamBlue.gltf.glb" id="31_rsw34"]
+[ext_resource type="PackedScene" uid="uid://cjh3hugluvo11" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamRed.gltf.glb" id="32_2hk5e"]
+[ext_resource type="PackedScene" uid="uid://wx051bicf36r" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamYellow.gltf.glb" id="33_27agw"]
+[ext_resource type="PackedScene" uid="uid://bj3ic35hubvrj" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamBlue.gltf.glb" id="34_84amb"]
+[ext_resource type="PackedScene" uid="uid://d0u24e3mnc1qo" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamRed.gltf.glb" id="35_2clfr"]
+[ext_resource type="PackedScene" uid="uid://c003q0igafw83" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamYellow.gltf.glb" id="36_7fodw"]
+[ext_resource type="PackedScene" uid="uid://bg15c6u6g0uy0" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamBlue.gltf.glb" id="37_kustl"]
+[ext_resource type="PackedScene" uid="uid://dpnqqnslg3vok" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamRed.gltf.glb" id="38_1obb1"]
+[ext_resource type="PackedScene" uid="uid://c5wm7rhaawkqf" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamYellow.gltf.glb" id="39_62qv4"]
+[ext_resource type="PackedScene" uid="uid://bfn5hgbwm0w2k" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamBlue.gltf.glb" id="40_wetyr"]
+[ext_resource type="PackedScene" uid="uid://dats71oowq58j" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamRed.gltf.glb" id="41_ed0rj"]
+[ext_resource type="PackedScene" uid="uid://b3njxildw0hkp" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamYellow.gltf.glb" id="42_3wfel"]
+[ext_resource type="PackedScene" uid="uid://dgj8xx58ll68d" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamBlue.gltf.glb" id="43_0ssg6"]
+[ext_resource type="PackedScene" uid="uid://2821mncoekep" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamRed.gltf.glb" id="44_5rhaw"]
+[ext_resource type="PackedScene" uid="uid://cjpwg0dcm1tbw" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamYellow.gltf.glb" id="45_p8yy0"]
+[ext_resource type="PackedScene" uid="uid://gvawtrx6kub1" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamBlue.gltf.glb" id="46_jvxxd"]
+[ext_resource type="PackedScene" uid="uid://4wngvqstpaj7" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamRed.gltf.glb" id="47_v5418"]
+[ext_resource type="PackedScene" uid="uid://dd20jsxnfdm5q" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamYellow.gltf.glb" id="48_w5h6w"]
+[ext_resource type="PackedScene" uid="uid://bxq5vmq5iw6lt" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamBlue.gltf.glb" id="49_1v3a7"]
+[ext_resource type="PackedScene" uid="uid://hl8gf1artxqn" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamRed.gltf.glb" id="50_dir6p"]
+[ext_resource type="PackedScene" uid="uid://bulkq04gu357e" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamYellow.gltf.glb" id="51_on3qe"]
+[ext_resource type="PackedScene" uid="uid://l5g3bs8b7308" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamBlue.gltf.glb" id="52_fus6r"]
+[ext_resource type="PackedScene" uid="uid://b0alfdmurx80d" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamRed.gltf.glb" id="53_phdqo"]
+[ext_resource type="PackedScene" uid="uid://cfn0aq31nrg1k" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamYellow.gltf.glb" id="54_boubn"]
+[ext_resource type="PackedScene" uid="uid://bdlpird74y0t2" path="res://assets/materials/Kaykit_Assets/VarietyGame/lightning.gltf.glb" id="55_tj3tb"]
+[ext_resource type="PackedScene" uid="uid://bfie1aewykpci" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantA_desert.gltf.glb" id="56_v7rpc"]
+[ext_resource type="PackedScene" uid="uid://s4au4bxhk2cr" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantA_forest.gltf.glb" id="57_bjseg"]
+[ext_resource type="PackedScene" uid="uid://f6wbc7jfx1ye" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantB_desert.gltf.glb" id="58_5ey6p"]
+[ext_resource type="PackedScene" uid="uid://d253pq60nqt0q" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantB_forest.gltf.glb" id="59_cbjjj"]
+[ext_resource type="PackedScene" uid="uid://da60ss0wtfig2" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamBlue.gltf.glb" id="60_nmd5a"]
+[ext_resource type="PackedScene" uid="uid://bic3v8ikkblr8" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamRed.gltf.glb" id="61_0ci2a"]
+[ext_resource type="PackedScene" uid="uid://b4mrfrkjyuqd5" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamYellow.gltf.glb" id="62_5tsar"]
+[ext_resource type="PackedScene" uid="uid://cfnd3fj180yw" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBomb.gltf.glb" id="63_4y1ra"]
+[ext_resource type="PackedScene" uid="uid://2d6eya8grrkn" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamBlue.gltf.glb" id="64_v5hxv"]
+[ext_resource type="PackedScene" uid="uid://b7vhwoc0mmh1y" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamRed.gltf.glb" id="65_nbcvb"]
+[ext_resource type="PackedScene" uid="uid://clet43fgt6sjg" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamYellow.gltf.glb" id="66_0efot"]
+[ext_resource type="PackedScene" uid="uid://djgha2wllmy6d" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksA_desert.gltf.glb" id="67_dldpn"]
+[ext_resource type="PackedScene" uid="uid://c4pugcsi3y4hb" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksA_forest.gltf.glb" id="68_1lcrs"]
+[ext_resource type="PackedScene" uid="uid://d3f6buraeevs7" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksB_desert.gltf.glb" id="69_qb0kc"]
+[ext_resource type="PackedScene" uid="uid://duxqmhpxdv6a1" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksB_forest.gltf.glb" id="70_y18yc"]
+[ext_resource type="PackedScene" uid="uid://ctj8gi5ve0xpi" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamBlue.gltf.glb" id="71_prnga"]
+[ext_resource type="PackedScene" uid="uid://4tly88mrtj1s" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamRed.gltf.glb" id="72_5lxt8"]
+[ext_resource type="PackedScene" uid="uid://bek23yp5e8wta" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamYellow.gltf.glb" id="73_4150w"]
+[ext_resource type="PackedScene" uid="uid://b8ta304k5j6vo" path="res://assets/materials/Kaykit_Assets/VarietyGame/spikeRoller.gltf.glb" id="74_krn75"]
+[ext_resource type="PackedScene" uid="uid://bomf2yx7kfvpy" path="res://assets/materials/Kaykit_Assets/VarietyGame/star.gltf.glb" id="75_tisv2"]
+[ext_resource type="PackedScene" uid="uid://cy2usl6818uu3" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamBlue.gltf.glb" id="76_8dogb"]
+[ext_resource type="PackedScene" uid="uid://dixfjkdoqvcru" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamRed.gltf.glb" id="77_dm6yh"]
+[ext_resource type="PackedScene" uid="uid://dx1ixp3rpy6es" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamYellow.gltf.glb" id="78_p5rqi"]
+[ext_resource type="PackedScene" uid="uid://cqmcaplh36t4c" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamBlue.gltf.glb" id="79_r8i1c"]
+[ext_resource type="PackedScene" uid="uid://q3k2u3mh7vxo" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamRed.gltf.glb" id="80_ppvvm"]
+[ext_resource type="PackedScene" uid="uid://fmrqw1k6mbgw" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamYellow.gltf.glb" id="81_t65t3"]
+[ext_resource type="PackedScene" uid="uid://wsq5x78chkrf" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamBlue.gltf.glb" id="82_836ts"]
+[ext_resource type="PackedScene" uid="uid://cwlmi2dguqx06" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamRed.gltf.glb" id="83_ug07j"]
+[ext_resource type="PackedScene" uid="uid://15cjjp7p3ewr" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamYellow.gltf.glb" id="84_ebvle"]
+[ext_resource type="PackedScene" uid="uid://dwlm11n8xcsu4" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamBlue.gltf.glb" id="85_1gogu"]
+[ext_resource type="PackedScene" uid="uid://csmu5ffrm5714" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamRed.gltf.glb" id="86_qn4li"]
+[ext_resource type="PackedScene" uid="uid://8m7l180w7ltv" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamYellow.gltf.glb" id="87_0jcgk"]
+[ext_resource type="PackedScene" uid="uid://cb40jmuovxx53" path="res://assets/materials/Kaykit_Assets/VarietyGame/target.gltf.glb" id="88_gogl0"]
+[ext_resource type="PackedScene" uid="uid://5kf6e1twn4kt" path="res://assets/materials/Kaykit_Assets/VarietyGame/targetStand.gltf.glb" id="89_bmrgn"]
+[ext_resource type="PackedScene" uid="uid://dvblbk01o1wba" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_desert.gltf.glb" id="90_iam2s"]
+[ext_resource type="PackedScene" uid="uid://leworkem0pcb" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_forest.gltf.glb" id="91_lltt0"]
+[ext_resource type="PackedScene" uid="uid://c3nc37gifss2x" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamBlue.gltf.glb" id="92_4gosb"]
+[ext_resource type="PackedScene" uid="uid://ctm1xbg2mjw5e" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamRed.gltf.glb" id="93_vxt6x"]
+[ext_resource type="PackedScene" uid="uid://dh4r55h7a0gjx" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamYellow.gltf.glb" id="94_752js"]
+[ext_resource type="PackedScene" uid="uid://dwdflxbgags8j" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_desert.gltf.glb" id="95_v7ysk"]
+[ext_resource type="PackedScene" uid="uid://dmiojsqw8lq20" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_forest.gltf.glb" id="96_nu2kt"]
+[ext_resource type="PackedScene" uid="uid://cvjw4yly1pa0k" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamBlue.gltf.glb" id="97_86fo5"]
+[ext_resource type="PackedScene" uid="uid://dnwt0d7jv2wsd" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamRed.gltf.glb" id="98_ou3wu"]
+[ext_resource type="PackedScene" uid="uid://bil4hyx24fanb" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamYellow.gltf.glb" id="99_am1j4"]
+[ext_resource type="PackedScene" uid="uid://od5ef6wfmfry" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_desert.gltf.glb" id="100_83ey7"]
+[ext_resource type="PackedScene" uid="uid://rw0130dutw4w" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_forest.gltf.glb" id="101_mroe7"]
+[ext_resource type="PackedScene" uid="uid://4xr7dhqdgn7d" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamBlue.gltf.glb" id="102_sqyoi"]
+[ext_resource type="PackedScene" uid="uid://b8652oihowom8" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamRed.gltf.glb" id="103_0gusy"]
+[ext_resource type="PackedScene" uid="uid://50lryp1sntbu" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamYellow.gltf.glb" id="104_763vl"]
+[ext_resource type="PackedScene" uid="uid://5e1bhoek7xy0" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_desert.gltf.glb" id="105_lgsss"]
+[ext_resource type="PackedScene" uid="uid://cfn4ilec1x73b" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_forest.gltf.glb" id="106_8oyeu"]
+[ext_resource type="PackedScene" uid="uid://cddra2b6cnhde" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamBlue.gltf.glb" id="107_fb1ob"]
+[ext_resource type="PackedScene" uid="uid://bon6lmvgoilu" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamRed.gltf.glb" id="108_pi41q"]
+[ext_resource type="PackedScene" uid="uid://bmoaveparx85h" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamYellow.gltf.glb" id="109_ioise"]
+[ext_resource type="PackedScene" uid="uid://jpbuxpqjqyfo" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_desert.gltf.glb" id="110_0nfhq"]
+[ext_resource type="PackedScene" uid="uid://dlcr2llkfvuok" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_forest.gltf.glb" id="111_p32g6"]
+[ext_resource type="PackedScene" uid="uid://bs50rxtrbcig6" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamBlue.gltf.glb" id="112_j06m7"]
+[ext_resource type="PackedScene" uid="uid://rf74msubub6h" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamRed.gltf.glb" id="113_jhokl"]
+[ext_resource type="PackedScene" uid="uid://detegx5g5momc" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamYellow.gltf.glb" id="114_7kyr2"]
+[ext_resource type="PackedScene" uid="uid://b6u8fafnqjup6" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium._teamRed.gltf.glb" id="115_rnwja"]
+[ext_resource type="PackedScene" uid="uid://d3426nrn1u0ag" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_desert.gltf.glb" id="116_j6os1"]
+[ext_resource type="PackedScene" uid="uid://dkvc5ha7auhpl" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_forest.gltf.glb" id="117_xc0u4"]
+[ext_resource type="PackedScene" uid="uid://w16j0x72kkwp" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_teamBlue.gltf.glb" id="118_vc8lq"]
+[ext_resource type="PackedScene" uid="uid://5gcb4n604nhp" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_teamYellow.gltf.glb" id="119_rp1bd"]
+[ext_resource type="PackedScene" uid="uid://jvxer7j1yv4p" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_desert.gltf.glb" id="120_w2dqw"]
+[ext_resource type="PackedScene" uid="uid://clb81f83sme5e" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_forest.gltf.glb" id="121_dfjxk"]
+[ext_resource type="PackedScene" uid="uid://2mqdvyno27tv" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamBlue.gltf.glb" id="122_uiv8c"]
+[ext_resource type="PackedScene" uid="uid://btatl4qgyplm0" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamRed.gltf.glb" id="123_v4187"]
+[ext_resource type="PackedScene" uid="uid://cir2dqbrnbims" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamYellow.gltf.glb" id="124_go5lu"]
+[ext_resource type="PackedScene" uid="uid://bbbhip1504yi1" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_desert.gltf.glb" id="125_1ywkl"]
+[ext_resource type="PackedScene" uid="uid://nq4bcmthcewl" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_forest.gltf.glb" id="126_g48va"]
+[ext_resource type="PackedScene" uid="uid://cluky30ympdxa" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamBlue.gltf.glb" id="127_oawsv"]
+[ext_resource type="PackedScene" uid="uid://b8o21i77dynvh" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamRed.gltf.glb" id="128_ect1l"]
+[ext_resource type="PackedScene" uid="uid://dx0d5b3b7qsag" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamYellow.gltf.glb" id="129_0hpi6"]
+[ext_resource type="PackedScene" uid="uid://djpmgrt4wl7cm" path="res://assets/materials/Kaykit_Assets/VarietyGame/tree_desert.gltf.glb" id="130_irnq2"]
+[ext_resource type="PackedScene" uid="uid://bqbv1vucq2gwh" path="res://assets/materials/Kaykit_Assets/VarietyGame/tree_forest.gltf.glb" id="131_url5i"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="arrow_teamBlue_gltf" parent="." instance=ExtResource("1_agbwr")]
+
+[node name="arrow_teamRed_gltf" parent="." instance=ExtResource("2_wi6ht")]
+
+[node name="arrow_teamYellow_gltf" parent="." instance=ExtResource("3_v622x")]
+
+[node name="ball_gltf" parent="." instance=ExtResource("4_8wny3")]
+
+[node name="ball_teamBlue_gltf" parent="." instance=ExtResource("5_qvh0o")]
+
+[node name="ball_teamRed_gltf" parent="." instance=ExtResource("6_s3cqn")]
+
+[node name="ball_teamYellow_gltf" parent="." instance=ExtResource("7_dsb1n")]
+
+[node name="barrierFloor_gltf" parent="." instance=ExtResource("8_beub7")]
+
+[node name="barrierLadder_gltf" parent="." instance=ExtResource("9_0pxqw")]
+
+[node name="barrierLarge_gltf" parent="." instance=ExtResource("10_1sgef")]
+
+[node name="barrierMedium_gltf" parent="." instance=ExtResource("11_ugpo8")]
+
+[node name="barrierSmall_gltf" parent="." instance=ExtResource("12_wcg35")]
+
+[node name="barrierStrut_gltf" parent="." instance=ExtResource("13_ejs01")]
+
+[node name="blaster_teamBlue_gltf" parent="." instance=ExtResource("14_6fk55")]
+
+[node name="blaster_teamRed_gltf" parent="." instance=ExtResource("15_0tisy")]
+
+[node name="blaster_teamYellow_gltf" parent="." instance=ExtResource("16_yt3ax")]
+
+[node name="bomb_teamBlue_gltf" parent="." instance=ExtResource("17_rbvn0")]
+
+[node name="bomb_teamRed_gltf" parent="." instance=ExtResource("18_yjjs3")]
+
+[node name="bomb_teamYellow_gltf" parent="." instance=ExtResource("19_pkrua")]
+
+[node name="bow_teamBlue_gltf" parent="." instance=ExtResource("20_47iff")]
+
+[node name="bow_teamRed_gltf" parent="." instance=ExtResource("21_3m2ca")]
+
+[node name="bow_teamYellow_gltf" parent="." instance=ExtResource("22_nb2b6")]
+
+[node name="button_teamBlue_gltf" parent="." instance=ExtResource("23_6f6gq")]
+
+[node name="button_teamRed_gltf" parent="." instance=ExtResource("24_qe3vk")]
+
+[node name="button_teamYellow_gltf" parent="." instance=ExtResource("25_1h2ew")]
+
+[node name="characer_duck_gltf" parent="." instance=ExtResource("26_q3lu5")]
+
+[node name="character_bear_gltf" parent="." instance=ExtResource("27_ewb8a")]
+
+[node name="character_dog_gltf" parent="." instance=ExtResource("28_at07c")]
+
+[node name="detail_desert_gltf" parent="." instance=ExtResource("29_jq4fr")]
+
+[node name="detail_forest_gltf" parent="." instance=ExtResource("30_fstkv")]
+
+[node name="diamond_teamBlue_gltf" parent="." instance=ExtResource("31_rsw34")]
+
+[node name="diamond_teamRed_gltf" parent="." instance=ExtResource("32_2hk5e")]
+
+[node name="diamond_teamYellow_gltf" parent="." instance=ExtResource("33_27agw")]
+
+[node name="flag_teamBlue_gltf" parent="." instance=ExtResource("34_84amb")]
+
+[node name="flag_teamRed_gltf" parent="." instance=ExtResource("35_2clfr")]
+
+[node name="flag_teamYellow_gltf" parent="." instance=ExtResource("36_7fodw")]
+
+[node name="gateLargeWide_teamBlue_gltf" parent="." instance=ExtResource("37_kustl")]
+
+[node name="gateLargeWide_teamRed_gltf" parent="." instance=ExtResource("38_1obb1")]
+
+[node name="gateLargeWide_teamYellow_gltf" parent="." instance=ExtResource("39_62qv4")]
+
+[node name="gateLarge_teamBlue_gltf" parent="." instance=ExtResource("40_wetyr")]
+
+[node name="gateLarge_teamRed_gltf" parent="." instance=ExtResource("41_ed0rj")]
+
+[node name="gateLarge_teamYellow_gltf" parent="." instance=ExtResource("42_3wfel")]
+
+[node name="gateSmallWide_teamBlue_gltf" parent="." instance=ExtResource("43_0ssg6")]
+
+[node name="gateSmallWide_teamRed_gltf" parent="." instance=ExtResource("44_5rhaw")]
+
+[node name="gateSmallWide_teamYellow_gltf" parent="." instance=ExtResource("45_p8yy0")]
+
+[node name="gateSmall_teamBlue_gltf" parent="." instance=ExtResource("46_jvxxd")]
+
+[node name="gateSmall_teamRed_gltf" parent="." instance=ExtResource("47_v5418")]
+
+[node name="gateSmall_teamYellow_gltf" parent="." instance=ExtResource("48_w5h6w")]
+
+[node name="heart_teamBlue_gltf" parent="." instance=ExtResource("49_1v3a7")]
+
+[node name="heart_teamRed_gltf" parent="." instance=ExtResource("50_dir6p")]
+
+[node name="heart_teamYellow_gltf" parent="." instance=ExtResource("51_on3qe")]
+
+[node name="hoop_teamBlue_gltf" parent="." instance=ExtResource("52_fus6r")]
+
+[node name="hoop_teamRed_gltf" parent="." instance=ExtResource("53_phdqo")]
+
+[node name="hoop_teamYellow_gltf" parent="." instance=ExtResource("54_boubn")]
+
+[node name="lightning_gltf" parent="." instance=ExtResource("55_tj3tb")]
+
+[node name="plantA_desert_gltf" parent="." instance=ExtResource("56_v7rpc")]
+
+[node name="plantA_forest_gltf" parent="." instance=ExtResource("57_bjseg")]
+
+[node name="plantB_desert_gltf" parent="." instance=ExtResource("58_5ey6p")]
+
+[node name="plantB_forest_gltf" parent="." instance=ExtResource("59_cbjjj")]
+
+[node name="powerupBlock_teamBlue_gltf" parent="." instance=ExtResource("60_nmd5a")]
+
+[node name="powerupBlock_teamRed_gltf" parent="." instance=ExtResource("61_0ci2a")]
+
+[node name="powerupBlock_teamYellow_gltf" parent="." instance=ExtResource("62_5tsar")]
+
+[node name="powerupBomb_gltf" parent="." instance=ExtResource("63_4y1ra")]
+
+[node name="ring_teamBlue_gltf" parent="." instance=ExtResource("64_v5hxv")]
+
+[node name="ring_teamRed_gltf" parent="." instance=ExtResource("65_nbcvb")]
+
+[node name="ring_teamYellow_gltf" parent="." instance=ExtResource("66_0efot")]
+
+[node name="rocksA_desert_gltf" parent="." instance=ExtResource("67_dldpn")]
+
+[node name="rocksA_forest_gltf" parent="." instance=ExtResource("68_1lcrs")]
+
+[node name="rocksB_desert_gltf" parent="." instance=ExtResource("69_qb0kc")]
+
+[node name="rocksB_forest_gltf" parent="." instance=ExtResource("70_y18yc")]
+
+[node name="slingshot_teamBlue_gltf" parent="." instance=ExtResource("71_prnga")]
+
+[node name="slingshot_teamRed_gltf" parent="." instance=ExtResource("72_5lxt8")]
+
+[node name="slingshot_teamYellow_gltf" parent="." instance=ExtResource("73_4150w")]
+
+[node name="spikeRoller_gltf" parent="." instance=ExtResource("74_krn75")]
+
+[node name="star_gltf" parent="." instance=ExtResource("75_tisv2")]
+
+[node name="swiperDouble_teamBlue_gltf" parent="." instance=ExtResource("76_8dogb")]
+
+[node name="swiperDouble_teamRed_gltf" parent="." instance=ExtResource("77_dm6yh")]
+
+[node name="swiperDouble_teamYellow_gltf" parent="." instance=ExtResource("78_p5rqi")]
+
+[node name="swiperLong_teamBlue_gltf" parent="." instance=ExtResource("79_r8i1c")]
+
+[node name="swiperLong_teamRed_gltf" parent="." instance=ExtResource("80_ppvvm")]
+
+[node name="swiperLong_teamYellow_gltf" parent="." instance=ExtResource("81_t65t3")]
+
+[node name="swiper_teamBlue_gltf" parent="." instance=ExtResource("82_836ts")]
+
+[node name="swiper_teamRed_gltf" parent="." instance=ExtResource("83_ug07j")]
+
+[node name="swiper_teamYellow_gltf" parent="." instance=ExtResource("84_ebvle")]
+
+[node name="sword_teamBlue_gltf" parent="." instance=ExtResource("85_1gogu")]
+
+[node name="sword_teamRed_gltf" parent="." instance=ExtResource("86_qn4li")]
+
+[node name="sword_teamYellow_gltf" parent="." instance=ExtResource("87_0jcgk")]
+
+[node name="target_gltf" parent="." instance=ExtResource("88_gogl0")]
+
+[node name="targetStand_gltf" parent="." instance=ExtResource("89_bmrgn")]
+
+[node name="tileHigh_desert_gltf" parent="." instance=ExtResource("90_iam2s")]
+
+[node name="tileHigh_forest_gltf" parent="." instance=ExtResource("91_lltt0")]
+
+[node name="tileHigh_teamBlue_gltf" parent="." instance=ExtResource("92_4gosb")]
+
+[node name="tileHigh_teamRed_gltf" parent="." instance=ExtResource("93_vxt6x")]
+
+[node name="tileHigh_teamYellow_gltf" parent="." instance=ExtResource("94_752js")]
+
+[node name="tileLarge_desert_gltf" parent="." instance=ExtResource("95_v7ysk")]
+
+[node name="tileLarge_forest_gltf" parent="." instance=ExtResource("96_nu2kt")]
+
+[node name="tileLarge_teamBlue_gltf" parent="." instance=ExtResource("97_86fo5")]
+
+[node name="tileLarge_teamRed_gltf" parent="." instance=ExtResource("98_ou3wu")]
+
+[node name="tileLarge_teamYellow_gltf" parent="." instance=ExtResource("99_am1j4")]
+
+[node name="tileLow_desert_gltf" parent="." instance=ExtResource("100_83ey7")]
+
+[node name="tileLow_forest_gltf" parent="." instance=ExtResource("101_mroe7")]
+
+[node name="tileLow_teamBlue_gltf" parent="." instance=ExtResource("102_sqyoi")]
+
+[node name="tileLow_teamRed_gltf" parent="." instance=ExtResource("103_0gusy")]
+
+[node name="tileLow_teamYellow_gltf" parent="." instance=ExtResource("104_763vl")]
+
+[node name="tileMedium_desert_gltf" parent="." instance=ExtResource("105_lgsss")]
+
+[node name="tileMedium_forest_gltf" parent="." instance=ExtResource("106_8oyeu")]
+
+[node name="tileMedium_teamBlue_gltf" parent="." instance=ExtResource("107_fb1ob")]
+
+[node name="tileMedium_teamRed_gltf" parent="." instance=ExtResource("108_pi41q")]
+
+[node name="tileMedium_teamYellow_gltf" parent="." instance=ExtResource("109_ioise")]
+
+[node name="tileSlopeLowHigh_desert_gltf" parent="." instance=ExtResource("110_0nfhq")]
+
+[node name="tileSlopeLowHigh_forest_gltf" parent="." instance=ExtResource("111_p32g6")]
+
+[node name="tileSlopeLowHigh_teamBlue_gltf" parent="." instance=ExtResource("112_j06m7")]
+
+[node name="tileSlopeLowHigh_teamRed_gltf" parent="." instance=ExtResource("113_jhokl")]
+
+[node name="tileSlopeLowHigh_teamYellow_gltf" parent="." instance=ExtResource("114_7kyr2")]
+
+[node name="tileSlopeLowMedium__teamRed_gltf" parent="." instance=ExtResource("115_rnwja")]
+
+[node name="tileSlopeLowMedium_desert_gltf" parent="." instance=ExtResource("116_j6os1")]
+
+[node name="tileSlopeLowMedium_forest_gltf" parent="." instance=ExtResource("117_xc0u4")]
+
+[node name="tileSlopeLowMedium_teamBlue_gltf" parent="." instance=ExtResource("118_vc8lq")]
+
+[node name="tileSlopeLowMedium_teamYellow_gltf" parent="." instance=ExtResource("119_rp1bd")]
+
+[node name="tileSlopeMediumHigh_desert_gltf" parent="." instance=ExtResource("120_w2dqw")]
+
+[node name="tileSlopeMediumHigh_forest_gltf" parent="." instance=ExtResource("121_dfjxk")]
+
+[node name="tileSlopeMediumHigh_teamBlue_gltf" parent="." instance=ExtResource("122_uiv8c")]
+
+[node name="tileSlopeMediumHigh_teamRed_gltf" parent="." instance=ExtResource("123_v4187")]
+
+[node name="tileSlopeMediumHigh_teamYellow_gltf" parent="." instance=ExtResource("124_go5lu")]
+
+[node name="tileSmall_desert_gltf" parent="." instance=ExtResource("125_1ywkl")]
+
+[node name="tileSmall_forest_gltf" parent="." instance=ExtResource("126_g48va")]
+
+[node name="tileSmall_teamBlue_gltf" parent="." instance=ExtResource("127_oawsv")]
+
+[node name="tileSmall_teamRed_gltf" parent="." instance=ExtResource("128_ect1l")]
+
+[node name="tileSmall_teamYellow_gltf" parent="." instance=ExtResource("129_0hpi6")]
+
+[node name="tree_desert_gltf" parent="." instance=ExtResource("130_irnq2")]
+
+[node name="tree_forest_gltf" parent="." instance=ExtResource("131_url5i")]

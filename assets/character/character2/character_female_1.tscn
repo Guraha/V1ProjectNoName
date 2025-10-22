@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://djh4fiu5urd8f"]
+
+[ext_resource type="PackedScene" uid="uid://c61j5o0mlhk8e" path="res://assets/character/character2/Character_Female_1.gltf" id="1_eq2cr"]
+
+[node name="Character_Female_1" instance=ExtResource("1_eq2cr")]

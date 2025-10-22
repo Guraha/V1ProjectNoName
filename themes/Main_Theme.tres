@@ -2,7 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="1_5s0ui"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jemm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsa1s"]
+bg_color = Color(0.992157, 0, 0.890196, 0)
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chnl6"]
 bg_color = Color(0.897499, 0.529946, 0.304512, 1)
@@ -23,8 +25,9 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [resource]
+Button/font_sizes/font_size = 22
 Button/fonts/font = ExtResource("1_5s0ui")
-Button/styles/focus = SubResource("StyleBoxEmpty_8jemm")
+Button/styles/focus = SubResource("StyleBoxFlat_hsa1s")
 Button/styles/hover = SubResource("StyleBoxFlat_chnl6")
 Button/styles/normal = SubResource("StyleBoxFlat_chnl6")
 Button/styles/pressed = SubResource("StyleBoxFlat_kbsni")
