@@ -6,6 +6,7 @@ extends Control
 @onready var player2: Control = $Player2
 @onready var orange_rect: ColorRect = $ColorRect/HBoxContainer/Orange
 @onready var yellow_rect: ColorRect = $ColorRect/HBoxContainer/Yellow
+@onready var solution: Label = $Solution
 
 # Shared game state
 var goal_score := 80
@@ -95,22 +96,54 @@ func update_ui():
 func _on_player_score_changed(_player_id, _current_score):
 	_update_background_progress()
 
+var orange_tween: Tween
+var yellow_tween: Tween
+
 func _update_background_progress():
-	# Compute proximity to goal for each player and adjust stretch ratios
-	var g: int = max(goal_score, 1)
-	var p1_score: int = 0
-	var p2_score: int = 0
-	if player1 and player1.has_method("get_current_score"):
-		p1_score = player1.get_current_score()
-	if player2 and player2.has_method("get_current_score"):
-		p2_score = player2.get_current_score()
-	var p1_progress: float = clamp(1.0 - abs(goal_score - p1_score) / float(g), 0.0, 1.0)
-	var p2_progress: float = clamp(1.0 - abs(goal_score - p2_score) / float(g), 0.0, 1.0)
-	# Baseline 1 so both bars show at start; add progress as bonus width
+	var p1_points = 0
+	var p2_points = 0
+	if player1 and player1.has_method("get_points"):
+		p1_points = player1.get_points()
+	if player2 and player2.has_method("get_points"):
+		p2_points = player2.get_points()
+
+	# Introduce baseline to prevent exaggerated initial lead
+	var baseline = 2  # pseudo-points added to both players
+	var adjusted_p1 = p1_points + baseline
+	var adjusted_p2 = p2_points + baseline
+	var total_points = adjusted_p1 + adjusted_p2
+
+	var orange_ratio = float(adjusted_p1) / total_points
+	var yellow_ratio = float(adjusted_p2) / total_points
+
+	# Optional: enforce a minimum ratio to keep bars visible
+	var min_ratio = 0.05
+	orange_ratio = max(orange_ratio, min_ratio)
+	yellow_ratio = max(yellow_ratio, min_ratio)
+
+	# Re-normalize after enforcing min ratio
+	var sum_ratio = orange_ratio + yellow_ratio
+	orange_ratio /= sum_ratio
+	yellow_ratio /= sum_ratio
+
+	var duration = 0.4
+
+	# Stop previous tweens if they exist
+	if is_instance_valid(orange_tween):
+		orange_tween.stop()
+	if is_instance_valid(yellow_tween):
+		yellow_tween.stop()
+
+	# Animate stretch ratios smoothly
 	if is_instance_valid(orange_rect):
-		orange_rect.size_flags_stretch_ratio = 1.0 + p1_progress
+		orange_tween = orange_rect.create_tween()
+		orange_tween.tween_property(orange_rect, "size_flags_stretch_ratio", orange_ratio, duration)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
 	if is_instance_valid(yellow_rect):
-		yellow_rect.size_flags_stretch_ratio = 1.0 + p2_progress
+		yellow_tween = yellow_rect.create_tween()
+		yellow_tween.tween_property(yellow_rect, "size_flags_stretch_ratio", yellow_ratio, duration)\
+			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _generate_round_config() -> Dictionary:
 	var btn_count := 9 # 3x3 grid, last index is Clear
@@ -121,7 +154,6 @@ func _generate_round_config() -> Dictionary:
 		var op = OperationType.ADD
 		var value = randi() % 10 + 1
 		if i == btn_count - 1:
-			# Clear button
 			op = OperationType.NONE
 			value = 0
 		else:
@@ -134,34 +166,66 @@ func _generate_round_config() -> Dictionary:
 				op = OperationType.MULTIPLY
 		config.append({"operation": op, "value": value})
 
-	# 2️⃣ Compute reachable goals from 2-button permutations (only positive)
-	var possible_goals := []
+	# 2️⃣ Generate all 2-button sequence results (avoid trivial or negative results)
+	var valid_pairs: Array = []
 	for i in range(btn_count - 1):
 		for j in range(btn_count - 1):
 			if i == j:
 				continue
 			var b1 = config[i]
 			var b2 = config[j]
-			var res = apply_operation(b1["operation"], b1["value"], b2["operation"], b2["value"])
-			# Only positive results
-			if res > 0:
-				possible_goals.append(res)
+			var res = compute_sequence_result(b1, b2)
+			# Only positive, non-trivial results
+			if res > 1:
+				valid_pairs.append({"a": i, "b": j, "result": res})
 
-	# 3️⃣ Pick a random positive reachable goal
-	if possible_goals.size() > 0:
-		goal_score = possible_goals[randi() % possible_goals.size()]
+	# 3️⃣ Pick goal intelligently
+	if valid_pairs.size() == 0:
+		# fallback: sum of two random buttons
+		var fallback = config[randi() % (btn_count - 1)].value + config[randi() % (btn_count - 1)].value
+		goal_score = max(fallback, 2)
+		solution.text = "Solution: TBD"
 	else:
-		goal_score = randi() % 10 + 1 # fallback
+		# Sort by closeness to a medium target, avoid trivial combos like x + (-x)
+		valid_pairs.sort_custom(Callable(self, "_compare_goal_pairs"))
+		var chosen = valid_pairs[randi() % min(5, valid_pairs.size())] # top 5 options
+		goal_score = chosen.result
 
-	# 4️⃣ Start at zero by design
+		# Store the exact solution
+		var b1 = config[chosen.a]
+		var b2 = config[chosen.b]
+		solution.text = "Solution: %s %d → %s %d" % [
+			_operation_to_str(b1.operation), b1.value,
+			_operation_to_str(b2.operation), b2.value
+		]
+
 	var initial_score = 0
-
-	# 5️⃣ Guarantee a one-press solution from zero: set one non-clear button to +goal
-	var guaranteed_idx = randi() % (btn_count - 1) # 0..7
-	config[guaranteed_idx] = {"operation": OperationType.ADD, "value": goal_score}
-
 	return {"goal": goal_score, "initial_score": initial_score, "buttons": config}
 
+# Comparison function for sort_custom
+func _compare_goal_pairs(a: Dictionary, b: Dictionary) -> int:
+	var target = 15 # medium goal range
+	var diff = abs(a.result - target) - abs(b.result - target)
+	if diff > 0:
+		return 1
+	elif diff < 0:
+		return -1
+	return 0
+
+
+func _operation_to_str(op: int) -> String:
+	match op:
+		OperationType.ADD:
+			return "+"
+		OperationType.SUBTRACT:
+			return "−"
+		OperationType.MULTIPLY:
+			return "×"
+		OperationType.DIVIDE:
+			return "÷"
+		OperationType.NONE:
+			return "Clear"
+	return "?"
 
 # Apply operation and prevent zero result
 func apply_operation(op1: int, val1: int, _op2: int, val2: int) -> int:
@@ -254,3 +318,34 @@ func _action_has_key(action_name: String, keycode: int) -> bool:
 		if ev is InputEventKey and ev.physical_keycode == keycode:
 			return true
 	return false
+
+
+# Compute result as if buttons are pressed in order
+func compute_sequence_result(b1: Dictionary, b2: Dictionary, initial_score := 0) -> int:
+	var result = initial_score
+	# Apply first button
+	match b1.operation:
+		OperationType.ADD:
+			result += b1.value
+		OperationType.SUBTRACT:
+			result -= b1.value
+		OperationType.MULTIPLY:
+			result *= b1.value
+		OperationType.DIVIDE:
+			if b1.value != 0:
+				result = int(float(result) / float(b1.value))
+	# Apply second button
+	match b2.operation:
+		OperationType.ADD:
+			result += b2.value
+		OperationType.SUBTRACT:
+			result -= b2.value
+		OperationType.MULTIPLY:
+			result *= b2.value
+		OperationType.DIVIDE:
+			if b2.value != 0:
+				result = int(float(result) / float(b2.value))
+	# Never zero
+	if result == 0:
+		result = 1
+	return result

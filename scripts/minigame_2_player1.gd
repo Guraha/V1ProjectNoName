@@ -17,6 +17,7 @@ var is_jumping = false
 var has_landed = false
 var is_ducking = false
 var is_punching = false
+var punch_active = false
 var is_hit = false
 var target_rot_y = 0.0
 var lock_rot_y = null
@@ -35,32 +36,43 @@ func _physics_process(delta: float) -> void:
 		hit_timer -= delta
 		if hit_timer <= 0:
 			is_hit = false
+			# Stop horizontal movement after hit
+			velocity.x = 0
+		else:
+			# Only apply external push
+			velocity.x = external_push.x
+			external_push.x = move_toward(external_push.x, 0, PUSH_DECAY * delta)
+
 		move_and_slide()
 		return
 
 	# --- Knockback / External Push ---
 	if external_push.length() > 0.01:
-		print_rich("[color=orange]%s being pushed: %s[/color]" % [name, external_push])
 		velocity.x += external_push.x
 		external_push = external_push.move_toward(Vector3.ZERO, PUSH_DECAY * delta)
 	elif external_push.length() > 0.001:
 		external_push = Vector3.ZERO
 
 	# --- Movement ---
+	var input_dir = Input.get_axis("move_left", "move_right")
+	var speed = WALK_SPEED
+	if Input.is_action_pressed("run"):
+		speed = RUN_SPEED
+
 	if not is_punching:
-		var speed = WALK_SPEED
-		if Input.is_action_pressed("run"):
-			speed = RUN_SPEED
-		var input_dir = Input.get_axis("move_left", "move_right")
-		velocity.x = input_dir * speed
+		# Add external push to normal movement
+		velocity.x = input_dir * speed + external_push.x
 	else:
-		velocity.x = 0
+		# While punching, player stands still but still gets pushed
+		velocity.x = external_push.x
+
+	# --- Decay the push ---
+	external_push.x = move_toward(external_push.x, 0, PUSH_DECAY * delta)
+
 
 	# --- Punch ---
 	if Input.is_action_just_pressed("ui_accept") and not is_punching and is_on_floor():
-		var facing_angle = rad_to_deg(character_model.rotation.y)
-		if abs(facing_angle - 90) < 10 or abs(facing_angle + 90) < 10:
-			_start_punch()
+		_start_punch()
 
 	# Stop movement updates during punch
 	if is_punching:
@@ -130,7 +142,6 @@ func _physics_process(delta: float) -> void:
 
 	# --- Facing Direction ---
 	if not is_punching:
-		var input_dir = Input.get_axis("move_left", "move_right")
 		if abs(input_dir) > 0.1:
 			target_rot_y = deg_to_rad(90) if input_dir > 0 else deg_to_rad(-90)
 		else:
@@ -145,43 +156,52 @@ func _physics_process(delta: float) -> void:
 		character_model.rotation.y = lock_rot_y
 
 
-# --- Start Punch Sequence ---
+# --- Start Punch ---
 func _start_punch():
 	is_punching = true
+	punch_active = true
 	lock_rot_y = character_model.rotation.y
+	punch_area.monitoring = true   # activate punch collision
 	print_rich("[color=yellow]%s started punching[/color]" % name)
 	animation_player.play("Punch")
 
 	await animation_player.animation_finished
+
 	is_punching = false
+	punch_active = false
+	punch_area.monitoring = false  # deactivate after punch
 	lock_rot_y = null
 	print_rich("[color=gray]%s punch ended[/color]" % name)
 
 
-# --- Punch Area Collision ---
+# --- PunchArea Signal ---
 func _on_punch_area_body_entered(body):
-	print_rich("[color=light_blue]%s PunchArea triggered with: %s[/color]" % [name, body.name])
+	if punch_active and body is CharacterBody3D and body != self:
+		# --- 2D push: always left/right ---
+		var push_dir = Vector3.ZERO
 
-	if is_punching and body is CharacterBody3D and body != self:
-		var push_dir = -character_model.global_transform.basis.z.normalized()
+		if body.global_transform.origin.x > global_transform.origin.x:
+			push_dir.x = 1   # push to the right
+		else:
+			push_dir.x = -1  # push to the left
+
 		push_dir.y = 0
+		push_dir = push_dir.normalized()
+
 		print_rich("[color=lime]%s hit %s with push_dir: %s[/color]" % [name, body.name, push_dir])
 
-		body.apply_push(push_dir * PUSH_FORCE)
-
+		if body.has_method("apply_push"):
+			body.apply_push(push_dir * PUSH_FORCE)
 		if body.has_method("on_hit_react"):
 			body.on_hit_react(push_dir)
-	else:
-		print_rich("[color=red]%s punch ignored (not punching or self)[/color]" % name)
 
-
-# --- Apply Push (called externally) ---
+# --- Apply Push ---
 func apply_push(push_vector: Vector3):
 	external_push = push_vector
 	print_rich("[color=orange]%s received push: %s[/color]" % [name, push_vector])
 
 
-# --- When Hit by Punch ---
+# --- Hit Reaction ---
 func on_hit_react(push_dir: Vector3):
 	if is_hit:
 		return
