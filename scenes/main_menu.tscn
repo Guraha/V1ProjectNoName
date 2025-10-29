@@ -104,7 +104,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Part1" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 373.0
 offset_top = 342.0
