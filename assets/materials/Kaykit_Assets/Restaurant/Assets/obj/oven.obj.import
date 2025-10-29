@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8hcbewla5fn2"
+path="res://.godot/imported/oven.obj-dcaf8d8111b297fbd71bc774fb01ea09.mesh"
+
+[deps]
+
+files=["res://.godot/imported/oven.obj-dcaf8d8111b297fbd71bc774fb01ea09.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/oven.obj"
+dest_files=["res://.godot/imported/oven.obj-dcaf8d8111b297fbd71bc774fb01ea09.mesh", "res://.godot/imported/oven.obj-dcaf8d8111b297fbd71bc774fb01ea09.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

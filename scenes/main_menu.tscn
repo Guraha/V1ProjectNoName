@@ -1,0 +1,510 @@
+[gd_scene load_steps=17 format=3 uid="uid://blx87dk3b87qh"]
+
+[ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="1_ava4i"]
+[ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="2_bnrj1"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="2_e1boa"]
+[ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="3_da4gv"]
+[ext_resource type="Texture2D" uid="uid://q2yi2jo0hdx1" path="res://screenshots/Screenshot 2025-10-27 233701.png" id="3_qhfmc"]
+[ext_resource type="Texture2D" uid="uid://csfjcnnwh1kfv" path="res://screenshots/Screenshot 2025-10-27 233628.png" id="4_py853"]
+[ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="6_6d16t"]
+[ext_resource type="Texture2D" uid="uid://certqwet8p7td" path="res://assets/materials/SNSU.jpg" id="7_fj6yj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xkwtu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_voxof"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2svbe"]
+sky_material = SubResource("ProceduralSkyMaterial_voxof")
+
+[sub_resource type="Environment" id="Environment_su6i8"]
+background_mode = 2
+sky = SubResource("Sky_2svbe")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_krkwo"]
+resource_name = "Animation"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.261, 13.426, -5.071), Vector3(3.306, 13.426, -5.071)]
+}
+
+[sub_resource type="Animation" id="Animation_0rnb7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.261, 13.426, -5.071)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvfse"]
+_data = {
+"MainMenuMovementCamera": SubResource("Animation_krkwo"),
+"RESET": SubResource("Animation_0rnb7")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nkua6"]
+load_path = "res://.godot/imported/SNSU_Transparent_BG.png-17bcce2139674a9bf76177ed7b3f23e5.s3tc.ctex"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ava4i")
+script = ExtResource("2_e1boa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 322)
+texture = SubResource("ViewportTexture_xkwtu")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Title" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -299.5
+offset_right = 299.5
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 161
+text = "PAHIUSA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part1" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 373.0
+offset_top = 342.0
+offset_right = 783.0
+offset_bottom = 444.0
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Part1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -46.0
+offset_right = 138.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGame" type="Button" parent="Part1/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_da4gv")
+text = "START GAME"
+
+[node name="Options" type="Button" parent="Part1/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_da4gv")
+text = "OPTIONS"
+
+[node name="QuitGame" type="Button" parent="Part1/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_da4gv")
+text = "QUIT GAME"
+
+[node name="Part2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -397.74
+offset_right = 205.0
+offset_bottom = -113.74
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="Part2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -155.5
+offset_right = 162.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_da4gv")
+theme_override_constants/margin_top = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Part2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Background Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="Part2/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "SFX VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="Part2/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="MainMenu" type="Button" parent="Part2/MarginContainer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme = ExtResource("3_da4gv")
+text = "Main Menu"
+
+[node name="MarginContainer5" type="MarginContainer" parent="Part2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Part3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -355.0
+offset_top = -323.0
+offset_right = 367.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Part3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -361.0
+offset_top = -258.0
+offset_right = 361.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Selection" type="HBoxContainer" parent="Part3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 140
+
+[node name="1" type="VBoxContainer" parent="Part3/VBoxContainer/Selection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -35
+
+[node name="Game1" type="Control" parent="Part3/VBoxContainer/Selection/1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Part3/VBoxContainer/Selection/1/Game1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_py853")
+expand_mode = 5
+
+[node name="Game1Text" type="Label" parent="Part3/VBoxContainer/Selection/1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 36
+text = "GAME 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="VBoxContainer" parent="Part3/VBoxContainer/Selection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -35
+
+[node name="Game2" type="Control" parent="Part3/VBoxContainer/Selection/2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Part3/VBoxContainer/Selection/2/Game2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qhfmc")
+expand_mode = 5
+
+[node name="OptionsGame" type="Panel" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileDialog" type="FileDialog" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame"]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame/MarginContainer"]
+layout_mode = 2
+
+[node name="ImportQuestionnaire" type="Button" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_da4gv")
+theme_override_font_sizes/font_size = 21
+text = "Import Questionnaire"
+
+[node name="StartGameAsIs" type="Button" parent="Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_da4gv")
+theme_override_font_sizes/font_size = 21
+text = "Start Game As Is"
+
+[node name="Game2Text" type="Label" parent="Part3/VBoxContainer/Selection/2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 36
+text = "GAME 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenu" type="Button" parent="Part3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_da4gv")
+text = "Main Menu"
+
+[node name="TutorialForImport" type="ColorRect" parent="Part3"]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 1.0
+offset_right = 919.0
+offset_bottom = 137.0
+color = Color(0, 0, 0, 0.478431)
+
+[node name="MarginContainer" type="MarginContainer" parent="Part3/TutorialForImport"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="Part3/TutorialForImport/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "How to Import Questionnaire?
+1. Copy Prompt
+2. Paste Prompt to Chatgpt
+3. Paste Output to .txt file
+4.  Save and import it to game 2"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CopyPrompt" type="Button" parent="Part3/TutorialForImport/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_da4gv")
+theme_override_font_sizes/font_size = 21
+text = "Copy Prompt"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1162, 667)
+
+[node name="Background_Light" type="Node" parent="SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Background_Light"]
+environment = SubResource("Environment_su6i8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Background_Light"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Background" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.635, 0, 235.565)
+
+[node name="Road" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65535, 65528, 72, 3, 65528, 72, 65532, 65528, 72, 65535, 65529, 1048646, 3, 65529, 1048646, 65532, 65529, 1048646, 65535, 65525, 1441865, 65535, 65527, 655431, 65535, 65526, 655432, 3, 65526, 655432, 65532, 65526, 655432, 3, 65527, 655431, 65532, 65527, 655431, 65534, 65529, 1048647, 0, 65529, 1048648, 1, 65529, 1048647, 65533, 65529, 1441864, 2, 65529, 1441864, 65532, 65525, 1441862, 7, 65529, 655429, 4, 65529, 1048648, 6, 65529, 1048648, 5, 65529, 1048647, 65531, 65529, 1048647, 65530, 65529, 1441864, 65533, 65525, 1441864, 65534, 65525, 1441863, 0, 65525, 1441863, 2, 65525, 1441864, 1, 65525, 1441863, 4, 65525, 1048648, 5, 65525, 1441863, 6, 65525, 1441864, 7, 65528, 655432, 7, 65527, 655431, 7, 65526, 655431, 7, 65525, 655430, 7, 65524, 655431, 3, 65525, 655430, 3, 65523, 655431, 3, 65524, 655432, 65532, 65524, 71, 65532, 65523, 71, 65531, 65525, 1441863, 65530, 65525, 1441863, 65535, 65530, 655432, 3, 65530, 655432, 65532, 65530, 655432)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Ground" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65534, 65530, 40, 65533, 65530, 40, 0, 65530, 40, 1, 65530, 40, 2, 65530, 40, 4, 65530, 1441832, 5, 65530, 1441832, 6, 65530, 1441832, 65531, 65530, 1441832, 65530, 65530, 1441832, 1, 65527, 1441832, 5, 65527, 1441832, 65534, 65523, 1441832, 65535, 65523, 1441832, 0, 65523, 1441832, 1, 65523, 1441832, 5, 65523, 1441832, 6, 65523, 1441832, 65530, 65523, 1441832, 65530, 65527, 1441832, 65530, 65526, 1441832, 7, 65530, 1441832)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Buildings" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65535, 65524, 58, 0, 65524, 52, 1, 65524, 54, 2, 65524, 44, 65534, 65526, 1048622, 65534, 65527, 1048624, 65533, 65527, 1441842, 65533, 65526, 1441838, 0, 65526, 1441848, 0, 65527, 1441850, 0, 65528, 1441838, 1, 65528, 50, 2, 65528, 46, 2, 65527, 1048630, 2, 65526, 1048628, 1, 65526, 655414, 65534, 65528, 50, 65533, 65528, 46, 65531, 65527, 1048628, 65531, 65526, 1048634, 65534, 65524, 58, 65533, 65524, 50, 65531, 65528, 1048622, 65530, 65528, 54, 4, 65527, 1441846, 5, 65528, 655418, 4, 65528, 50, 4, 65526, 1441838, 5, 65526, 655414, 6, 65526, 655406, 6, 65527, 1048634, 6, 65528, 50, 4, 65524, 50, 5, 65524, 58, 6, 65524, 54, 65530, 65524, 54, 65531, 65524, 48, 65531, 65523, 1048628, 65533, 65523, 1441850, 4, 65523, 1441850, 2, 65523, 1048628, 65531, 65530, 655406, 65530, 65530, 655410, 8, 65528, 1441850, 8, 65529, 1441840, 8, 65530, 1441850, 8, 65527, 1441842, 8, 65526, 1441848, 5, 65530, 655413, 4, 65530, 655406)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Street Lights" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(1, 0.5, 1)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(131055, 65440, 1441869, 65536, 65423, 1048653, 131055, 65423, 655437, 131024, 65423, 1048653, 131024, 65440, 77, 65536, 65439, 77, 131007, 65440, 1441869, 131007, 65423, 655437, 65583, 65440, 1441869, 65583, 65423, 655437, 65600, 65439, 77, 65600, 65423, 1048653, 65600, 65376, 77, 65583, 65376, 1441869, 65583, 65358, 655437, 65600, 65359, 1048653, 65536, 65376, 77, 131055, 65376, 1441869, 65536, 65359, 1048653, 131024, 65359, 1048653, 131007, 65358, 655437, 131007, 65376, 1441869, 131024, 65376, 77, 131029, 65423, 1048650, 131049, 65423, 1048650, 131048, 65440, 1441866, 131029, 65440, 1441866, 131039, 65440, 1441866, 131039, 65424, 1048650, 65541, 65423, 1048650, 65541, 65440, 1441866, 65550, 65440, 1441866, 65572, 65423, 1048650, 65571, 65440, 1441866, 65561, 65423, 1048650, 65561, 65440, 1441866, 65549, 65423, 1048650, 65605, 65440, 1441866, 65604, 65423, 1048650, 65615, 65423, 1048650, 65615, 65440, 1441866, 65626, 65423, 1048650, 65626, 65440, 1441866, 131055, 65419, 655434, 131055, 65407, 655434, 65536, 65419, 74, 65536, 65407, 74, 65536, 65392, 74, 131055, 65392, 655434, 65536, 65380, 74, 131055, 65380, 655434, 131007, 65419, 655434, 131024, 65419, 74, 131024, 65408, 74, 131007, 65407, 655434, 131024, 65392, 74, 131007, 65392, 655434, 131007, 65381, 655434, 131024, 65381, 74, 65583, 65419, 655434, 65600, 65419, 74, 65600, 65408, 74, 65583, 65408, 655434, 65600, 65380, 74, 65583, 65380, 655434, 65583, 65393, 655434, 65600, 65393, 74, 131004, 65359, 1048650, 130995, 65359, 1048650, 131028, 65359, 1048650, 131044, 65359, 1048650, 131060, 65359, 1048650, 65541, 65359, 1048650, 65554, 65359, 1048650, 65571, 65359, 1048650)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Objects" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(1, 0.1, 1)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(7471129, 65450, 342, 7471133, 65450, 337, 7471125, 65450, 337)
+}
+metadata/_editor_floor_ = Vector3(0, 114, 0)
+
+[node name="Vehicles" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("2_bnrj1")
+cell_size = Vector3(2, 0.1, 3.21)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(524282, 65500, 61, 524285, 65490, 655421, 524282, 65496, 62, 524260, 65504, 1441857, 524258, 65500, 65, 524258, 65480, 65, 458778, 65480, 65, 524285, 65493, 655425, 458778, 65500, 65, 458784, 65504, 1441857, 458768, 65502, 1048639, 524271, 65502, 1048639, 524261, 65502, 1048637, 524282, 65491, 63, 524281, 65484, 1441857, 524258, 65495, 64, 524261, 65492, 655424, 458761, 65504, 1441854, 458762, 65502, 1048637, 524272, 65504, 1441856, 458781, 65495, 655421, 458778, 65490, 63, 458781, 65486, 655424)
+}
+metadata/_editor_floor_ = Vector3(0, 7, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="SubViewport"]
+root_node = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/AnimationTree"]
+root_node = NodePath("../../Camera3D")
+libraries = {
+"": SubResource("AnimationLibrary_mvfse")
+}
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.997831, 0.0658212, 0, -0.0658212, 0.997831, 2.261, 13.426, -5.071)
+size = 20.0
+near = 0.001
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewport"]
+transform = Transform3D(0.026163, 0, -0.026163, 0, 0.037, 0, 0.026163, 0, 0.026163, 3.81, 13.13, -6.425)
+texture = SubResource("CompressedTexture2D_nkua6")
+region_rect = Rect2(7, -437, 220, 657)
+
+[node name="Label3D" type="Label3D" parent="SubViewport/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.82, 2.405)
+text = "SNSU"
+font = ExtResource("6_6d16t")
+font_size = 767
+
+[node name="Sprite3D2" type="Sprite3D" parent="SubViewport"]
+transform = Transform3D(0.0650538, 0, -0.0615183, 0, 0.152, 0, 0.0650538, 0, 0.0615183, 3.82, 13.12, -6.435)
+texture = ExtResource("7_fj6yj")
+region_enabled = true
+region_rect = Rect2(7, 43, 368, 319)

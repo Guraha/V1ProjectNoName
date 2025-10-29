@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dj2g0ci0c448c"
+path="res://.godot/imported/wall_doorway.obj-3db458423b3ba0d83a0e080d23d9648a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_doorway.obj-3db458423b3ba0d83a0e080d23d9648a.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/wall_doorway.obj"
+dest_files=["res://.godot/imported/wall_doorway.obj-3db458423b3ba0d83a0e080d23d9648a.mesh", "res://.godot/imported/wall_doorway.obj-3db458423b3ba0d83a0e080d23d9648a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

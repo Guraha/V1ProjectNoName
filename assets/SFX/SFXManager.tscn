@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpvbh42sjfb62"]
+
+[ext_resource type="Script" path="res://scripts/sfx_manager.gd" id="1_eak3u"]
+[ext_resource type="AudioStream" uid="uid://sj6gu2dmxu41" path="res://assets/SFX/Background Music for the Math Game.wav" id="2_i8ge4"]
+[ext_resource type="AudioStream" uid="uid://bausdthbnnwtb" path="res://assets/SFX/Pops.wav" id="2_k51a5"]
+[ext_resource type="AudioStream" uid="uid://bgtjbt46f4vqc" path="res://assets/SFX/Choices Background Music.mp3" id="3_aubbi"]
+[ext_resource type="AudioStream" uid="uid://c5esaoeia0vem" path="res://assets/materials/Kenney_Assets/kenney_ui-pack/Sounds/click-b.ogg" id="3_nul24"]
+[ext_resource type="AudioStream" uid="uid://cqgyttppyaugd" path="res://assets/SFX/Score.mp3" id="4_dccnw"]
+[ext_resource type="AudioStream" uid="uid://hk5a03ye4hte" path="res://assets/SFX/main menu background music.mp3" id="4_vgb3l"]
+[ext_resource type="AudioStream" uid="uid://bnl35om13f457" path="res://assets/SFX/5sCountdownStart.wav" id="5_exupa"]
+[ext_resource type="AudioStream" uid="uid://mjur4yagpgra" path="res://assets/SFX/Victory.mp3" id="6_wy37q"]
+[ext_resource type="AudioStream" uid="uid://bordngwihfb8k" path="res://assets/SFX/timer_countdown-345137.mp3" id="7_pe0to"]
+
+[node name="SFXManager" type="Node2D"]
+script = ExtResource("1_eak3u")
+
+[node name="BGMPlayer_Minigame1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_i8ge4")
+volume_db = 24.0
+
+[node name="BGMPlayer_Minigame2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_aubbi")
+volume_db = 24.0
+
+[node name="BGMPlayer_MainMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vgb3l")
+volume_db = 24.0
+
+[node name="UIAcceptPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k51a5")
+
+[node name="MovePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nul24")
+
+[node name="SelectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dccnw")
+
+[node name="CorrectSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="WrongSFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ScoreSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k51a5")
+
+[node name="RoundStartSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_exupa")
+
+[node name="GameOverSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_wy37q")
+
+[node name="TimerWarningSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_pe0to")

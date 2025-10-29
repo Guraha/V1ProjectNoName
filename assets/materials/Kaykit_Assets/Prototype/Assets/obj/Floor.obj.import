@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cc5ex4eb18h03"
+path="res://.godot/imported/Floor.obj-031a82f99bcae8102d2b4e27ac67b20d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Floor.obj-031a82f99bcae8102d2b4e27ac67b20d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Prototype/Assets/obj/Floor.obj"
+dest_files=["res://.godot/imported/Floor.obj-031a82f99bcae8102d2b4e27ac67b20d.mesh", "res://.godot/imported/Floor.obj-031a82f99bcae8102d2b4e27ac67b20d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

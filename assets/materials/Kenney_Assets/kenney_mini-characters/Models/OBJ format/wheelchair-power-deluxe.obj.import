@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxcbmx60ivs64"
+path="res://.godot/imported/wheelchair-power-deluxe.obj-3a7600a206f3980524520da7734a350f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wheelchair-power-deluxe.obj-3a7600a206f3980524520da7734a350f.mesh"]
+
+source_file="res://assets/materials/Kenney_Assets/kenney_mini-characters/Models/OBJ format/wheelchair-power-deluxe.obj"
+dest_files=["res://.godot/imported/wheelchair-power-deluxe.obj-3a7600a206f3980524520da7734a350f.mesh", "res://.godot/imported/wheelchair-power-deluxe.obj-3a7600a206f3980524520da7734a350f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

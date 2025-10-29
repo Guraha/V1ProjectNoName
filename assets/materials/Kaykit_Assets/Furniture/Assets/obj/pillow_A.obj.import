@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dnpdwehgvuk0a"
+path="res://.godot/imported/pillow_A.obj-d35b56b7f957e7389d5347eac31aac8e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pillow_A.obj-d35b56b7f957e7389d5347eac31aac8e.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Furniture/Assets/obj/pillow_A.obj"
+dest_files=["res://.godot/imported/pillow_A.obj-d35b56b7f957e7389d5347eac31aac8e.mesh", "res://.godot/imported/pillow_A.obj-d35b56b7f957e7389d5347eac31aac8e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

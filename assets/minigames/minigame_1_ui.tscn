@@ -1,0 +1,1267 @@
+[gd_scene load_steps=50 format=3 uid="uid://b4q6vvvomkdw2"]
+
+[ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="1_56wnn"]
+[ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="1_dlupe"]
+[ext_resource type="Script" path="res://scripts/minigame_1_ui.gd" id="2_minigame_script"]
+[ext_resource type="Script" path="res://scripts/minigame1_player.gd" id="4_x0q0e"]
+[ext_resource type="Texture2D" uid="uid://d1o5so2lykduj" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d_outline.svg" id="5_652ae"]
+[ext_resource type="Texture2D" uid="uid://26vrkyw8x6i6" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_w_outline.svg" id="6_npbk6"]
+[ext_resource type="Texture2D" uid="uid://cy6efn044novv" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s_outline.svg" id="7_lbr7i"]
+[ext_resource type="Texture2D" uid="uid://cy23i5eqpcho5" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a_outline.svg" id="8_nk34v"]
+[ext_resource type="Texture2D" uid="uid://cj70sf73x828e" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space_icon.svg" id="9_oiigq"]
+[ext_resource type="Texture2D" uid="uid://w6q07b2ur6uv" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_space_icon_outline.svg" id="10_nmigk"]
+[ext_resource type="Texture2D" uid="uid://bvf5km63l6wsg" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_w.svg" id="11_c6dww"]
+[ext_resource type="Texture2D" uid="uid://bsnhny1ibl4ng" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s.svg" id="12_iq37i"]
+[ext_resource type="Texture2D" uid="uid://csx50fg80yb1i" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d.svg" id="13_sy3kc"]
+[ext_resource type="Texture2D" uid="uid://ccuutw6xnwd1" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a.svg" id="14_pbrqa"]
+[ext_resource type="Texture2D" uid="uid://drcwqs07dsj2l" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_enter.png" id="16_4oefe"]
+[ext_resource type="Texture2D" uid="uid://celbjws2lrwt5" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left_outline.svg" id="17_3ctnc"]
+[ext_resource type="Texture2D" uid="uid://c4u1y354gewvg" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_enter_outline.png" id="17_wk0bf"]
+[ext_resource type="Texture2D" uid="uid://pydfos1yr7qn" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right_outline.svg" id="18_4nefd"]
+[ext_resource type="Texture2D" uid="uid://0gbdi88vr7xy" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up_outline.svg" id="19_6bc6u"]
+[ext_resource type="Texture2D" uid="uid://dstb7uto4e57s" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_down_outline.svg" id="20_t6af8"]
+[ext_resource type="Texture2D" uid="uid://ddtio163k6pye" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_down.svg" id="21_u18gq"]
+[ext_resource type="Texture2D" uid="uid://wiapjhqxs6xl" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left.svg" id="22_d18o6"]
+[ext_resource type="Texture2D" uid="uid://bknea6mrgvt7o" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right.svg" id="23_1w7n2"]
+[ext_resource type="Texture2D" uid="uid://bha4or3bbmcmb" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up.svg" id="24_mx50l"]
+[ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="25_abelr"]
+[ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="25_h4ygi"]
+[ext_resource type="AudioStream" uid="uid://dnfroo7ofstjg" path="res://assets/SFX/Background Music for the Math Game.mp3" id="26_ofqda"]
+[ext_resource type="AudioStream" uid="uid://bausdthbnnwtb" path="res://assets/SFX/Pops.wav" id="27_5c8lb"]
+[ext_resource type="AudioStream" uid="uid://cqgyttppyaugd" path="res://assets/SFX/Score.mp3" id="28_3122j"]
+[ext_resource type="AudioStream" uid="uid://c5esaoeia0vem" path="res://assets/materials/Kenney_Assets/kenney_ui-pack/Sounds/click-b.ogg" id="28_y4eof"]
+[ext_resource type="AudioStream" uid="uid://mjur4yagpgra" path="res://assets/SFX/Victory.mp3" id="29_l55aj"]
+[ext_resource type="AudioStream" uid="uid://bnl35om13f457" path="res://assets/SFX/5sCountdownStart.wav" id="29_vmdtv"]
+[ext_resource type="AudioStream" uid="uid://bordngwihfb8k" path="res://assets/SFX/timer_countdown-345137.mp3" id="30_4ai0s"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_reww8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ons6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki2q3"]
+bg_color = Color(0.129412, 0.631373, 0.592157, 1)
+border_width_bottom = 7
+border_color = Color(0.0739901, 0.408147, 0.381784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6j5bb"]
+bg_color = Color(0.129412, 0.631373, 0.592157, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tba4s"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ur5fq"]
+bg_color = Color(0.354402, 0.468501, 0.929882, 1)
+border_width_bottom = 7
+border_color = Color(0.159964, 0.224967, 0.633126, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4rcw"]
+bg_color = Color(0.352941, 0.466667, 0.929412, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtxix"]
+bg_color = Color(0.776471, 0.721569, 0.639216, 1)
+border_width_bottom = 7
+border_color = Color(0.547171, 0.488992, 0.401044, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a6eg"]
+bg_color = Color(0.776471, 0.721569, 0.639216, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7s44"]
+bg_color = Color(0.666409, 0.33928, 0.838672, 1)
+border_width_bottom = 7
+border_color = Color(0.437539, 0.166564, 0.571761, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5erbg"]
+bg_color = Color(0.666667, 0.341176, 0.839216, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gg4b"]
+bg_color = Color(0.87451, 0.172549, 0.309804, 1)
+border_width_bottom = 7
+border_color = Color(0.67347, 0.0974504, 0.221819, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0k1t"]
+bg_color = Color(0.87451, 0.172549, 0.309804, 1)
+border_width_top = 7
+border_color = Color(0.0745098, 0.407843, 0.380392, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v7i8s"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mitui"]
+sky_material = SubResource("ProceduralSkyMaterial_v7i8s")
+
+[sub_resource type="Environment" id="Environment_v60cw"]
+background_mode = 2
+sky = SubResource("Sky_mitui")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_56wnn")
+script = ExtResource("2_minigame_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -6
+position = Vector2(576.5, 326.25)
+scale = Vector2(0.990534, 0.981259)
+texture = SubResource("ViewportTexture_reww8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.572549)
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 163.0
+offset_top = 155.0
+offset_right = -161.0
+offset_bottom = -393.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.250818, 0.250818, 0.250818, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Orange" type="ColorRect" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.921569, 0.321569, 0.160784, 1)
+
+[node name="Yellow" type="ColorRect" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.855854, 0.633912, 0.320204, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_right = 49.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 130
+
+[node name="Solution" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2+ 3 +4 + 4 - 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Goal" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -287.0
+offset_top = 36.0
+offset_right = 287.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_dlupe")
+theme_override_font_sizes/font_size = 76
+text = "Goal: 80"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_x0q0e")
+
+[node name="Text" type="Node" parent="Player1"]
+
+[node name="Score" type="Label" parent="Player1/Text"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 157.0
+offset_right = -2.0
+offset_bottom = 249.0
+grow_horizontal = 2
+theme = ExtResource("1_56wnn")
+theme_override_font_sizes/font_size = 58
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Player1/Text"]
+offset_left = 163.0
+offset_top = 571.0
+offset_right = 413.0
+offset_bottom = 608.0
+
+[node name="Panel" type="Panel" parent="Player1/Text/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_56wnn")
+
+[node name="Points" type="Label" parent="Player1/Text/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Player1"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 260.0
+offset_right = 413.0
+offset_bottom = 560.0
+color = Color(1, 1, 1, 0.45098)
+
+[node name="MarginContainer" type="MarginContainer" parent="Player1/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Player1/ColorRect3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Subtraction" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ki2q3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
+text = "-2"
+
+[node name="Addition" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tba4s")
+text = "+15"
+
+[node name="Multiplication" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="Multiplication2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition3" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="NoNumber2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtxix")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8a6eg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtxix")
+
+[node name="Division2" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d7s44")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5erbg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7s44")
+text = "/5"
+
+[node name="Clear" type="Button" parent="Player1/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gg4b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0k1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gg4b")
+text = "Clear"
+
+[node name="Player2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 576.0
+offset_right = 616.0
+offset_bottom = 40.0
+script = ExtResource("4_x0q0e")
+player_id = 2
+
+[node name="Text" type="Node" parent="Player2"]
+
+[node name="Score" type="Label" parent="Player2/Text"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -2.0
+offset_top = 157.0
+offset_right = 572.0
+offset_bottom = 249.0
+grow_horizontal = 2
+theme = ExtResource("1_56wnn")
+theme_override_font_sizes/font_size = 58
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Player2/Text"]
+offset_left = 739.0
+offset_top = 571.0
+offset_right = 989.0
+offset_bottom = 608.0
+
+[node name="Panel" type="Panel" parent="Player2/Text/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_56wnn")
+
+[node name="Points" type="Label" parent="Player2/Text/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X POINTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Player2"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 260.0
+offset_right = 413.0
+offset_bottom = 560.0
+color = Color(1, 1, 1, 0.45098)
+
+[node name="MarginContainer" type="MarginContainer" parent="Player2/ColorRect3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Player2/ColorRect3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Subtraction" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ki2q3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6j5bb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ki2q3")
+text = "-2"
+
+[node name="Addition" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_tba4s")
+text = "+15"
+
+[node name="Multiplication" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="Multiplication2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ur5fq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4rcw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ur5fq")
+text = "x3"
+
+[node name="Addition3" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+text = "+15"
+
+[node name="NoNumber2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jtxix")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8a6eg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtxix")
+
+[node name="Division2" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d7s44")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5erbg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7s44")
+text = "/5"
+
+[node name="Clear" type="Button" parent="Player2/ColorRect3/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_56wnn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4ons6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8gg4b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g0k1t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8gg4b")
+text = "Clear"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -40.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Timer" type="Timer" parent="MarginContainer3/VBoxContainer"]
+wait_time = 30.345
+
+[node name="TimerLabel" type="Label" parent="MarginContainer3/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 61
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player1_controls" type="Node" parent="."]
+
+[node name="KeyboardDOutline" type="Sprite2D" parent="Player1_controls"]
+visible = false
+position = Vector2(122.6, 592.6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_652ae")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="Player1_controls"]
+visible = false
+position = Vector2(80.6, 549.6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_npbk6")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="Player1_controls"]
+visible = false
+position = Vector2(80.6, 592.6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_lbr7i")
+
+[node name="KeyboardAOutline" type="Sprite2D" parent="Player1_controls"]
+visible = false
+position = Vector2(38.6, 592.6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_nk34v")
+
+[node name="KeyboardSpaceIcon" type="Sprite2D" parent="Player1_controls"]
+visible = false
+position = Vector2(81, 498)
+texture = ExtResource("9_oiigq")
+
+[node name="KeyboardSpaceIconOutline" type="Sprite2D" parent="Player1_controls"]
+position = Vector2(81, 498)
+texture = ExtResource("10_nmigk")
+
+[node name="KeyboardW" type="Sprite2D" parent="Player1_controls"]
+position = Vector2(81, 550)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_c6dww")
+
+[node name="KeyboardS" type="Sprite2D" parent="Player1_controls"]
+position = Vector2(81, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_iq37i")
+
+[node name="KeyboardD" type="Sprite2D" parent="Player1_controls"]
+position = Vector2(123, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_sy3kc")
+
+[node name="KeyboardA" type="Sprite2D" parent="Player1_controls"]
+position = Vector2(39, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("14_pbrqa")
+
+[node name="Player2_controls" type="Node" parent="."]
+
+[node name="KeyboardEnter" type="Sprite2D" parent="Player2_controls"]
+visible = false
+position = Vector2(1070, 496)
+texture = ExtResource("16_4oefe")
+
+[node name="KeyboardEnterOutline" type="Sprite2D" parent="Player2_controls"]
+position = Vector2(1070, 496)
+texture = ExtResource("17_wk0bf")
+
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="Player2_controls"]
+position = Vector2(1026, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("17_3ctnc")
+
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="Player2_controls"]
+position = Vector2(1116, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("18_4nefd")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="Player2_controls"]
+position = Vector2(1071, 549)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("19_6bc6u")
+
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="Player2_controls"]
+position = Vector2(1071, 594)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("20_t6af8")
+
+[node name="KeyboardArrowDown" type="Sprite2D" parent="Player2_controls"]
+visible = false
+position = Vector2(1071, 594)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("21_u18gq")
+
+[node name="KeyboardArrowLeft" type="Sprite2D" parent="Player2_controls"]
+visible = false
+position = Vector2(1026, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("22_d18o6")
+
+[node name="KeyboardArrowRight" type="Sprite2D" parent="Player2_controls"]
+visible = false
+position = Vector2(1116, 593)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("23_1w7n2")
+
+[node name="KeyboardArrowUp" type="Sprite2D" parent="Player2_controls"]
+visible = false
+position = Vector2(1071, 549)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_mx50l")
+
+[node name="ReadyScreen" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.403922)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReadyScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player1ReadyScreen" type="MarginContainer" parent="ReadyScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReadyScreen/HBoxContainer/Player1ReadyScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PressSpaceToContinue" type="RichTextLabel" parent="ReadyScreen/HBoxContainer/Player1ReadyScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Press [img width=80 height=90]res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_space_outline.png[/img] to continue"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ReadyNotReady" type="Label" parent="ReadyScreen/HBoxContainer/Player1ReadyScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 65
+text = "READY"
+
+[node name="Player2ReadyScreen" type="MarginContainer" parent="ReadyScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReadyScreen/HBoxContainer/Player2ReadyScreen"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PressEnterToContinue" type="RichTextLabel" parent="ReadyScreen/HBoxContainer/Player2ReadyScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[center]Press [img width=64 height=64]res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Default/keyboard_enter_outline.png[/img] to continue
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ReadyNotReady" type="Label" parent="ReadyScreen/HBoxContainer/Player2ReadyScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 65
+text = "READY"
+
+[node name="TimerValue" type="Label" parent="ReadyScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 81
+text = "5"
+
+[node name="Timer" type="Timer" parent="ReadyScreen/TimerValue"]
+
+[node name="MarginContainer2" type="MarginContainer" parent="ReadyScreen"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.5
+offset_top = -199.0
+offset_right = 352.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 45
+
+[node name="Panel" type="Panel" parent="ReadyScreen/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ReadyScreen/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ReadyScreen/MarginContainer2/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][color=orange]How to Play:[/color][/b]
+Use the [b]grid of math operations[/b] to reach the [b]goal number[/b].
+Take turns selecting buttons to adjust your score — [color=yellow]first to 15 points wins[/color]!
+Use the [i]clear button[/i] if you make a mistake.
+"
+fit_content = true
+
+[node name="MainMenu" type="ColorRect" parent="."]
+process_mode = 3
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.403922)
+
+[node name="Player1" type="Control" parent="MainMenu"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 418.0
+offset_top = 211.5
+offset_right = 734.0
+offset_bottom = 436.5
+
+[node name="Movement Keys" type="Control" parent="MainMenu/Player1"]
+anchors_preset = 0
+offset_left = -418.0
+offset_top = -211.5
+offset_right = -418.0
+offset_bottom = -211.5
+
+[node name="KeyboardDOutline" type="Sprite2D" parent="MainMenu/Player1/Movement Keys"]
+position = Vector2(277.4, 261.4)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("5_652ae")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="MainMenu/Player1/Movement Keys"]
+position = Vector2(210.4, 195.4)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_npbk6")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="MainMenu/Player1/Movement Keys"]
+position = Vector2(210.4, 261.4)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_lbr7i")
+
+[node name="KeyboardAOutline" type="Sprite2D" parent="MainMenu/Player1/Movement Keys"]
+position = Vector2(144.4, 261.4)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("8_nk34v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Player1/Movement Keys"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 297.0
+offset_right = 332.0
+offset_bottom = 337.0
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Movement Keys"
+
+[node name="Interact Key" type="Control" parent="MainMenu/Player1"]
+anchors_preset = 0
+offset_left = -418.0
+offset_top = -211.5
+offset_right = -378.0
+offset_bottom = -171.5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/Player1/Interact Key"]
+layout_mode = 2
+offset_left = 106.0
+offset_top = 426.0
+offset_right = 341.0
+offset_bottom = 466.0
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Interact Key"
+
+[node name="KeyboardSpaceIconOutline" type="Sprite2D" parent="MainMenu/Player1/Interact Key"]
+position = Vector2(212, 388.4)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_nmigk")
+
+[node name="Player2" type="Control" parent="MainMenu"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 1148.0
+offset_top = 212.0
+offset_right = 1464.0
+offset_bottom = 437.0
+
+[node name="Movement Keys" type="Control" parent="MainMenu/Player2"]
+anchors_preset = 0
+offset_left = -418.0
+offset_top = -211.5
+offset_right = -418.0
+offset_bottom = -211.5
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="MainMenu/Player2/Movement Keys"]
+position = Vector2(210, 193.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("19_6bc6u")
+
+[node name="KeyboardArrowRightOutline" type="Sprite2D" parent="MainMenu/Player2/Movement Keys"]
+position = Vector2(276, 260.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_4nefd")
+
+[node name="KeyboardArrowDownOutline" type="Sprite2D" parent="MainMenu/Player2/Movement Keys"]
+position = Vector2(210, 260.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("20_t6af8")
+
+[node name="KeyboardArrowLeftOutline" type="Sprite2D" parent="MainMenu/Player2/Movement Keys"]
+position = Vector2(145, 260.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("17_3ctnc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Player2/Movement Keys"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 297.0
+offset_right = 332.0
+offset_bottom = 337.0
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Movement Keys"
+
+[node name="Interact Key" type="Control" parent="MainMenu/Player2"]
+anchors_preset = 0
+offset_left = -418.0
+offset_top = -211.5
+offset_right = -378.0
+offset_bottom = -171.5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/Player2/Interact Key"]
+layout_mode = 2
+offset_left = 106.0
+offset_top = 426.0
+offset_right = 341.0
+offset_bottom = 466.0
+size_flags_horizontal = 3
+theme = ExtResource("1_56wnn")
+theme_override_fonts/normal_font = ExtResource("1_dlupe")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Interact Key"
+
+[node name="KeyboardEnterOutline" type="Sprite2D" parent="MainMenu/Player2/Interact Key"]
+position = Vector2(212, 388.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("17_wk0bf")
+
+[node name="MainMenu" type="MarginContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -122.5
+offset_right = 168.0
+offset_bottom = 122.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = -60
+
+[node name="ReturnToGame" type="Button" parent="MainMenu/MainMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("25_h4ygi")
+theme_override_font_sizes/font_size = 30
+text = "Return to Game"
+
+[node name="Restart" type="Button" parent="MainMenu/MainMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("25_h4ygi")
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="Option" type="Button" parent="MainMenu/MainMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("25_h4ygi")
+theme_override_font_sizes/font_size = 30
+text = "Option"
+
+[node name="ReturnToMainMenu" type="Button" parent="MainMenu/MainMenu/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("25_h4ygi")
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="OptionScreen" type="MarginContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -122.5
+offset_right = 168.0
+offset_bottom = 122.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/OptionScreen"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/OptionScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Background Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/OptionScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="MainMenu/OptionScreen/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainMenu/OptionScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "SFX VOLUME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenu/OptionScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HSlider" type="HSlider" parent="MainMenu/OptionScreen/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="MainMenu/OptionScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Back" type="Button" parent="MainMenu/OptionScreen/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+theme = ExtResource("25_h4ygi")
+text = "Back"
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.274
+anchor_bottom = 0.326
+offset_left = 398.0
+offset_top = 456.0
+offset_right = 456.352
+offset_bottom = 397.752
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 15
+theme_override_font_sizes/italics_font_size = 15
+theme_override_font_sizes/mono_font_size = 15
+theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+text = "[b][color=orange]How to Play:[/color][/b]
+Use the [b]grid of math operations[/b] to reach the [b]goal number[/b].
+Take turns selecting buttons to adjust your score — [color=yellow]first to 15 points wins[/color]!
+Use the [i]clear button[/i] if you make a mistake.
+"
+fit_content = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1162, 667)
+
+[node name="Background_Light" type="Node" parent="SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Background_Light"]
+environment = SubResource("Environment_v60cw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Background_Light"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Background" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.635, 0, 235.565)
+
+[node name="Road" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65535, 65528, 72, 3, 65528, 72, 65532, 65528, 72, 65535, 65529, 1048646, 3, 65529, 1048646, 65532, 65529, 1048646, 65535, 65525, 1441865, 65535, 65527, 655431, 65535, 65526, 655432, 3, 65526, 655432, 65532, 65526, 655432, 3, 65527, 655431, 65532, 65527, 655431, 65534, 65529, 1048647, 0, 65529, 1048648, 1, 65529, 1048647, 65533, 65529, 1441864, 2, 65529, 1441864, 65532, 65525, 1441862, 7, 65529, 655429, 4, 65529, 1048648, 6, 65529, 1048648, 5, 65529, 1048647, 65531, 65529, 1048647, 65530, 65529, 1441864, 65533, 65525, 1441864, 65534, 65525, 1441863, 0, 65525, 1441863, 2, 65525, 1441864, 1, 65525, 1441863, 4, 65525, 1048648, 5, 65525, 1441863, 6, 65525, 1441864, 7, 65528, 655432, 7, 65527, 655431, 7, 65526, 655431, 7, 65525, 655430, 7, 65524, 655431, 3, 65525, 655430, 3, 65523, 655431, 3, 65524, 655432, 65532, 65524, 71, 65532, 65523, 71, 65531, 65525, 1441863, 65530, 65525, 1441863, 65535, 65530, 655432, 3, 65530, 655432, 65532, 65530, 655432)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Ground" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65534, 65530, 40, 65533, 65530, 40, 0, 65530, 40, 1, 65530, 40, 2, 65530, 40, 4, 65530, 1441832, 5, 65530, 1441832, 6, 65530, 1441832, 65531, 65530, 1441832, 65530, 65530, 1441832, 1, 65527, 1441832, 5, 65527, 1441832, 65534, 65523, 1441832, 65535, 65523, 1441832, 0, 65523, 1441832, 1, 65523, 1441832, 5, 65523, 1441832, 6, 65523, 1441832, 65530, 65523, 1441832, 65530, 65527, 1441832, 65530, 65526, 1441832, 7, 65530, 1441832)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Buildings" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(16, 0.1, 16)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(65535, 65524, 58, 0, 65524, 52, 1, 65524, 54, 2, 65524, 44, 65534, 65526, 1048622, 65534, 65527, 1048624, 65533, 65527, 1441842, 65533, 65526, 1441838, 0, 65526, 1441848, 0, 65527, 1441850, 0, 65528, 1441838, 1, 65528, 50, 2, 65528, 46, 2, 65527, 1048630, 2, 65526, 1048628, 1, 65526, 655414, 65534, 65528, 50, 65533, 65528, 46, 65531, 65527, 1048628, 65531, 65526, 1048634, 65534, 65524, 58, 65533, 65524, 50, 65531, 65528, 1048622, 65530, 65528, 54, 4, 65527, 1441846, 5, 65528, 655418, 4, 65528, 50, 4, 65526, 1441838, 5, 65526, 655414, 6, 65526, 655406, 6, 65527, 1048634, 6, 65528, 50, 4, 65524, 50, 5, 65524, 58, 6, 65524, 54, 65530, 65524, 54, 65531, 65524, 48, 65531, 65523, 1048628, 65533, 65523, 1441850, 4, 65523, 1441850, 2, 65523, 1048628, 65531, 65530, 655406, 65530, 65530, 655410, 8, 65528, 1441850, 8, 65529, 1441840, 8, 65530, 1441850, 8, 65527, 1441842, 8, 65526, 1441848, 5, 65530, 655413, 4, 65530, 655406)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Street Lights" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(1, 0.5, 1)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(131055, 65440, 1441869, 65536, 65423, 1048653, 131055, 65423, 655437, 131024, 65423, 1048653, 131024, 65440, 77, 65536, 65439, 77, 131007, 65440, 1441869, 131007, 65423, 655437, 65583, 65440, 1441869, 65583, 65423, 655437, 65600, 65439, 77, 65600, 65423, 1048653, 65600, 65376, 77, 65583, 65376, 1441869, 65583, 65358, 655437, 65600, 65359, 1048653, 65536, 65376, 77, 131055, 65376, 1441869, 65536, 65359, 1048653, 131024, 65359, 1048653, 131007, 65358, 655437, 131007, 65376, 1441869, 131024, 65376, 77, 131029, 65423, 1048650, 131049, 65423, 1048650, 131048, 65440, 1441866, 131029, 65440, 1441866, 131039, 65440, 1441866, 131039, 65424, 1048650, 65541, 65423, 1048650, 65541, 65440, 1441866, 65550, 65440, 1441866, 65572, 65423, 1048650, 65571, 65440, 1441866, 65561, 65423, 1048650, 65561, 65440, 1441866, 65549, 65423, 1048650, 65605, 65440, 1441866, 65604, 65423, 1048650, 65615, 65423, 1048650, 65615, 65440, 1441866, 65626, 65423, 1048650, 65626, 65440, 1441866, 131055, 65419, 655434, 131055, 65407, 655434, 65536, 65419, 74, 65536, 65407, 74, 65536, 65392, 74, 131055, 65392, 655434, 65536, 65380, 74, 131055, 65380, 655434, 131007, 65419, 655434, 131024, 65419, 74, 131024, 65408, 74, 131007, 65407, 655434, 131024, 65392, 74, 131007, 65392, 655434, 131007, 65381, 655434, 131024, 65381, 74, 65583, 65419, 655434, 65600, 65419, 74, 65600, 65408, 74, 65583, 65408, 655434, 65600, 65380, 74, 65583, 65380, 655434, 65583, 65393, 655434, 65600, 65393, 74, 131004, 65359, 1048650, 130995, 65359, 1048650, 131028, 65359, 1048650, 131044, 65359, 1048650, 131060, 65359, 1048650, 65541, 65359, 1048650, 65554, 65359, 1048650, 65571, 65359, 1048650)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Objects" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(1, 0.1, 1)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(7471129, 65450, 342, 7471133, 65450, 337, 7471125, 65450, 337)
+}
+metadata/_editor_floor_ = Vector3(0, 114, 0)
+
+[node name="Vehicles" type="GridMap" parent="SubViewport/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -156.545)
+mesh_library = ExtResource("25_abelr")
+cell_size = Vector3(2, 0.1, 3.21)
+collision_layer = 128
+collision_mask = 128
+data = {
+"cells": PackedInt32Array(524282, 65500, 61, 524285, 65490, 655421, 524282, 65496, 62, 524260, 65504, 1441857, 524258, 65500, 65, 524258, 65480, 65, 458778, 65480, 65, 524285, 65493, 655425, 458778, 65500, 65, 458784, 65504, 1441857, 458768, 65502, 1048639, 524271, 65502, 1048639, 524261, 65502, 1048637, 524282, 65491, 63, 524281, 65484, 1441857, 524258, 65495, 64, 524261, 65492, 655424, 458761, 65504, 1441854, 458762, 65502, 1048637, 524272, 65504, 1441856, 458781, 65495, 655421, 458778, 65490, 63, 458781, 65486, 655424)
+}
+metadata/_editor_floor_ = Vector3(0, 7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.997831, 0.0658212, 0, -0.0658212, 0.997831, 2.841, 13.426, -5.071)
+size = 20.0
+near = 0.001
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("26_ofqda")
+volume_db = 24.0
+
+[node name="UIAcceptPlayer" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("27_5c8lb")
+
+[node name="MovePlayer" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("28_y4eof")
+
+[node name="SelectPlayer" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("28_3122j")
+
+[node name="CorrectSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+
+[node name="WrongSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+
+[node name="ScoreSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("27_5c8lb")
+
+[node name="RoundStartSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("29_vmdtv")
+
+[node name="GameOverSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("29_l55aj")
+
+[node name="TimerWarningSFX" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource("30_4ai0s")
+
+[connection signal="timeout" from="MarginContainer3/VBoxContainer/Timer" to="." method="_on_timer_timeout"]

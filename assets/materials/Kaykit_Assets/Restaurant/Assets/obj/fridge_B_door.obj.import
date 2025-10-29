@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1dtmof46uj4u"
+path="res://.godot/imported/fridge_B_door.obj-ad0f1a46ad9a9802a7dc82de28e89a5d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fridge_B_door.obj-ad0f1a46ad9a9802a7dc82de28e89a5d.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/fridge_B_door.obj"
+dest_files=["res://.godot/imported/fridge_B_door.obj-ad0f1a46ad9a9802a7dc82de28e89a5d.mesh", "res://.godot/imported/fridge_B_door.obj-ad0f1a46ad9a9802a7dc82de28e89a5d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

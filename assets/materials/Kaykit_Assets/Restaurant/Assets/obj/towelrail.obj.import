@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dd4emwfhbyqfa"
+path="res://.godot/imported/towelrail.obj-1b4ff0581e11727f89d9741ba3e53025.mesh"
+
+[deps]
+
+files=["res://.godot/imported/towelrail.obj-1b4ff0581e11727f89d9741ba3e53025.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/towelrail.obj"
+dest_files=["res://.godot/imported/towelrail.obj-1b4ff0581e11727f89d9741ba3e53025.mesh", "res://.godot/imported/towelrail.obj-1b4ff0581e11727f89d9741ba3e53025.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

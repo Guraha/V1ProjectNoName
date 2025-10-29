@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgl3njp166vnl"
+path="res://.godot/imported/food_ingredient_cheese_chopped.obj-a17bde1d1c1631aa5bdc8cf86d6a4e2c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/food_ingredient_cheese_chopped.obj-a17bde1d1c1631aa5bdc8cf86d6a4e2c.mesh"]
+
+source_file="res://assets/materials/Kaykit_Assets/Restaurant/Assets/obj/food_ingredient_cheese_chopped.obj"
+dest_files=["res://.godot/imported/food_ingredient_cheese_chopped.obj-a17bde1d1c1631aa5bdc8cf86d6a4e2c.mesh", "res://.godot/imported/food_ingredient_cheese_chopped.obj-a17bde1d1c1631aa5bdc8cf86d6a4e2c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

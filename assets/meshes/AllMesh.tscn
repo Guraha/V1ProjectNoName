@@ -1,0 +1,1447 @@
+[gd_scene load_steps=482 format=3 uid="uid://ov3vecx78se0"]
+
+[ext_resource type="PackedScene" uid="uid://b0cubni54lpol" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/bricks_A.gltf" id="1_0w1jv"]
+[ext_resource type="PackedScene" uid="uid://b123n1n7aw3nk" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/bricks_B.gltf" id="2_6oy7p"]
+[ext_resource type="PackedScene" uid="uid://qu6s8cooq314" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/colored_block_blue.gltf" id="3_hlrr2"]
+[ext_resource type="PackedScene" uid="uid://b5xefpywbf2lh" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/colored_block_green.gltf" id="4_eunhf"]
+[ext_resource type="PackedScene" uid="uid://cjdtm5bhs1poh" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/colored_block_red.gltf" id="5_o2yp1"]
+[ext_resource type="PackedScene" uid="uid://wrjh0tco1q4b" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/colored_block_yellow.gltf" id="6_8mign"]
+[ext_resource type="PackedScene" uid="uid://bmnvdu1q8ftho" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/decorative_block_blue.gltf" id="7_trfcl"]
+[ext_resource type="PackedScene" uid="uid://bvpe0jsxb3lm1" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/decorative_block_green.gltf" id="8_0s0m5"]
+[ext_resource type="PackedScene" uid="uid://cwvpn8chinfcc" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/decorative_block_red.gltf" id="9_ky8gk"]
+[ext_resource type="PackedScene" uid="uid://c1dxxqfcg6rnf" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/decorative_block_yellow.gltf" id="10_yxaeu"]
+[ext_resource type="PackedScene" uid="uid://dvrjwgp6y7hgf" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/dirt.gltf" id="11_scmjp"]
+[ext_resource type="PackedScene" uid="uid://cg08rqy6rmwyd" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/dirt_with_grass.gltf" id="12_q4jrf"]
+[ext_resource type="PackedScene" uid="uid://djo7m0tqcjxw8" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/dirt_with_snow.gltf" id="13_u040x"]
+[ext_resource type="PackedScene" uid="uid://bcfqcbrl7d7sc" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/glass.gltf" id="14_jnfq4"]
+[ext_resource type="PackedScene" uid="uid://bjgmemk8huklh" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/grass.gltf" id="15_xdn46"]
+[ext_resource type="PackedScene" uid="uid://c8pqin6827inu" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/grass_with_snow.gltf" id="16_sq4g3"]
+[ext_resource type="PackedScene" uid="uid://bmerxussowwbg" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/gravel.gltf" id="17_2dfqr"]
+[ext_resource type="PackedScene" uid="uid://7jir5ac0wy8x" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/gravel_with_grass.gltf" id="18_ew0yh"]
+[ext_resource type="PackedScene" uid="uid://bctwo7qusdepq" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/gravel_with_snow.gltf" id="19_f0xhh"]
+[ext_resource type="PackedScene" uid="uid://wwvyewctu6p" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/lava.gltf" id="20_3c440"]
+[ext_resource type="PackedScene" uid="uid://b541xv3y86ahq" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/metal.gltf" id="21_bk3hx"]
+[ext_resource type="PackedScene" uid="uid://bwleao8p748p1" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/prototype.gltf" id="22_e2rox"]
+[ext_resource type="PackedScene" uid="uid://c6iro17xjwofr" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/sand_A.gltf" id="23_5o5ma"]
+[ext_resource type="PackedScene" uid="uid://btieoqyg6pw55" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/sand_B.gltf" id="24_gmkfj"]
+[ext_resource type="PackedScene" uid="uid://b48r63vypi13" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/sand_with_grass.gltf" id="25_dmo4f"]
+[ext_resource type="PackedScene" uid="uid://dt0iggih0g44b" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/sand_with_snow.gltf" id="26_17a28"]
+[ext_resource type="PackedScene" uid="uid://dgcgs0a43v1yb" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/snow.gltf" id="27_xgc23"]
+[ext_resource type="PackedScene" uid="uid://dxo7rw3eig6xg" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/stone.gltf" id="28_lokie"]
+[ext_resource type="PackedScene" uid="uid://boimp4km4qmbw" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/stone_dark.gltf" id="29_dcbdo"]
+[ext_resource type="PackedScene" uid="uid://dnvgu2il4md4" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/stone_with_copper.gltf" id="30_3a2s6"]
+[ext_resource type="PackedScene" uid="uid://c3ivllj8omssp" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/stone_with_gold.gltf" id="31_r6h3o"]
+[ext_resource type="PackedScene" uid="uid://bb55mkjsndqyb" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/stone_with_silver.gltf" id="32_8cqyf"]
+[ext_resource type="PackedScene" uid="uid://b00wr188ksbjk" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/striped_block_blue.gltf" id="33_7tniw"]
+[ext_resource type="PackedScene" uid="uid://dlfdme6vdlo2u" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/striped_block_green.gltf" id="34_xvu6b"]
+[ext_resource type="PackedScene" uid="uid://cvuaef02n4hp2" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/striped_block_red.gltf" id="35_22p8q"]
+[ext_resource type="PackedScene" uid="uid://bj7y7aoxcwbtn" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/striped_block_yellow.gltf" id="36_xsnwe"]
+[ext_resource type="PackedScene" uid="uid://cbdu0dij8c4ar" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/tree.gltf" id="37_imol3"]
+[ext_resource type="PackedScene" uid="uid://ce8dchpmr7eci" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/tree_with_snow.gltf" id="38_20fra"]
+[ext_resource type="PackedScene" uid="uid://b7v13biceparx" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/water.gltf" id="39_cnqks"]
+[ext_resource type="PackedScene" uid="uid://cm0d2yrnl8p42" path="res://assets/materials/Kaykit_Assets/Blocks/Assets/wood.gltf" id="40_0uhl6"]
+[ext_resource type="PackedScene" uid="uid://dpj1k0eqkcdpr" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/base.gltf" id="41_r618b"]
+[ext_resource type="PackedScene" uid="uid://cyyu1m5xwmofw" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/bench.gltf" id="42_xq1v7"]
+[ext_resource type="PackedScene" uid="uid://dob87lfpfrpeb" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/box_A.gltf" id="43_bsrhw"]
+[ext_resource type="PackedScene" uid="uid://dyedolevrw4my" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/box_B.gltf" id="44_pxrp0"]
+[ext_resource type="PackedScene" uid="uid://cbcniu3a5q3j7" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_A.gltf" id="45_vilwp"]
+[ext_resource type="PackedScene" uid="uid://bfpqhvkoltje" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_A_withoutBase.gltf" id="46_5ract"]
+[ext_resource type="PackedScene" uid="uid://kcooaa7mt747" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_B.gltf" id="47_ipgov"]
+[ext_resource type="PackedScene" uid="uid://blpefw57hwc1d" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_B_withoutBase.gltf" id="48_6jl6r"]
+[ext_resource type="PackedScene" uid="uid://n73qlmlskej0" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_C.gltf" id="49_7pfbv"]
+[ext_resource type="PackedScene" uid="uid://dh2hibp3b783h" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_C_withoutBase.gltf" id="50_dabjo"]
+[ext_resource type="PackedScene" uid="uid://dv3xmn2t53i1c" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_D.gltf" id="51_w3v32"]
+[ext_resource type="PackedScene" uid="uid://bcbqgkdqkwrys" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_D_withoutBase.gltf" id="52_fqti1"]
+[ext_resource type="PackedScene" uid="uid://c3sbfreqwdvsk" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_E.gltf" id="53_3p4vg"]
+[ext_resource type="PackedScene" uid="uid://bphqx1ymq2t0" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_E_withoutBase.gltf" id="54_26shd"]
+[ext_resource type="PackedScene" uid="uid://ba1jfxy7s80sl" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_F.gltf" id="55_pyfbq"]
+[ext_resource type="PackedScene" uid="uid://b3jn3yegtiwds" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_F_withoutBase.gltf" id="56_fxh42"]
+[ext_resource type="PackedScene" uid="uid://cket2wbdptxdl" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_G.gltf" id="57_ayuv1"]
+[ext_resource type="PackedScene" uid="uid://dotums66lp2x4" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_G_withoutBase.gltf" id="58_pk8ss"]
+[ext_resource type="PackedScene" uid="uid://bjjvyl572pc3x" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_H.gltf" id="59_5k2be"]
+[ext_resource type="PackedScene" uid="uid://cm44wpabf8dft" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/building_H_withoutBase.gltf" id="60_opw0v"]
+[ext_resource type="PackedScene" uid="uid://c5e03s0jwitca" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/bush.gltf" id="61_ntf3u"]
+[ext_resource type="PackedScene" uid="uid://b6wkqrnmj2i7k" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/car_hatchback.gltf" id="62_3yohy"]
+[ext_resource type="PackedScene" uid="uid://dj73o2d48pqay" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/car_police.gltf" id="63_fllof"]
+[ext_resource type="PackedScene" uid="uid://ydiy613lgs87" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/car_sedan.gltf" id="64_2kqrd"]
+[ext_resource type="PackedScene" uid="uid://b2neylvmshv55" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/car_stationwagon.gltf" id="65_p2ahg"]
+[ext_resource type="PackedScene" uid="uid://dmhuf8vww46yx" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/car_taxi.gltf" id="66_18yf8"]
+[ext_resource type="PackedScene" uid="uid://bkelekbchielq" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/dumpster.gltf" id="67_yfsqi"]
+[ext_resource type="PackedScene" uid="uid://yufsj6easuu6" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/firehydrant.gltf" id="68_jqlxy"]
+[ext_resource type="PackedScene" uid="uid://dhdlera178cwn" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_corner.gltf" id="69_uu0gl"]
+[ext_resource type="PackedScene" uid="uid://due6vlkkivt0w" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_corner_curved.gltf" id="70_1w21b"]
+[ext_resource type="PackedScene" uid="uid://dym41g5ibve4b" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_junction.gltf" id="71_ow5sp"]
+[ext_resource type="PackedScene" uid="uid://bcntqqfo5p77d" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_straight.gltf" id="72_8i1an"]
+[ext_resource type="PackedScene" uid="uid://cudhvngprjg5u" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_straight_crossing.gltf" id="73_a221r"]
+[ext_resource type="PackedScene" uid="uid://br3ogvbgh6mrk" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/road_tsplit.gltf" id="74_7ii83"]
+[ext_resource type="PackedScene" uid="uid://bayhwmbk1jod0" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/streetlight.gltf" id="75_rttfw"]
+[ext_resource type="PackedScene" uid="uid://bxpok2hp2t4kg" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/trafficlight_A.gltf" id="76_kcxe2"]
+[ext_resource type="PackedScene" uid="uid://cigvvkedgko15" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/trafficlight_B.gltf" id="77_dmyd5"]
+[ext_resource type="PackedScene" uid="uid://ckd55eykluwnx" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/trafficlight_C.gltf" id="78_cjd6p"]
+[ext_resource type="PackedScene" uid="uid://c56olblgu1gxc" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/trash_A.gltf" id="79_xiofc"]
+[ext_resource type="PackedScene" uid="uid://df1yqpqha3qmd" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/trash_B.gltf" id="80_ucdmi"]
+[ext_resource type="PackedScene" uid="uid://cilrxp42bq4b8" path="res://assets/materials/Kaykit_Assets/CityBuilder/Assets/gltf/watertower.gltf" id="81_0mja7"]
+[ext_resource type="PackedScene" uid="uid://cmvjfp2pqltxr" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/armchair.gltf" id="82_lkyd8"]
+[ext_resource type="PackedScene" uid="uid://bpvndes7peh5g" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/armchair_pillows.gltf" id="83_saneb"]
+[ext_resource type="PackedScene" uid="uid://wk3rfqbg8fxp" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/bed_double_A.gltf" id="84_ynyy1"]
+[ext_resource type="PackedScene" uid="uid://cwol45c5x6q7v" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/bed_double_B.gltf" id="85_nxvd1"]
+[ext_resource type="PackedScene" uid="uid://c0xce06t632rw" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/bed_single_A.gltf" id="86_2o4my"]
+[ext_resource type="PackedScene" uid="uid://bslt54tfbwhlk" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/bed_single_B.gltf" id="87_sl2p5"]
+[ext_resource type="PackedScene" uid="uid://b837sp6u4fwet" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/book_set.gltf" id="88_kdpfc"]
+[ext_resource type="PackedScene" uid="uid://cqka1gs8huxfs" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/book_single.gltf" id="89_gvw6e"]
+[ext_resource type="PackedScene" uid="uid://sqyevd6mln8" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cabinet_medium.gltf" id="90_wl4ov"]
+[ext_resource type="PackedScene" uid="uid://bnud1odd7b652" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cabinet_medium_decorated.gltf" id="91_wqv6p"]
+[ext_resource type="PackedScene" uid="uid://bgn2s3fycbd8w" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cabinet_small.gltf" id="92_ij0lw"]
+[ext_resource type="PackedScene" uid="uid://ds4en88y05eio" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cabinet_small_decorated.gltf" id="93_o31wf"]
+[ext_resource type="PackedScene" uid="uid://buucp6mnee6an" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cactus_medium_A.gltf" id="94_lwql6"]
+[ext_resource type="PackedScene" uid="uid://bj5xsgepsoyl0" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cactus_medium_B.gltf" id="95_sv3o8"]
+[ext_resource type="PackedScene" uid="uid://cbil6bbw40nta" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cactus_small_A.gltf" id="96_vuyqv"]
+[ext_resource type="PackedScene" uid="uid://c04ovqf7vohbj" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/cactus_small_B.gltf" id="97_iv3jd"]
+[ext_resource type="PackedScene" uid="uid://b6jipp6x0ya7h" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_A.gltf" id="98_lpm85"]
+[ext_resource type="PackedScene" uid="uid://rcwjrb55qli5" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_A_wood.gltf" id="99_o1j2l"]
+[ext_resource type="PackedScene" uid="uid://beb7tanv6qkfy" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_B.gltf" id="100_q7s1p"]
+[ext_resource type="PackedScene" uid="uid://6c1bdk2mgj7f" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_B_wood.gltf" id="101_klxo1"]
+[ext_resource type="PackedScene" uid="uid://cxc73ukyfs5cd" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_C.gltf" id="102_5k3lb"]
+[ext_resource type="PackedScene" uid="uid://dc0qsyiryihij" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_stool.gltf" id="103_2g6ds"]
+[ext_resource type="PackedScene" uid="uid://bie5hxhndgpx2" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/chair_stool_wood.gltf" id="104_pwpyr"]
+[ext_resource type="PackedScene" uid="uid://bpnfo1qfh55cf" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/couch.gltf" id="105_h3uuc"]
+[ext_resource type="PackedScene" uid="uid://gvfdru620j5w" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/couch_pillows.gltf" id="106_ls8k8"]
+[ext_resource type="PackedScene" uid="uid://br7e2lfy4jyjy" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/lamp_standing.gltf" id="107_2kaqg"]
+[ext_resource type="PackedScene" uid="uid://de2nuoiefvdir" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/lamp_table.gltf" id="108_tvs0k"]
+[ext_resource type="PackedScene" uid="uid://dbdcdkrcaac10" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_large_A.gltf" id="109_cs5hu"]
+[ext_resource type="PackedScene" uid="uid://db30hrbox6g4f" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_large_B.gltf" id="110_x85ig"]
+[ext_resource type="PackedScene" uid="uid://dpl8l22vclwv8" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_medium.gltf" id="111_dlv51"]
+[ext_resource type="PackedScene" uid="uid://b66rp8uqvvr5d" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_small_A.gltf" id="112_hc6n1"]
+[ext_resource type="PackedScene" uid="uid://dk2fje032abgh" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_small_B.gltf" id="113_bahcd"]
+[ext_resource type="PackedScene" uid="uid://cynlapxlovbb1" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_small_C.gltf" id="114_ddki8"]
+[ext_resource type="PackedScene" uid="uid://64jmc7r1x85p" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_standing_A.gltf" id="115_2bp66"]
+[ext_resource type="PackedScene" uid="uid://dhe3fo7p40pyr" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pictureframe_standing_B.gltf" id="116_tut8m"]
+[ext_resource type="PackedScene" uid="uid://cdvp5syw6g3wn" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pillow_A.gltf" id="117_yjpxm"]
+[ext_resource type="PackedScene" uid="uid://cri3y4a35vgmy" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/pillow_B.gltf" id="118_xerim"]
+[ext_resource type="PackedScene" uid="uid://b0ygrele3u65b" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_oval_A.gltf" id="119_qb217"]
+[ext_resource type="PackedScene" uid="uid://b88ip3wkjctxd" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_oval_B.gltf" id="120_5r2ue"]
+[ext_resource type="PackedScene" uid="uid://b5snahi44nu2u" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_rectangle_A.gltf" id="121_kydir"]
+[ext_resource type="PackedScene" uid="uid://c1jymys6gsm6i" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_rectangle_B.gltf" id="122_wqxi4"]
+[ext_resource type="PackedScene" uid="uid://oi72i835rfw4" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_rectangle_stripes_A.gltf" id="123_nr14k"]
+[ext_resource type="PackedScene" uid="uid://bq3t5dmftledh" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/rug_rectangle_stripes_B.gltf" id="124_04kb1"]
+[ext_resource type="PackedScene" uid="uid://bowctkw55xfml" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_A_big.gltf" id="125_62qgd"]
+[ext_resource type="PackedScene" uid="uid://cgp38e2gtv5pg" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_A_small.gltf" id="126_exs8a"]
+[ext_resource type="PackedScene" uid="uid://b8dy57ydkjnnm" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_B_large.gltf" id="127_ws7mb"]
+[ext_resource type="PackedScene" uid="uid://btyufbbwdeako" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_B_large_decorated.gltf" id="128_isdod"]
+[ext_resource type="PackedScene" uid="uid://bey43x5utpp45" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_B_small.gltf" id="129_78dvc"]
+[ext_resource type="PackedScene" uid="uid://cwxpp66xraaa0" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/shelf_B_small_decorated.gltf" id="130_davv7"]
+[ext_resource type="PackedScene" uid="uid://mb703ub1uqrf" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/table_low.gltf" id="131_a41h2"]
+[ext_resource type="PackedScene" uid="uid://8ysuicunyksv" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/table_medium.gltf" id="132_l0b2r"]
+[ext_resource type="PackedScene" uid="uid://bv0octpsykq2a" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/table_medium_long.gltf" id="133_pgvys"]
+[ext_resource type="PackedScene" uid="uid://bken54pjhe4x4" path="res://assets/materials/Kaykit_Assets/Furniture/Assets/gltf/table_small.gltf" id="134_teq4g"]
+[ext_resource type="PackedScene" uid="uid://c33y50e2uh8bc" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Barrel_A.gltf" id="135_5gpob"]
+[ext_resource type="PackedScene" uid="uid://b6ttnloxj02sv" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Barrel_B.gltf" id="136_noxnv"]
+[ext_resource type="PackedScene" uid="uid://bmimvwgnhem0o" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Barrel_C.gltf" id="137_q6xid"]
+[ext_resource type="PackedScene" uid="uid://d1wsnwl0sscg5" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Box_A.gltf" id="138_bp6xq"]
+[ext_resource type="PackedScene" uid="uid://k4fafbkux3hd" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Box_B.gltf" id="139_j4ibm"]
+[ext_resource type="PackedScene" uid="uid://dogbthaavtply" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Box_C.gltf" id="140_3htfd"]
+[ext_resource type="PackedScene" uid="uid://buuuvjs1sfi61" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Can_A.gltf" id="141_52jfc"]
+[ext_resource type="PackedScene" uid="uid://hjgrsambv0ab" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Can_B.gltf" id="142_afla5"]
+[ext_resource type="PackedScene" uid="uid://cubed1hxywg00" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Coin_A.gltf" id="143_clj82"]
+[ext_resource type="PackedScene" uid="uid://eof48pns7xlt" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Coin_B.gltf" id="144_vy1lt"]
+[ext_resource type="PackedScene" uid="uid://c7icypcjpichu" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Coin_C.gltf" id="145_g4u0e"]
+[ext_resource type="PackedScene" uid="uid://bm8kmhogabd7f" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Cube_Prototype_Large_A.gltf" id="146_a5g7w"]
+[ext_resource type="PackedScene" uid="uid://cvfe7fc54xcy" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Cube_Prototype_Large_B.gltf" id="147_alyaj"]
+[ext_resource type="PackedScene" uid="uid://c241e6nxwcead" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Cube_Prototype_Small.gltf" id="148_sr847"]
+[ext_resource type="PackedScene" uid="uid://d3ytpci22bl5e" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Door_A.gltf" id="149_not64"]
+[ext_resource type="PackedScene" uid="uid://daqp18yvlxk67" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Door_A_Decorated.gltf" id="150_17626"]
+[ext_resource type="PackedScene" uid="uid://o76fb6skdk8e" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Door_B.gltf" id="151_mh60b"]
+[ext_resource type="PackedScene" uid="uid://cx8ma6p1xxmkm" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Dummy_Base.gltf" id="152_uehk7"]
+[ext_resource type="PackedScene" uid="uid://c8ccenak3fgsa" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Floor.gltf" id="153_aabew"]
+[ext_resource type="PackedScene" uid="uid://bsnseb7j812n" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Floor_Dirt.gltf" id="154_vl1k3"]
+[ext_resource type="PackedScene" uid="uid://c1uuun166l6aj" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Floor_Prototype.gltf" id="155_md8pu"]
+[ext_resource type="PackedScene" uid="uid://dpc7myvcrfu6x" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pallet_Large.gltf" id="156_65jb0"]
+[ext_resource type="PackedScene" uid="uid://634piw6rodxt" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pallet_Small.gltf" id="157_nymvr"]
+[ext_resource type="PackedScene" uid="uid://bdu41ojwsf4be" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pallet_Small_Decorated_A.gltf" id="158_g0kcl"]
+[ext_resource type="PackedScene" uid="uid://d06cpfwm6ox3x" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pallet_Small_Decorated_B.gltf" id="159_wgaes"]
+[ext_resource type="PackedScene" uid="uid://cfchak0j1ge1e" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pillar_A.gltf" id="160_x0tyc"]
+[ext_resource type="PackedScene" uid="uid://cf45qt7mlqnk4" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Pillar_B.gltf" id="161_q5d1y"]
+[ext_resource type="PackedScene" uid="uid://b3ey6ja75ayg6" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Beam.gltf" id="162_vx3gx"]
+[ext_resource type="PackedScene" uid="uid://vv62s5a8rsyk" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Cube.gltf" id="163_sc2hm"]
+[ext_resource type="PackedScene" uid="uid://nuoqnidd5q12" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Cube_Small.gltf" id="164_ty00y"]
+[ext_resource type="PackedScene" uid="uid://cy5b1y0irqq2u" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Doorway.gltf" id="165_5lwca"]
+[ext_resource type="PackedScene" uid="uid://drpt4d2btkt6t" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Floor.gltf" id="166_ec1pn"]
+[ext_resource type="PackedScene" uid="uid://d4dd7v5t3uuyo" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Floor_Hole.gltf" id="167_pw8wi"]
+[ext_resource type="PackedScene" uid="uid://dw5a4gtjvtlnq" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Pillar.gltf" id="168_tuiym"]
+[ext_resource type="PackedScene" uid="uid://occy7rhxruja" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope.gltf" id="169_4knqc"]
+[ext_resource type="PackedScene" uid="uid://cgt6klldylbh2" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope_Half.gltf" id="170_n04sj"]
+[ext_resource type="PackedScene" uid="uid://btcuwbw8nvnfo" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope_Half_InnerCorner.gltf" id="171_qpqfo"]
+[ext_resource type="PackedScene" uid="uid://bp1mudybxrdys" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope_Half_OuterCorner.gltf" id="172_0vvb4"]
+[ext_resource type="PackedScene" uid="uid://ccsbby6trm5ph" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope_InnerCorner.gltf" id="173_h60si"]
+[ext_resource type="PackedScene" uid="uid://dmnjj2qtkk7hb" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Slope_OuterCorner.gltf" id="174_f45j5"]
+[ext_resource type="PackedScene" uid="uid://bvigx702hiyb" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Stairs.gltf" id="175_hdgbi"]
+[ext_resource type="PackedScene" uid="uid://b5k6hctj6mio6" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Stairs_Half.gltf" id="176_s7y10"]
+[ext_resource type="PackedScene" uid="uid://d2a10baebm1o" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Wall.gltf" id="177_epao2"]
+[ext_resource type="PackedScene" uid="uid://b0r4vnl0m5knc" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Wall_Half.gltf" id="178_u7vk2"]
+[ext_resource type="PackedScene" uid="uid://b86qgp3nhwm2r" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Wall_OpenCorner.gltf" id="179_gddmm"]
+[ext_resource type="PackedScene" uid="uid://cqacxge2h34ek" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Wall_Short.gltf" id="180_5y1im"]
+[ext_resource type="PackedScene" uid="uid://my6a41bwv2mv" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Wall_Slope.gltf" id="181_ueokh"]
+[ext_resource type="PackedScene" uid="uid://dufsy372oe26h" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Primitive_Window.gltf" id="182_25ews"]
+[ext_resource type="PackedScene" uid="uid://h5l3vjbv8yqa" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/table_medium.gltf" id="183_3uin7"]
+[ext_resource type="PackedScene" uid="uid://b6n4gpm3mb5hd" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/table_medium_Decorated.gltf" id="184_6kx78"]
+[ext_resource type="PackedScene" uid="uid://c7jcgj8a0i0l6" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/table_medium_long.gltf" id="185_n7wwj"]
+[ext_resource type="PackedScene" uid="uid://cdg6xvlpkpv38" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target.gltf" id="186_wostf"]
+[ext_resource type="PackedScene" uid="uid://bugu44eibp47y" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_A.gltf" id="187_ounfk"]
+[ext_resource type="PackedScene" uid="uid://bp3250uo5xvgm" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_B.gltf" id="188_t71xw"]
+[ext_resource type="PackedScene" uid="uid://dc62lrt4q0j6i" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_C.gltf" id="189_wfoo3"]
+[ext_resource type="PackedScene" uid="uid://bhl2dltfxphrl" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_D.gltf" id="190_7nena"]
+[ext_resource type="PackedScene" uid="uid://c6dme17gxb7bw" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_E.gltf" id="191_4ksx2"]
+[ext_resource type="PackedScene" uid="uid://cfodanrhg2bqa" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_pieces_F.gltf" id="192_4r7rk"]
+[ext_resource type="PackedScene" uid="uid://d3i1ciadp0e5y" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_small.gltf" id="193_d07rp"]
+[ext_resource type="PackedScene" uid="uid://c5s7vb482tdq4" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_stand_A.gltf" id="194_ay00v"]
+[ext_resource type="PackedScene" uid="uid://bbtp4hok2lwa7" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_stand_A_Decorated.gltf" id="195_ol6n8"]
+[ext_resource type="PackedScene" uid="uid://btq267fp554se" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_stand_B.gltf" id="196_vxflr"]
+[ext_resource type="PackedScene" uid="uid://dhxxti4qn72cx" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_wall_large_A.gltf" id="197_2c0c3"]
+[ext_resource type="PackedScene" uid="uid://crjnsqihaitbb" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_wall_large_B.gltf" id="198_ghac1"]
+[ext_resource type="PackedScene" uid="uid://cfwp02pvxq7li" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/target_wall_small.gltf" id="199_n2fyy"]
+[ext_resource type="PackedScene" uid="uid://dylngc5u4makx" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall.gltf" id="200_fuw5d"]
+[ext_resource type="PackedScene" uid="uid://s02fnk0nciv4" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Decorated.gltf" id="201_b16r4"]
+[ext_resource type="PackedScene" uid="uid://b3ykv010vrvfw" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Doorway.gltf" id="202_slqqq"]
+[ext_resource type="PackedScene" uid="uid://jy8ag2h4x6qq" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Half.gltf" id="203_wo5v7"]
+[ext_resource type="PackedScene" uid="uid://b2f4yiynmoxel" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Target.gltf" id="204_ub22i"]
+[ext_resource type="PackedScene" uid="uid://d0of6eq6yinfi" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Window_Closed.gltf" id="205_q0smu"]
+[ext_resource type="PackedScene" uid="uid://ckiqgph125jit" path="res://assets/materials/Kaykit_Assets/Prototype/Assets/gltf/Wall_Window_Open.gltf" id="206_64xif"]
+[ext_resource type="PackedScene" uid="uid://cp7nhpv08qxsy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/bowl.gltf" id="207_ku3ma"]
+[ext_resource type="PackedScene" uid="uid://rkkr8p32r1rq" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/bowl_dirty.gltf" id="208_cbbni"]
+[ext_resource type="PackedScene" uid="uid://ckq1hyvu5au20" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/bowl_small.gltf" id="209_2foa7"]
+[ext_resource type="PackedScene" uid="uid://betmcij7am4gj" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/chair_A.gltf" id="210_hu78i"]
+[ext_resource type="PackedScene" uid="uid://bg7fsh33vwx2b" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/chair_B.gltf" id="211_gtq4b"]
+[ext_resource type="PackedScene" uid="uid://bwmgcsowjbdwf" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/chair_stool.gltf" id="212_wpe10"]
+[ext_resource type="PackedScene" uid="uid://pjt5lfsfb5pa" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate.gltf" id="213_lpuig"]
+[ext_resource type="PackedScene" uid="uid://ck6aaaqubrsj4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_buns.gltf" id="214_3lgwx"]
+[ext_resource type="PackedScene" uid="uid://ggb35c86uek2" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_carrots.gltf" id="215_k0ls6"]
+[ext_resource type="PackedScene" uid="uid://bya8gyqwpmeri" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_cheese.gltf" id="216_dhy4r"]
+[ext_resource type="PackedScene" uid="uid://qrkbwcce5hxv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_ham.gltf" id="217_ttfqq"]
+[ext_resource type="PackedScene" uid="uid://t3bjcjuk22gm" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_lettuce.gltf" id="218_gcjkb"]
+[ext_resource type="PackedScene" uid="uid://gvq406mrm6dx" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_lid.gltf" id="219_du7er"]
+[ext_resource type="PackedScene" uid="uid://dy3xnvjn3mrg4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_onions.gltf" id="220_ikxkl"]
+[ext_resource type="PackedScene" uid="uid://bakfvfojhcjc2" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_potatoes.gltf" id="221_bhqox"]
+[ext_resource type="PackedScene" uid="uid://dck4i4747tf3q" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_steak.gltf" id="222_hpe6j"]
+[ext_resource type="PackedScene" uid="uid://780dpfuhrx52" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/crate_tomatoes.gltf" id="223_iku6i"]
+[ext_resource type="PackedScene" uid="uid://bwqhp4ut0knlk" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/cuttingboard.gltf" id="224_j2310"]
+[ext_resource type="PackedScene" uid="uid://dd5c4v4n3paof" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/dishrack.gltf" id="225_esilm"]
+[ext_resource type="PackedScene" uid="uid://bmjm7indnc1uc" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/dishrack_plates.gltf" id="226_ih7to"]
+[ext_resource type="PackedScene" uid="uid://b3p0fwjg53ky4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/door_A.gltf" id="227_wfbim"]
+[ext_resource type="PackedScene" uid="uid://b8xmamvu1ihep" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/door_B.gltf" id="228_hc7b7"]
+[ext_resource type="PackedScene" uid="uid://duff83mm361yn" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/extractorhood.gltf" id="229_u2uxr"]
+[ext_resource type="PackedScene" uid="uid://cx72288adt3ys" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/floor_kitchen.gltf" id="230_kug03"]
+[ext_resource type="PackedScene" uid="uid://cqgij7jt2ovfa" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/floor_kitchen_small.gltf" id="231_ivmu1"]
+[ext_resource type="PackedScene" uid="uid://dk7r2a6mm8yt5" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_burger.gltf" id="232_5vvxp"]
+[ext_resource type="PackedScene" uid="uid://ct631io0soyg6" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_dinner.gltf" id="233_5mqg4"]
+[ext_resource type="PackedScene" uid="uid://rppbsklhehow" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_bun.gltf" id="234_oubit"]
+[ext_resource type="PackedScene" uid="uid://cbonrr78vkap6" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_bun_bottom.gltf" id="235_cv1yg"]
+[ext_resource type="PackedScene" uid="uid://ba1a3vywu1dng" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_bun_top.gltf" id="236_ycp26"]
+[ext_resource type="PackedScene" uid="uid://cwriftqrabcin" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_burger_cooked.gltf" id="237_6uli2"]
+[ext_resource type="PackedScene" uid="uid://s67wcgs608c0" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_burger_trash.gltf" id="238_nuxal"]
+[ext_resource type="PackedScene" uid="uid://3qe2sxg3e7e7" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_burger_uncooked.gltf" id="239_wxt1q"]
+[ext_resource type="PackedScene" uid="uid://dbmo8lhj68pi3" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_carrot.gltf" id="240_0ut7y"]
+[ext_resource type="PackedScene" uid="uid://dy2v5x05uw08v" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_carrot_chopped.gltf" id="241_g687b"]
+[ext_resource type="PackedScene" uid="uid://312rximae08l" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_carrot_pieces.gltf" id="242_svniy"]
+[ext_resource type="PackedScene" uid="uid://60qcy3oq3mys" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_cheese.gltf" id="243_aidgn"]
+[ext_resource type="PackedScene" uid="uid://bfq8fiki2vdv8" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_cheese_chopped.gltf" id="244_5w5mh"]
+[ext_resource type="PackedScene" uid="uid://cr1swk37vfsxi" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_cheese_slice.gltf" id="245_ml2t5"]
+[ext_resource type="PackedScene" uid="uid://c4plj7ywj6pqa" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_ham.gltf" id="246_mgftg"]
+[ext_resource type="PackedScene" uid="uid://d1uwyydhj1qj4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_ham_cooked.gltf" id="247_k5r7r"]
+[ext_resource type="PackedScene" uid="uid://87tf1w8maha1" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_ham_trash.gltf" id="248_wbmg0"]
+[ext_resource type="PackedScene" uid="uid://boy12gx7odsyc" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_lettuce.gltf" id="249_0u2hk"]
+[ext_resource type="PackedScene" uid="uid://bu3rckybv5v2r" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_lettuce_chopped.gltf" id="250_adenx"]
+[ext_resource type="PackedScene" uid="uid://drgx4xf8fhjpt" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_lettuce_slice.gltf" id="251_pr584"]
+[ext_resource type="PackedScene" uid="uid://6pillyxmd50f" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_onion.gltf" id="252_x73st"]
+[ext_resource type="PackedScene" uid="uid://c62ivig4qppsf" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_onion_chopped.gltf" id="253_3vq51"]
+[ext_resource type="PackedScene" uid="uid://bbdigq5re43ie" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_onion_rings.gltf" id="254_lhosq"]
+[ext_resource type="PackedScene" uid="uid://b4fvtpv05wyes" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_potato.gltf" id="255_vqyti"]
+[ext_resource type="PackedScene" uid="uid://cad1hygoy8jo7" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_potato_chopped.gltf" id="256_no6ca"]
+[ext_resource type="PackedScene" uid="uid://bbxl0c62iy3qs" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_potato_mashed.gltf" id="257_04btk"]
+[ext_resource type="PackedScene" uid="uid://coyeoxm3l1sa0" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_steak.gltf" id="258_wrmqo"]
+[ext_resource type="PackedScene" uid="uid://dplfyaxuxeggh" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_steak_pieces.gltf" id="259_0vga5"]
+[ext_resource type="PackedScene" uid="uid://bnd0aiurhdl3h" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_tomato.gltf" id="260_sfpxq"]
+[ext_resource type="PackedScene" uid="uid://41mjtgcscmh3" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_tomato_slice.gltf" id="261_3eh26"]
+[ext_resource type="PackedScene" uid="uid://c3vdnbt3n2c05" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_tomato_slices.gltf" id="262_jflbl"]
+[ext_resource type="PackedScene" uid="uid://nbvjcprau5vc" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_vegetableburger_cooked.gltf" id="263_ediie"]
+[ext_resource type="PackedScene" uid="uid://b10wgqnq3nki0" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_ingredient_vegetableburger_uncooked.gltf" id="264_1gapj"]
+[ext_resource type="PackedScene" uid="uid://50hwqltam5kp" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_stew.gltf" id="265_3pxw4"]
+[ext_resource type="PackedScene" uid="uid://bg4fhudpekdet" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/food_vegetableburger.gltf" id="266_fr4il"]
+[ext_resource type="PackedScene" uid="uid://m6vsuq00ky4m" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/fridge_A.gltf" id="267_oyoqf"]
+[ext_resource type="PackedScene" uid="uid://d10kkx8h217fr" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/fridge_A_decorated.gltf" id="268_yjtgw"]
+[ext_resource type="PackedScene" uid="uid://dugiwllmfbwew" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/fridge_B.gltf" id="269_2nysd"]
+[ext_resource type="PackedScene" uid="uid://cl3ai1yi1jqrw" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_A_large.gltf" id="270_jqr5o"]
+[ext_resource type="PackedScene" uid="uid://cnwbvuc0cmg6g" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_A_medium.gltf" id="271_k00gu"]
+[ext_resource type="PackedScene" uid="uid://b02nvqf1grjin" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_A_small.gltf" id="272_b2xea"]
+[ext_resource type="PackedScene" uid="uid://b6rcfsqewygut" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_B_large.gltf" id="273_hb6a2"]
+[ext_resource type="PackedScene" uid="uid://yxil3y35ulue" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_B_medium.gltf" id="274_q8vfj"]
+[ext_resource type="PackedScene" uid="uid://d02glg5bvb4eu" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_B_small.gltf" id="275_neafs"]
+[ext_resource type="PackedScene" uid="uid://cohbig56xol4u" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_C_large.gltf" id="276_qfwx2"]
+[ext_resource type="PackedScene" uid="uid://bkjmde43o2smv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_C_medium.gltf" id="277_pkn3n"]
+[ext_resource type="PackedScene" uid="uid://dgsdhdeg41fqy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_C_small.gltf" id="278_nub3f"]
+[ext_resource type="PackedScene" uid="uid://xqm8hkhhv8v0" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_D_large.gltf" id="279_3brib"]
+[ext_resource type="PackedScene" uid="uid://djdapuugjm4qe" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_D_medium.gltf" id="280_1y5q8"]
+[ext_resource type="PackedScene" uid="uid://c42i8op3xra0e" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/jar_D_small.gltf" id="281_ccxnh"]
+[ext_resource type="PackedScene" uid="uid://cw4ijeamnyykv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/ketchup.gltf" id="282_xktl4"]
+[ext_resource type="PackedScene" uid="uid://du8jdb4um2sq7" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencabinet.gltf" id="283_vgm3e"]
+[ext_resource type="PackedScene" uid="uid://b8p3o8dncdr75" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencabinet_corner.gltf" id="284_sa1s4"]
+[ext_resource type="PackedScene" uid="uid://hoocpksu73kf" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencabinet_corner_half.gltf" id="285_j1833"]
+[ext_resource type="PackedScene" uid="uid://cocwdtvnv054v" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencabinet_half.gltf" id="286_itm2f"]
+[ext_resource type="PackedScene" uid="uid://demmwyxk6ncev" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_innercorner.gltf" id="287_0v10u"]
+[ext_resource type="PackedScene" uid="uid://idrta4r62nw6" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_innercorner_backsplash.gltf" id="288_l1bvh"]
+[ext_resource type="PackedScene" uid="uid://bwoxb24b0a6ns" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_outercorner.gltf" id="289_j0ht4"]
+[ext_resource type="PackedScene" uid="uid://qas7usbjlhxc" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_outercorner_backsplash.gltf" id="290_y8xo7"]
+[ext_resource type="PackedScene" uid="uid://c2p82sjk62nul" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_sink.gltf" id="291_v670g"]
+[ext_resource type="PackedScene" uid="uid://bbygk8oh3tf8l" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_sink_backsplash.gltf" id="292_x1gj0"]
+[ext_resource type="PackedScene" uid="uid://4umnmg0inaus" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_A.gltf" id="293_l7y7e"]
+[ext_resource type="PackedScene" uid="uid://b3a5uob6tkfen" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_A_backsplash.gltf" id="294_rsxos"]
+[ext_resource type="PackedScene" uid="uid://djkflykpr8rfv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_A_decorated.gltf" id="295_6opgh"]
+[ext_resource type="PackedScene" uid="uid://q46taqh1wx1o" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_B.gltf" id="296_mgqib"]
+[ext_resource type="PackedScene" uid="uid://inscsqfil5nd" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_B_backsplash.gltf" id="297_eqask"]
+[ext_resource type="PackedScene" uid="uid://dvp7fgwwpbow3" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchencounter_straight_decorated.gltf" id="298_433va"]
+[ext_resource type="PackedScene" uid="uid://dmg67wpifa3pj" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_A.gltf" id="299_hu6io"]
+[ext_resource type="PackedScene" uid="uid://cu8emg65j7jdj" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_A_large.gltf" id="300_0us57"]
+[ext_resource type="PackedScene" uid="uid://c1iux2j4f5c0q" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_A_large_decorated.gltf" id="301_br7a2"]
+[ext_resource type="PackedScene" uid="uid://d2ldwk5m0gns1" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_B.gltf" id="302_s23b7"]
+[ext_resource type="PackedScene" uid="uid://dyqakcc7qjsjq" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_B_large.gltf" id="303_m0xm1"]
+[ext_resource type="PackedScene" uid="uid://bvivei1uv5ncm" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_sink.gltf" id="304_ojumw"]
+[ext_resource type="PackedScene" uid="uid://5ucwq74xn27d" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_sink_large.gltf" id="305_c8qvx"]
+[ext_resource type="PackedScene" uid="uid://bfga7c1vphhjj" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/kitchentable_sink_large_decorated.gltf" id="306_kycnx"]
+[ext_resource type="PackedScene" uid="uid://du4gbiymoc3ic" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/knife.gltf" id="307_m3y0r"]
+[ext_resource type="PackedScene" uid="uid://cgaohurwfhwfo" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/lid_A.gltf" id="308_jb28y"]
+[ext_resource type="PackedScene" uid="uid://h3hah7cdltel" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/lid_B.gltf" id="309_ma40m"]
+[ext_resource type="PackedScene" uid="uid://dhdsgti7t6j8g" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/lid_large.gltf" id="310_ckkwd"]
+[ext_resource type="PackedScene" uid="uid://du4yic0denc55" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/menu.gltf" id="311_2kf68"]
+[ext_resource type="PackedScene" uid="uid://w0q211nsr5fy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/mustard.gltf" id="312_t41t0"]
+[ext_resource type="PackedScene" uid="uid://odvf26muq1xw" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/oven.gltf" id="313_ftbv6"]
+[ext_resource type="PackedScene" uid="uid://cd2b76clofeg4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pan_006.gltf" id="314_vognp"]
+[ext_resource type="PackedScene" uid="uid://c0cx3xyh25tfy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pan_A.gltf" id="315_pdxdl"]
+[ext_resource type="PackedScene" uid="uid://cibcxg7vsa7vy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pan_B.gltf" id="316_sa3gk"]
+[ext_resource type="PackedScene" uid="uid://b5l2gg0al362c" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/papertowel.gltf" id="317_pdpgk"]
+[ext_resource type="PackedScene" uid="uid://dxks1mpg3jyxc" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pillar_A.gltf" id="318_5af54"]
+[ext_resource type="PackedScene" uid="uid://gee0rhcjdvbo" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pillar_B.gltf" id="319_2farx"]
+[ext_resource type="PackedScene" uid="uid://ky3jye0epryn" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/plate.gltf" id="320_7ukf8"]
+[ext_resource type="PackedScene" uid="uid://bfnrs3gmh8ymy" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/plate_dirty.gltf" id="321_fn4a3"]
+[ext_resource type="PackedScene" uid="uid://bgym3n86pcd4l" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/plate_small.gltf" id="322_4wo50"]
+[ext_resource type="PackedScene" uid="uid://q1v8x51nc3ta" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pot_A.gltf" id="323_hgma0"]
+[ext_resource type="PackedScene" uid="uid://csakhntumt7bb" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pot_A_stew.gltf" id="324_gd31r"]
+[ext_resource type="PackedScene" uid="uid://bdr2oa01o8e4j" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pot_B.gltf" id="325_dq3bs"]
+[ext_resource type="PackedScene" uid="uid://ca70dm5gjqow7" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pot_B_stew.gltf" id="326_nkwt1"]
+[ext_resource type="PackedScene" uid="uid://n6oytbcoyr6d" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/pot_large.gltf" id="327_fvg7o"]
+[ext_resource type="PackedScene" uid="uid://c61lnsln5ewo4" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/shelf_papertowel.gltf" id="328_2g28v"]
+[ext_resource type="PackedScene" uid="uid://m8eqfmp4y2xo" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/shelf_papertowel_decorated.gltf" id="329_eksnh"]
+[ext_resource type="PackedScene" uid="uid://b8illgsjb0sne" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stew_bowl.gltf" id="330_twr1g"]
+[ext_resource type="PackedScene" uid="uid://dae33xexp5a0t" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stew_pot.gltf" id="331_c8vyh"]
+[ext_resource type="PackedScene" uid="uid://cgun0kui34swb" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stove_multi.gltf" id="332_ds2fb"]
+[ext_resource type="PackedScene" uid="uid://otmi67eajs0d" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stove_multi_countertop.gltf" id="333_j28tc"]
+[ext_resource type="PackedScene" uid="uid://bv75mu3beyum0" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stove_multi_decorated.gltf" id="334_am43f"]
+[ext_resource type="PackedScene" uid="uid://mxga3hl2unml" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stove_single.gltf" id="335_8j4p8"]
+[ext_resource type="PackedScene" uid="uid://c85n0tonl6nlo" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/stove_single_countertop.gltf" id="336_cinhf"]
+[ext_resource type="PackedScene" uid="uid://p8mnmcqryqr5" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/table_round_A.gltf" id="337_ftbet"]
+[ext_resource type="PackedScene" uid="uid://djuvpkl1bjonv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/table_round_A_decorated.gltf" id="338_7w14g"]
+[ext_resource type="PackedScene" uid="uid://chnas4jrwvddx" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/table_round_A_small.gltf" id="339_ko506"]
+[ext_resource type="PackedScene" uid="uid://c1hrgxtulsk68" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/table_round_A_small_decorated.gltf" id="340_5ef5y"]
+[ext_resource type="PackedScene" uid="uid://ye1mnrsnc5v6" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/table_round_B.gltf" id="341_c687x"]
+[ext_resource type="PackedScene" uid="uid://dxk2ucmqjbqsx" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/towelrail.gltf" id="342_85x7d"]
+[ext_resource type="PackedScene" uid="uid://jbmr34ti6ch6" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall.gltf" id="343_2slpo"]
+[ext_resource type="PackedScene" uid="uid://dw2nrrsjyf5rm" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_decorated.gltf" id="344_bj0x0"]
+[ext_resource type="PackedScene" uid="uid://b0pql8gmbm0wr" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_doorway.gltf" id="345_b4bb3"]
+[ext_resource type="PackedScene" uid="uid://cj0yxe5bf6sap" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_half.gltf" id="346_t07xe"]
+[ext_resource type="PackedScene" uid="uid://bp81lstso5no1" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_orderwindow.gltf" id="347_6dnoc"]
+[ext_resource type="PackedScene" uid="uid://1ktary4atyqv" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_orderwindow_decorated.gltf" id="348_csp8h"]
+[ext_resource type="PackedScene" uid="uid://brn0rv3vv3slt" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_window_closed.gltf" id="349_q7g4w"]
+[ext_resource type="PackedScene" uid="uid://bfuebrkddiqp2" path="res://assets/materials/Kaykit_Assets/Restaurant/Assets/gltf/wall_window_open.gltf" id="350_pul7h"]
+[ext_resource type="PackedScene" uid="uid://b3ygcqlyenxpy" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamBlue.gltf.glb" id="351_djgcx"]
+[ext_resource type="PackedScene" uid="uid://bl4pshvmrbr30" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamRed.gltf.glb" id="352_nhp71"]
+[ext_resource type="PackedScene" uid="uid://dlsmn0r4bgy45" path="res://assets/materials/Kaykit_Assets/VarietyGame/arrow_teamYellow.gltf.glb" id="353_knt3v"]
+[ext_resource type="PackedScene" uid="uid://cobb1nxu6a6pp" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball.gltf.glb" id="354_vc0cw"]
+[ext_resource type="PackedScene" uid="uid://b0nv0gcfwjo1o" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamBlue.gltf.glb" id="355_xxx11"]
+[ext_resource type="PackedScene" uid="uid://dc2kp01pe3ndd" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamRed.gltf.glb" id="356_0phr3"]
+[ext_resource type="PackedScene" uid="uid://b6iq8pw4aeu02" path="res://assets/materials/Kaykit_Assets/VarietyGame/ball_teamYellow.gltf.glb" id="357_7ehws"]
+[ext_resource type="PackedScene" uid="uid://bhkh4bwjbta1s" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierFloor.gltf.glb" id="358_mddte"]
+[ext_resource type="PackedScene" uid="uid://dp4u5gief2rll" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierLadder.gltf.glb" id="359_6yisp"]
+[ext_resource type="PackedScene" uid="uid://cpvfqehklsnpi" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierLarge.gltf.glb" id="360_ww1os"]
+[ext_resource type="PackedScene" uid="uid://bk4yft20cf2f2" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierMedium.gltf.glb" id="361_isbfu"]
+[ext_resource type="PackedScene" uid="uid://douan5t33yei8" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierSmall.gltf.glb" id="362_tkj6a"]
+[ext_resource type="PackedScene" uid="uid://bv71fx47edpwl" path="res://assets/materials/Kaykit_Assets/VarietyGame/barrierStrut.gltf.glb" id="363_rfw82"]
+[ext_resource type="PackedScene" uid="uid://b34xqv71cl07t" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamBlue.gltf.glb" id="364_iixmy"]
+[ext_resource type="PackedScene" uid="uid://cqpakk5gvlyr" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamRed.gltf.glb" id="365_kex27"]
+[ext_resource type="PackedScene" uid="uid://b4tmqncphworl" path="res://assets/materials/Kaykit_Assets/VarietyGame/blaster_teamYellow.gltf.glb" id="366_dsg86"]
+[ext_resource type="PackedScene" uid="uid://c1tufvwggpncy" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamBlue.gltf.glb" id="367_2ag38"]
+[ext_resource type="PackedScene" uid="uid://cwd2doe01dwra" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamRed.gltf.glb" id="368_anpda"]
+[ext_resource type="PackedScene" uid="uid://dex5euseouo2g" path="res://assets/materials/Kaykit_Assets/VarietyGame/bomb_teamYellow.gltf.glb" id="369_nsym1"]
+[ext_resource type="PackedScene" uid="uid://c27foykm621r3" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamBlue.gltf.glb" id="370_8oft4"]
+[ext_resource type="PackedScene" uid="uid://bj35ijqn56m4q" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamRed.gltf.glb" id="371_hf2bd"]
+[ext_resource type="PackedScene" uid="uid://blttpec5vrce8" path="res://assets/materials/Kaykit_Assets/VarietyGame/bow_teamYellow.gltf.glb" id="372_jg4h2"]
+[ext_resource type="PackedScene" uid="uid://081t01gw3awx" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamBlue.gltf.glb" id="373_2foma"]
+[ext_resource type="PackedScene" uid="uid://bfi8vu86rx37p" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamRed.gltf.glb" id="374_fti1e"]
+[ext_resource type="PackedScene" uid="uid://d0hq3xet8ccd5" path="res://assets/materials/Kaykit_Assets/VarietyGame/button_teamYellow.gltf.glb" id="375_rudrw"]
+[ext_resource type="PackedScene" uid="uid://c7g8pm2qctt2i" path="res://assets/materials/Kaykit_Assets/VarietyGame/characer_duck.gltf.glb" id="376_e048x"]
+[ext_resource type="PackedScene" uid="uid://dt8b5dtmpldf0" path="res://assets/materials/Kaykit_Assets/VarietyGame/character_bear.gltf.glb" id="377_gxqbw"]
+[ext_resource type="PackedScene" uid="uid://gxh57d2brr60" path="res://assets/materials/Kaykit_Assets/VarietyGame/character_dog.gltf.glb" id="378_nvvjd"]
+[ext_resource type="PackedScene" uid="uid://djdkaa6sigl5w" path="res://assets/materials/Kaykit_Assets/VarietyGame/detail_desert.gltf.glb" id="379_kmqna"]
+[ext_resource type="PackedScene" uid="uid://klmhxja3he6c" path="res://assets/materials/Kaykit_Assets/VarietyGame/detail_forest.gltf.glb" id="380_520qg"]
+[ext_resource type="PackedScene" uid="uid://qa8almgmp165" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamBlue.gltf.glb" id="381_srwna"]
+[ext_resource type="PackedScene" uid="uid://cjh3hugluvo11" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamRed.gltf.glb" id="382_bllsx"]
+[ext_resource type="PackedScene" uid="uid://wx051bicf36r" path="res://assets/materials/Kaykit_Assets/VarietyGame/diamond_teamYellow.gltf.glb" id="383_avm3o"]
+[ext_resource type="PackedScene" uid="uid://bj3ic35hubvrj" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamBlue.gltf.glb" id="384_s8naw"]
+[ext_resource type="PackedScene" uid="uid://d0u24e3mnc1qo" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamRed.gltf.glb" id="385_smcwv"]
+[ext_resource type="PackedScene" uid="uid://c003q0igafw83" path="res://assets/materials/Kaykit_Assets/VarietyGame/flag_teamYellow.gltf.glb" id="386_gwf3m"]
+[ext_resource type="PackedScene" uid="uid://bg15c6u6g0uy0" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamBlue.gltf.glb" id="387_gj6j4"]
+[ext_resource type="PackedScene" uid="uid://dpnqqnslg3vok" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamRed.gltf.glb" id="388_ye3a6"]
+[ext_resource type="PackedScene" uid="uid://c5wm7rhaawkqf" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLargeWide_teamYellow.gltf.glb" id="389_dcgiu"]
+[ext_resource type="PackedScene" uid="uid://bfn5hgbwm0w2k" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamBlue.gltf.glb" id="390_2e1ck"]
+[ext_resource type="PackedScene" uid="uid://dats71oowq58j" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamRed.gltf.glb" id="391_umt4w"]
+[ext_resource type="PackedScene" uid="uid://b3njxildw0hkp" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateLarge_teamYellow.gltf.glb" id="392_1d0hm"]
+[ext_resource type="PackedScene" uid="uid://dgj8xx58ll68d" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamBlue.gltf.glb" id="393_t2gtp"]
+[ext_resource type="PackedScene" uid="uid://2821mncoekep" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamRed.gltf.glb" id="394_yktwe"]
+[ext_resource type="PackedScene" uid="uid://cjpwg0dcm1tbw" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmallWide_teamYellow.gltf.glb" id="395_rmj65"]
+[ext_resource type="PackedScene" uid="uid://gvawtrx6kub1" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamBlue.gltf.glb" id="396_3ok2w"]
+[ext_resource type="PackedScene" uid="uid://4wngvqstpaj7" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamRed.gltf.glb" id="397_xhmp6"]
+[ext_resource type="PackedScene" uid="uid://dd20jsxnfdm5q" path="res://assets/materials/Kaykit_Assets/VarietyGame/gateSmall_teamYellow.gltf.glb" id="398_ckbp5"]
+[ext_resource type="PackedScene" uid="uid://bxq5vmq5iw6lt" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamBlue.gltf.glb" id="399_2sp71"]
+[ext_resource type="PackedScene" uid="uid://hl8gf1artxqn" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamRed.gltf.glb" id="400_qrh06"]
+[ext_resource type="PackedScene" uid="uid://bulkq04gu357e" path="res://assets/materials/Kaykit_Assets/VarietyGame/heart_teamYellow.gltf.glb" id="401_x3f8v"]
+[ext_resource type="PackedScene" uid="uid://l5g3bs8b7308" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamBlue.gltf.glb" id="402_ltdp4"]
+[ext_resource type="PackedScene" uid="uid://b0alfdmurx80d" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamRed.gltf.glb" id="403_47er5"]
+[ext_resource type="PackedScene" uid="uid://cfn0aq31nrg1k" path="res://assets/materials/Kaykit_Assets/VarietyGame/hoop_teamYellow.gltf.glb" id="404_wl7o3"]
+[ext_resource type="PackedScene" uid="uid://bdlpird74y0t2" path="res://assets/materials/Kaykit_Assets/VarietyGame/lightning.gltf.glb" id="405_pus8b"]
+[ext_resource type="PackedScene" uid="uid://bfie1aewykpci" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantA_desert.gltf.glb" id="406_ukj3t"]
+[ext_resource type="PackedScene" uid="uid://s4au4bxhk2cr" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantA_forest.gltf.glb" id="407_3iykm"]
+[ext_resource type="PackedScene" uid="uid://f6wbc7jfx1ye" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantB_desert.gltf.glb" id="408_g6aav"]
+[ext_resource type="PackedScene" uid="uid://d253pq60nqt0q" path="res://assets/materials/Kaykit_Assets/VarietyGame/plantB_forest.gltf.glb" id="409_wy8fy"]
+[ext_resource type="PackedScene" uid="uid://da60ss0wtfig2" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamBlue.gltf.glb" id="410_6vwgq"]
+[ext_resource type="PackedScene" uid="uid://bic3v8ikkblr8" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamRed.gltf.glb" id="411_7nhpe"]
+[ext_resource type="PackedScene" uid="uid://b4mrfrkjyuqd5" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBlock_teamYellow.gltf.glb" id="412_47n7i"]
+[ext_resource type="PackedScene" uid="uid://cfnd3fj180yw" path="res://assets/materials/Kaykit_Assets/VarietyGame/powerupBomb.gltf.glb" id="413_1734v"]
+[ext_resource type="PackedScene" uid="uid://2d6eya8grrkn" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamBlue.gltf.glb" id="414_o7yy3"]
+[ext_resource type="PackedScene" uid="uid://b7vhwoc0mmh1y" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamRed.gltf.glb" id="415_lcijm"]
+[ext_resource type="PackedScene" uid="uid://clet43fgt6sjg" path="res://assets/materials/Kaykit_Assets/VarietyGame/ring_teamYellow.gltf.glb" id="416_gj6aj"]
+[ext_resource type="PackedScene" uid="uid://djgha2wllmy6d" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksA_desert.gltf.glb" id="417_whmwk"]
+[ext_resource type="PackedScene" uid="uid://c4pugcsi3y4hb" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksA_forest.gltf.glb" id="418_6o5k7"]
+[ext_resource type="PackedScene" uid="uid://d3f6buraeevs7" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksB_desert.gltf.glb" id="419_ccals"]
+[ext_resource type="PackedScene" uid="uid://duxqmhpxdv6a1" path="res://assets/materials/Kaykit_Assets/VarietyGame/rocksB_forest.gltf.glb" id="420_dbbqh"]
+[ext_resource type="PackedScene" uid="uid://ctj8gi5ve0xpi" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamBlue.gltf.glb" id="421_ejixw"]
+[ext_resource type="PackedScene" uid="uid://4tly88mrtj1s" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamRed.gltf.glb" id="422_hb4sv"]
+[ext_resource type="PackedScene" uid="uid://bek23yp5e8wta" path="res://assets/materials/Kaykit_Assets/VarietyGame/slingshot_teamYellow.gltf.glb" id="423_xeugm"]
+[ext_resource type="PackedScene" uid="uid://b8ta304k5j6vo" path="res://assets/materials/Kaykit_Assets/VarietyGame/spikeRoller.gltf.glb" id="424_jo3tq"]
+[ext_resource type="PackedScene" uid="uid://bomf2yx7kfvpy" path="res://assets/materials/Kaykit_Assets/VarietyGame/star.gltf.glb" id="425_wjstx"]
+[ext_resource type="PackedScene" uid="uid://cy2usl6818uu3" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamBlue.gltf.glb" id="426_d3sik"]
+[ext_resource type="PackedScene" uid="uid://dixfjkdoqvcru" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamRed.gltf.glb" id="427_nn47w"]
+[ext_resource type="PackedScene" uid="uid://dx1ixp3rpy6es" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperDouble_teamYellow.gltf.glb" id="428_2jnwc"]
+[ext_resource type="PackedScene" uid="uid://cqmcaplh36t4c" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamBlue.gltf.glb" id="429_jlypo"]
+[ext_resource type="PackedScene" uid="uid://q3k2u3mh7vxo" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamRed.gltf.glb" id="430_0df5a"]
+[ext_resource type="PackedScene" uid="uid://fmrqw1k6mbgw" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiperLong_teamYellow.gltf.glb" id="431_nmduh"]
+[ext_resource type="PackedScene" uid="uid://wsq5x78chkrf" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamBlue.gltf.glb" id="432_lcusj"]
+[ext_resource type="PackedScene" uid="uid://cwlmi2dguqx06" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamRed.gltf.glb" id="433_wwvon"]
+[ext_resource type="PackedScene" uid="uid://15cjjp7p3ewr" path="res://assets/materials/Kaykit_Assets/VarietyGame/swiper_teamYellow.gltf.glb" id="434_xcmt0"]
+[ext_resource type="PackedScene" uid="uid://dwlm11n8xcsu4" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamBlue.gltf.glb" id="435_gwa7s"]
+[ext_resource type="PackedScene" uid="uid://csmu5ffrm5714" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamRed.gltf.glb" id="436_0sar4"]
+[ext_resource type="PackedScene" uid="uid://8m7l180w7ltv" path="res://assets/materials/Kaykit_Assets/VarietyGame/sword_teamYellow.gltf.glb" id="437_y01y4"]
+[ext_resource type="PackedScene" uid="uid://cb40jmuovxx53" path="res://assets/materials/Kaykit_Assets/VarietyGame/target.gltf.glb" id="438_iqviq"]
+[ext_resource type="PackedScene" uid="uid://5kf6e1twn4kt" path="res://assets/materials/Kaykit_Assets/VarietyGame/targetStand.gltf.glb" id="439_7qlff"]
+[ext_resource type="PackedScene" uid="uid://dvblbk01o1wba" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_desert.gltf.glb" id="440_jw3x0"]
+[ext_resource type="PackedScene" uid="uid://leworkem0pcb" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_forest.gltf.glb" id="441_07e1q"]
+[ext_resource type="PackedScene" uid="uid://c3nc37gifss2x" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamBlue.gltf.glb" id="442_g650c"]
+[ext_resource type="PackedScene" uid="uid://ctm1xbg2mjw5e" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamRed.gltf.glb" id="443_m3abt"]
+[ext_resource type="PackedScene" uid="uid://dh4r55h7a0gjx" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileHigh_teamYellow.gltf.glb" id="444_odih4"]
+[ext_resource type="PackedScene" uid="uid://dwdflxbgags8j" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_desert.gltf.glb" id="445_mh1ir"]
+[ext_resource type="PackedScene" uid="uid://dmiojsqw8lq20" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_forest.gltf.glb" id="446_h6jjx"]
+[ext_resource type="PackedScene" uid="uid://cvjw4yly1pa0k" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamBlue.gltf.glb" id="447_xn6rp"]
+[ext_resource type="PackedScene" uid="uid://dnwt0d7jv2wsd" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamRed.gltf.glb" id="448_h5yo0"]
+[ext_resource type="PackedScene" uid="uid://bil4hyx24fanb" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLarge_teamYellow.gltf.glb" id="449_k4hhi"]
+[ext_resource type="PackedScene" uid="uid://od5ef6wfmfry" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_desert.gltf.glb" id="450_t020n"]
+[ext_resource type="PackedScene" uid="uid://rw0130dutw4w" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_forest.gltf.glb" id="451_gfs1u"]
+[ext_resource type="PackedScene" uid="uid://4xr7dhqdgn7d" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamBlue.gltf.glb" id="452_st2jj"]
+[ext_resource type="PackedScene" uid="uid://b8652oihowom8" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamRed.gltf.glb" id="453_3pgvp"]
+[ext_resource type="PackedScene" uid="uid://50lryp1sntbu" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileLow_teamYellow.gltf.glb" id="454_p4hll"]
+[ext_resource type="PackedScene" uid="uid://5e1bhoek7xy0" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_desert.gltf.glb" id="455_br8pj"]
+[ext_resource type="PackedScene" uid="uid://cfn4ilec1x73b" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_forest.gltf.glb" id="456_uh4ch"]
+[ext_resource type="PackedScene" uid="uid://cddra2b6cnhde" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamBlue.gltf.glb" id="457_p44d4"]
+[ext_resource type="PackedScene" uid="uid://bon6lmvgoilu" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamRed.gltf.glb" id="458_355dx"]
+[ext_resource type="PackedScene" uid="uid://bmoaveparx85h" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileMedium_teamYellow.gltf.glb" id="459_s6rdf"]
+[ext_resource type="PackedScene" uid="uid://jpbuxpqjqyfo" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_desert.gltf.glb" id="460_wsgpw"]
+[ext_resource type="PackedScene" uid="uid://dlcr2llkfvuok" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_forest.gltf.glb" id="461_igtta"]
+[ext_resource type="PackedScene" uid="uid://bs50rxtrbcig6" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamBlue.gltf.glb" id="462_86y62"]
+[ext_resource type="PackedScene" uid="uid://rf74msubub6h" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamRed.gltf.glb" id="463_mwaer"]
+[ext_resource type="PackedScene" uid="uid://detegx5g5momc" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowHigh_teamYellow.gltf.glb" id="464_omjk4"]
+[ext_resource type="PackedScene" uid="uid://b6u8fafnqjup6" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium._teamRed.gltf.glb" id="465_dx352"]
+[ext_resource type="PackedScene" uid="uid://d3426nrn1u0ag" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_desert.gltf.glb" id="466_0g8pg"]
+[ext_resource type="PackedScene" uid="uid://dkvc5ha7auhpl" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_forest.gltf.glb" id="467_qy656"]
+[ext_resource type="PackedScene" uid="uid://w16j0x72kkwp" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_teamBlue.gltf.glb" id="468_a0thb"]
+[ext_resource type="PackedScene" uid="uid://5gcb4n604nhp" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeLowMedium_teamYellow.gltf.glb" id="469_jtc2h"]
+[ext_resource type="PackedScene" uid="uid://jvxer7j1yv4p" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_desert.gltf.glb" id="470_jk43y"]
+[ext_resource type="PackedScene" uid="uid://clb81f83sme5e" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_forest.gltf.glb" id="471_s07s3"]
+[ext_resource type="PackedScene" uid="uid://2mqdvyno27tv" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamBlue.gltf.glb" id="472_86v6b"]
+[ext_resource type="PackedScene" uid="uid://btatl4qgyplm0" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamRed.gltf.glb" id="473_b7avh"]
+[ext_resource type="PackedScene" uid="uid://cir2dqbrnbims" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSlopeMediumHigh_teamYellow.gltf.glb" id="474_eonv8"]
+[ext_resource type="PackedScene" uid="uid://bbbhip1504yi1" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_desert.gltf.glb" id="475_1uis8"]
+[ext_resource type="PackedScene" uid="uid://nq4bcmthcewl" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_forest.gltf.glb" id="476_qaf08"]
+[ext_resource type="PackedScene" uid="uid://cluky30ympdxa" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamBlue.gltf.glb" id="477_7vc4j"]
+[ext_resource type="PackedScene" uid="uid://b8o21i77dynvh" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamRed.gltf.glb" id="478_37h4r"]
+[ext_resource type="PackedScene" uid="uid://dx0d5b3b7qsag" path="res://assets/materials/Kaykit_Assets/VarietyGame/tileSmall_teamYellow.gltf.glb" id="479_51iuv"]
+[ext_resource type="PackedScene" uid="uid://djpmgrt4wl7cm" path="res://assets/materials/Kaykit_Assets/VarietyGame/tree_desert.gltf.glb" id="480_50dij"]
+[ext_resource type="PackedScene" uid="uid://bqbv1vucq2gwh" path="res://assets/materials/Kaykit_Assets/VarietyGame/tree_forest.gltf.glb" id="481_qkvmp"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bricks_A2" parent="." instance=ExtResource("1_0w1jv")]
+
+[node name="bricks_B2" parent="." instance=ExtResource("2_6oy7p")]
+
+[node name="colored_block_blue2" parent="." instance=ExtResource("3_hlrr2")]
+
+[node name="colored_block_green2" parent="." instance=ExtResource("4_eunhf")]
+
+[node name="colored_block_red2" parent="." instance=ExtResource("5_o2yp1")]
+
+[node name="colored_block_yellow2" parent="." instance=ExtResource("6_8mign")]
+
+[node name="decorative_block_blue2" parent="." instance=ExtResource("7_trfcl")]
+
+[node name="decorative_block_green2" parent="." instance=ExtResource("8_0s0m5")]
+
+[node name="decorative_block_red2" parent="." instance=ExtResource("9_ky8gk")]
+
+[node name="decorative_block_yellow2" parent="." instance=ExtResource("10_yxaeu")]
+
+[node name="dirt2" parent="." instance=ExtResource("11_scmjp")]
+
+[node name="dirt_with_grass2" parent="." instance=ExtResource("12_q4jrf")]
+
+[node name="dirt_with_snow2" parent="." instance=ExtResource("13_u040x")]
+
+[node name="glass2" parent="." instance=ExtResource("14_jnfq4")]
+
+[node name="grass2" parent="." instance=ExtResource("15_xdn46")]
+
+[node name="grass_with_snow2" parent="." instance=ExtResource("16_sq4g3")]
+
+[node name="gravel2" parent="." instance=ExtResource("17_2dfqr")]
+
+[node name="gravel_with_grass2" parent="." instance=ExtResource("18_ew0yh")]
+
+[node name="gravel_with_snow2" parent="." instance=ExtResource("19_f0xhh")]
+
+[node name="lava2" parent="." instance=ExtResource("20_3c440")]
+
+[node name="metal2" parent="." instance=ExtResource("21_bk3hx")]
+
+[node name="prototype2" parent="." instance=ExtResource("22_e2rox")]
+
+[node name="sand_A2" parent="." instance=ExtResource("23_5o5ma")]
+
+[node name="sand_B2" parent="." instance=ExtResource("24_gmkfj")]
+
+[node name="sand_with_grass2" parent="." instance=ExtResource("25_dmo4f")]
+
+[node name="sand_with_snow2" parent="." instance=ExtResource("26_17a28")]
+
+[node name="snow2" parent="." instance=ExtResource("27_xgc23")]
+
+[node name="stone2" parent="." instance=ExtResource("28_lokie")]
+
+[node name="stone_dark2" parent="." instance=ExtResource("29_dcbdo")]
+
+[node name="stone_with_copper2" parent="." instance=ExtResource("30_3a2s6")]
+
+[node name="stone_with_gold2" parent="." instance=ExtResource("31_r6h3o")]
+
+[node name="stone_with_silver2" parent="." instance=ExtResource("32_8cqyf")]
+
+[node name="striped_block_blue2" parent="." instance=ExtResource("33_7tniw")]
+
+[node name="striped_block_green2" parent="." instance=ExtResource("34_xvu6b")]
+
+[node name="striped_block_red2" parent="." instance=ExtResource("35_22p8q")]
+
+[node name="striped_block_yellow2" parent="." instance=ExtResource("36_xsnwe")]
+
+[node name="tree2" parent="." instance=ExtResource("37_imol3")]
+
+[node name="tree_with_snow2" parent="." instance=ExtResource("38_20fra")]
+
+[node name="water2" parent="." instance=ExtResource("39_cnqks")]
+
+[node name="wood2" parent="." instance=ExtResource("40_0uhl6")]
+
+[node name="base2" parent="." instance=ExtResource("41_r618b")]
+
+[node name="bench2" parent="." instance=ExtResource("42_xq1v7")]
+
+[node name="box_A2" parent="." instance=ExtResource("43_bsrhw")]
+
+[node name="box_B2" parent="." instance=ExtResource("44_pxrp0")]
+
+[node name="building_A2" parent="." instance=ExtResource("45_vilwp")]
+
+[node name="building_A_withoutBase2" parent="." instance=ExtResource("46_5ract")]
+
+[node name="building_B2" parent="." instance=ExtResource("47_ipgov")]
+
+[node name="building_B_withoutBase2" parent="." instance=ExtResource("48_6jl6r")]
+
+[node name="building_C2" parent="." instance=ExtResource("49_7pfbv")]
+
+[node name="building_C_withoutBase2" parent="." instance=ExtResource("50_dabjo")]
+
+[node name="building_D2" parent="." instance=ExtResource("51_w3v32")]
+
+[node name="building_D_withoutBase2" parent="." instance=ExtResource("52_fqti1")]
+
+[node name="building_E2" parent="." instance=ExtResource("53_3p4vg")]
+
+[node name="building_E_withoutBase2" parent="." instance=ExtResource("54_26shd")]
+
+[node name="building_F2" parent="." instance=ExtResource("55_pyfbq")]
+
+[node name="building_F_withoutBase2" parent="." instance=ExtResource("56_fxh42")]
+
+[node name="building_G2" parent="." instance=ExtResource("57_ayuv1")]
+
+[node name="building_G_withoutBase2" parent="." instance=ExtResource("58_pk8ss")]
+
+[node name="building_H2" parent="." instance=ExtResource("59_5k2be")]
+
+[node name="building_H_withoutBase2" parent="." instance=ExtResource("60_opw0v")]
+
+[node name="bush2" parent="." instance=ExtResource("61_ntf3u")]
+
+[node name="car_hatchback2" parent="." instance=ExtResource("62_3yohy")]
+
+[node name="car_police2" parent="." instance=ExtResource("63_fllof")]
+
+[node name="car_sedan2" parent="." instance=ExtResource("64_2kqrd")]
+
+[node name="car_stationwagon2" parent="." instance=ExtResource("65_p2ahg")]
+
+[node name="car_taxi2" parent="." instance=ExtResource("66_18yf8")]
+
+[node name="dumpster2" parent="." instance=ExtResource("67_yfsqi")]
+
+[node name="firehydrant2" parent="." instance=ExtResource("68_jqlxy")]
+
+[node name="road_corner2" parent="." instance=ExtResource("69_uu0gl")]
+
+[node name="road_corner_curved2" parent="." instance=ExtResource("70_1w21b")]
+
+[node name="road_junction2" parent="." instance=ExtResource("71_ow5sp")]
+
+[node name="road_straight2" parent="." instance=ExtResource("72_8i1an")]
+
+[node name="road_straight_crossing2" parent="." instance=ExtResource("73_a221r")]
+
+[node name="road_tsplit2" parent="." instance=ExtResource("74_7ii83")]
+
+[node name="streetlight2" parent="." instance=ExtResource("75_rttfw")]
+
+[node name="trafficlight_A2" parent="." instance=ExtResource("76_kcxe2")]
+
+[node name="trafficlight_B2" parent="." instance=ExtResource("77_dmyd5")]
+
+[node name="trafficlight_C2" parent="." instance=ExtResource("78_cjd6p")]
+
+[node name="trash_A2" parent="." instance=ExtResource("79_xiofc")]
+
+[node name="trash_B2" parent="." instance=ExtResource("80_ucdmi")]
+
+[node name="watertower2" parent="." instance=ExtResource("81_0mja7")]
+
+[node name="armchair2" parent="." instance=ExtResource("82_lkyd8")]
+
+[node name="armchair_pillows2" parent="." instance=ExtResource("83_saneb")]
+
+[node name="bed_double_A2" parent="." instance=ExtResource("84_ynyy1")]
+
+[node name="bed_double_B2" parent="." instance=ExtResource("85_nxvd1")]
+
+[node name="bed_single_A2" parent="." instance=ExtResource("86_2o4my")]
+
+[node name="bed_single_B2" parent="." instance=ExtResource("87_sl2p5")]
+
+[node name="book_set2" parent="." instance=ExtResource("88_kdpfc")]
+
+[node name="book_single2" parent="." instance=ExtResource("89_gvw6e")]
+
+[node name="cabinet_medium2" parent="." instance=ExtResource("90_wl4ov")]
+
+[node name="cabinet_medium_decorated2" parent="." instance=ExtResource("91_wqv6p")]
+
+[node name="cabinet_small2" parent="." instance=ExtResource("92_ij0lw")]
+
+[node name="cabinet_small_decorated2" parent="." instance=ExtResource("93_o31wf")]
+
+[node name="cactus_medium_A2" parent="." instance=ExtResource("94_lwql6")]
+
+[node name="cactus_medium_B2" parent="." instance=ExtResource("95_sv3o8")]
+
+[node name="cactus_small_A2" parent="." instance=ExtResource("96_vuyqv")]
+
+[node name="cactus_small_B2" parent="." instance=ExtResource("97_iv3jd")]
+
+[node name="chair_A2" parent="." instance=ExtResource("98_lpm85")]
+
+[node name="chair_A_wood2" parent="." instance=ExtResource("99_o1j2l")]
+
+[node name="chair_B2" parent="." instance=ExtResource("100_q7s1p")]
+
+[node name="chair_B_wood2" parent="." instance=ExtResource("101_klxo1")]
+
+[node name="chair_C2" parent="." instance=ExtResource("102_5k3lb")]
+
+[node name="chair_stool2" parent="." instance=ExtResource("103_2g6ds")]
+
+[node name="chair_stool_wood2" parent="." instance=ExtResource("104_pwpyr")]
+
+[node name="couch2" parent="." instance=ExtResource("105_h3uuc")]
+
+[node name="couch_pillows2" parent="." instance=ExtResource("106_ls8k8")]
+
+[node name="lamp_standing2" parent="." instance=ExtResource("107_2kaqg")]
+
+[node name="lamp_table2" parent="." instance=ExtResource("108_tvs0k")]
+
+[node name="pictureframe_large_A2" parent="." instance=ExtResource("109_cs5hu")]
+
+[node name="pictureframe_large_B2" parent="." instance=ExtResource("110_x85ig")]
+
+[node name="pictureframe_medium2" parent="." instance=ExtResource("111_dlv51")]
+
+[node name="pictureframe_small_A2" parent="." instance=ExtResource("112_hc6n1")]
+
+[node name="pictureframe_small_B2" parent="." instance=ExtResource("113_bahcd")]
+
+[node name="pictureframe_small_C2" parent="." instance=ExtResource("114_ddki8")]
+
+[node name="pictureframe_standing_A2" parent="." instance=ExtResource("115_2bp66")]
+
+[node name="pictureframe_standing_B2" parent="." instance=ExtResource("116_tut8m")]
+
+[node name="pillow_A2" parent="." instance=ExtResource("117_yjpxm")]
+
+[node name="pillow_B2" parent="." instance=ExtResource("118_xerim")]
+
+[node name="rug_oval_A2" parent="." instance=ExtResource("119_qb217")]
+
+[node name="rug_oval_B2" parent="." instance=ExtResource("120_5r2ue")]
+
+[node name="rug_rectangle_A2" parent="." instance=ExtResource("121_kydir")]
+
+[node name="rug_rectangle_B2" parent="." instance=ExtResource("122_wqxi4")]
+
+[node name="rug_rectangle_stripes_A2" parent="." instance=ExtResource("123_nr14k")]
+
+[node name="rug_rectangle_stripes_B2" parent="." instance=ExtResource("124_04kb1")]
+
+[node name="shelf_A_big2" parent="." instance=ExtResource("125_62qgd")]
+
+[node name="shelf_A_small2" parent="." instance=ExtResource("126_exs8a")]
+
+[node name="shelf_B_large2" parent="." instance=ExtResource("127_ws7mb")]
+
+[node name="shelf_B_large_decorated2" parent="." instance=ExtResource("128_isdod")]
+
+[node name="shelf_B_small2" parent="." instance=ExtResource("129_78dvc")]
+
+[node name="shelf_B_small_decorated2" parent="." instance=ExtResource("130_davv7")]
+
+[node name="table_low2" parent="." instance=ExtResource("131_a41h2")]
+
+[node name="table_medium2" parent="." instance=ExtResource("132_l0b2r")]
+
+[node name="table_medium_long2" parent="." instance=ExtResource("133_pgvys")]
+
+[node name="table_small2" parent="." instance=ExtResource("134_teq4g")]
+
+[node name="Barrel_A2" parent="." instance=ExtResource("135_5gpob")]
+
+[node name="Barrel_B2" parent="." instance=ExtResource("136_noxnv")]
+
+[node name="Barrel_C2" parent="." instance=ExtResource("137_q6xid")]
+
+[node name="Box_A2" parent="." instance=ExtResource("138_bp6xq")]
+
+[node name="Box_B2" parent="." instance=ExtResource("139_j4ibm")]
+
+[node name="Box_C2" parent="." instance=ExtResource("140_3htfd")]
+
+[node name="Can_A2" parent="." instance=ExtResource("141_52jfc")]
+
+[node name="Can_B2" parent="." instance=ExtResource("142_afla5")]
+
+[node name="Coin_A2" parent="." instance=ExtResource("143_clj82")]
+
+[node name="Coin_B2" parent="." instance=ExtResource("144_vy1lt")]
+
+[node name="Coin_C2" parent="." instance=ExtResource("145_g4u0e")]
+
+[node name="Cube_Prototype_Large_A2" parent="." instance=ExtResource("146_a5g7w")]
+
+[node name="Cube_Prototype_Large_B2" parent="." instance=ExtResource("147_alyaj")]
+
+[node name="Cube_Prototype_Small2" parent="." instance=ExtResource("148_sr847")]
+
+[node name="Door_A2" parent="." instance=ExtResource("149_not64")]
+
+[node name="Door_A_Decorated2" parent="." instance=ExtResource("150_17626")]
+
+[node name="Door_B2" parent="." instance=ExtResource("151_mh60b")]
+
+[node name="Dummy_Base2" parent="." instance=ExtResource("152_uehk7")]
+
+[node name="Floor2" parent="." instance=ExtResource("153_aabew")]
+
+[node name="Floor_Dirt2" parent="." instance=ExtResource("154_vl1k3")]
+
+[node name="Floor_Prototype2" parent="." instance=ExtResource("155_md8pu")]
+
+[node name="Pallet_Large2" parent="." instance=ExtResource("156_65jb0")]
+
+[node name="Pallet_Small2" parent="." instance=ExtResource("157_nymvr")]
+
+[node name="Pallet_Small_Decorated_A2" parent="." instance=ExtResource("158_g0kcl")]
+
+[node name="Pallet_Small_Decorated_B2" parent="." instance=ExtResource("159_wgaes")]
+
+[node name="Pillar_A2" parent="." instance=ExtResource("160_x0tyc")]
+
+[node name="Pillar_B2" parent="." instance=ExtResource("161_q5d1y")]
+
+[node name="Primitive_Beam2" parent="." instance=ExtResource("162_vx3gx")]
+
+[node name="Primitive_Cube2" parent="." instance=ExtResource("163_sc2hm")]
+
+[node name="Primitive_Cube_Small2" parent="." instance=ExtResource("164_ty00y")]
+
+[node name="Primitive_Doorway2" parent="." instance=ExtResource("165_5lwca")]
+
+[node name="Primitive_Floor2" parent="." instance=ExtResource("166_ec1pn")]
+
+[node name="Primitive_Floor_Hole2" parent="." instance=ExtResource("167_pw8wi")]
+
+[node name="Primitive_Pillar2" parent="." instance=ExtResource("168_tuiym")]
+
+[node name="Primitive_Slope2" parent="." instance=ExtResource("169_4knqc")]
+
+[node name="Primitive_Slope_Half2" parent="." instance=ExtResource("170_n04sj")]
+
+[node name="Primitive_Slope_Half_InnerCorner2" parent="." instance=ExtResource("171_qpqfo")]
+
+[node name="Primitive_Slope_Half_OuterCorner2" parent="." instance=ExtResource("172_0vvb4")]
+
+[node name="Primitive_Slope_InnerCorner2" parent="." instance=ExtResource("173_h60si")]
+
+[node name="Primitive_Slope_OuterCorner2" parent="." instance=ExtResource("174_f45j5")]
+
+[node name="Primitive_Stairs2" parent="." instance=ExtResource("175_hdgbi")]
+
+[node name="Primitive_Stairs_Half2" parent="." instance=ExtResource("176_s7y10")]
+
+[node name="Primitive_Wall2" parent="." instance=ExtResource("177_epao2")]
+
+[node name="Primitive_Wall_Half2" parent="." instance=ExtResource("178_u7vk2")]
+
+[node name="Primitive_Wall_OpenCorner2" parent="." instance=ExtResource("179_gddmm")]
+
+[node name="Primitive_Wall_Short2" parent="." instance=ExtResource("180_5y1im")]
+
+[node name="Primitive_Wall_Slope2" parent="." instance=ExtResource("181_ueokh")]
+
+[node name="Primitive_Window2" parent="." instance=ExtResource("182_25ews")]
+
+[node name="table_medium3" parent="." instance=ExtResource("183_3uin7")]
+
+[node name="table_medium_Decorated2" parent="." instance=ExtResource("184_6kx78")]
+
+[node name="table_medium_long3" parent="." instance=ExtResource("185_n7wwj")]
+
+[node name="target2" parent="." instance=ExtResource("186_wostf")]
+
+[node name="target_pieces_A2" parent="." instance=ExtResource("187_ounfk")]
+
+[node name="target_pieces_B2" parent="." instance=ExtResource("188_t71xw")]
+
+[node name="target_pieces_C2" parent="." instance=ExtResource("189_wfoo3")]
+
+[node name="target_pieces_D2" parent="." instance=ExtResource("190_7nena")]
+
+[node name="target_pieces_E2" parent="." instance=ExtResource("191_4ksx2")]
+
+[node name="target_pieces_F2" parent="." instance=ExtResource("192_4r7rk")]
+
+[node name="target_small2" parent="." instance=ExtResource("193_d07rp")]
+
+[node name="target_stand_A2" parent="." instance=ExtResource("194_ay00v")]
+
+[node name="target_stand_A_Decorated2" parent="." instance=ExtResource("195_ol6n8")]
+
+[node name="target_stand_B2" parent="." instance=ExtResource("196_vxflr")]
+
+[node name="target_wall_large_A2" parent="." instance=ExtResource("197_2c0c3")]
+
+[node name="target_wall_large_B2" parent="." instance=ExtResource("198_ghac1")]
+
+[node name="target_wall_small2" parent="." instance=ExtResource("199_n2fyy")]
+
+[node name="Wall2" parent="." instance=ExtResource("200_fuw5d")]
+
+[node name="Wall_Decorated2" parent="." instance=ExtResource("201_b16r4")]
+
+[node name="Wall_Doorway2" parent="." instance=ExtResource("202_slqqq")]
+
+[node name="Wall_Half2" parent="." instance=ExtResource("203_wo5v7")]
+
+[node name="Wall_Target2" parent="." instance=ExtResource("204_ub22i")]
+
+[node name="Wall_Window_Closed2" parent="." instance=ExtResource("205_q0smu")]
+
+[node name="Wall_Window_Open2" parent="." instance=ExtResource("206_64xif")]
+
+[node name="bowl2" parent="." instance=ExtResource("207_ku3ma")]
+
+[node name="bowl_dirty2" parent="." instance=ExtResource("208_cbbni")]
+
+[node name="bowl_small2" parent="." instance=ExtResource("209_2foa7")]
+
+[node name="chair_A3" parent="." instance=ExtResource("210_hu78i")]
+
+[node name="chair_B3" parent="." instance=ExtResource("211_gtq4b")]
+
+[node name="chair_stool3" parent="." instance=ExtResource("212_wpe10")]
+
+[node name="crate2" parent="." instance=ExtResource("213_lpuig")]
+
+[node name="crate_buns2" parent="." instance=ExtResource("214_3lgwx")]
+
+[node name="crate_carrots2" parent="." instance=ExtResource("215_k0ls6")]
+
+[node name="crate_cheese2" parent="." instance=ExtResource("216_dhy4r")]
+
+[node name="crate_ham2" parent="." instance=ExtResource("217_ttfqq")]
+
+[node name="crate_lettuce2" parent="." instance=ExtResource("218_gcjkb")]
+
+[node name="crate_lid2" parent="." instance=ExtResource("219_du7er")]
+
+[node name="crate_onions2" parent="." instance=ExtResource("220_ikxkl")]
+
+[node name="crate_potatoes2" parent="." instance=ExtResource("221_bhqox")]
+
+[node name="crate_steak2" parent="." instance=ExtResource("222_hpe6j")]
+
+[node name="crate_tomatoes2" parent="." instance=ExtResource("223_iku6i")]
+
+[node name="cuttingboard2" parent="." instance=ExtResource("224_j2310")]
+
+[node name="dishrack2" parent="." instance=ExtResource("225_esilm")]
+
+[node name="dishrack_plates2" parent="." instance=ExtResource("226_ih7to")]
+
+[node name="door_A2" parent="." instance=ExtResource("227_wfbim")]
+
+[node name="door_B2" parent="." instance=ExtResource("228_hc7b7")]
+
+[node name="extractorhood2" parent="." instance=ExtResource("229_u2uxr")]
+
+[node name="floor_kitchen2" parent="." instance=ExtResource("230_kug03")]
+
+[node name="floor_kitchen_small2" parent="." instance=ExtResource("231_ivmu1")]
+
+[node name="food_burger2" parent="." instance=ExtResource("232_5vvxp")]
+
+[node name="food_dinner2" parent="." instance=ExtResource("233_5mqg4")]
+
+[node name="food_ingredient_bun2" parent="." instance=ExtResource("234_oubit")]
+
+[node name="food_ingredient_bun_bottom2" parent="." instance=ExtResource("235_cv1yg")]
+
+[node name="food_ingredient_bun_top2" parent="." instance=ExtResource("236_ycp26")]
+
+[node name="food_ingredient_burger_cooked2" parent="." instance=ExtResource("237_6uli2")]
+
+[node name="food_ingredient_burger_trash2" parent="." instance=ExtResource("238_nuxal")]
+
+[node name="food_ingredient_burger_uncooked2" parent="." instance=ExtResource("239_wxt1q")]
+
+[node name="food_ingredient_carrot2" parent="." instance=ExtResource("240_0ut7y")]
+
+[node name="food_ingredient_carrot_chopped2" parent="." instance=ExtResource("241_g687b")]
+
+[node name="food_ingredient_carrot_pieces2" parent="." instance=ExtResource("242_svniy")]
+
+[node name="food_ingredient_cheese2" parent="." instance=ExtResource("243_aidgn")]
+
+[node name="food_ingredient_cheese_chopped2" parent="." instance=ExtResource("244_5w5mh")]
+
+[node name="food_ingredient_cheese_slice2" parent="." instance=ExtResource("245_ml2t5")]
+
+[node name="food_ingredient_ham2" parent="." instance=ExtResource("246_mgftg")]
+
+[node name="food_ingredient_ham_cooked2" parent="." instance=ExtResource("247_k5r7r")]
+
+[node name="food_ingredient_ham_trash2" parent="." instance=ExtResource("248_wbmg0")]
+
+[node name="food_ingredient_lettuce2" parent="." instance=ExtResource("249_0u2hk")]
+
+[node name="food_ingredient_lettuce_chopped2" parent="." instance=ExtResource("250_adenx")]
+
+[node name="food_ingredient_lettuce_slice2" parent="." instance=ExtResource("251_pr584")]
+
+[node name="food_ingredient_onion2" parent="." instance=ExtResource("252_x73st")]
+
+[node name="food_ingredient_onion_chopped2" parent="." instance=ExtResource("253_3vq51")]
+
+[node name="food_ingredient_onion_rings2" parent="." instance=ExtResource("254_lhosq")]
+
+[node name="food_ingredient_potato2" parent="." instance=ExtResource("255_vqyti")]
+
+[node name="food_ingredient_potato_chopped2" parent="." instance=ExtResource("256_no6ca")]
+
+[node name="food_ingredient_potato_mashed2" parent="." instance=ExtResource("257_04btk")]
+
+[node name="food_ingredient_steak2" parent="." instance=ExtResource("258_wrmqo")]
+
+[node name="food_ingredient_steak_pieces2" parent="." instance=ExtResource("259_0vga5")]
+
+[node name="food_ingredient_tomato2" parent="." instance=ExtResource("260_sfpxq")]
+
+[node name="food_ingredient_tomato_slice2" parent="." instance=ExtResource("261_3eh26")]
+
+[node name="food_ingredient_tomato_slices2" parent="." instance=ExtResource("262_jflbl")]
+
+[node name="food_ingredient_vegetableburger_cooked2" parent="." instance=ExtResource("263_ediie")]
+
+[node name="food_ingredient_vegetableburger_uncooked2" parent="." instance=ExtResource("264_1gapj")]
+
+[node name="food_stew2" parent="." instance=ExtResource("265_3pxw4")]
+
+[node name="food_vegetableburger2" parent="." instance=ExtResource("266_fr4il")]
+
+[node name="fridge_A2" parent="." instance=ExtResource("267_oyoqf")]
+
+[node name="fridge_A_decorated2" parent="." instance=ExtResource("268_yjtgw")]
+
+[node name="fridge_B2" parent="." instance=ExtResource("269_2nysd")]
+
+[node name="jar_A_large2" parent="." instance=ExtResource("270_jqr5o")]
+
+[node name="jar_A_medium2" parent="." instance=ExtResource("271_k00gu")]
+
+[node name="jar_A_small2" parent="." instance=ExtResource("272_b2xea")]
+
+[node name="jar_B_large2" parent="." instance=ExtResource("273_hb6a2")]
+
+[node name="jar_B_medium2" parent="." instance=ExtResource("274_q8vfj")]
+
+[node name="jar_B_small2" parent="." instance=ExtResource("275_neafs")]
+
+[node name="jar_C_large2" parent="." instance=ExtResource("276_qfwx2")]
+
+[node name="jar_C_medium2" parent="." instance=ExtResource("277_pkn3n")]
+
+[node name="jar_C_small2" parent="." instance=ExtResource("278_nub3f")]
+
+[node name="jar_D_large2" parent="." instance=ExtResource("279_3brib")]
+
+[node name="jar_D_medium2" parent="." instance=ExtResource("280_1y5q8")]
+
+[node name="jar_D_small2" parent="." instance=ExtResource("281_ccxnh")]
+
+[node name="ketchup2" parent="." instance=ExtResource("282_xktl4")]
+
+[node name="kitchencabinet2" parent="." instance=ExtResource("283_vgm3e")]
+
+[node name="kitchencabinet_corner2" parent="." instance=ExtResource("284_sa1s4")]
+
+[node name="kitchencabinet_corner_half2" parent="." instance=ExtResource("285_j1833")]
+
+[node name="kitchencabinet_half2" parent="." instance=ExtResource("286_itm2f")]
+
+[node name="kitchencounter_innercorner2" parent="." instance=ExtResource("287_0v10u")]
+
+[node name="kitchencounter_innercorner_backsplash2" parent="." instance=ExtResource("288_l1bvh")]
+
+[node name="kitchencounter_outercorner2" parent="." instance=ExtResource("289_j0ht4")]
+
+[node name="kitchencounter_outercorner_backsplash2" parent="." instance=ExtResource("290_y8xo7")]
+
+[node name="kitchencounter_sink2" parent="." instance=ExtResource("291_v670g")]
+
+[node name="kitchencounter_sink_backsplash2" parent="." instance=ExtResource("292_x1gj0")]
+
+[node name="kitchencounter_straight_A2" parent="." instance=ExtResource("293_l7y7e")]
+
+[node name="kitchencounter_straight_A_backsplash2" parent="." instance=ExtResource("294_rsxos")]
+
+[node name="kitchencounter_straight_A_decorated2" parent="." instance=ExtResource("295_6opgh")]
+
+[node name="kitchencounter_straight_B2" parent="." instance=ExtResource("296_mgqib")]
+
+[node name="kitchencounter_straight_B_backsplash2" parent="." instance=ExtResource("297_eqask")]
+
+[node name="kitchencounter_straight_decorated2" parent="." instance=ExtResource("298_433va")]
+
+[node name="kitchentable_A2" parent="." instance=ExtResource("299_hu6io")]
+
+[node name="kitchentable_A_large2" parent="." instance=ExtResource("300_0us57")]
+
+[node name="kitchentable_A_large_decorated2" parent="." instance=ExtResource("301_br7a2")]
+
+[node name="kitchentable_B2" parent="." instance=ExtResource("302_s23b7")]
+
+[node name="kitchentable_B_large2" parent="." instance=ExtResource("303_m0xm1")]
+
+[node name="kitchentable_sink2" parent="." instance=ExtResource("304_ojumw")]
+
+[node name="kitchentable_sink_large2" parent="." instance=ExtResource("305_c8qvx")]
+
+[node name="kitchentable_sink_large_decorated2" parent="." instance=ExtResource("306_kycnx")]
+
+[node name="knife2" parent="." instance=ExtResource("307_m3y0r")]
+
+[node name="lid_A2" parent="." instance=ExtResource("308_jb28y")]
+
+[node name="lid_B2" parent="." instance=ExtResource("309_ma40m")]
+
+[node name="lid_large2" parent="." instance=ExtResource("310_ckkwd")]
+
+[node name="menu2" parent="." instance=ExtResource("311_2kf68")]
+
+[node name="mustard2" parent="." instance=ExtResource("312_t41t0")]
+
+[node name="oven2" parent="." instance=ExtResource("313_ftbv6")]
+
+[node name="pan_0062" parent="." instance=ExtResource("314_vognp")]
+
+[node name="pan_A2" parent="." instance=ExtResource("315_pdxdl")]
+
+[node name="pan_B2" parent="." instance=ExtResource("316_sa3gk")]
+
+[node name="papertowel2" parent="." instance=ExtResource("317_pdpgk")]
+
+[node name="pillar_A2" parent="." instance=ExtResource("318_5af54")]
+
+[node name="pillar_B2" parent="." instance=ExtResource("319_2farx")]
+
+[node name="plate2" parent="." instance=ExtResource("320_7ukf8")]
+
+[node name="plate_dirty2" parent="." instance=ExtResource("321_fn4a3")]
+
+[node name="plate_small2" parent="." instance=ExtResource("322_4wo50")]
+
+[node name="pot_A2" parent="." instance=ExtResource("323_hgma0")]
+
+[node name="pot_A_stew2" parent="." instance=ExtResource("324_gd31r")]
+
+[node name="pot_B2" parent="." instance=ExtResource("325_dq3bs")]
+
+[node name="pot_B_stew2" parent="." instance=ExtResource("326_nkwt1")]
+
+[node name="pot_large2" parent="." instance=ExtResource("327_fvg7o")]
+
+[node name="shelf_papertowel2" parent="." instance=ExtResource("328_2g28v")]
+
+[node name="shelf_papertowel_decorated2" parent="." instance=ExtResource("329_eksnh")]
+
+[node name="stew_bowl2" parent="." instance=ExtResource("330_twr1g")]
+
+[node name="stew_pot2" parent="." instance=ExtResource("331_c8vyh")]
+
+[node name="stove_multi2" parent="." instance=ExtResource("332_ds2fb")]
+
+[node name="stove_multi_countertop2" parent="." instance=ExtResource("333_j28tc")]
+
+[node name="stove_multi_decorated2" parent="." instance=ExtResource("334_am43f")]
+
+[node name="stove_single2" parent="." instance=ExtResource("335_8j4p8")]
+
+[node name="stove_single_countertop2" parent="." instance=ExtResource("336_cinhf")]
+
+[node name="table_round_A2" parent="." instance=ExtResource("337_ftbet")]
+
+[node name="table_round_A_decorated2" parent="." instance=ExtResource("338_7w14g")]
+
+[node name="table_round_A_small2" parent="." instance=ExtResource("339_ko506")]
+
+[node name="table_round_A_small_decorated2" parent="." instance=ExtResource("340_5ef5y")]
+
+[node name="table_round_B2" parent="." instance=ExtResource("341_c687x")]
+
+[node name="towelrail2" parent="." instance=ExtResource("342_85x7d")]
+
+[node name="wall2" parent="." instance=ExtResource("343_2slpo")]
+
+[node name="wall_decorated2" parent="." instance=ExtResource("344_bj0x0")]
+
+[node name="wall_doorway2" parent="." instance=ExtResource("345_b4bb3")]
+
+[node name="wall_half2" parent="." instance=ExtResource("346_t07xe")]
+
+[node name="wall_orderwindow2" parent="." instance=ExtResource("347_6dnoc")]
+
+[node name="wall_orderwindow_decorated2" parent="." instance=ExtResource("348_csp8h")]
+
+[node name="wall_window_closed2" parent="." instance=ExtResource("349_q7g4w")]
+
+[node name="wall_window_open2" parent="." instance=ExtResource("350_pul7h")]
+
+[node name="arrow_teamBlue_gltf" parent="." instance=ExtResource("351_djgcx")]
+
+[node name="arrow_teamRed_gltf" parent="." instance=ExtResource("352_nhp71")]
+
+[node name="arrow_teamYellow_gltf" parent="." instance=ExtResource("353_knt3v")]
+
+[node name="ball_gltf" parent="." instance=ExtResource("354_vc0cw")]
+
+[node name="ball_teamBlue_gltf" parent="." instance=ExtResource("355_xxx11")]
+
+[node name="ball_teamRed_gltf" parent="." instance=ExtResource("356_0phr3")]
+
+[node name="ball_teamYellow_gltf" parent="." instance=ExtResource("357_7ehws")]
+
+[node name="barrierFloor_gltf" parent="." instance=ExtResource("358_mddte")]
+
+[node name="barrierLadder_gltf" parent="." instance=ExtResource("359_6yisp")]
+
+[node name="barrierLarge_gltf" parent="." instance=ExtResource("360_ww1os")]
+
+[node name="barrierMedium_gltf" parent="." instance=ExtResource("361_isbfu")]
+
+[node name="barrierSmall_gltf" parent="." instance=ExtResource("362_tkj6a")]
+
+[node name="barrierStrut_gltf" parent="." instance=ExtResource("363_rfw82")]
+
+[node name="blaster_teamBlue_gltf" parent="." instance=ExtResource("364_iixmy")]
+
+[node name="blaster_teamRed_gltf" parent="." instance=ExtResource("365_kex27")]
+
+[node name="blaster_teamYellow_gltf" parent="." instance=ExtResource("366_dsg86")]
+
+[node name="bomb_teamBlue_gltf" parent="." instance=ExtResource("367_2ag38")]
+
+[node name="bomb_teamRed_gltf" parent="." instance=ExtResource("368_anpda")]
+
+[node name="bomb_teamYellow_gltf" parent="." instance=ExtResource("369_nsym1")]
+
+[node name="bow_teamBlue_gltf" parent="." instance=ExtResource("370_8oft4")]
+
+[node name="bow_teamRed_gltf" parent="." instance=ExtResource("371_hf2bd")]
+
+[node name="bow_teamYellow_gltf" parent="." instance=ExtResource("372_jg4h2")]
+
+[node name="button_teamBlue_gltf" parent="." instance=ExtResource("373_2foma")]
+
+[node name="button_teamRed_gltf" parent="." instance=ExtResource("374_fti1e")]
+
+[node name="button_teamYellow_gltf" parent="." instance=ExtResource("375_rudrw")]
+
+[node name="characer_duck_gltf" parent="." instance=ExtResource("376_e048x")]
+
+[node name="character_bear_gltf" parent="." instance=ExtResource("377_gxqbw")]
+
+[node name="character_dog_gltf" parent="." instance=ExtResource("378_nvvjd")]
+
+[node name="detail_desert_gltf" parent="." instance=ExtResource("379_kmqna")]
+
+[node name="detail_forest_gltf" parent="." instance=ExtResource("380_520qg")]
+
+[node name="diamond_teamBlue_gltf" parent="." instance=ExtResource("381_srwna")]
+
+[node name="diamond_teamRed_gltf" parent="." instance=ExtResource("382_bllsx")]
+
+[node name="diamond_teamYellow_gltf" parent="." instance=ExtResource("383_avm3o")]
+
+[node name="flag_teamBlue_gltf" parent="." instance=ExtResource("384_s8naw")]
+
+[node name="flag_teamRed_gltf" parent="." instance=ExtResource("385_smcwv")]
+
+[node name="flag_teamYellow_gltf" parent="." instance=ExtResource("386_gwf3m")]
+
+[node name="gateLargeWide_teamBlue_gltf" parent="." instance=ExtResource("387_gj6j4")]
+
+[node name="gateLargeWide_teamRed_gltf" parent="." instance=ExtResource("388_ye3a6")]
+
+[node name="gateLargeWide_teamYellow_gltf" parent="." instance=ExtResource("389_dcgiu")]
+
+[node name="gateLarge_teamBlue_gltf" parent="." instance=ExtResource("390_2e1ck")]
+
+[node name="gateLarge_teamRed_gltf" parent="." instance=ExtResource("391_umt4w")]
+
+[node name="gateLarge_teamYellow_gltf" parent="." instance=ExtResource("392_1d0hm")]
+
+[node name="gateSmallWide_teamBlue_gltf" parent="." instance=ExtResource("393_t2gtp")]
+
+[node name="gateSmallWide_teamRed_gltf" parent="." instance=ExtResource("394_yktwe")]
+
+[node name="gateSmallWide_teamYellow_gltf" parent="." instance=ExtResource("395_rmj65")]
+
+[node name="gateSmall_teamBlue_gltf" parent="." instance=ExtResource("396_3ok2w")]
+
+[node name="gateSmall_teamRed_gltf" parent="." instance=ExtResource("397_xhmp6")]
+
+[node name="gateSmall_teamYellow_gltf" parent="." instance=ExtResource("398_ckbp5")]
+
+[node name="heart_teamBlue_gltf" parent="." instance=ExtResource("399_2sp71")]
+
+[node name="heart_teamRed_gltf" parent="." instance=ExtResource("400_qrh06")]
+
+[node name="heart_teamYellow_gltf" parent="." instance=ExtResource("401_x3f8v")]
+
+[node name="hoop_teamBlue_gltf" parent="." instance=ExtResource("402_ltdp4")]
+
+[node name="hoop_teamRed_gltf" parent="." instance=ExtResource("403_47er5")]
+
+[node name="hoop_teamYellow_gltf" parent="." instance=ExtResource("404_wl7o3")]
+
+[node name="lightning_gltf" parent="." instance=ExtResource("405_pus8b")]
+
+[node name="plantA_desert_gltf" parent="." instance=ExtResource("406_ukj3t")]
+
+[node name="plantA_forest_gltf" parent="." instance=ExtResource("407_3iykm")]
+
+[node name="plantB_desert_gltf" parent="." instance=ExtResource("408_g6aav")]
+
+[node name="plantB_forest_gltf" parent="." instance=ExtResource("409_wy8fy")]
+
+[node name="powerupBlock_teamBlue_gltf" parent="." instance=ExtResource("410_6vwgq")]
+
+[node name="powerupBlock_teamRed_gltf" parent="." instance=ExtResource("411_7nhpe")]
+
+[node name="powerupBlock_teamYellow_gltf" parent="." instance=ExtResource("412_47n7i")]
+
+[node name="powerupBomb_gltf" parent="." instance=ExtResource("413_1734v")]
+
+[node name="ring_teamBlue_gltf" parent="." instance=ExtResource("414_o7yy3")]
+
+[node name="ring_teamRed_gltf" parent="." instance=ExtResource("415_lcijm")]
+
+[node name="ring_teamYellow_gltf" parent="." instance=ExtResource("416_gj6aj")]
+
+[node name="rocksA_desert_gltf" parent="." instance=ExtResource("417_whmwk")]
+
+[node name="rocksA_forest_gltf" parent="." instance=ExtResource("418_6o5k7")]
+
+[node name="rocksB_desert_gltf" parent="." instance=ExtResource("419_ccals")]
+
+[node name="rocksB_forest_gltf" parent="." instance=ExtResource("420_dbbqh")]
+
+[node name="slingshot_teamBlue_gltf" parent="." instance=ExtResource("421_ejixw")]
+
+[node name="slingshot_teamRed_gltf" parent="." instance=ExtResource("422_hb4sv")]
+
+[node name="slingshot_teamYellow_gltf" parent="." instance=ExtResource("423_xeugm")]
+
+[node name="spikeRoller_gltf" parent="." instance=ExtResource("424_jo3tq")]
+
+[node name="star_gltf" parent="." instance=ExtResource("425_wjstx")]
+
+[node name="swiperDouble_teamBlue_gltf" parent="." instance=ExtResource("426_d3sik")]
+
+[node name="swiperDouble_teamRed_gltf" parent="." instance=ExtResource("427_nn47w")]
+
+[node name="swiperDouble_teamYellow_gltf" parent="." instance=ExtResource("428_2jnwc")]
+
+[node name="swiperLong_teamBlue_gltf" parent="." instance=ExtResource("429_jlypo")]
+
+[node name="swiperLong_teamRed_gltf" parent="." instance=ExtResource("430_0df5a")]
+
+[node name="swiperLong_teamYellow_gltf" parent="." instance=ExtResource("431_nmduh")]
+
+[node name="swiper_teamBlue_gltf" parent="." instance=ExtResource("432_lcusj")]
+
+[node name="swiper_teamRed_gltf" parent="." instance=ExtResource("433_wwvon")]
+
+[node name="swiper_teamYellow_gltf" parent="." instance=ExtResource("434_xcmt0")]
+
+[node name="sword_teamBlue_gltf" parent="." instance=ExtResource("435_gwa7s")]
+
+[node name="sword_teamRed_gltf" parent="." instance=ExtResource("436_0sar4")]
+
+[node name="sword_teamYellow_gltf" parent="." instance=ExtResource("437_y01y4")]
+
+[node name="target_gltf" parent="." instance=ExtResource("438_iqviq")]
+
+[node name="targetStand_gltf" parent="." instance=ExtResource("439_7qlff")]
+
+[node name="tileHigh_desert_gltf" parent="." instance=ExtResource("440_jw3x0")]
+
+[node name="tileHigh_forest_gltf" parent="." instance=ExtResource("441_07e1q")]
+
+[node name="tileHigh_teamBlue_gltf" parent="." instance=ExtResource("442_g650c")]
+
+[node name="tileHigh_teamRed_gltf" parent="." instance=ExtResource("443_m3abt")]
+
+[node name="tileHigh_teamYellow_gltf" parent="." instance=ExtResource("444_odih4")]
+
+[node name="tileLarge_desert_gltf" parent="." instance=ExtResource("445_mh1ir")]
+
+[node name="tileLarge_forest_gltf" parent="." instance=ExtResource("446_h6jjx")]
+
+[node name="tileLarge_teamBlue_gltf" parent="." instance=ExtResource("447_xn6rp")]
+
+[node name="tileLarge_teamRed_gltf" parent="." instance=ExtResource("448_h5yo0")]
+
+[node name="tileLarge_teamYellow_gltf" parent="." instance=ExtResource("449_k4hhi")]
+
+[node name="tileLow_desert_gltf" parent="." instance=ExtResource("450_t020n")]
+
+[node name="tileLow_forest_gltf" parent="." instance=ExtResource("451_gfs1u")]
+
+[node name="tileLow_teamBlue_gltf" parent="." instance=ExtResource("452_st2jj")]
+
+[node name="tileLow_teamRed_gltf" parent="." instance=ExtResource("453_3pgvp")]
+
+[node name="tileLow_teamYellow_gltf" parent="." instance=ExtResource("454_p4hll")]
+
+[node name="tileMedium_desert_gltf" parent="." instance=ExtResource("455_br8pj")]
+
+[node name="tileMedium_forest_gltf" parent="." instance=ExtResource("456_uh4ch")]
+
+[node name="tileMedium_teamBlue_gltf" parent="." instance=ExtResource("457_p44d4")]
+
+[node name="tileMedium_teamRed_gltf" parent="." instance=ExtResource("458_355dx")]
+
+[node name="tileMedium_teamYellow_gltf" parent="." instance=ExtResource("459_s6rdf")]
+
+[node name="tileSlopeLowHigh_desert_gltf" parent="." instance=ExtResource("460_wsgpw")]
+
+[node name="tileSlopeLowHigh_forest_gltf" parent="." instance=ExtResource("461_igtta")]
+
+[node name="tileSlopeLowHigh_teamBlue_gltf" parent="." instance=ExtResource("462_86y62")]
+
+[node name="tileSlopeLowHigh_teamRed_gltf" parent="." instance=ExtResource("463_mwaer")]
+
+[node name="tileSlopeLowHigh_teamYellow_gltf" parent="." instance=ExtResource("464_omjk4")]
+
+[node name="tileSlopeLowMedium__teamRed_gltf" parent="." instance=ExtResource("465_dx352")]
+
+[node name="tileSlopeLowMedium_desert_gltf" parent="." instance=ExtResource("466_0g8pg")]
+
+[node name="tileSlopeLowMedium_forest_gltf" parent="." instance=ExtResource("467_qy656")]
+
+[node name="tileSlopeLowMedium_teamBlue_gltf" parent="." instance=ExtResource("468_a0thb")]
+
+[node name="tileSlopeLowMedium_teamYellow_gltf" parent="." instance=ExtResource("469_jtc2h")]
+
+[node name="tileSlopeMediumHigh_desert_gltf" parent="." instance=ExtResource("470_jk43y")]
+
+[node name="tileSlopeMediumHigh_forest_gltf" parent="." instance=ExtResource("471_s07s3")]
+
+[node name="tileSlopeMediumHigh_teamBlue_gltf" parent="." instance=ExtResource("472_86v6b")]
+
+[node name="tileSlopeMediumHigh_teamRed_gltf" parent="." instance=ExtResource("473_b7avh")]
+
+[node name="tileSlopeMediumHigh_teamYellow_gltf" parent="." instance=ExtResource("474_eonv8")]
+
+[node name="tileSmall_desert_gltf" parent="." instance=ExtResource("475_1uis8")]
+
+[node name="tileSmall_forest_gltf" parent="." instance=ExtResource("476_qaf08")]
+
+[node name="tileSmall_teamBlue_gltf" parent="." instance=ExtResource("477_7vc4j")]
+
+[node name="tileSmall_teamRed_gltf" parent="." instance=ExtResource("478_37h4r")]
+
+[node name="tileSmall_teamYellow_gltf" parent="." instance=ExtResource("479_51iuv")]
+
+[node name="tree_desert_gltf" parent="." instance=ExtResource("480_50dij")]
+
+[node name="tree_forest_gltf" parent="." instance=ExtResource("481_qkvmp")]

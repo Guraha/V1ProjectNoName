@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://qfnkqs7h0yo1"]
+
+[ext_resource type="PackedScene" uid="uid://c61j5o0mlhk8e" path="res://assets/character/character2/Character_Female_1.gltf" id="1_5r2qg"]
+[ext_resource type="Script" path="res://scripts/camera_spring_arm.gd" id="2_xl14g"]
+[ext_resource type="Script" path="res://scripts/camera_follow.gd" id="3_vk658"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00x6k"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2gdr"]
+radius = 0.3
+
+[node name="Node3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_00x6k")
+
+[node name="Pivot" type="Node3D" parent="CollisionShape3D"]
+
+[node name="Character_Female_1" parent="CollisionShape3D" instance=ExtResource("1_5r2qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="SpringArmPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_xl14g")
+
+[node name="CameraRig" type="SpringArm3D" parent="SpringArmPivot"]
+shape = SubResource("SphereShape3D_g2gdr")
+spring_length = 6.0
+
+[node name="SpringPosition" type="Node3D" parent="SpringArmPivot/CameraRig"]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot" node_paths=PackedStringArray("spring_arm")]
+script = ExtResource("3_vk658")
+spring_arm = NodePath("../CameraRig/SpringPosition")
