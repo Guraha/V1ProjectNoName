@@ -13710,7 +13710,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="QuestionLabel" type="Label3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 31.167, -9.184)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28.957, -9.184)
 text = "SINO BUMARIL KAY RIZAL?"
 font = ExtResource("4_nghcu")
 font_size = 250
@@ -13815,7 +13815,7 @@ mesh = SubResource("PlaneMesh_812sr")
 wait_time = 5.0
 
 [node name="TimerValue" type="Label3D" parent="SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.922, -5.529)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29, -5.529)
 modulate = Color(0, 1, 0.180392, 1)
 text = "10"
 font = ExtResource("4_nghcu")

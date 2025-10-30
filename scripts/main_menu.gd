@@ -156,7 +156,7 @@ func _on_game_clicked(event: InputEvent, control: Control):
 			_start_minigame("res://assets/minigames/minigame_1_ui.tscn", "minigame_1")
 		elif control == game_2:
 			SFX.play_accept()
-			_start_minigame("res://assets/minigames/minigames_2.tscn", "minigame_2")
+			_start_minigame("res://partial_scripts/Minigame_2.tscn", "minigame_2")
 
 
 # === LOAD MINIGAME ===
@@ -193,7 +193,7 @@ func _on_start_game_as_is_pressed():
 	SFX.play_accept()
 	options_game.visible = false
 	tutorial_for_import.visible = false
-	_start_minigame("res://assets/minigames/minigames_2.tscn", "minigame_2")
+	_start_minigame("res://partial_scripts/Minigame_2.tscn", "minigame_2")
 
 
 
