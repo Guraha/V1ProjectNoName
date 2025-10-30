@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="3_vf3ef"]
 [ext_resource type="Texture2D" uid="uid://crbdpbj1862m4" path="res://assets/character/character1/Character_Male_1_Atlas.png" id="4_hgknk"]
 [ext_resource type="Texture2D" uid="uid://b7sptjn6ish45" path="res://assets/character/character2/Character_Female_1_Atlas.png" id="5_xxcnd"]
-[ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="6_ou3qa"]
+[ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="6_e345g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kmy1f"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -5742,7 +5742,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.576, 12.826, -5.986)
 curve = SubResource("Curve3D_qgfmw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SubViewport2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 0.888853, 0.458172, 0, -0.458172, 0.888853, 0, 0.715, 0.965)
+transform = Transform3D(1, 0, 0, 0, 0.718233, 0.695789, 0, -0.695789, 0.718233, 0, -2.98023e-08, 2.98023e-08)
+progress = 1.21394
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport2/Path3D/PathFollow3D"]
 transform = Transform3D(1, 0, 0, 0, 0.95882, -0.284015, 0, 0.284015, 0.95882, 0, 0, 0)
@@ -5758,35 +5759,30 @@ libraries = {
 position = Vector2(577, 319)
 texture = SubResource("ViewportTexture_nyu1c")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("6_ou3qa")
+[node name="VBoxContainer" type="VBoxContainer" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.773
+anchor_top = 0.795
+anchor_right = 0.979
+anchor_bottom = 0.965
+offset_left = -575.701
+offset_top = -324.08
+offset_right = -576.013
+offset_bottom = -324.24
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="Restart" type="Button" parent="Sprite2D/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Try Again"
+theme = ExtResource("6_e345g")
+theme_override_font_sizes/font_size = 35
+text = "Restart"
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="Sprite2D/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme = ExtResource("6_e345g")
+theme_override_font_sizes/font_size = 35
 text = "Main Menu"

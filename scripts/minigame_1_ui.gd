@@ -83,6 +83,8 @@ func _ready():
 	back.pressed.connect(_on_back_pressed)
 	
 	# === Sliders ===
+	background_music.value = SFX.music_volume * 100
+	sfx_music.value = SFX.sfx_volume * 100
 	background_music.value_changed.connect(_on_music_slider_changed)
 	sfx_music.value_changed.connect(_on_sfx_slider_changed)
 	
@@ -114,27 +116,27 @@ func _on_player_request_new_round(_player_id):
 		p2_pts = player2.get_points()
 
 	if p1_pts >= 15 or p2_pts >= 15:
-		SFX.play_game_over()
-
-		# ✅ Store winner ID (1 or 2) to a global or scene change param
 		var winner_id = 1 if p1_pts >= 15 else 2
-		
-		# Reset points for next session
+
+		# Store which minimap was active
+		GameData.current_minimap = 1
+
+		# Reset points
 		if player1 and player1.has_method("reset_points"):
 			player1.reset_points()
 		if player2 and player2.has_method("reset_points"):
 			player2.reset_points()
 
-		# Unpause and make sure mouse is visible (important for menus)
+		# Unpause and show mouse
 		get_tree().paused = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-		# ✅ Pass winner data to GameoverScene
-		var gameover_scene = preload("res://scenes/GameoverScene.tscn").instantiate()
-		gameover_scene.set("winner_id", winner_id)
-		get_tree().root.add_child(gameover_scene)
-		get_tree().current_scene.queue_free()  # Remove current game scene
-		get_tree().current_scene = gameover_scene
+		# Store winner in GameData
+		GameData.winner_id = winner_id
+		GameData.current_minimap = 1
+		
+		# Use FadeManager for smooth transition
+		FadeManager.fade_to_scene("res://scenes/GameoverScene.tscn")
 		return
 
 	# Otherwise continue with next round
@@ -287,15 +289,11 @@ func _generate_round_config() -> Dictionary:
 	return {"goal": goal_score, "initial_score": initial_score, "buttons": config}
 
 # Comparison function for sort_custom
-func _compare_goal_pairs(a: Dictionary, b: Dictionary) -> int:
+func _compare_goal_pairs(a: Dictionary, b: Dictionary) -> bool:
 	var target = 15
-	var diff = abs(a.get("result", 0) - target) - abs(b.get("result", 0) - target)
-	if diff < 0:
-		return -1
-	elif diff > 0:
-		return 1
-	else:
-		return 0
+	var diff_a = abs(a.get("result", 0) - target)
+	var diff_b = abs(b.get("result", 0) - target)
+	return diff_a < diff_b
 
 
 func _operation_to_str(op: int) -> String:
@@ -664,7 +662,7 @@ func _on_restart_pressed():
 func _on_return_to_main_menu_pressed():
 	print("Return to main menu pressed")
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	FadeManager.fade_to_scene("res://scenes/main_menu.tscn")
 	
 func _on_option_pressed():
 	SFX.play_move()
@@ -678,9 +676,9 @@ func _on_back_pressed():
 	main_menu_Screen.visible = true    # show the main menu part agai
 
 func _on_music_slider_changed(value: float):
-	SFX.set_music_volume(value)
-	SFX.play_move() # optional feedback
+	SFX.set_music_volume(value / 100.0)
+	SFX.play_move()
 
 func _on_sfx_slider_changed(value: float):
-	SFX.set_sfx_volume(value)
-	SFX.play_move() # optional feedback
+	SFX.set_sfx_volume(value / 100.0)
+	SFX.play_move()

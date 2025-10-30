@@ -1,5 +1,4 @@
 extends Node3D
-@export var winner_id: int = 1
 @onready var animation_player: AnimationPlayer = $SubViewport2/Path3D/AnimationTree/AnimationPlayer
 
 @onready var player_1_won: Node3D = $SubViewport2/Player1_Won
@@ -15,14 +14,39 @@ extends Node3D
 @onready var minigame_1: Node3D = $SubViewport/Minigame_1
 @onready var minigame_2: Node3D = $SubViewport/Minigame_2
 
+@onready var restart: Button = $Sprite2D/VBoxContainer/Restart
+@onready var main_menu: Button = $Sprite2D/VBoxContainer/MainMenu
+
+
 var showing_minimap_1: bool = true
+var winner_id: int = 1  # Will be set from GameData in _ready()
 
 
 func _ready() -> void:
+	# ✅ Get winner_id from GameData
+	winner_id = GameData.winner_id
+	
+	# ✅ Make sure mouse is visible and not captured
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = false
+	
+	# ✅ Show minimap based on GameData (do this BEFORE playing animations)
+	if GameData.current_minimap == 1:
+		minigame_1.visible = true
+		minigame_2.visible = false
+	else:
+		minigame_1.visible = false
+		minigame_2.visible = true
+
+	# Connect buttons
+	restart.pressed.connect(_on_restart_pressed)
+	main_menu.pressed.connect(_on_main_menu_pressed)
+	
+	# Wait for SubViewports to fully render before playing animations
+	await get_tree().process_frame
+	
 	_play_game_over_sequence()
 	SFX.play_game_over()
-	minigame_1.visible = true
-	minigame_2.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -38,6 +62,9 @@ func _toggle_minimap() -> void:
 	showing_minimap_1 = !showing_minimap_1
 	minigame_1.visible = showing_minimap_1
 	minigame_2.visible = !showing_minimap_1
+
+	# Update global minimap setting
+	GameData.current_minimap = 1 if showing_minimap_1 else 2
 
 
 func _play_game_over_sequence() -> void:
@@ -81,3 +108,18 @@ func _on_player1_animation_finished(anim_name: String) -> void:
 func _on_player2_animation_finished(anim_name: String) -> void:
 	if anim_name.to_lower() == "death":
 		player_2_lost_animation_player.play("Death_Perm")
+
+func _on_restart_pressed() -> void:
+	var scene_path: String
+	
+	if showing_minimap_1:
+		scene_path = "res://assets/minigames/minigame_1_ui.tscn"
+	else:
+		scene_path = "res://partial_scripts/Minigame_2.tscn"
+	
+	# Use FadeManager for smooth transition
+	FadeManager.fade_to_scene(scene_path)
+
+func _on_main_menu_pressed() -> void:
+	# Use FadeManager for smooth transition
+	FadeManager.fade_to_scene("res://scenes/main_menu.tscn")

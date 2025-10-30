@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://bxmkomg4x0qv3"]
+[gd_scene load_steps=105 format=4 uid="uid://bxmkomg4x0qv3"]
 
 [ext_resource type="Script" path="res://scripts/Minigame_2.gd" id="1_2l1e0"]
 [ext_resource type="Script" path="res://scripts/minigame2_player.gd" id="2_gm5af"]
@@ -12,12 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://cy6efn044novv" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_s_outline.svg" id="10_svmmt"]
 [ext_resource type="Texture2D" uid="uid://cy23i5eqpcho5" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_a_outline.svg" id="11_sf8ls"]
 [ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="12_axxgq"]
+[ext_resource type="Texture2D" uid="uid://cst73lqwksvm5" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_shift_outline.svg" id="12_e8bg3"]
 [ext_resource type="Texture2D" uid="uid://0gbdi88vr7xy" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up_outline.svg" id="13_p0rgn"]
 [ext_resource type="Texture2D" uid="uid://pydfos1yr7qn" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right_outline.svg" id="14_dt1xc"]
 [ext_resource type="Texture2D" uid="uid://dstb7uto4e57s" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_down_outline.svg" id="15_rs4ab"]
 [ext_resource type="Texture2D" uid="uid://celbjws2lrwt5" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left_outline.svg" id="16_tjlk2"]
 [ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="17_8yrxh"]
 [ext_resource type="PackedScene" uid="uid://c5jqk12llv8mh" path="res://assets/character/character1/Character_Male_1.tscn" id="18_palwp"]
+[ext_resource type="Texture2D" uid="uid://df4cg0dm3u1mt" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_ctrl_outline.svg" id="19_c55l8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kdw77"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -13307,8 +13309,8 @@ bones/2/name = "Body"
 bones/2/parent = 0
 bones/2/rest = Transform3D(1, 8.47038e-22, 2.38419e-07, -2.54109e-21, 1, 7.10539e-15, -2.38419e-07, -7.10539e-15, 1, 0.00215301, 0.729305, 0.10148)
 bones/2/enabled = true
-bones/2/position = Vector3(0.0194565, 0.797403, 0.216083)
-bones/2/rotation = Quaternion(0.0208054, 0.191467, -0.00219881, 0.981276)
+bones/2/position = Vector3(0.00215301, 0.729305, 0.10148)
+bones/2/rotation = Quaternion(-3.55269e-15, 1.19209e-07, -8.47034e-22, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Hips"
 bones/3/parent = 2
@@ -13322,7 +13324,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(1, -7.10756e-08, 8.90702e-07, 4.16907e-07, 0.918789, -0.394749, -7.90311e-07, 0.394749, 0.918789, -5.9903e-11, 0.287926, 2.04091e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(-5.9903e-11, 0.287926, 2.04091e-08)
-bones/4/rotation = Quaternion(0.107914, 4.21007e-07, 6.47994e-08, 0.99416)
+bones/4/rotation = Quaternion(0.201508, 4.29055e-07, 1.24551e-07, 0.979487)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Torso"
 bones/5/parent = 4
@@ -13343,28 +13345,28 @@ bones/7/parent = 6
 bones/7/rest = Transform3D(1, 1.2654e-07, -0.00055094, 9.3145e-05, 0.985566, 0.169292, 0.000543009, -0.169292, 0.985566, -1.04548e-10, 0.206222, -6.58064e-09)
 bones/7/enabled = true
 bones/7/position = Vector3(-1.04548e-10, 0.206222, -6.58064e-09)
-bones/7/rotation = Quaternion(-0.0191011, -0.000275413, 5.24778e-06, 0.999818)
+bones/7/rotation = Quaternion(-0.0849531, -0.000274479, 2.3339e-05, 0.996385)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "Shoulder.L"
 bones/8/parent = 5
 bones/8/rest = Transform3D(0.641453, 0.765467, 0.0509777, -0.765521, 0.63432, 0.107778, 0.0501641, -0.108159, 0.992867, 0.336404, -0.0341334, 0.0262082)
 bones/8/enabled = true
-bones/8/position = Vector3(0.354221, -0.0348345, 0.024492)
-bones/8/rotation = Quaternion(-0.0928895, 0.0777404, -0.425229, 0.896944)
+bones/8/position = Vector3(0.336404, -0.0341334, 0.0262082)
+bones/8/rotation = Quaternion(-0.059719, 0.00022503, -0.423407, 0.903969)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "UpperArm.L"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.0528476, 0.998228, -0.0273336, 0.0770755, 0.0232128, 0.996755, 0.995624, -0.0547829, -0.0757122, 1.20604e-07, 0.268273, -8.1022e-09)
 bones/9/enabled = true
 bones/9/position = Vector3(1.20604e-07, 0.268273, -8.1022e-09)
-bones/9/rotation = Quaternion(-0.597968, -0.478326, -0.110927, 0.63351)
+bones/9/rotation = Quaternion(-0.525678, -0.51139, -0.460496, 0.500087)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "LowerArm.L"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.752494, 0.438039, 0.491807, -0.4539, 0.886011, -0.0946515, -0.477208, -0.152007, 0.865544, 5.54577e-09, 0.372158, 6.65926e-08)
 bones/10/enabled = true
 bones/10/position = Vector3(5.54577e-09, 0.372158, 6.65926e-08)
-bones/10/rotation = Quaternion(0.0218667, 0.0728864, -0.34061, 0.93712)
+bones/10/rotation = Quaternion(-0.0153199, 0.25883, -0.238243, 0.935955)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Fist.L"
 bones/11/parent = 10
@@ -13377,22 +13379,22 @@ bones/12/name = "Shoulder.R"
 bones/12/parent = 5
 bones/12/rest = Transform3D(0.641453, -0.765467, -0.0509765, 0.765521, 0.63432, 0.107778, -0.0501648, -0.108158, 0.992867, -0.335127, -0.0341333, 0.0262086)
 bones/12/enabled = true
-bones/12/position = Vector3(-0.352945, -0.0348345, 0.0244926)
-bones/12/rotation = Quaternion(-0.0928892, -0.0777398, 0.425229, 0.896944)
+bones/12/position = Vector3(-0.335127, -0.0341333, 0.0262086)
+bones/12/rotation = Quaternion(-0.0597187, -0.000224484, 0.423407, 0.903969)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "UpperArm.R"
 bones/13/parent = 12
 bones/13/rest = Transform3D(0.0528478, -0.998228, 0.0273335, -0.0770756, 0.0232126, 0.996755, -0.995624, -0.054783, -0.0757125, -1.64097e-09, 0.268273, -6.04682e-09)
 bones/13/enabled = true
 bones/13/position = Vector3(-1.64097e-09, 0.268273, -6.04682e-09)
-bones/13/rotation = Quaternion(0.460829, 0.28654, 0.412772, 0.73154)
+bones/13/rotation = Quaternion(-0.525678, 0.51139, 0.460496, 0.500087)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/name = "LowerArm.R"
 bones/14/parent = 13
 bones/14/rest = Transform3D(0.752494, -0.438039, -0.491807, 0.4539, 0.886011, -0.0946516, 0.477208, -0.152007, 0.865544, 2.38164e-08, 0.372158, -8.2834e-08)
 bones/14/enabled = true
 bones/14/position = Vector3(2.38164e-08, 0.372158, -8.2834e-08)
-bones/14/rotation = Quaternion(-0.0126064, -0.0355868, 0.0248963, 0.998977)
+bones/14/rotation = Quaternion(-0.0153199, -0.25883, 0.238243, 0.935955)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "Fist.R"
 bones/15/parent = 14
@@ -13406,28 +13408,28 @@ bones/16/parent = 2
 bones/16/rest = Transform3D(0.99967, 0.0189903, 0.0172836, 0.0256717, -0.754032, -0.656332, 0.000568467, 0.656561, -0.75427, 0.24019, -0.183878, -0.201469)
 bones/16/enabled = true
 bones/16/position = Vector3(0.24019, -0.183878, -0.201469)
-bones/16/rotation = Quaternion(0.954329, 0.0448443, 0.187254, 0.228433)
+bones/16/rotation = Quaternion(0.93648, 0.0119228, 0.00476574, 0.350487)
 bones/16/scale = Vector3(1, 0.999999, 0.999997)
 bones/17/name = "LowerLeg.L"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0.99958, -0.00907318, 0.0275325, 0.0288831, 0.23058, -0.972624, 0.00247634, 0.973015, 0.230744, 1.13553e-08, 0.308727, 1.41649e-08)
 bones/17/enabled = true
 bones/17/position = Vector3(1.13553e-08, 0.308727, 1.41649e-08)
-bones/17/rotation = Quaternion(0.409853, 0.00479066, 0.0136816, 0.912036)
+bones/17/rotation = Quaternion(0.620132, 0.00798617, 0.0120978, 0.784363)
 bones/17/scale = Vector3(1, 1, 0.999999)
 bones/18/name = "UpperLeg.R"
 bones/18/parent = 2
 bones/18/rest = Transform3D(0.99967, -0.0189912, -0.017282, -0.0256713, -0.754033, -0.656333, -0.000566664, 0.656561, -0.754272, -0.241873, -0.183878, -0.201469)
 bones/18/enabled = true
 bones/18/position = Vector3(-0.241873, -0.183878, -0.201469)
-bones/18/rotation = Quaternion(0.919332, -0.0429844, 0.179991, 0.347252)
+bones/18/rotation = Quaternion(0.93648, -0.011923, -0.00476484, 0.350487)
 bones/18/scale = Vector3(1, 0.999999, 0.999999)
 bones/19/name = "LowerLeg.R"
 bones/19/parent = 18
 bones/19/rest = Transform3D(0.99958, 0.00907322, -0.0275326, -0.0288831, 0.23058, -0.972625, -0.00247637, 0.973013, 0.230745, -1.75491e-08, 0.308728, 4.23223e-08)
 bones/19/enabled = true
 bones/19/position = Vector3(-1.75491e-08, 0.308728, 4.23223e-08)
-bones/19/rotation = Quaternion(0.287298, -0.00296381, -0.0141899, 0.957732)
+bones/19/rotation = Quaternion(0.620132, -0.00798617, -0.0120978, 0.784363)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "PoleTarget.L"
 bones/20/parent = 0
@@ -13440,7 +13442,7 @@ bones/21/name = "Foot.R"
 bones/21/parent = 0
 bones/21/rest = Transform3D(-1, -4.16896e-07, -3.34746e-05, -3.34674e-05, -0.0117173, 0.999932, -8.09097e-07, 0.999932, 0.0117172, -0.249963, 0.0246629, -0.108432)
 bones/21/enabled = true
-bones/21/position = Vector3(-0.249964, 0.0246628, 0.333448)
+bones/21/position = Vector3(-0.249963, 0.0246629, -0.108432)
 bones/21/rotation = Quaternion(-1.20507e-05, 0.702952, 0.711237, -1.16172e-05)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "PoleTarget.R"
@@ -13927,7 +13929,6 @@ position = Vector2(576, 324)
 texture = SubResource("ViewportTexture_qjwye")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13977,6 +13978,11 @@ position = Vector2(210.4, 261.4)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_svmmt")
 
+[node name="KeyboardSOutline2" type="Sprite2D" parent="Control/MainMenu/Player1/Movement Keys"]
+position = Vector2(210.4, 380.89)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_e8bg3")
+
 [node name="KeyboardAOutline" type="Sprite2D" parent="Control/MainMenu/Player1/Movement Keys"]
 position = Vector2(144.4, 261.4)
 scale = Vector2(1.2, 1.2)
@@ -13994,6 +14000,19 @@ theme_override_fonts/normal_font = ExtResource("4_nghcu")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]Movement Keys"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/MainMenu/Player1/Movement Keys"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 405.445
+offset_right = 332.0
+offset_bottom = 445.445
+size_flags_horizontal = 3
+theme = ExtResource("12_axxgq")
+theme_override_fonts/normal_font = ExtResource("4_nghcu")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Sprint"
 
 [node name="Player2" type="Control" parent="Control/MainMenu"]
 layout_mode = 2
@@ -14030,6 +14049,11 @@ position = Vector2(145, 260.5)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("16_tjlk2")
 
+[node name="KeyboardArrowDownOutline2" type="Sprite2D" parent="Control/MainMenu/Player2/Movement Keys"]
+position = Vector2(210, 380.89)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("19_c55l8")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/MainMenu/Player2/Movement Keys"]
 layout_mode = 2
 offset_left = 97.0
@@ -14042,6 +14066,19 @@ theme_override_fonts/normal_font = ExtResource("4_nghcu")
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]Movement Keys"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control/MainMenu/Player2/Movement Keys"]
+layout_mode = 2
+offset_left = 97.0
+offset_top = 405.445
+offset_right = 332.0
+offset_bottom = 445.445
+size_flags_horizontal = 3
+theme = ExtResource("12_axxgq")
+theme_override_fonts/normal_font = ExtResource("4_nghcu")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Sprint"
 
 [node name="MainMenu" type="MarginContainer" parent="Control/MainMenu"]
 layout_mode = 1
@@ -14189,17 +14226,15 @@ theme_override_constants/margin_bottom = 10
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/MainMenu/Panel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/bold_italics_font_size = 15
-theme_override_font_sizes/italics_font_size = 15
-theme_override_font_sizes/mono_font_size = 15
-theme_override_font_sizes/normal_font_size = 15
-theme_override_font_sizes/bold_font_size = 15
+theme_override_font_sizes/bold_italics_font_size = 17
+theme_override_font_sizes/italics_font_size = 17
+theme_override_font_sizes/mono_font_size = 17
+theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/bold_font_size = 17
 bbcode_enabled = true
-text = "[b][color=orange]How to Play:[/color][/b]
-Use the [b]grid of math operations[/b] to reach the [b]goal number[/b].
-Take turns selecting buttons to adjust your score — [color=yellow]first to 15 points wins[/color]!
-Use the [i]clear button[/i] if you make a mistake.
-"
+text = "[color=orange][b]How to Play:[/b][/color]
+When a question appears, [b]go to the area (A, B, C, or D)[/b] that matches your answer.
+Each correct choice earns a point — [color=yellow]reach 15 points first to win![/color]"
 fit_content = true
 
 [node name="SubViewport2" type="SubViewport" parent="."]

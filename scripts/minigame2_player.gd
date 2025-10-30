@@ -31,6 +31,7 @@ var lock_rot_y = null
 var landing_timer := 0.0
 var hit_timer := 0.0
 var external_push := Vector3.ZERO
+var is_moving_sound_playing := false
 
 # ─── INITIALIZATION ──────────────────────────────────────────────────────────
 func _ready() -> void:
@@ -73,7 +74,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = external_push.x
 
-	# --- Decay push ---
 	external_push.x = move_toward(external_push.x, 0, PUSH_DECAY * delta)
 
 	# --- Punch ---
@@ -88,12 +88,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
 		has_landed = false
+		_stop_movement_sfx()
 		animation_player.play("Jump")
 
-	# --- Move the character ---
 	move_and_slide()
 
-	# --- Landing logic ---
+	# --- Landing ---
 	if is_jumping and is_on_floor() and velocity.y <= 0:
 		is_jumping = false
 		has_landed = true
@@ -110,6 +110,7 @@ func _physics_process(delta: float) -> void:
 	# --- Ducking ---
 	if Input.is_action_just_pressed("move_backward" + input_prefix) and not is_ducking:
 		is_ducking = true
+		_stop_movement_sfx()
 		animation_player.play("Duck")
 	elif Input.is_action_pressed("move_backward" + input_prefix) and is_ducking:
 		if animation_player.current_animation != "Duck_Hold":
@@ -118,27 +119,56 @@ func _physics_process(delta: float) -> void:
 		is_ducking = false
 		animation_player.play_backwards("Duck")
 
-	# --- Movement animations ---
-	if not is_jumping and abs(velocity.x) > 0.1:
-		if Input.is_action_pressed("run" + input_prefix):
-			if animation_player.current_animation != "Run":
-				animation_player.play("Run")
+	# --- Movement animations & SFX ---
+	if not is_jumping:
+		if is_ducking:
+			if abs(velocity.x) > 0.1:
+				# Duck-move sound optional
+				pass
+			else:
+				_stop_movement_sfx()
 		else:
-			if animation_player.current_animation != "Walk":
-				animation_player.play("Walk")
-	elif not is_jumping and not is_ducking and velocity.x == 0:
-		if animation_player.current_animation != "Idle":
-			animation_player.play("Idle")
+			if abs(velocity.x) > 0.1:
+				if Input.is_action_pressed("run" + input_prefix):
+					if animation_player.current_animation != "Run":
+						animation_player.play("Run")
+					_play_running_sfx()
+				else:
+					if animation_player.current_animation != "Walk":
+						animation_player.play("Walk")
+					_play_walking_sfx()
+			else:
+				if animation_player.current_animation != "Idle":
+					animation_player.play("Idle")
+				_stop_movement_sfx()
 
-	# --- Facing direction ---
-	if not is_punching:
-		if abs(input_dir) > 0.1:
-			target_rot_y = deg_to_rad(90) if input_dir > 0 else deg_to_rad(-90)
-		else:
-			target_rot_y = deg_to_rad(0)
-		character_model.rotation.y = lerp_angle(character_model.rotation.y, target_rot_y, delta * TURN_SPEED)
-	elif lock_rot_y != null:
-		character_model.rotation.y = lock_rot_y
+		# --- Facing direction ---
+		if not is_punching:
+			if abs(input_dir) > 0.1:
+				target_rot_y = deg_to_rad(90) if input_dir > 0 else deg_to_rad(-90)
+			else:
+				target_rot_y = deg_to_rad(0)
+			character_model.rotation.y = lerp_angle(character_model.rotation.y, target_rot_y, delta * TURN_SPEED)
+		elif lock_rot_y != null:
+			character_model.rotation.y = lock_rot_y
+
+
+# ─── SOUND HELPERS ───────────────────────────────────────────────────────────
+func _play_running_sfx():
+	if not is_moving_sound_playing:
+		is_moving_sound_playing = true
+		SFX.play_running()
+
+func _play_walking_sfx():
+	if not is_moving_sound_playing:
+		is_moving_sound_playing = true
+		SFX.play_footsteps()
+
+func _stop_movement_sfx():
+	if is_moving_sound_playing:
+		is_moving_sound_playing = false
+		SFX.stop_movement_sounds()  # Make sure this exists in your SFXManager
+
 
 # ─── PUNCH ───────────────────────────────────────────────────────────────────
 func _start_punch():
@@ -146,6 +176,7 @@ func _start_punch():
 	punch_active = true
 	lock_rot_y = character_model.rotation.y
 	punch_area.monitoring = true
+	_stop_movement_sfx()
 	animation_player.play("Punch")
 
 	await animation_player.animation_finished
@@ -155,7 +186,8 @@ func _start_punch():
 	punch_area.monitoring = false
 	lock_rot_y = null
 
-# ─── PUNCH AREA SIGNAL ───────────────────────────────────────────────────────
+
+# ─── PUNCH AREA ───────────────────────────────────────────────────────────────
 func _on_punch_area_body_entered(body):
 	if punch_active and body is CharacterBody3D and body != self:
 		var push_dir = Vector3.ZERO
@@ -176,4 +208,5 @@ func on_hit_react(push_dir: Vector3):
 	is_hit = true
 	hit_timer = HIT_RECOVERY_TIME
 	external_push = push_dir * 0.8
+	_stop_movement_sfx()
 	animation_player.play("HitReact")

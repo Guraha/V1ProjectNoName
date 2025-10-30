@@ -31,8 +31,9 @@ extends Control
 
 # === File Dialog ===
 @onready var file_dialog: FileDialog = $"Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame/FileDialog"
-@onready var copy_prompt: Button = $Part3/ColorRect/MarginContainer/CopyPrompt
 @onready var tutorial_for_import: ColorRect = $Part3/TutorialForImport
+@onready var copy_prompt: Button = $Part3/TutorialForImport/MarginContainer/CopyPrompt
+@onready var copied_label: Label = $Part3/TutorialForImport/MarginContainer/CopyPrompt/copied_label
 
 
 # === CONSTANTS ===
@@ -44,7 +45,6 @@ func _ready() -> void:
 	SFX.play_bgm("main_menu")
 	
 	# --- Setup FileDialog ---
-	add_child(file_dialog)
 	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	file_dialog.add_filter("*.txt ; Text Files")
@@ -58,11 +58,12 @@ func _ready() -> void:
 	main_menu2.pressed.connect(_on_main_menu_pressed)
 	import_questionnaire.pressed.connect(_on_import_questionnaire_pressed)
 	start_game_as_is.pressed.connect(_on_start_game_as_is_pressed)
-	tutorial_for_import.gui_input.connect(_on_tutorial_for_import_gui_input)
+	copy_prompt.pressed.connect(_on_tutorial_for_import_clicked)
 
 	# --- Sliders ---
-	background_music_h_slider.value = SFX.music_volume
-	sfx_h_slider.value = SFX.sfx_volume
+	background_music_h_slider.value = SFX.music_volume * 100
+	sfx_h_slider.value = SFX.sfx_volume * 100
+
 	background_music_h_slider.value_changed.connect(_on_music_slider_changed)
 	sfx_h_slider.value_changed.connect(_on_sfx_slider_changed)
 
@@ -83,10 +84,12 @@ func _ready() -> void:
 		push_warning("⚠️ Game 2 node not found!")
 
 	# --- Hide parts on start ---
+	part_1.visible = true
 	part_2.visible = false
 	part_3.visible = false
 	main_menu2.visible = false
 	options_game.visible = false
+	tutorial_for_import.visible = false
 
 	# --- Play looping camera animation ---
 	if animation_player.has_animation("MainMenuMovementCamera"):
@@ -131,12 +134,13 @@ func _on_main_menu_pressed():
 
 # === SLIDER HANDLERS ===
 func _on_music_slider_changed(value: float):
-	SFX.set_music_volume(value)
+	SFX.set_music_volume(value / 100.0)
 	SFX.play_move()
 
 func _on_sfx_slider_changed(value: float):
-	SFX.set_sfx_volume(value)
+	SFX.set_sfx_volume(value / 100.0)
 	SFX.play_move()
+
 
 
 # === GAME HOVER EFFECTS ===
@@ -160,7 +164,7 @@ func _start_minigame(path: String, bgm_name: String):
 	SFX.fade_out_bgm(0.5)
 	await get_tree().create_timer(0.6).timeout
 	SFX.play_bgm(bgm_name)
-	get_tree().change_scene_to_file(path)
+	FadeManager.fade_to_scene(path)
 
 
 # === GAME 2 TEXTURE CLICK HANDLER ===
@@ -168,7 +172,11 @@ func _on_game_2_texture_clicked(event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		SFX.play_select()
 		options_game.visible = !options_game.visible
+
+		# Ensure tutorial_for_import is only visible if OptionsGame is visible
 		tutorial_for_import.visible = options_game.visible
+		if not options_game.visible:
+			copied_label.visible = false  # hide copied label if options closed
 
 
 
@@ -223,7 +231,7 @@ func _on_file_selected(path: String):
 	SFX.fade_out_bgm(0.5)
 	await get_tree().create_timer(0.6).timeout
 	SFX.play_bgm("minigame_2")
-	get_tree().change_scene_to_file("res://partial_scripts/Minigame_2.tscn")
+	FadeManager.fade_to_scene("res://partial_scripts/Minigame_2.tscn")
 
 
 # === PARSE QUESTIONS FROM TEXT FILE ===
@@ -262,12 +270,33 @@ func _parse_questions(text: String) -> Array:
 	
 	
 func _on_tutorial_for_import_clicked():
-	var prompt_text = "Generate a multiple-choice questionnaire based on the following topic and material: Topic: Dinosaurs Follow these rules STRICTLY: 1. Output exactly 20 questions. 2. Use ONLY the following format — do not add titles, introductions, or explanations. FORMAT: Q: [Question text] A: [Choice 1] B: [Choice 2] C: [Choice 3] D: [Choice 4] ANSWER: [Letter of the correct answer] 3. There must be ONE blank line between each question. 4. The correct answer line must use the exact format: ANSWER: [A/B/C/D] 5. Each question must have exactly four choices labeled A, B, C, and D. 6. Do NOT use markdown, numbering, or bullet points. 7. Do NOT include explanations, hints, or extra text — only the questions in the exact format above. 8. Output plain text only. 9. If you cannot follow this exact format, output nothing."
+	# Only allow copying if OptionsGame is visible
+	if not options_game.visible:
+		return
+
+	var prompt_text := "Generate a multiple-choice questionnaire based on the following topic and material: Topic: Dinosaurs ..."
 
 	DisplayServer.clipboard_set(prompt_text)
-	SFX.play_select()
+	if SFX:
+		SFX.play_select()
+
+	# Show "Copied!" label only if OptionsGame is visible
+	copied_label.visible = true
+	_timer_hide_copied_label()
 	print("📋 Prompt copied to clipboard!")
-	
+
+func _timer_hide_copied_label():
+	var t = Timer.new()
+	t.wait_time = 2.0
+	t.one_shot = true
+	add_child(t)
+	t.start()
+	t.timeout.connect(Callable(self, "_hide_copied_label"))
+
+
+func _hide_copied_label():
+	copied_label.visible = false
+
 func _on_tutorial_for_import_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_on_tutorial_for_import_clicked()

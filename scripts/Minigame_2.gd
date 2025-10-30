@@ -16,17 +16,17 @@ const ROUND_START_DELAY: float = 0.5
 const ANSWER_REVEAL_DELAY: float = 2.5
 const TRANSITION_DELAY: float = 0.8
 const INPUT_UNLOCK_DELAY: float = 0.5
-const TIMER_WARNING_THRESHOLD: int = 3
+const TIMER_WARNING_THRESHOLD: int = 5
 const WINNING_SCORE: int = 15
 const QUESTION_BASE_SCALE: float = 1.0
-const QUESTION_MIN_SCALE: float = 0.45
+const QUESTION_MIN_SCALE: float = 0.4   # More aggressive minimum for long questions
 const QUESTION_MAX_SCALE: float = 1.2
 const OPTION_BASE_SCALE: float = 1.0
-const OPTION_MIN_SCALE: float = 0.55
+const OPTION_MIN_SCALE: float = 0.5     # More aggressive minimum for long options
 const OPTION_MAX_SCALE: float = 1.0
 
-const QUESTION_IDEAL_CHARS: int = 60  # up to ~this many chars keeps base scale
-const OPTION_IDEAL_CHARS: int = 24    # options shrink earlier (shorter)
+const QUESTION_IDEAL_CHARS: int = 50  # Questions start scaling earlier
+const OPTION_IDEAL_CHARS: int = 20    # Options start scaling earlier (4-5 words)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE MACHINE
@@ -41,6 +41,7 @@ enum GameState {
 }
 
 var current_state: GameState = GameState.PREPARE
+var overlapping_areas: Array[String] = []
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SCENE NODES
@@ -91,6 +92,9 @@ var current_state: GameState = GameState.PREPARE
 
 @onready var orange: ColorRect = $Panel/HBoxContainer/Orange #Player 1
 @onready var yellow: ColorRect = $Panel/HBoxContainer/Yellow #Player 2
+
+@onready var Player2_animation_player: AnimationPlayer = $SubViewport/Player2/CollisionShape3D/Character_Female_1/AnimationPlayer
+@onready var Player1_animation_player: AnimationPlayer = $SubViewport/Player1/CollisionShape3D/Character_Male_1/AnimationPlayer
 
 var orange_tween = null
 var yellow_tween = null
@@ -150,9 +154,11 @@ var mat_border_yellow: StandardMaterial3D
 # INITIALIZATION
 # ═══════════════════════════════════════════════════════════════════════════════
 func _ready() -> void:
+	SFX.play_bgm("minigame_2")
 	debug_start_time = Time.get_ticks_msec()
 	print("[DEBUG] _ready() started at ", debug_start_time)
 	print("[DEBUG] Skipped material creation - will lazy load")
+	
 	# Load from GameData if available
 	if GameData.imported_questions.size() > 0:
 		question_data = GameData.imported_questions.duplicate(true)
@@ -213,6 +219,11 @@ func _ready() -> void:
 	option.pressed.connect(_on_option_pressed)
 	back.pressed.connect(_on_back_pressed)
 	
+		# === Sliders ===
+	background_music.value = SFX.music_volume * 100
+	sfx_music.value = SFX.sfx_volume * 100
+	background_music.value_changed.connect(_on_music_slider_changed)
+	sfx_music.value_changed.connect(_on_sfx_slider_changed)
 	# Initialize menu visibility
 	main_menu.visible = false
 	main_menu_screen.visible = true
@@ -338,21 +349,29 @@ func _process(_delta: float) -> void:
 		# Change timer color when time is running low (no animation)
 		if time_left <= TIMER_WARNING_THRESHOLD and not timer_value.modulate.is_equal_approx(Color.RED):
 			timer_value.modulate = Color.RED
+			SFX.play_5timer_warning()
 
 func _on_area_entered(body: Node, answer: String) -> void:
-	# Only allow current player to select when ready
-	if not is_ready_for_input or current_state != GameState.WAITING_INPUT:
+	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
-		
-	if body == get_current_player():
-		chosen_answer = answer
-		_highlight_selected(answer)
+	if not overlapping_areas.has(answer):
+		overlapping_areas.append(answer)
+		SFX.play_move() 
+	_update_highlight()
 
 func _on_area_exited(body: Node, answer: String) -> void:
-	if not is_ready_for_input or current_state != GameState.WAITING_INPUT:
+	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
-		
-	if body == get_current_player() and chosen_answer == answer:
+	overlapping_areas.erase(answer)
+	
+	_update_highlight()
+	
+func _update_highlight() -> void:
+	if overlapping_areas.size() > 0:
+		var top_answer := overlapping_areas[overlapping_areas.size() - 1]
+		chosen_answer = top_answer
+		_highlight_selected(top_answer)
+	else:
 		chosen_answer = ""
 		_hide_all_highlights()
 
@@ -377,17 +396,45 @@ func _check_answer() -> void:
 
 	if chosen_answer == "":
 		print("⏰ Time's up — no answer chosen.")
+		print("[DEBUG] Playing wrong SFX...")
+		SFX.play_wrong()
+		_show_feedback(false)
+		# Play a brief "no answer" animation to match the timing of wrong/correct
+		await get_tree().create_timer(1.0).timeout  # Brief pause for consistency
 	elif chosen_answer == correct_answer:
-		_add_score()
+		print("[DEBUG] ✅ Correct answer! Playing correct SFX...")
+		SFX.play_correct()
+		await _add_score()  # Wait for the wave animation to finish
 		_show_feedback(true)
 	else:
+		print("[DEBUG] ❌ Wrong answer! Playing wrong SFX...")
+		SFX.play_wrong()
 		_show_feedback(false)
+		# 🦆 Play "Duck" animation when answer is wrong
+		# CRITICAL: Disable player's physics process to prevent animation override
+		player.set_physics_process(false)
+		
+		# Rotate character to face forward (toward camera)
+		var character_model = _get_player_character_model(player)
+		if character_model:
+			character_model.rotation.y = deg_to_rad(0)  # Face forward
+		
+		var anim_player = _get_player_animation_player(player)
+		if anim_player and anim_player.has_animation("Duck"):
+			print("[DEBUG] Playing Duck animation")
+			anim_player.play("Duck")
+			await anim_player.animation_finished
+			print("[DEBUG] Duck animation finished")
+		else:
+			print("[DEBUG] ⚠️ Duck animation not available")
+			await get_tree().create_timer(1.0).timeout  # fallback delay
+		# Re-enable player physics
+		player.set_physics_process(true)
 
-	# Reveal correct and wrong highlights
+	# Reveal correct and wrong highlights (runs while animations complete)
 	await _highlight_correct_answer()
 
-	# Pacing delay
-	await get_tree().create_timer(ROUND_START_DELAY).timeout
+	# REMOVED: No extra delay - proceed immediately to next question
 
 	# Check for winner
 	if player1_score >= WINNING_SCORE or player2_score >= WINNING_SCORE:
@@ -400,14 +447,57 @@ func _check_answer() -> void:
 
 func _add_score() -> void:
 	if current_player == 1:
-		player1_score += 1
+		player1_score += 5
 		player1_score_label.text = str(player1_score)
+
+		# Trigger wave animation for Player 1
+		# CRITICAL: Disable player's physics process to prevent animation override
+		player1.set_physics_process(false)
+		
+		# Rotate character to face forward (toward camera)
+		var character_model = _get_player_character_model(player1)
+		if character_model:
+			character_model.rotation.y = deg_to_rad(0)  # Face forward
+		
+		var anim_player = _get_player_animation_player(player1)
+		if anim_player and anim_player.has_animation("Wave"):
+			print("[DEBUG] 👋 Playing Wave animation for Player 1")
+			anim_player.play("Wave")
+			# Wait for animation to finish
+			await anim_player.animation_finished
+			print("[DEBUG] Wave animation finished for Player 1")
+			player1.set_physics_process(true)
+		else:
+			print("[DEBUG] ⚠️ Wave animation not available for Player 1")
+			player1.set_physics_process(true)  # Re-enable immediately if animation not found
 	else:
-		player2_score += 1
+		player2_score += 5
 		player2_score_label.text = str(player2_score)
+
+		# Trigger wave animation for Player 2
+		# CRITICAL: Disable player's physics process to prevent animation override
+		player2.set_physics_process(false)
+		
+		# Rotate character to face forward (toward camera)
+		var character_model = _get_player_character_model(player2)
+		if character_model:
+			character_model.rotation.y = deg_to_rad(0)  # Face forward
+		
+		var anim_player = _get_player_animation_player(player2)
+		if anim_player and anim_player.has_animation("Wave"):
+			print("[DEBUG] 👋 Playing Wave animation for Player 2")
+			anim_player.play("Wave")
+			# Wait for animation to finish
+			await anim_player.animation_finished
+			print("[DEBUG] Wave animation finished for Player 2")
+			player2.set_physics_process(true)
+		else:
+			print("[DEBUG] ⚠️ Wave animation not available for Player 2")
+			player2.set_physics_process(true)  # Re-enable immediately if animation not found
 
 	# Update the background progress bars to reflect new scores
 	_update_background_progress()
+
 
 func _show_feedback(is_correct: bool) -> void:
 	if is_correct:
@@ -438,13 +528,34 @@ func _end_game() -> void:
 	_set_player_active(player2, false)
 
 	print("🎮 Game Over!")
-	
+
+	var winner_id: int = 0  # Declare outside first
+
 	if player1_score > player2_score:
 		print("🏆 Player 1 Wins!")
+		winner_id = 1
 	elif player2_score > player1_score:
 		print("🏆 Player 2 Wins!")
+		winner_id = 2
 	else:
 		print("🤝 It's a tie!")
+		winner_id = 0  # optional for tie handling
+
+	# Switch to GameoverScene
+	_go_to_gameover_scene(winner_id)
+
+func _go_to_gameover_scene(winner_id: int) -> void:
+	# Pause game and reset input
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	# Store winner and minimap in GameData
+	GameData.winner_id = winner_id
+	GameData.current_minimap = 2
+	
+	# Use FadeManager for smooth transition
+	FadeManager.fade_to_scene("res://scenes/GameoverScene.tscn")
+
 
 func get_current_player() -> Node:
 	return player1 if current_player == 1 else player2
@@ -532,6 +643,44 @@ func _hide_all_highlights() -> void:
 # ═══════════════════════════════════════════════════════════════════════════════
 # UTILITY FUNCTIONS
 # ═══════════════════════════════════════════════════════════════════════════════
+func _get_player_animation_player(player: CharacterBody3D) -> AnimationPlayer:
+	# Navigate to AnimationPlayer based on player structure:
+	# Player -> CollisionShape3D -> Character_Male_X or Character_Female_X -> AnimationPlayer
+	var collision_shape = player.get_node_or_null("CollisionShape3D")
+	if not collision_shape:
+		print("⚠️ CollisionShape3D not found on player")
+		return null
+	
+	# Try both character models
+	for model_name in ["Character_Male_1", "Character_Female_1", "Character_Male_2", "Character_Female_2"]:
+		var character_model = collision_shape.get_node_or_null(model_name)
+		if character_model:
+			var anim_player = character_model.get_node_or_null("AnimationPlayer")
+			if anim_player:
+				return anim_player
+			else:
+				print("⚠️ AnimationPlayer not found in ", model_name)
+	
+	print("⚠️ No character model found under CollisionShape3D")
+	return null
+
+func _get_player_character_model(player: CharacterBody3D) -> Node3D:
+	# Navigate to character model based on player structure:
+	# Player -> CollisionShape3D -> Character_Male_X or Character_Female_X
+	var collision_shape = player.get_node_or_null("CollisionShape3D")
+	if not collision_shape:
+		print("⚠️ CollisionShape3D not found on player")
+		return null
+	
+	# Try both character models
+	for model_name in ["Character_Male_1", "Character_Female_1", "Character_Male_2", "Character_Female_2"]:
+		var character_model = collision_shape.get_node_or_null(model_name)
+		if character_model:
+			return character_model
+	
+	print("⚠️ No character model found under CollisionShape3D")
+	return null
+
 func _connect_area_signals() -> void:
 	for area_pair in [{"area":area_a, "id":"A"}, {"area":area_b, "id":"B"}, {"area":area_c, "id":"C"}, {"area":area_d, "id":"D"}]:
 		var a: Area3D = area_pair["area"]
@@ -720,10 +869,9 @@ func _on_restart_pressed() -> void:
 	
 func _on_return_to_main_menu_pressed() -> void:
 	print("Return to Main Menu pressed")
-	# Show main menu
-	main_menu.visible = true
-	main_menu_screen.visible = true
-	option_screen.visible = false
+	# Unpause and switch to main menu scene
+	get_tree().paused = false
+	FadeManager.fade_to_scene("res://scenes/main_menu.tscn")
 
 func _on_option_pressed() -> void:
 	# Show option screen, hide main menu screen
@@ -862,13 +1010,41 @@ func _get_scale_for_length(text_len: int, base_scale: float, min_scale: float, m
 	if text_len <= ideal_chars or ideal_chars <= 0:
 		return clamp(base_scale, min_scale, max_scale)
 	# scale down proportionally to length
-	var scale := base_scale * float(ideal_chars) / float(text_len)
-	return clamp(scale, min_scale, max_scale)
+	var scale_value := base_scale * float(ideal_chars) / float(text_len)
+	return clamp(scale_value, min_scale, max_scale)
 	
 	
 func _adjust_label3d_scale(label: Label3D, base_scale: float, min_scale: float, max_scale: float, ideal_chars: int) -> void:
 	if label == null:
 		return
-	var length := label.text.length()
-	var s := _get_scale_for_length(length, base_scale, min_scale, max_scale, ideal_chars)
-	label.scale = Vector3.ONE * s
+	
+	var text := label.text
+	var length := text.length()
+	
+	# Count words (split by spaces)
+	var word_count := text.split(" ", false).size()
+	
+	# If more than 4 words, apply additional scaling
+	var scale_value := base_scale
+	if word_count > 4:
+		# Calculate scale based on character length
+		scale_value = _get_scale_for_length(length, base_scale, min_scale, max_scale, ideal_chars)
+		
+		# Apply additional word-based scaling (more aggressive for long text)
+		var word_penalty := 1.0 - ((word_count - 4) * 0.08)  # Reduce by 8% per extra word
+		word_penalty = clamp(word_penalty, 0.5, 1.0)  # Don't go below 50%
+		scale_value *= word_penalty
+		scale_value = clamp(scale_value, min_scale, max_scale)
+	else:
+		# For short text (4 words or less), use normal character-based scaling
+		scale_value = _get_scale_for_length(length, base_scale, min_scale, max_scale, ideal_chars)
+	
+	label.scale = Vector3.ONE * scale_value
+	
+func _on_music_slider_changed(value: float):
+	SFX.set_music_volume(value / 100.0)
+	SFX.play_move()
+
+func _on_sfx_slider_changed(value: float):
+	SFX.set_sfx_volume(value / 100.0)
+	SFX.play_move()

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SFX="*res://assets/SFX/SFXManager.tscn"
 GameData="*res://globals/GameData.gd"
+FadeManager="*res://scenes/FadeManager.tscn"
 
 [display]
 

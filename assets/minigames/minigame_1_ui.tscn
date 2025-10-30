@@ -691,7 +691,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("24_mx50l")
 
 [node name="ReadyScreen" type="ColorRect" parent="."]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_right = 1152.0
