@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpvbh42sjfb62"]
+[gd_scene load_steps=14 format=3 uid="uid://bpvbh42sjfb62"]
 
 [ext_resource type="Script" path="res://scripts/sfx_manager.gd" id="1_eak3u"]
 [ext_resource type="AudioStream" uid="uid://sj6gu2dmxu41" path="res://assets/SFX/Background Music for the Math Game.wav" id="2_i8ge4"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bordngwihfb8k" path="res://assets/SFX/timer_countdown-345137.mp3" id="7_pe0to"]
 [ext_resource type="AudioStream" uid="uid://cs4g4xt0fr2be" path="res://assets/SFX/Footsteps.mp3" id="11_2s1mg"]
 [ext_resource type="AudioStream" uid="uid://bii166c53lu1l" path="res://assets/SFX/running.mp3" id="12_atk1g"]
+[ext_resource type="AudioStream" uid="uid://6yuwn7vhh2ty" path="res://assets/SFX/punch.wav" id="13_5qdt6"]
 
 [node name="SFXManager" type="Node2D"]
 script = ExtResource("1_eak3u")
@@ -61,3 +62,6 @@ stream = ExtResource("11_2s1mg")
 
 [node name="Running" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_atk1g")
+
+[node name="Punch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_5qdt6")

@@ -34,9 +34,13 @@ func _ready() -> void:
 	if GameData.current_minimap == 1:
 		minigame_1.visible = true
 		minigame_2.visible = false
+		# Keep local toggle in sync with global setting so restart uses the correct scene
+		showing_minimap_1 = true
 	else:
 		minigame_1.visible = false
 		minigame_2.visible = true
+		# Keep local toggle in sync with global setting so restart uses the correct scene
+		showing_minimap_1 = false
 
 	# Connect buttons
 	restart.pressed.connect(_on_restart_pressed)
@@ -111,8 +115,9 @@ func _on_player2_animation_finished(anim_name: String) -> void:
 
 func _on_restart_pressed() -> void:
 	var scene_path: String
-	
-	if showing_minimap_1:
+
+	# Read directly from the authoritative global setting to avoid local desync
+	if GameData.current_minimap == 1:
 		scene_path = "res://assets/minigames/minigame_1_ui.tscn"
 	else:
 		scene_path = "res://partial_scripts/Minigame_2.tscn"

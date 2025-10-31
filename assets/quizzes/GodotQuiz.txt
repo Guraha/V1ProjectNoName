@@ -1,0 +1,139 @@
+Q: What programming language is primarily used for scripting in Godot?
+A: Python
+B: GDScript
+C: Lua
+D: JavaScript
+ANSWER: B
+
+Q: Which node type is commonly used as the root for a 3D scene in Godot?
+A: Node2D
+B: Control
+C: Node3D
+D: SpatialRoot
+ANSWER: C
+
+Q: What is the main function called every frame in a Godot script?
+A: _start()
+B: _loop()
+C: _process(delta)
+D: _frame()
+ANSWER: C
+
+Q: Which node is used to detect collisions in 2D?
+A: Area3D
+B: CollisionShape2D
+C: RayCast3D
+D: CollisionDetector
+ANSWER: B
+
+Q: What is the file extension for a Godot scene file?
+A: .gd
+B: .scene
+C: .tscn
+D: .gscene
+ANSWER: C
+
+Q: What does the “extends” keyword do in a GDScript file?
+A: Imports a library
+B: Defines inheritance from another class
+C: Creates a new instance
+D: Declares a variable
+ANSWER: B
+
+Q: What node type is used to handle user interfaces in Godot?
+A: Control
+B: CanvasLayer
+C: Node2D
+D: Label3D
+ANSWER: A
+
+Q: Which Godot function is used for physics updates?
+A: _process(delta)
+B: _ready()
+C: _physics_process(delta)
+D: _update()
+ANSWER: C
+
+Q: How do you export a variable to make it visible in the Inspector?
+A: @export var
+B: public var
+C: show var
+D: visible var
+ANSWER: A
+
+Q: What is the purpose of the _ready() function?
+A: To initialize variables before the scene starts
+B: To run code when the node enters the scene tree
+C: To update every frame
+D: To handle input events
+ANSWER: B
+
+Q: Which node is used to play sounds in Godot?
+A: AudioStreamPlayer
+B: SoundEmitter
+C: AudioSource
+D: SoundPlayer2D
+ANSWER: A
+
+Q: What tool is used in Godot to visually connect signals between nodes?
+A: Code Editor
+B: Scene Tree
+C: Signal Dock
+D: AnimationPlayer
+ANSWER: C
+
+Q: What is the default coordinate system used in 2D in Godot?
+A: Y-up
+B: Z-up
+C: Y-down
+D: X-down
+ANSWER: C
+
+Q: Which panel in the Godot editor shows the node hierarchy?
+A: Inspector
+B: Scene Tree
+C: FileSystem
+D: Output
+ANSWER: B
+
+Q: What node type is used to handle player movement with physics in 3D?
+A: KinematicBody2D
+B: CharacterBody3D
+C: RigidBody3D
+D: StaticBody3D
+ANSWER: B
+
+Q: What is used in Godot to group multiple nodes under one logical name?
+A: Tags
+B: Layers
+C: Groups
+D: Collections
+ANSWER: C
+
+Q: Which signal is emitted when a button is pressed?
+A: button_pressed()
+B: on_press()
+C: pressed()
+D: click()
+ANSWER: C
+
+Q: Which Godot feature allows you to blend animations smoothly?
+A: AnimationTree
+B: AnimationMixer
+C: TweenNode
+D: BlendSpace2D
+ANSWER: A
+
+Q: What node type is used to draw shapes and lines in 2D?
+A: Node2D
+B: CanvasItem
+C: Line2D
+D: ShapeDrawer
+ANSWER: C
+
+Q: Which function is used to change scenes programmatically?
+A: load_scene()
+B: get_tree().change_scene()
+C: set_scene()
+D: switch_scene()
+ANSWER: B

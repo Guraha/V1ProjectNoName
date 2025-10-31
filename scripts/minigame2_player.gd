@@ -78,7 +78,9 @@ func _physics_process(delta: float) -> void:
 
 	# --- Punch ---
 	if Input.is_action_just_pressed("ui_accept" + input_prefix) and not is_punching and is_on_floor():
+		SFX.play_punch()
 		_start_punch()
+		
 	if is_punching:
 		move_and_slide()
 		return

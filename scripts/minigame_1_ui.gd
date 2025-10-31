@@ -486,6 +486,7 @@ func _reset_timer():
 
 func _on_timer_tick():
 	if not countdown_running:
+		SFX.stop_timer_warning_sfx()
 		return
 	
 	current_time -= 1
@@ -512,6 +513,8 @@ func _show_ready_screen():
 	ready_screen.visible = true
 	timer.stop()
 	countdown_running = false
+	# Ensure any timer warning SFX is stopped when entering the ready screen
+	SFX.stop_timer_warning_sfx()
 	timer_label.text = ""
 	solution.visible = false
 
@@ -547,6 +550,9 @@ func _handle_ready_input():
 		else:
 			ready_not_ready.text = "Not Ready"
 			press_space_to_continue.visible = true
+			# Stop any running timer warning when a player unreadies
+			SFX.stop_timer_warning_sfx()
+			SFX.stop_5timer_warning_sfx()
 			SFX.play_accept()
 
 	# --- Player 2 ---
@@ -561,6 +567,9 @@ func _handle_ready_input():
 		else:
 			ready_not_ready_p2.text = "Not Ready"
 			press_enter_to_continue.visible = true
+			# Stop any running timer warning when a player unreadies
+			SFX.stop_timer_warning_sfx()
+			SFX.stop_5timer_warning_sfx()
 			SFX.play_accept()
 
 	# ✅ Start countdown only when both are ready
@@ -620,6 +629,9 @@ func _cancel_ready_countdown():
 	ready_countdown_active = false
 	timer_value.text = ""
 	ready_countdown = 5
+	# Also stop any timer warning SFX if countdown was cancelled by a player
+	SFX.stop_timer_warning_sfx()
+	SFX.stop_5timer_warning_sfx()
 
 
 

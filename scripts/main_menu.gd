@@ -274,7 +274,7 @@ func _on_tutorial_for_import_clicked():
 	if not options_game.visible:
 		return
 
-	var prompt_text := "Generate a multiple-choice questionnaire based on the following topic and material: Topic: Dinosaurs ..."
+	var prompt_text := "Generate a multiple-choice questionnaire based on the following topic and material: Topic: Dinosaurs Follow these rules STRICTLY: 1. Output exactly 20 questions. 2. Use ONLY the following format — do not add titles, introductions, or explanations. FORMAT: Q: [Question text] A: [Choice 1] B: [Choice 2] C: [Choice 3] D: [Choice 4] ANSWER: [Letter of the correct answer] 3. There must be ONE blank line between each question. 4. The correct answer line must use the exact format: ANSWER: [A/B/C/D] 5. Each question must have exactly four choices labeled A, B, C, and D. 6. Do NOT use markdown, numbering, or bullet points. 7. Do NOT include explanations, hints, or extra text — only the questions in the exact format above. 8. Output plain text only. 9. If you cannot follow this exact format, output nothing."
 
 	DisplayServer.clipboard_set(prompt_text)
 	if SFX:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="V1"
-run/main_scene="res://assets/character/player1.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,10 +26,6 @@ FadeManager="*res://scenes/FadeManager.tscn"
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/ai_context_generator/plugin.cfg")
 
 [filesystem]
 

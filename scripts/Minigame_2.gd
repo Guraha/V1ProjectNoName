@@ -19,10 +19,10 @@ const INPUT_UNLOCK_DELAY: float = 0.5
 const TIMER_WARNING_THRESHOLD: int = 5
 const WINNING_SCORE: int = 15
 const QUESTION_BASE_SCALE: float = 1.0
-const QUESTION_MIN_SCALE: float = 0.4   # More aggressive minimum for long questions
+const QUESTION_MIN_SCALE: float = 0.6   # More aggressive minimum for long questions
 const QUESTION_MAX_SCALE: float = 1.2
 const OPTION_BASE_SCALE: float = 1.0
-const OPTION_MIN_SCALE: float = 0.5     # More aggressive minimum for long options
+const OPTION_MIN_SCALE: float = 0.8     # More aggressive minimum for long options
 const OPTION_MAX_SCALE: float = 1.0
 
 const QUESTION_IDEAL_CHARS: int = 50  # Questions start scaling earlier
@@ -283,8 +283,8 @@ func start_round() -> void:
 	timer.stop()
 	
 	# Reset timer value and color
-	timer_value.text = "10"
-	last_timer_value = 10
+	timer_value.text = "15"
+	last_timer_value = 15
 	timer_value.modulate = Color(1, 1, 0)
 	
 	# Ensure question index wraps
@@ -304,10 +304,10 @@ func start_round() -> void:
 	_adjust_label3d_scale(question_label, QUESTION_BASE_SCALE, QUESTION_MIN_SCALE, QUESTION_MAX_SCALE, QUESTION_IDEAL_CHARS)
 	
 	# Set answer labels directly
-	labelA.text = "A: " + data["A"]
-	labelB.text = "B: " + data["B"]
-	labelC.text = "C: " + data["C"]
-	labelD.text = "D: " + data["D"]
+	labelA.text = data["A"]
+	labelB.text = data["B"]
+	labelC.text = data["C"]
+	labelD.text = data["D"]
 
 	# Auto-scale all answer labels
 	_adjust_label3d_scale(labelA, OPTION_BASE_SCALE, OPTION_MIN_SCALE, OPTION_MAX_SCALE, OPTION_IDEAL_CHARS)
@@ -322,7 +322,7 @@ func start_round() -> void:
 	_adjust_label3d_scale(optionD, OPTION_BASE_SCALE, OPTION_MIN_SCALE, OPTION_MAX_SCALE, OPTION_IDEAL_CHARS)
 
 	# Start countdown immediately
-	timer.start(10.0)
+	timer.start(15.0)
 	_set_state(GameState.WAITING_INPUT)
 	
 	print("[DEBUG] start_round() completed")
@@ -889,7 +889,7 @@ func _reset_game_state() -> void:
 	if not timer.is_stopped():
 		timer.stop()
 	last_timer_value = -1
-	timer_value.text = "10"
+	timer_value.text = "15"
 	timer_value.modulate = Color(1, 1, 0)
 
 	# Reset scores & labels

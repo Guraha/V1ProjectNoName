@@ -1,0 +1,139 @@
+Q: Who is known as the national hero of the Philippines?
+A: Andres Bonifacio
+B: Emilio Aguinaldo
+C: Jose Rizal
+D: Apolinario Mabini
+ANSWER: C
+
+Q: What year did the Philippines declare independence from Spain?
+A: 1896
+B: 1898
+C: 1901
+D: 1872
+ANSWER: B
+
+Q: Where was the declaration of Philippine independence held?
+A: Cavite
+B: Malolos
+C: Kawit
+D: Tarlac
+ANSWER: C
+
+Q: Who was the first President of the First Philippine Republic?
+A: Jose Rizal
+B: Andres Bonifacio
+C: Emilio Aguinaldo
+D: Manuel L. Quezon
+ANSWER: C
+
+Q: What event sparked the Philippine Revolution against Spain?
+A: The execution of Gomburza
+B: The Cry of Pugad Lawin
+C: The Battle of Tirad Pass
+D: The signing of the Pact of Biak-na-Bato
+ANSWER: B
+
+Q: What was the main purpose of the Katipunan?
+A: Promote education
+B: Spread Christianity
+C: Gain independence from Spain
+D: Support the Spanish government
+ANSWER: C
+
+Q: Who were the three priests executed in 1872 for alleged involvement in the Cavite Mutiny?
+A: Rizal, Bonifacio, Mabini
+B: Gomez, Burgos, Zamora
+C: Aguinaldo, Del Pilar, Luna
+D: Lopez, Aquino, Laurel
+ANSWER: B
+
+Q: What was the capital of the First Philippine Republic?
+A: Manila
+B: Malolos
+C: Cavite
+D: Tarlac
+ANSWER: B
+
+Q: Which Filipino general was known as the “Brains of the Revolution”?
+A: Antonio Luna
+B: Apolinario Mabini
+C: Gregorio del Pilar
+D: Emilio Jacinto
+ANSWER: B
+
+Q: What treaty ended the Spanish-American War?
+A: Treaty of Paris
+B: Treaty of Manila
+C: Treaty of Malolos
+D: Treaty of Cavite
+ANSWER: A
+
+Q: Who was the youngest general in the Philippine Revolutionary Army?
+A: Antonio Luna
+B: Emilio Jacinto
+C: Gregorio del Pilar
+D: Miguel Malvar
+ANSWER: C
+
+Q: Who led the Cry of Pugad Lawin?
+A: Andres Bonifacio
+B: Emilio Aguinaldo
+C: Jose Rizal
+D: Apolinario Mabini
+ANSWER: A
+
+Q: What organization replaced the Katipunan after its dissolution?
+A: La Liga Filipina
+B: Revolutionary Government of Aguinaldo
+C: Malolos Congress
+D: Propaganda Movement
+ANSWER: B
+
+Q: What was the main goal of the Propaganda Movement?
+A: Armed revolt
+B: Reforms under Spanish rule
+C: Religious conversion
+D: Trade expansion
+ANSWER: B
+
+Q: Who was the first American civil governor of the Philippines?
+A: William Howard Taft
+B: Douglas MacArthur
+C: Dwight Eisenhower
+D: Henry Lawton
+ANSWER: A
+
+Q: When did the Philippines gain independence from the United States?
+A: July 4, 1946
+B: June 12, 1898
+C: December 8, 1941
+D: August 21, 1983
+ANSWER: A
+
+Q: What was the first city established by the Spaniards in the Philippines?
+A: Cebu
+B: Manila
+C: Iloilo
+D: Vigan
+ANSWER: A
+
+Q: Who was the leader of the Hukbalahap movement?
+A: Luis Taruc
+B: Manuel Roxas
+C: Claro M. Recto
+D: Jose P. Laurel
+ANSWER: A
+
+Q: What was the name of the ship that brought Ferdinand Magellan to the Philippines?
+A: Trinidad
+B: Victoria
+C: San Antonio
+D: Concepcion
+ANSWER: B
+
+Q: Where did Ferdinand Magellan die in the Philippines?
+A: Cebu
+B: Mactan
+C: Samar
+D: Leyte
+ANSWER: B
