@@ -441,7 +441,10 @@ func _check_answer() -> void:
 		_set_state(GameState.GAME_OVER)
 		_end_game()
 	else:
-		current_question_index += 1
+		# Move question index advancement into _next_turn to centralize turn transition logic.
+		# This prevents cases where the increment could be missed due to timing or
+		# different call paths. _next_turn will now advance the question index and
+		# start the next round.
 		_set_state(GameState.TRANSITION)
 		_next_turn()
 
@@ -506,6 +509,9 @@ func _show_feedback(is_correct: bool) -> void:
 		print("❌ Wrong!")
 
 func _next_turn() -> void:
+	# Advance to the next question index when moving to the next turn.
+	# This centralizes the progression so every turn reliably uses the next question.
+	current_question_index += 1
 	var old_player := get_current_player()
 	_despawn_player(old_player)
 
