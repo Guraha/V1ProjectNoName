@@ -321,7 +321,7 @@ func _activate_selected():
 		SFX.play_correct()
 		SFX.play_score()
 
-		points += 5
+		points += 1
 		_update_ui()
 		emit_signal("request_new_round", player_id)
 		return

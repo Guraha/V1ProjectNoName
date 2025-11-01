@@ -450,7 +450,7 @@ func _check_answer() -> void:
 
 func _add_score() -> void:
 	if current_player == 1:
-		player1_score += 5
+		player1_score += 1
 		player1_score_label.text = str(player1_score)
 
 		# Trigger wave animation for Player 1
@@ -474,7 +474,7 @@ func _add_score() -> void:
 			print("[DEBUG] ⚠️ Wave animation not available for Player 1")
 			player1.set_physics_process(true)  # Re-enable immediately if animation not found
 	else:
-		player2_score += 5
+		player2_score += 1
 		player2_score_label.text = str(player2_score)
 
 		# Trigger wave animation for Player 2
