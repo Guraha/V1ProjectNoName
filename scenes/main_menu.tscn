@@ -11681,6 +11681,12 @@ position = Vector2(267.5, 178)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_u3m58")
 
+[node name="Sprite2D3" type="Sprite2D" parent="Title"]
+visible = false
+position = Vector2(289.5, 185)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_u3m58")
+
 [node name="Part1" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 373.0
