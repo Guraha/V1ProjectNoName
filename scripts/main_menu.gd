@@ -24,6 +24,11 @@ extends Control
 @onready var main_menu2: Button = $Part3/VBoxContainer/MainMenu
 @onready var animation_player: AnimationPlayer = $SubViewport/AnimationTree/AnimationPlayer
 
+# === Game 1 Options ===
+@onready var options_game_1: Panel = $"Part3/VBoxContainer/Selection/1/Game1/TextureRect/OptionsGame"
+@onready var normal: Button = $"Part3/VBoxContainer/Selection/1/Game1/TextureRect/OptionsGame/MarginContainer/VBoxContainer/Normal"
+@onready var hard: Button = $"Part3/VBoxContainer/Selection/1/Game1/TextureRect/OptionsGame/MarginContainer/VBoxContainer/Hard"
+
 # === Game 2 Options ===
 @onready var options_game: Panel = $"Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame"
 @onready var import_questionnaire: Button = $"Part3/VBoxContainer/Selection/2/Game2/TextureRect/OptionsGame/MarginContainer/VBoxContainer/ImportQuestionnaire"
@@ -59,6 +64,8 @@ func _ready() -> void:
 	import_questionnaire.pressed.connect(_on_import_questionnaire_pressed)
 	start_game_as_is.pressed.connect(_on_start_game_as_is_pressed)
 	copy_prompt.pressed.connect(_on_tutorial_for_import_clicked)
+	normal.pressed.connect(_on_normal_pressed)
+	hard.pressed.connect(_on_hard_pressed)
 
 	# --- Sliders ---
 	background_music_h_slider.value = SFX.music_volume * 100
@@ -71,7 +78,7 @@ func _ready() -> void:
 	if game_1:
 		game_1.mouse_entered.connect(_on_game_hover.bind(game_1, true))
 		game_1.mouse_exited.connect(_on_game_hover.bind(game_1, false))
-		game_1.gui_input.connect(_on_game_clicked.bind(game_1))
+		game_1_texture.gui_input.connect(_on_game_1_texture_clicked)
 	else:
 		push_warning("⚠️ Game 1 node not found!")
 
@@ -89,6 +96,7 @@ func _ready() -> void:
 	part_3.visible = false
 	main_menu2.visible = false
 	options_game.visible = false
+	options_game_1.visible = false
 	tutorial_for_import.visible = false
 
 	# --- Play looping camera animation ---
@@ -148,15 +156,26 @@ func _on_game_hover(control: Control, is_hovering: bool):
 	control.modulate = HIGHLIGHT_COLOR if is_hovering else NORMAL_COLOR
 
 
-# === GAME CLICK HANDLER ===
-func _on_game_clicked(event: InputEvent, control: Control):
-	if event is InputEventMouseButton and event.pressed:
-		if control == game_1:
-			SFX.play_accept()
-			_start_minigame("res://assets/minigames/minigame_1_ui.tscn", "minigame_1")
-		elif control == game_2:
-			SFX.play_accept()
-			_start_minigame("res://partial_scripts/Minigame_2.tscn", "minigame_2")
+# === GAME 1 TEXTURE CLICK HANDLER ===
+func _on_game_1_texture_clicked(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		SFX.play_select()
+		options_game_1.visible = !options_game_1.visible
+
+
+# === GAME 1 OPTIONS BUTTONS ===
+func _on_normal_pressed():
+	SFX.play_accept()
+	options_game_1.visible = false
+	GameData.minigame1_difficulty = "normal"
+	_start_minigame("res://assets/minigames/minigame_1_ui.tscn", "minigame_1")
+
+
+func _on_hard_pressed():
+	SFX.play_accept()
+	options_game_1.visible = false
+	GameData.minigame1_difficulty = "hard"
+	_start_minigame("res://assets/minigames/minigame_1_ui.tscn", "minigame_1")
 
 
 # === LOAD MINIGAME ===

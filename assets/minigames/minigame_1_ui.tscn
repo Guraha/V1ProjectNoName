@@ -787,7 +787,7 @@ text = "5"
 
 [node name="Timer" type="Timer" parent="ReadyScreen/TimerValue"]
 
-[node name="MarginContainer2" type="MarginContainer" parent="ReadyScreen"]
+[node name="NormalMode" type="MarginContainer" parent="ReadyScreen"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 7
@@ -800,16 +800,19 @@ offset_top = -199.0
 offset_right = 352.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_bottom = 45
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_bottom = 20
 
-[node name="Panel" type="Panel" parent="ReadyScreen/MarginContainer2"]
+[node name="Panel" type="Panel" parent="ReadyScreen/NormalMode"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ReadyScreen/MarginContainer2/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ReadyScreen/NormalMode/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
@@ -817,7 +820,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ReadyScreen/MarginContainer2/Panel/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ReadyScreen/NormalMode/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
@@ -825,15 +828,61 @@ theme_override_font_sizes/mono_font_size = 20
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[b][color=orange]How to Play:[/color][/b]
-Use the [b]grid of math operations[/b] to reach the [b]goal number[/b].
-Take turns selecting buttons to adjust your score — [color=yellow]first to 15 points wins[/color]!
-Use the [i]clear button[/i] if you make a mistake.
+text = "[b][color=orange]How to Play (Normal Mode):[/color] [color=yellow]First to 15 points wins![/color] [/b] 
+Tap numbers in the [b]math grid and combine them[/b] to reach the [b]goal[/b].
+You’ll use [color=yellow]addition[/color], [color=yellow]subtraction[/color], and occasional [color=yellow]multiplication[/color]."
+fit_content = true
+
+[node name="Hardmode" type="MarginContainer" parent="ReadyScreen"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -223.0
+offset_right = 353.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="ReadyScreen/Hardmode"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ReadyScreen/Hardmode/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ReadyScreen/Hardmode/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][color=orange]How to Play (Hard Mode):[/color] [color=yellow]First to 15 points wins![/color][/b]  
+Tap numbers in the [b]math grid and combine them[/b] to reach the [b]goal[/b].  
+You’ll use [color=yellow]multiplication[/color] and [color=yellow]division[/color] more often, with [color=yellow]addition[/color] and [color=yellow]subtraction[/color] appearing less frequently.
 "
 fit_content = true
 
 [node name="MainMenu" type="ColorRect" parent="."]
 process_mode = 3
+visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = 15

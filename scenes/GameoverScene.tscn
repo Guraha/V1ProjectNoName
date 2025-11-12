@@ -5742,7 +5742,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.576, 12.826, -5.986)
 curve = SubResource("Curve3D_qgfmw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="SubViewport2/Path3D"]
-transform = Transform3D(1, 0, 0, 0, 0.718233, 0.695789, 0, -0.695789, 0.718233, 0, -2.98023e-08, 2.98023e-08)
+transform = Transform3D(1, 0, 0, 0, 0.718234, 0.695788, 0, -0.695788, 0.718234, 0, 5.96046e-07, 6.70552e-07)
 progress = 1.21394
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport2/Path3D/PathFollow3D"]
