@@ -1,0 +1,139 @@
+Q: What is the chemical symbol for water?
+A: H2O
+B: O2
+C: CO2
+D: HO
+ANSWER: A
+
+Q: What planet is known as the “Red Planet”?
+A: Venus
+B: Mars
+C: Jupiter
+D: Mercury
+ANSWER: B
+
+Q: What gas do humans need to breathe to survive?
+A: Nitrogen
+B: Carbon dioxide
+C: Oxygen
+D: Hydrogen
+ANSWER: C
+
+Q: What part of the plant makes food through photosynthesis?
+A: Stem
+B: Root
+C: Flower
+D: Leaf
+ANSWER: D
+
+Q: What is the center of an atom called?
+A: Electron
+B: Nucleus
+C: Proton
+D: Neutron
+ANSWER: B
+
+Q: What force keeps us on the ground?
+A: Friction
+B: Gravity
+C: Magnetism
+D: Tension
+ANSWER: B
+
+Q: What planet is the largest in our solar system?
+A: Earth
+B: Saturn
+C: Jupiter
+D: Neptune
+ANSWER: C
+
+Q: What is the process of water turning into vapor called?
+A: Condensation
+B: Evaporation
+C: Freezing
+D: Precipitation
+ANSWER: B
+
+Q: What organ pumps blood through the human body?
+A: Brain
+B: Lungs
+C: Heart
+D: Stomach
+ANSWER: C
+
+Q: What is the hardest natural substance on Earth?
+A: Iron
+B: Gold
+C: Diamond
+D: Steel
+ANSWER: C
+
+Q: What is the nearest star to Earth?
+A: Polaris
+B: The Sun
+C: Sirius
+D: Alpha Centauri
+ANSWER: B
+
+Q: What part of the human body controls thinking and movement?
+A: Heart
+B: Brain
+C: Lungs
+D: Liver
+ANSWER: B
+
+Q: What gas do plants absorb during photosynthesis?
+A: Oxygen
+B: Nitrogen
+C: Carbon dioxide
+D: Helium
+ANSWER: C
+
+Q: What kind of energy comes from the movement of electrons?
+A: Thermal energy
+B: Nuclear energy
+C: Electrical energy
+D: Solar energy
+ANSWER: C
+
+Q: What tool is used to measure temperature?
+A: Thermometer
+B: Barometer
+C: Hygrometer
+D: Compass
+ANSWER: A
+
+Q: Which part of the cell contains genetic material (DNA)?
+A: Cell wall
+B: Nucleus
+C: Cytoplasm
+D: Mitochondria
+ANSWER: B
+
+Q: What is the main source of energy for life on Earth?
+A: The Moon
+B: The Sun
+C: The Ocean
+D: The Wind
+ANSWER: B
+
+Q: What is H2SO4 commonly known as?
+A: Hydrochloric acid
+B: Nitric acid
+C: Sulfuric acid
+D: Carbonic acid
+ANSWER: C
+
+Q: What do you call animals that eat only plants?
+A: Carnivores
+B: Omnivores
+C: Herbivores
+D: Detritivores
+ANSWER: C
+
+Q: What is the freezing point of water in Celsius?
+A: 0°C
+B: 32°C
+C: 50°C
+D: 100°C
+ANSWER: A

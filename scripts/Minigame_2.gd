@@ -51,6 +51,9 @@ var overlapping_areas: Array[String] = []
 @onready var area_c: Area3D = $SubViewport/CLabel/Area3D
 @onready var area_d: Area3D = $SubViewport/DLabel/Area3D
 @onready var timer: Timer = $SubViewport/Timer
+@onready var skip_timer = $SubViewport/SkipTimer
+@onready var skip_hint_p1_ui = $SubViewport/Hint/Control_Hint/SkipHintP1
+@onready var skip_hint_p2_ui = $SubViewport/Hint/Control_Hint/SkipHintP2
 @onready var timer_value: Label3D = $SubViewport/TimerValue
 @onready var question_label: Label3D = $SubViewport/QuestionLabel
 @onready var labelA: Label3D = $SubViewport/ALabel/Area3D/ValueLabel
@@ -159,6 +162,9 @@ func _ready() -> void:
 	print("[DEBUG] _ready() started at ", debug_start_time)
 	print("[DEBUG] Skipped material creation - will lazy load")
 	
+	skip_hint_p1_ui.visible = false
+	skip_hint_p2_ui.visible = false
+	
 	# Load from GameData if available
 	if GameData.imported_questions.size() > 0:
 		question_data = GameData.imported_questions.duplicate(true)
@@ -170,6 +176,10 @@ func _ready() -> void:
 			{"q":"Largest planet in the Solar System?", "A":"Earth", "B":"Mars", "C":"Jupiter", "D":"Venus", "answer":"C"},
 			{"q":"What color do you get by mixing red and blue?", "A":"Green", "B":"Purple", "C":"Orange", "D":"Brown", "answer":"B"}
 		]
+
+	#Connect timeout signal
+	if not skip_timer.timeout.is_connected(_on_skip_timer_timeout):
+		skip_timer.timeout.connect(_on_skip_timer_timeout)
 
 
 	# Connect timer safely
@@ -298,6 +308,7 @@ func start_round() -> void:
 	var spawn_start := Time.get_ticks_msec()
 	_spawn_current_player()
 	print("[DEBUG] Player spawned in ", Time.get_ticks_msec() - spawn_start, "ms")
+	_update_skip_hint()
 	
 	# Set question text directly
 	question_label.text = data["q"]
@@ -322,7 +333,7 @@ func start_round() -> void:
 	_adjust_label3d_scale(optionD, OPTION_BASE_SCALE, OPTION_MIN_SCALE, OPTION_MAX_SCALE, OPTION_IDEAL_CHARS)
 
 	# Start countdown immediately
-	timer.start(15.0)
+	timer.start(10.0)
 	_set_state(GameState.WAITING_INPUT)
 	
 	print("[DEBUG] start_round() completed")
@@ -337,6 +348,9 @@ func _process(_delta: float) -> void:
 			var frame_time := _delta * 1000.0
 			print("[DEBUG] Time: ", elapsed, "ms | FPS: ", fps, " | Frame time: ", "%.2f" % frame_time, "ms")
 	
+	# Always check for skip buttons
+	_check_skip_input()
+	
 	if timer.is_stopped() or current_state != GameState.WAITING_INPUT:
 		return
 	
@@ -350,7 +364,49 @@ func _process(_delta: float) -> void:
 		if time_left <= TIMER_WARNING_THRESHOLD and not timer_value.modulate.is_equal_approx(Color.RED):
 			timer_value.modulate = Color.RED
 			SFX.play_5timer_warning()
+			
+			# 👇 Check for skip buttons each frame
+			_check_skip_input()
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SKIP TIMER — PLAYER 1 (Left Ctrl) / PLAYER 2 (Right Ctrl)
+# ═══════════════════════════════════════════════════════════════════════════════
+func _check_skip_input() -> void:
+	if current_state != GameState.WAITING_INPUT:
+		return
+	if timer.is_stopped():
+		return
+
+	# Player 1 skip
+	if Input.is_action_just_pressed("player1_skip") and current_player == 1:
+		print("[DEBUG] ⏩ Player 1 pressed skip!")
+		_trigger_skip()
+
+	# Player 2 skip
+	elif Input.is_action_just_pressed("player2_skip") and current_player == 2:
+		print("[DEBUG] ⏩ Player 2 pressed skip!")
+		_trigger_skip()
+
+
+func _trigger_skip() -> void:
+	# Optional: small debounce so skip can't be spammed
+	if not skip_timer.is_stopped():
+		return
+	skip_timer.start(0.01)     # Start SkipTimer — fires its timeout() almost instantly
+	
+	# Hide skip hints initially
+	skip_hint_p1_ui.visible = false
+	skip_hint_p2_ui.visible = false
+
+
+func _on_skip_timer_timeout() -> void:
+	print("[DEBUG] ⏳ SkipTimer finished —
+	 skipping question!")
+	timer.stop()           # stop the main timer
+	# Stop countdown sound
+	SFX.stop_countdown()   # <- Make sure this function exists
+	_check_answer()        # call your existing answer-check logic
+	
 func _on_area_entered(body: Node, answer: String) -> void:
 	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
@@ -358,6 +414,10 @@ func _on_area_entered(body: Node, answer: String) -> void:
 		overlapping_areas.append(answer)
 		SFX.play_move() 
 	_update_highlight()
+
+func _update_skip_hint():
+	skip_hint_p1_ui.visible = (current_player == 1)
+	skip_hint_p2_ui.visible = (current_player == 2)
 
 func _on_area_exited(body: Node, answer: String) -> void:
 	if body != get_current_player() or current_state != GameState.WAITING_INPUT:

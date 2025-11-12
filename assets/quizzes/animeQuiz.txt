@@ -1,0 +1,139 @@
+Q: Who is the main protagonist of Naruto?
+A: Sasuke Uchiha
+B: Naruto Uzumaki
+C: Kakashi Hatake
+D: Itachi Uchiha
+ANSWER: B
+
+Q: In Attack on Titan, what is Eren Yeager’s Titan called?
+A: Armored Titan
+B: Colossal Titan
+C: Attack Titan
+D: Beast Titan
+ANSWER: C
+
+Q: What is the name of the world where Sword Art Online begins?
+A: Aincrad
+B: Alfheim
+C: Underworld
+D: Midgard
+ANSWER: A
+
+Q: Which anime features a notebook that can kill anyone whose name is written in it?
+A: Tokyo Ghoul
+B: Death Note
+C: Parasyte
+D: Psycho-Pass
+ANSWER: B
+
+Q: Who is the captain of the Straw Hat Pirates in One Piece?
+A: Zoro
+B: Sanji
+C: Luffy
+D: Nami
+ANSWER: C
+
+Q: What are the creatures called in Tokyo Ghoul that eat human flesh?
+A: Titans
+B: Ghouls
+C: Demons
+D: Shinigami
+ANSWER: B
+
+Q: In Dragon Ball Z, what color does Goku’s hair turn when he becomes a Super Saiyan?
+A: Red
+B: Yellow
+C: Blue
+D: White
+ANSWER: B
+
+Q: What is the name of the school in My Hero Academia?
+A: UA High School
+B: Shujin Academy
+C: Jujutsu High
+D: Cross Academy
+ANSWER: A
+
+Q: Who is known as the “Fullmetal Alchemist”?
+A: Roy Mustang
+B: Alphonse Elric
+C: Edward Elric
+D: Scar
+ANSWER: C
+
+Q: In Demon Slayer, what is Tanjiro’s sister’s name?
+A: Nezuko
+B: Mitsuri
+C: Shinobu
+D: Kanao
+ANSWER: A
+
+Q: What type of creature is Pikachu?
+A: Fire-type
+B: Water-type
+C: Electric-type
+D: Grass-type
+ANSWER: C
+
+Q: In Jujutsu Kaisen, who is the king of curses?
+A: Gojo Satoru
+B: Mahito
+C: Sukuna
+D: Toji
+ANSWER: C
+
+Q: Who created the anime One Punch Man?
+A: Eiichiro Oda
+B: ONE
+C: Masashi Kishimoto
+D: Tite Kubo
+ANSWER: B
+
+Q: In Hunter x Hunter, what is Gon’s best friend’s name?
+A: Kurapika
+B: Killua
+C: Leorio
+D: Hisoka
+ANSWER: B
+
+Q: What instrument does Kaori Miyazono play in Your Lie in April?
+A: Piano
+B: Violin
+C: Guitar
+D: Flute
+ANSWER: B
+
+Q: What is the main goal of Light Yagami in Death Note?
+A: To become a detective
+B: To create a new world
+C: To destroy the Death Note
+D: To revive his father
+ANSWER: B
+
+Q: Which anime features a guild called “Fairy Tail”?
+A: Black Clover
+B: Fairy Tail
+C: Bleach
+D: Re:Zero
+ANSWER: B
+
+Q: Who is the main character of Bleach?
+A: Rukia Kuchiki
+B: Ichigo Kurosaki
+C: Renji Abarai
+D: Byakuya Kuchiki
+ANSWER: B
+
+Q: What is the main weapon used by Inuyasha?
+A: Katana
+B: Tetsusaiga
+C: Scythe
+D: Bow and arrow
+ANSWER: B
+
+Q: In Neon Genesis Evangelion, what are the giant creatures attacking Earth called?
+A: Demons
+B: Angels
+C: Titans
+D: Monsters
+ANSWER: B

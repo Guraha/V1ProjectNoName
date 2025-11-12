@@ -1,0 +1,457 @@
+Q: What is the value of π (pi) to two decimal places?
+A. 3.12
+B. 3.14
+C. 3.16
+D. 3.18
+Answer: B
+
+Q: What is the square root of 256?
+A. 14
+B. 15
+C. 16
+D. 18
+Answer: C
+
+Q: What is the derivative of 
+𝑥
+2
++
+3
+𝑥
++
+2
+x
+2
++3x+2?
+A. 
+2
+𝑥
++
+3
+2x+3
+B. 
+𝑥
++
+3
+x+3
+C. 
+2
+𝑥
++
+2
+2x+2
+D. 
+3
+𝑥
++
+2
+3x+2
+Answer: A
+
+Q: What is the value of 
+7
+!
+7! (7 factorial)?
+A. 720
+B. 5040
+C. 40320
+D. 2520
+Answer: B
+
+Q: What is the next prime number after 97?
+A. 99
+B. 101
+C. 103
+D. 107
+Answer: B
+
+Q: What is the solution to 
+3
+𝑥
++
+5
+=
+17
+3x+5=17?
+A. 4
+B. 5
+C. 3
+D. 2
+Answer: A
+
+Q: What is the sum of interior angles in a hexagon?
+A. 540°
+B. 720°
+C. 900°
+D. 1080°
+Answer: B
+
+Q: What is the logarithm base 10 of 1000?
+A. 2
+B. 3
+C. 4
+D. 10
+Answer: B
+
+Q: If 
+𝑎
+=
+2
+a=2 and 
+𝑏
+=
+3
+b=3, what is 
+(
+𝑎
++
+𝑏
+)
+3
+(a+b)
+3
+?
+A. 27
+B. 64
+C. 125
+D. 216
+Answer: C
+
+Q: What is the value of 
+sin
+⁡
+(
+90
+°
+)
+sin(90°)?
+A. 0
+B. 1
+C. -1
+D. Undefined
+Answer: B
+
+Q: What is the formula for the area of a circle?
+A. 
+2
+𝜋
+𝑟
+2πr
+B. 
+𝜋
+𝑟
+2
+πr
+2
+
+C. 
+4
+𝜋
+𝑟
+2
+4πr
+2
+
+D. 
+𝜋
+𝑑
+2
+πd
+2
+
+Answer: B
+
+Q: What is the slope of a line parallel to 
+𝑦
+=
+3
+𝑥
++
+7
+y=3x+7?
+A. 7
+B. 0
+C. 3
+D. -3
+Answer: C
+
+Q: What is the value of 
+2
+5
+2
+5
+?
+A. 16
+B. 32
+C. 64
+D. 128
+Answer: B
+
+Q: If a triangle has sides 3, 4, and 5, what type of triangle is it?
+A. Equilateral
+B. Isosceles
+C. Scalene
+D. Right triangle
+Answer: D
+
+Q: What is the determinant of the 2×2 matrix 
+[
+3
+	
+2
+
+
+1
+	
+4
+]
+[
+3
+1
+	​
+
+2
+4
+	​
+
+]?
+A. 10
+B. 12
+C. 8
+D. 6
+Answer: A
+
+Q: What is 
+(
+𝑥
++
+3
+)
+(
+𝑥
+−
+3
+)
+(x+3)(x−3) simplified?
+A. 
+𝑥
+2
++
+9
+x
+2
++9
+B. 
+𝑥
+2
+−
+9
+x
+2
+−9
+C. 
+𝑥
+2
++
+3
+x
+2
++3
+D. 
+𝑥
+2
+−
+6
+𝑥
++
+9
+x
+2
+−6x+9
+Answer: B
+
+Q: What is the value of 
+cos
+⁡
+(
+0
+°
+)
+cos(0°)?
+A. 0
+B. 1
+C. -1
+D. Undefined
+Answer: B
+
+Q: How many degrees are there in one radian (approximately)?
+A. 45°
+B. 57.3°
+C. 60°
+D. 90°
+Answer: B
+
+Q: What is the sum of all angles in a decagon?
+A. 1260°
+B. 1440°
+C. 1620°
+D. 1800°
+Answer: B
+
+Q: What is the 10th term of the arithmetic sequence 2, 5, 8, 11, …?
+A. 26
+B. 29
+C. 32
+D. 35
+Answer: B
+
+Q: What is the binomial coefficient 
+(
+5
+2
+)
+(
+2
+5
+	​
+
+)?
+A. 10
+B. 20
+C. 5
+D. 15
+Answer: A
+
+Q: What is the integral of 
+2
+𝑥
+2x?
+A. 
+𝑥
+2
++
+𝐶
+x
+2
++C
+B. 
+2
+𝑥
++
+𝐶
+2x+C
+C. 
+𝑥
+2
+/
+2
++
+𝐶
+x
+2
+/2+C
+D. 
+𝑥
++
+𝐶
+x+C
+Answer: A
+
+Q: What is the smallest positive number divisible by both 12 and 15?
+A. 60
+B. 90
+C. 120
+D. 180
+Answer: A
+
+Q: What is the median of the numbers 5, 9, 2, 8, 6?
+A. 5
+B. 6
+C. 7
+D. 8
+Answer: C
+
+Q: What is the value of 
+𝑒
+0
+e
+0
+?
+A. 0
+B. 1
+C. e
+D. Undefined
+Answer: B
+
+Q: What is the distance between the points (2,3) and (7,11)?
+A. 9
+B. 8
+C. 10
+D. 7
+Answer: C
+
+Q: What is the equation of a line passing through (0,0) with slope 4?
+A. 
+𝑦
+=
+4
+𝑥
+y=4x
+B. 
+𝑦
+=
+𝑥
++
+4
+y=x+4
+C. 
+𝑦
+=
+4
+y=4
+D. 
+𝑦
+=
+𝑥
+−
+4
+y=x−4
+Answer: A
+
+Q: Which number is an irrational number?
+A. 1.75
+B. 3.14
+C. 
+2
+2
+	​
+
+
+D. 4/5
+Answer: C
+
+Q: What is the cube root of 27?
+A. 2
+B. 3
+C. 4
+D. 9
+Answer: B
+
+Q: What is the discriminant of the equation 
+𝑥
+2
++
+4
+𝑥
++
+4
+=
+0
+x
+2
++4x+4=0?
+A. 0
+B. 4
+C. 8
+D. 16
+Answer: A

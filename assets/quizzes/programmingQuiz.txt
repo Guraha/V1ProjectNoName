@@ -1,0 +1,132 @@
+Q: What does HTML stand for?
+A: Hyperlinks and Text Markup Language
+B: Home Tool Markup Language
+C: Hyper Text Markup Language
+D: Hyper Text Main Language
+ANSWER: C
+
+Q: Which language is primarily used to style web pages?
+A: HTML
+B: CSS
+C: Python
+D: PHP
+ANSWER: B
+
+Q: What does “SQL” stand for?
+A: Simple Query Language
+B: Structured Query Language
+C: Sequential Query Logic
+D: System Query Layer
+ANSWER: B
+
+Q: Which programming language is known for its snake logo?
+A: Java
+B: Ruby
+C: Python
+D: C++
+ANSWER: C
+
+Q: What symbol is used to write comments in Python?
+A: //
+B: <!-- -->
+C: #
+D: /* */
+ANSWER: C
+
+Q: What is the main purpose of a compiler?
+A: To execute code directly
+B: To convert source code into machine code
+C: To check grammar in code comments
+D: To delete unnecessary files
+ANSWER: B
+
+Q: Which of the following is a JavaScript framework?
+A: Django
+B: Laravel
+C: React
+D: Flask
+ANSWER: C
+
+Q: What does “CSS” stand for?
+A: Computer Styling System
+B: Cascading Style Sheets
+C: Creative Style Syntax
+D: Central Styling Script
+ANSWER: B
+
+Q: What keyword is used to define a function in JavaScript?
+A: func
+B: function
+C: def
+D: create
+ANSWER: B
+
+Q: Which data structure uses FIFO (First In, First Out)?
+A: Stack
+B: Queue
+C: Array
+D: Tree
+ANSWER: B
+
+Q: Which of these is a backend programming language?
+A: CSS
+B: HTML
+C: PHP
+D: XML
+ANSWER: C
+
+Q: In web development, what does “API” stand for?
+A: Application Programming Interface
+B: Automated Process Integration
+C: Advanced Programming Input
+D: Application Process Information
+ANSWER: A
+
+Q: What operator is used for equality comparison in most languages?
+A: =
+B: ==
+C: :=
+D: =>
+ANSWER: B
+
+Q: Which programming concept refers to wrapping data and behavior together?
+A: Polymorphism
+B: Encapsulation
+C: Inheritance
+D: Abstraction
+ANSWER: B
+
+Q: Which of the following is a version control system?
+A: Node.js
+B: Git
+C: MySQL
+D: Flask
+ANSWER: B
+
+Q: What is the extension of a JavaScript file?
+A: .java
+B: .js
+C: .jsx
+D: .jss
+ANSWER: B
+
+Q: Which company developed the C# programming language?
+A: Apple
+B: Microsoft
+C: Google
+D: Oracle
+ANSWER: B
+
+Q: What does “OOP” stand for?
+A: Object-Oriented Programming
+B: Overloaded Object Process
+C: Organized Output Protocol
+D: Ordered Operation Program
+ANSWER: A
+
+Q: Which of the following is used to repeat a block of code multiple times?
+A: if statement
+B: while loop
+C: function
+D: return
+ANSWER: B

@@ -1,0 +1,139 @@
+Q: What is the main goal in Minecraft’s Survival mode?
+A: To build a city
+B: To defeat the Ender Dragon
+C: To collect all ores
+D: To explore the Nether
+ANSWER: B
+
+Q: What material do you need to make a crafting table?
+A: Stone
+B: Iron
+C: Wood planks
+D: Cobblestone
+ANSWER: C
+
+Q: Which hostile mob explodes when it gets close to the player?
+A: Skeleton
+B: Creeper
+C: Zombie
+D: Enderman
+ANSWER: B
+
+Q: What is used to tame a wolf in Minecraft?
+A: Apple
+B: Bone
+C: Stick
+D: Fish
+ANSWER: B
+
+Q: What dimension do you access through a purple portal?
+A: The End
+B: The Nether
+C: The Overworld
+D: The Sky Realm
+ANSWER: B
+
+Q: What tool is used to mine stone blocks faster?
+A: Axe
+B: Pickaxe
+C: Shovel
+D: Sword
+ANSWER: B
+
+Q: What item allows players to respawn in the Nether?
+A: Ender Pearl
+B: Respawn Anchor
+C: Bed
+D: Totem of Undying
+ANSWER: B
+
+Q: Which mob drops string and spider eyes when killed?
+A: Zombie
+B: Spider
+C: Creeper
+D: Witch
+ANSWER: B
+
+Q: What is needed to craft a torch?
+A: Stick and Coal
+B: Stick and Iron
+C: Stick and Flint
+D: Stick and Charcoal only
+ANSWER: A
+
+Q: What is the rarest ore in Minecraft (Overworld)?
+A: Iron
+B: Gold
+C: Diamond
+D: Emerald
+ANSWER: D
+
+Q: Which food restores the most hunger points?
+A: Bread
+B: Cooked Beef (Steak)
+C: Apple
+D: Baked Potato
+ANSWER: B
+
+Q: What do Endermen drop when defeated?
+A: Ender Pearls
+B: Blaze Rods
+C: Obsidian
+D: Chorus Fruit
+ANSWER: A
+
+Q: What is the name of the boss in the End dimension?
+A: Ender Golem
+B: Wither
+C: Ender Dragon
+D: Elder Guardian
+ANSWER: C
+
+Q: What must you use to light a Nether Portal?
+A: Fire Charge
+B: Flint and Steel
+C: Lava Bucket
+D: Torch
+ANSWER: B
+
+Q: What do you get when you combine 9 iron nuggets?
+A: Iron Block
+B: Iron Ore
+C: Iron Ingot
+D: Iron Sword
+ANSWER: C
+
+Q: What do villagers trade with players?
+A: Coins
+B: Gems
+C: Emeralds
+D: Experience
+ANSWER: C
+
+Q: What does TNT require to explode?
+A: Lava
+B: Water
+C: Redstone or Fire
+D: Air
+ANSWER: C
+
+Q: What happens when you try to sleep in the Nether?
+A: You skip time
+B: You set your spawn point
+C: The bed explodes
+D: Nothing happens
+ANSWER: C
+
+Q: Which mob drops blaze rods?
+A: Ghast
+B: Blaze
+C: Wither Skeleton
+D: Piglin
+ANSWER: B
+
+Q: What can you use to travel great distances instantly in the End?
+A: End Gateway
+B: Elytra
+C: Nether Portal
+D: Beacon
+ANSWER: A
