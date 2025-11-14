@@ -30,6 +30,10 @@ extends Control
 @onready var sfx_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/HSlider
 @onready var back: Button = $MainMenu/OptionScreen/VBoxContainer/MarginContainer4/Back
 @onready var main_menu_Screen: MarginContainer = $MainMenu/MainMenu
+@onready var normal_mode: MarginContainer = $ReadyScreen/NormalMode
+@onready var hardmode: MarginContainer = $ReadyScreen/Hardmode
+
+
 
 
 # Shared game state
@@ -234,8 +238,11 @@ func _update_background_progress():
 func _generate_round_config() -> Dictionary:
 	var btn_count := 9 # 3x3 grid, last index is Clear
 	var config: Array = []
+	
+	# Check difficulty mode
+	var is_hard_mode := GameData.minigame1_difficulty == "hard"
 
-	# 1️⃣ Fill buttons randomly (except Clear)
+	# 1️⃣ Fill buttons randomly (except Clear) based on difficulty
 	for i in range(btn_count):
 		var op = OperationType.ADD
 		var value = randi() % 10 + 1
@@ -244,53 +251,121 @@ func _generate_round_config() -> Dictionary:
 			value = 0
 		else:
 			var rr = randi() % 100
-			if rr < 60:
-				op = OperationType.ADD
-			elif rr < 90:
-				op = OperationType.SUBTRACT
+			
+			if is_hard_mode:
+				# HARD MODE: Frequent Multiply/Divide, Occasional Add/Subtract
+				if rr < 40:  # 40% Multiply
+					op = OperationType.MULTIPLY
+				elif rr < 80:  # 40% Divide
+					op = OperationType.DIVIDE
+				elif rr < 90:  # 10% Add
+					op = OperationType.ADD
+				else:  # 10% Subtract
+					op = OperationType.SUBTRACT
 			else:
-				op = OperationType.MULTIPLY
+				# NORMAL MODE: Frequent Add/Subtract, Occasional Multiply
+				if rr < 45:  # 45% Add
+					op = OperationType.ADD
+				elif rr < 85:  # 40% Subtract
+					op = OperationType.SUBTRACT
+				else:  # 15% Multiply
+					op = OperationType.MULTIPLY
+					
 		config.append({"operation": op, "value": value})
 
-	# 2️⃣ Generate all 2-button sequence results (avoid trivial or negative results)
-	var valid_pairs: Array = []
-	for i in range(btn_count - 1):
-		for j in range(btn_count - 1):
-			if i == j:
-				continue
-			var b1 = config[i]
-			var b2 = config[j]
-			var res = compute_sequence_result(b1, b2)
-			# Only positive, non-trivial results
-			if res > 1:
-				valid_pairs.append({"a": i, "b": j, "result": res})
+	# 2️⃣ Generate valid sequences (2 buttons for normal, 3 buttons for hard)
+	var valid_sequences: Array = []
+	
+	if is_hard_mode:
+		# Hard mode: 3-button sequences
+		for i in range(btn_count - 1):
+			for j in range(btn_count - 1):
+				for k in range(btn_count - 1):
+					if i == j or j == k or i == k:
+						continue
+					var b1 = config[i]
+					var b2 = config[j]
+					var b3 = config[k]
+					var res = compute_3button_sequence(b1, b2, b3)
+					# Only positive, non-trivial results
+					if res > 1:
+						valid_sequences.append({"a": i, "b": j, "c": k, "result": res, "buttons": 3})
+	else:
+		# Normal mode: 2-button sequences
+		for i in range(btn_count - 1):
+			for j in range(btn_count - 1):
+				if i == j:
+					continue
+				var b1 = config[i]
+				var b2 = config[j]
+				var res = compute_sequence_result(b1, b2)
+				# Only positive, non-trivial results
+				if res > 1:
+					valid_sequences.append({"a": i, "b": j, "result": res, "buttons": 2})
 
 	# 3️⃣ Pick goal intelligently
-	if valid_pairs.size() == 0:
-		# fallback: sum of two random buttons
-		var fallback = config[randi() % (btn_count - 1)].value + config[randi() % (btn_count - 1)].value
-		goal_score = max(fallback, 2)
-		solution.text = "Solution: TBD"
+	if valid_sequences.size() == 0:
+		# Fallback: create a simple achievable goal based on difficulty
+		if is_hard_mode:
+			# Hard mode: 3-button fallback (e.g., multiply, add, subtract)
+			var idx1 = randi() % (btn_count - 1)
+			var idx2 = (idx1 + 1) % (btn_count - 1)
+			var idx3 = (idx2 + 1) % (btn_count - 1)
+			var b1 = config[idx1]
+			var b2 = config[idx2]
+			var b3 = config[idx3]
+			goal_score = compute_3button_sequence(b1, b2, b3)
+			goal_score = max(goal_score, 2)
+			solution.text = "Solution: %s %d → %s %d → %s %d" % [
+				_operation_to_str(b1.operation), b1.value,
+				_operation_to_str(b2.operation), b2.value,
+				_operation_to_str(b3.operation), b3.value
+			]
+		else:
+			# Normal mode: 2-button fallback
+			var idx1 = randi() % (btn_count - 1)
+			var idx2 = (idx1 + 1) % (btn_count - 1)
+			var b1 = config[idx1]
+			var b2 = config[idx2]
+			goal_score = compute_sequence_result(b1, b2)
+			goal_score = max(goal_score, 2)
+			solution.text = "Solution: %s %d → %s %d" % [
+				_operation_to_str(b1.operation), b1.value,
+				_operation_to_str(b2.operation), b2.value
+			]
 	else:
-		# Sort by closeness to a medium target, avoid trivial combos like x + (-x)
-		valid_pairs.sort_custom(Callable(self, "_compare_goal_pairs"))
-		var chosen = valid_pairs[randi() % min(5, valid_pairs.size())] # top 5 options
+		# Sort by closeness to target (different for each difficulty)
+		valid_sequences.sort_custom(Callable(self, "_compare_goal_pairs"))
+		var chosen = valid_sequences[randi() % min(5, valid_sequences.size())] # top 5 options
 		goal_score = chosen.result
 
 		# Store the exact solution
-		var b1 = config[chosen.a]
-		var b2 = config[chosen.b]
-		solution.text = "Solution: %s %d → %s %d" % [
-			_operation_to_str(b1.operation), b1.value,
-			_operation_to_str(b2.operation), b2.value
-		]
+		if chosen.get("buttons", 2) == 3:
+			var b1 = config[chosen.a]
+			var b2 = config[chosen.b]
+			var b3 = config[chosen.c]
+			solution.text = "Solution: %s %d → %s %d → %s %d" % [
+				_operation_to_str(b1.operation), b1.value,
+				_operation_to_str(b2.operation), b2.value,
+				_operation_to_str(b3.operation), b3.value
+			]
+		else:
+			var b1 = config[chosen.a]
+			var b2 = config[chosen.b]
+			solution.text = "Solution: %s %d → %s %d" % [
+				_operation_to_str(b1.operation), b1.value,
+				_operation_to_str(b2.operation), b2.value
+			]
 
 	var initial_score = 0
 	return {"goal": goal_score, "initial_score": initial_score, "buttons": config}
 
 # Comparison function for sort_custom
 func _compare_goal_pairs(a: Dictionary, b: Dictionary) -> bool:
-	var target = 15
+	# Different target based on difficulty
+	var is_hard_mode := GameData.minigame1_difficulty == "hard"
+	var target = 20 if is_hard_mode else 15  # Hard mode has higher target
+	
 	var diff_a = abs(a.get("result", 0) - target)
 	var diff_b = abs(b.get("result", 0) - target)
 	return diff_a < diff_b
@@ -464,6 +539,48 @@ func compute_sequence_result(b1: Dictionary, b2: Dictionary, initial_score := 0)
 	return result
 
 
+# Compute result for 3-button sequence (used in hard mode)
+func compute_3button_sequence(b1: Dictionary, b2: Dictionary, b3: Dictionary, initial_score := 0) -> int:
+	var result = initial_score
+	# Apply first button
+	match b1.operation:
+		OperationType.ADD:
+			result += b1.value
+		OperationType.SUBTRACT:
+			result -= b1.value
+		OperationType.MULTIPLY:
+			result *= b1.value
+		OperationType.DIVIDE:
+			if b1.value != 0:
+				result = int(float(result) / float(b1.value))
+	# Apply second button
+	match b2.operation:
+		OperationType.ADD:
+			result += b2.value
+		OperationType.SUBTRACT:
+			result -= b2.value
+		OperationType.MULTIPLY:
+			result *= b2.value
+		OperationType.DIVIDE:
+			if b2.value != 0:
+				result = int(float(result) / float(b2.value))
+	# Apply third button
+	match b3.operation:
+		OperationType.ADD:
+			result += b3.value
+		OperationType.SUBTRACT:
+			result -= b3.value
+		OperationType.MULTIPLY:
+			result *= b3.value
+		OperationType.DIVIDE:
+			if b3.value != 0:
+				result = int(float(result) / float(b3.value))
+	# Never zero
+	if result == 0:
+		result = 1
+	return result
+
+
 func _reset_timer():
 	current_time = countdown_time
 	countdown_running = true
@@ -529,6 +646,14 @@ func _show_ready_screen():
 	ready_not_ready_p2.text = "Not Ready"
 	press_space_to_continue.visible = true
 	press_enter_to_continue.visible = true
+	
+	# Show/hide difficulty mode indicators based on GameData
+	if GameData.minigame1_difficulty == "normal":
+		normal_mode.visible = true
+		hardmode.visible = false
+	else:
+		normal_mode.visible = false
+		hardmode.visible = true
 
 	# IMPORTANT: disable player inputs & interactions while ready screen is visible
 	if player1 and player1.has_method("set_input_enabled"):
@@ -552,7 +677,6 @@ func _handle_ready_input():
 			press_space_to_continue.visible = true
 			# Stop any running timer warning when a player unreadies
 			SFX.stop_timer_warning_sfx()
-			SFX.stop_5timer_warning_sfx()
 			SFX.play_accept()
 
 	# --- Player 2 ---
@@ -569,12 +693,14 @@ func _handle_ready_input():
 			press_enter_to_continue.visible = true
 			# Stop any running timer warning when a player unreadies
 			SFX.stop_timer_warning_sfx()
-			SFX.stop_5timer_warning_sfx()
 			SFX.play_accept()
 
 	# ✅ Start countdown only when both are ready
 	if player1_ready and player2_ready and not ready_countdown_active:
 		_start_ready_countdown()
+	# Cancel countdown if anyone is not ready
+	if (not player1_ready or not player2_ready) and ready_countdown_active:
+		_cancel_ready_countdown()
 
 
 func _ready_countdown_finished():
@@ -630,8 +756,7 @@ func _cancel_ready_countdown():
 	timer_value.text = ""
 	ready_countdown = 5
 	# Also stop any timer warning SFX if countdown was cancelled by a player
-	SFX.stop_timer_warning_sfx()
-	SFX.stop_5timer_warning_sfx()
+	SFX.stop_round_start_sfx_player()
 
 
 

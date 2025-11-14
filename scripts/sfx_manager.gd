@@ -101,7 +101,12 @@ func play_wrong():
 		push_warning("[SFX] ⚠️ Wrong SFX not configured or missing audio stream!")
 
 func play_score(): score_sfx.play()
-func play_round_start(): round_start_sfx.play()
+func play_round_start(): 
+	round_start_sfx.play()
+	
+func stop_round_start_sfx_player():  # renamed
+	round_start_sfx.stop()
+
 func play_game_over(): game_over_sfx.play()
 func play_timer_warning(): timer_warning_sfx.play()
 func stop_timer_warning_sfx():
@@ -141,6 +146,8 @@ func _update_volumes():
 	for p in sfx_players:
 		if p:
 			p.volume_db = linear_to_db(sfx_volume)
+
+
 
 
 # === Utility ===
