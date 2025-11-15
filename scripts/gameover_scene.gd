@@ -53,13 +53,13 @@ func _ready() -> void:
 	SFX.play_game_over()
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		_play_game_over_sequence() # 🌀 Replay everything
-
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("ui_accept"):
+		#_play_game_over_sequence() # 🌀 Replay everything
+#
 	# 🎯 Toggle minimap visibility using the input map action
-	if event.is_action_pressed("toggle_mouse_capture"):
-		_toggle_minimap()
+	#if event.is_action_pressed("toggle_mouse_capture"):
+		#_toggle_minimap()
 
 
 func _toggle_minimap() -> void:

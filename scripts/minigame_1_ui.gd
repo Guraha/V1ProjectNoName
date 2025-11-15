@@ -26,12 +26,21 @@ extends Control
 @onready var return_to_main_menu: Button = $MainMenu/MainMenu/VBoxContainer/ReturnToMainMenu
 @onready var option: Button = $MainMenu/MainMenu/VBoxContainer/Option
 @onready var option_screen: MarginContainer = $MainMenu/OptionScreen
-@onready var background_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer/HSlider
-@onready var sfx_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/HSlider
+@onready var background_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HSlider
+@onready var sfx_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer/HSlider
+
+
 @onready var back: Button = $MainMenu/OptionScreen/VBoxContainer/MarginContainer4/Back
 @onready var main_menu_Screen: MarginContainer = $MainMenu/MainMenu
 @onready var normal_mode: MarginContainer = $ReadyScreen/NormalMode
 @onready var hardmode: MarginContainer = $ReadyScreen/Hardmode
+@onready var bg_value: Label = $MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/BGValue
+@onready var sfx_value: Label = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/SFXValue
+
+
+@onready var menu_how_to_play: RichTextLabel = $MainMenu/Panel/MarginContainer/MenuHowToPlay
+@onready var normalmode_ready_how_to_play: RichTextLabel = $ReadyScreen/NormalMode/Panel/MarginContainer/ReadyHowToPlay
+@onready var hardmode_ready_how_to_play: RichTextLabel = $ReadyScreen/Hardmode/Panel/MarginContainer/ReadyHowToPlay
 
 
 
@@ -76,6 +85,24 @@ var operation_colors = {
 }
 
 func _ready():
+	# Allow input to work even when game is paused (for menu toggle)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	print("[DEBUG MINIGAME1] process_mode set to PROCESS_MODE_ALWAYS")
+	
+	# Set pause mode for game elements to pause when tree is paused
+	if timer:
+		timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if player1:
+		player1.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if player2:
+		player2.process_mode = Node.PROCESS_MODE_PAUSABLE
+	
+	# Keep UI elements always processing so menu works when paused
+	if main_menu:
+		main_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	if ready_screen:
+		ready_screen.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	set_process_input(true)
 	_setup_input_actions()
 	
@@ -89,11 +116,19 @@ func _ready():
 	# === Sliders ===
 	background_music.value = SFX.music_volume * 100
 	sfx_music.value = SFX.sfx_volume * 100
+	
+	# Initialize value labels
+	bg_value.text = str(int(background_music.value))
+	sfx_value.text = str(int(sfx_music.value))
+	
 	background_music.value_changed.connect(_on_music_slider_changed)
 	sfx_music.value_changed.connect(_on_sfx_slider_changed)
 	
 	main_menu.visible = false
 	option_screen.visible = false
+	
+	# Update "How to Play" text with dynamic points
+	_update_how_to_play_text()
 	
 	SFX.play_bgm("minigame_1")
 	
@@ -119,8 +154,8 @@ func _on_player_request_new_round(_player_id):
 	if player2 and player2.has_method("get_points"):
 		p2_pts = player2.get_points()
 
-	if p1_pts >= 15 or p2_pts >= 15:
-		var winner_id = 1 if p1_pts >= 15 else 2
+	if p1_pts >= GameData.points_required or p2_pts >= GameData.points_required:
+		var winner_id = 1 if p1_pts >= GameData.points_required else 2
 
 		# Store which minimap was active
 		GameData.current_minimap = 1
@@ -238,138 +273,302 @@ func _update_background_progress():
 func _generate_round_config() -> Dictionary:
 	var btn_count := 9 # 3x3 grid, last index is Clear
 	var config: Array = []
+	var initial_score = 1
 	
 	# Check difficulty mode
 	var is_hard_mode := GameData.minigame1_difficulty == "hard"
-
-	# 1️⃣ Fill buttons randomly (except Clear) based on difficulty
-	for i in range(btn_count):
-		var op = OperationType.ADD
-		var value = randi() % 10 + 1
-		if i == btn_count - 1:
-			op = OperationType.CLEAR
-			value = 0
+	
+	# 🎯 STEP 1: Pick a random goal first
+	if is_hard_mode:
+		# Hard mode: Much wider range due to multiply/divide operations
+		# Can go very low or very high
+		var goal_type = randi() % 3
+		if goal_type == 0:
+			goal_score = randi_range(1, 10)    # Low range: 1-10
+		elif goal_type == 1:
+			goal_score = randi_range(50, 150)  # High range: 50-150
 		else:
-			var rr = randi() % 100
-			
-			if is_hard_mode:
-				# HARD MODE: Frequent Multiply/Divide, Occasional Add/Subtract
-				if rr < 40:  # 40% Multiply
-					op = OperationType.MULTIPLY
-				elif rr < 80:  # 40% Divide
-					op = OperationType.DIVIDE
-				elif rr < 90:  # 10% Add
-					op = OperationType.ADD
-				else:  # 10% Subtract
-					op = OperationType.SUBTRACT
-			else:
-				# NORMAL MODE: Frequent Add/Subtract, Occasional Multiply
-				if rr < 45:  # 45% Add
-					op = OperationType.ADD
-				elif rr < 85:  # 40% Subtract
-					op = OperationType.SUBTRACT
-				else:  # 15% Multiply
-					op = OperationType.MULTIPLY
-					
-		config.append({"operation": op, "value": value})
-
-	# 2️⃣ Generate valid sequences (2 buttons for normal, 3 buttons for hard)
-	var valid_sequences: Array = []
+			goal_score = randi_range(15, 40)   # Medium range: 15-40
+	else:
+		goal_score = randi_range(10, 25)  # Normal mode: 10-25
+	
+	# 🔨 STEP 2: Work backwards to create a guaranteed solution
+	var solution_buttons: Array = []
 	
 	if is_hard_mode:
-		# Hard mode: 3-button sequences
-		for i in range(btn_count - 1):
-			for j in range(btn_count - 1):
-				for k in range(btn_count - 1):
-					if i == j or j == k or i == k:
-						continue
-					var b1 = config[i]
-					var b2 = config[j]
-					var b3 = config[k]
-					var res = compute_3button_sequence(b1, b2, b3)
-					# Only positive, non-trivial results
-					if res > 1:
-						valid_sequences.append({"a": i, "b": j, "c": k, "result": res, "buttons": 3})
+		# Hard mode: 3-button solution
+		solution_buttons = _create_solution_path(goal_score, initial_score, 3)
 	else:
-		# Normal mode: 2-button sequences
-		for i in range(btn_count - 1):
-			for j in range(btn_count - 1):
-				if i == j:
-					continue
-				var b1 = config[i]
-				var b2 = config[j]
-				var res = compute_sequence_result(b1, b2)
-				# Only positive, non-trivial results
-				if res > 1:
-					valid_sequences.append({"a": i, "b": j, "result": res, "buttons": 2})
-
-	# 3️⃣ Pick goal intelligently
-	if valid_sequences.size() == 0:
-		# Fallback: create a simple achievable goal based on difficulty
-		if is_hard_mode:
-			# Hard mode: 3-button fallback (e.g., multiply, add, subtract)
-			var idx1 = randi() % (btn_count - 1)
-			var idx2 = (idx1 + 1) % (btn_count - 1)
-			var idx3 = (idx2 + 1) % (btn_count - 1)
-			var b1 = config[idx1]
-			var b2 = config[idx2]
-			var b3 = config[idx3]
-			goal_score = compute_3button_sequence(b1, b2, b3)
-			goal_score = max(goal_score, 2)
-			solution.text = "Solution: %s %d → %s %d → %s %d" % [
-				_operation_to_str(b1.operation), b1.value,
-				_operation_to_str(b2.operation), b2.value,
-				_operation_to_str(b3.operation), b3.value
-			]
+		# Normal mode: 2-button solution
+		solution_buttons = _create_solution_path(goal_score, initial_score, 2)
+	
+	# 🎲 STEP 3: Initialize all button slots with random operations
+	for i in range(btn_count):
+		if i == btn_count - 1:
+			# Last button is always Clear
+			config.append({"operation": OperationType.CLEAR, "value": 0})
 		else:
-			# Normal mode: 2-button fallback
-			var idx1 = randi() % (btn_count - 1)
-			var idx2 = (idx1 + 1) % (btn_count - 1)
-			var b1 = config[idx1]
-			var b2 = config[idx2]
-			goal_score = compute_sequence_result(b1, b2)
-			goal_score = max(goal_score, 2)
-			solution.text = "Solution: %s %d → %s %d" % [
-				_operation_to_str(b1.operation), b1.value,
-				_operation_to_str(b2.operation), b2.value
-			]
+			# Fill with random operation (will be overwritten for solution buttons)
+			var random_btn = _generate_random_button(is_hard_mode)
+			config.append(random_btn)
+	
+	# 📍 STEP 4: Place solution buttons at random positions
+	var available_positions = range(btn_count - 1)  # Exclude Clear button
+	available_positions.shuffle()
+	
+	var solution_indices: Array = []
+	for i in range(solution_buttons.size()):
+		var pos = available_positions[i]
+		config[pos] = solution_buttons[i]
+		solution_indices.append(pos)
+	
+	# 📝 STEP 5: Build solution text with complete path showing intermediate results
+	if solution_buttons.size() == 3:
+		# Calculate intermediate results step by step
+		var step1_result = initial_score
+		match solution_buttons[0].operation:
+			OperationType.ADD: step1_result += solution_buttons[0].value
+			OperationType.SUBTRACT: step1_result -= solution_buttons[0].value
+			OperationType.MULTIPLY: step1_result *= solution_buttons[0].value
+			OperationType.DIVIDE: 
+				if solution_buttons[0].value != 0:
+					step1_result = int(float(step1_result) / float(solution_buttons[0].value))
+		
+		var step2_result = step1_result
+		match solution_buttons[1].operation:
+			OperationType.ADD: step2_result += solution_buttons[1].value
+			OperationType.SUBTRACT: step2_result -= solution_buttons[1].value
+			OperationType.MULTIPLY: step2_result *= solution_buttons[1].value
+			OperationType.DIVIDE: 
+				if solution_buttons[1].value != 0:
+					step2_result = int(float(step2_result) / float(solution_buttons[1].value))
+		
+		var step3_result = step2_result
+		match solution_buttons[2].operation:
+			OperationType.ADD: step3_result += solution_buttons[2].value
+			OperationType.SUBTRACT: step3_result -= solution_buttons[2].value
+			OperationType.MULTIPLY: step3_result *= solution_buttons[2].value
+			OperationType.DIVIDE: 
+				if solution_buttons[2].value != 0:
+					step3_result = int(float(step3_result) / float(solution_buttons[2].value))
+		
+		# Single-line format: 1 +3 +4 +4 -2 = 10
+		solution.text = "HINT: %d %s%d %s%d %s%d = %d" % [
+			initial_score,
+			_operation_to_str(solution_buttons[0].operation), solution_buttons[0].value,
+			_operation_to_str(solution_buttons[1].operation), solution_buttons[1].value,
+			_operation_to_str(solution_buttons[2].operation), solution_buttons[2].value,
+			step3_result
+		]
 	else:
-		# Sort by closeness to target (different for each difficulty)
-		valid_sequences.sort_custom(Callable(self, "_compare_goal_pairs"))
-		var chosen = valid_sequences[randi() % min(5, valid_sequences.size())] # top 5 options
-		goal_score = chosen.result
-
-		# Store the exact solution
-		if chosen.get("buttons", 2) == 3:
-			var b1 = config[chosen.a]
-			var b2 = config[chosen.b]
-			var b3 = config[chosen.c]
-			solution.text = "Solution: %s %d → %s %d → %s %d" % [
-				_operation_to_str(b1.operation), b1.value,
-				_operation_to_str(b2.operation), b2.value,
-				_operation_to_str(b3.operation), b3.value
-			]
-		else:
-			var b1 = config[chosen.a]
-			var b2 = config[chosen.b]
-			solution.text = "Solution: %s %d → %s %d" % [
-				_operation_to_str(b1.operation), b1.value,
-				_operation_to_str(b2.operation), b2.value
-			]
-
-	var initial_score = 0
+		# Calculate intermediate results for 2-button solution
+		var step1_result = initial_score
+		match solution_buttons[0].operation:
+			OperationType.ADD: step1_result += solution_buttons[0].value
+			OperationType.SUBTRACT: step1_result -= solution_buttons[0].value
+			OperationType.MULTIPLY: step1_result *= solution_buttons[0].value
+			OperationType.DIVIDE: 
+				if solution_buttons[0].value != 0:
+					step1_result = int(float(step1_result) / float(solution_buttons[0].value))
+		
+		var step2_result = step1_result
+		match solution_buttons[1].operation:
+			OperationType.ADD: step2_result += solution_buttons[1].value
+			OperationType.SUBTRACT: step2_result -= solution_buttons[1].value
+			OperationType.MULTIPLY: step2_result *= solution_buttons[1].value
+			OperationType.DIVIDE: 
+				if solution_buttons[1].value != 0:
+					step2_result = int(float(step2_result) / float(solution_buttons[1].value))
+		
+		# Single-line format: 1 +3 +4 = 8
+		solution.text = "HINT: %d %s%d %s%d = %d" % [
+			initial_score,
+			_operation_to_str(solution_buttons[0].operation), solution_buttons[0].value,
+			_operation_to_str(solution_buttons[1].operation), solution_buttons[1].value,
+			step2_result
+		]
+	
 	return {"goal": goal_score, "initial_score": initial_score, "buttons": config}
 
-# Comparison function for sort_custom
-func _compare_goal_pairs(a: Dictionary, b: Dictionary) -> bool:
-	# Different target based on difficulty
-	var is_hard_mode := GameData.minigame1_difficulty == "hard"
-	var target = 20 if is_hard_mode else 15  # Hard mode has higher target
-	
-	var diff_a = abs(a.get("result", 0) - target)
-	var diff_b = abs(b.get("result", 0) - target)
-	return diff_a < diff_b
 
+# Creates a guaranteed solution path from initial_score to target
+func _create_solution_path(target: int, start: int, num_buttons: int) -> Array:
+	var buttons: Array = []
+	var current = start
+	
+	if num_buttons == 2:
+		# 2-button solution for normal mode
+		# Strategy: Try to reach target with reasonable operations
+		
+		# Calculate what we need
+		var diff = target - current
+		
+		# Try different strategies
+		var strategy = randi() % 3
+		
+		if strategy == 0 and diff > 0:
+			# Strategy: Add then multiply
+			var add_val = randi_range(2, 6)
+			var temp = current + add_val
+			var mult_val = max(2, int(float(target) / float(temp)))
+			
+			buttons.append({"operation": OperationType.ADD, "value": add_val})
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult_val})
+			
+		elif strategy == 1:
+			# Strategy: Multiply then add
+			var mult_val = randi_range(2, 4)
+			var temp = current * mult_val
+			var add_val = target - temp
+			
+			if add_val >= 0:
+				buttons.append({"operation": OperationType.MULTIPLY, "value": mult_val})
+				buttons.append({"operation": OperationType.ADD, "value": add_val})
+			else:
+				# Fallback: just add in two steps
+				var half = int(float(diff) / 2.0)
+				buttons.append({"operation": OperationType.ADD, "value": half})
+				buttons.append({"operation": OperationType.ADD, "value": diff - half})
+		else:
+			# Strategy: Simple additions
+			var half = int(float(diff) / 2.0)
+			buttons.append({"operation": OperationType.ADD, "value": half})
+			buttons.append({"operation": OperationType.ADD, "value": diff - half})
+	
+	else:
+		# 3-button solution for hard mode
+		# Use more aggressive multiply/divide operations
+		var strategy = randi() % 4
+		
+		if strategy == 0 and target > 50:
+			# Strategy: Multiply early to reach high numbers
+			var mult1 = randi_range(3, 8)
+			var temp1 = current * mult1
+			var mult2 = randi_range(2, 5)
+			var temp2 = temp1 * mult2
+			var final_op = target - temp2
+			
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult1})
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult2})
+			buttons.append({"operation": OperationType.ADD, "value": final_op})
+			
+		elif strategy == 1 and target < 10:
+			# Strategy: Divide to reach low numbers
+			var mult = randi_range(20, 40)  # Multiply high first
+			var temp1 = current * mult
+			var div1 = randi_range(3, 6)
+			var temp2 = int(float(temp1) / float(div1))
+			var div2 = max(2, int(float(temp2) / float(target)))
+			
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult})
+			buttons.append({"operation": OperationType.DIVIDE, "value": div1})
+			buttons.append({"operation": OperationType.DIVIDE, "value": div2})
+			
+		elif strategy == 2:
+			# Strategy: Multiply, divide, adjust with add/subtract
+			var mult = randi_range(10, 25)
+			var temp1 = current * mult
+			var div = randi_range(2, 5)
+			var temp2 = int(float(temp1) / float(div))
+			var final_adjust = target - temp2
+			
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult})
+			buttons.append({"operation": OperationType.DIVIDE, "value": div})
+			
+			if final_adjust >= 0:
+				buttons.append({"operation": OperationType.ADD, "value": final_adjust})
+			else:
+				buttons.append({"operation": OperationType.SUBTRACT, "value": abs(final_adjust)})
+		else:
+			# Strategy: Add, multiply large, divide
+			var add1 = randi_range(2, 8)
+			var temp1 = current + add1
+			var mult = randi_range(5, 15)
+			var temp2 = temp1 * mult
+			var div = max(2, int(float(temp2) / float(target)))
+			
+			buttons.append({"operation": OperationType.ADD, "value": add1})
+			buttons.append({"operation": OperationType.MULTIPLY, "value": mult})
+			buttons.append({"operation": OperationType.DIVIDE, "value": div})
+	
+	# ✅ FINAL VERIFICATION: Calculate actual result and verify it matches target
+	var verification_result = start
+	for btn in buttons:
+		match btn.operation:
+			OperationType.ADD:
+				verification_result += btn.value
+			OperationType.SUBTRACT:
+				verification_result -= btn.value
+			OperationType.MULTIPLY:
+				verification_result *= btn.value
+			OperationType.DIVIDE:
+				if btn.value != 0:
+					verification_result = int(float(verification_result) / float(btn.value))
+	
+	# If verification fails, fix the last button to make it exact
+	if verification_result != target and buttons.size() > 0:
+		print("Solution mismatch detected. Expected: ", target, ", Got: ", verification_result)
+		
+		# Calculate what the result was before the last button
+		var result_before_last = start
+		for i in range(buttons.size() - 1):
+			var btn = buttons[i]
+			match btn.operation:
+				OperationType.ADD:
+					result_before_last += btn.value
+				OperationType.SUBTRACT:
+					result_before_last -= btn.value
+				OperationType.MULTIPLY:
+					result_before_last *= btn.value
+				OperationType.DIVIDE:
+					if btn.value != 0:
+						result_before_last = int(float(result_before_last) / float(btn.value))
+		
+		# Replace last button with exact adjustment
+		var needed_adjustment = target - result_before_last
+		if needed_adjustment >= 0:
+			buttons[buttons.size() - 1] = {"operation": OperationType.ADD, "value": needed_adjustment}
+		else:
+			buttons[buttons.size() - 1] = {"operation": OperationType.SUBTRACT, "value": abs(needed_adjustment)}
+		
+		print("Fixed last button to reach exact target: ", target)
+	
+	return buttons
+
+
+# Generate a random button operation (for non-solution buttons)
+func _generate_random_button(is_hard_mode: bool) -> Dictionary:
+	var op = OperationType.ADD
+	var value = randi() % 10 + 1
+	var rr = randi() % 100
+	
+	if is_hard_mode:
+		# Hard mode: More variety with larger multipliers and divisors
+		if rr < 35:
+			op = OperationType.MULTIPLY
+			value = randi_range(2, 12)  # Larger multipliers for reaching 100+
+		elif rr < 70:
+			op = OperationType.DIVIDE
+			value = randi_range(2, 8)   # More divisors for reaching low numbers
+		elif rr < 85:
+			op = OperationType.ADD
+			value = randi_range(1, 20)  # Larger additions
+		else:
+			op = OperationType.SUBTRACT
+			value = randi_range(1, 15)  # Larger subtractions
+	else:
+		# Normal mode: Simpler operations
+		if rr < 50:
+			op = OperationType.ADD
+			value = randi_range(1, 10)
+		elif rr < 90:
+			op = OperationType.SUBTRACT
+			value = randi_range(1, 10)
+		else:
+			op = OperationType.MULTIPLY
+			value = randi_range(2, 4)
+	
+	return {"operation": op, "value": value}
 
 func _operation_to_str(op: int) -> String:
 	match op:
@@ -447,7 +646,13 @@ func _input(event):
 
 	# Handle Escape key for pause menu toggle
 	if event.is_action_pressed("ui_cancel"): # usually ESC
+		print("[DEBUG MINIGAME1] ESC pressed! Current paused state: ", get_tree().paused)
+		print("[DEBUG MINIGAME1] Current is_game_paused: ", is_game_paused)
+		print("[DEBUG MINIGAME1] Current main_menu.visible: ", main_menu.visible)
 		_toggle_pause_menu()
+		get_viewport().set_input_as_handled()
+		print("[DEBUG MINIGAME1] After toggle - paused: ", get_tree().paused, " menu visible: ", main_menu.visible)
+		return
 
 
 
@@ -761,16 +966,23 @@ func _cancel_ready_countdown():
 
 
 func _toggle_pause_menu():
+	print("[DEBUG MINIGAME1] _toggle_pause_menu called")
+	print("[DEBUG MINIGAME1] BEFORE - is_game_paused: ", is_game_paused, " tree.paused: ", get_tree().paused, " menu.visible: ", main_menu.visible)
+	
 	is_game_paused = !is_game_paused
 
 	if is_game_paused:
 		# Pause the game
 		get_tree().paused = true
 		main_menu.visible = true
+		print("[DEBUG MINIGAME1] PAUSING game - menu should be visible")
 	else:
 		# Unpause the game
 		get_tree().paused = false
 		main_menu.visible = false
+		print("[DEBUG MINIGAME1] UNPAUSING game - menu should be hidden")
+	
+	print("[DEBUG MINIGAME1] AFTER - is_game_paused: ", is_game_paused, " tree.paused: ", get_tree().paused, " menu.visible: ", main_menu.visible)
 
 
 func _on_return_to_game_pressed():
@@ -814,8 +1026,29 @@ func _on_back_pressed():
 
 func _on_music_slider_changed(value: float):
 	SFX.set_music_volume(value / 100.0)
+	bg_value.text = str(int(value))
 	SFX.play_move()
 
 func _on_sfx_slider_changed(value: float):
 	SFX.set_sfx_volume(value / 100.0)
+	sfx_value.text = str(int(value))
 	SFX.play_move()
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# UPDATE HOW TO PLAY TEXT WITH DYNAMIC POINTS
+# ═══════════════════════════════════════════════════════════════════════════════
+func _update_how_to_play_text() -> void:
+	var points := GameData.points_required
+	
+	# Update main menu "How to Play" text
+	if menu_how_to_play:
+		menu_how_to_play.text = "[b][color=orange]How to Play:[/color][/b]\nUse the [b]grid of math operations[/b] to reach the [b]goal number[/b].\nTake turns selecting buttons to adjust your score — [color=yellow]first to " + str(points) + " points wins[/color]!\nUse the [i]clear button[/i] if you make a mistake."
+	
+	# Update normal mode ready screen text
+	if normalmode_ready_how_to_play:
+		normalmode_ready_how_to_play.text = "[b][color=orange]How to Play (Normal Mode):[/color] [color=yellow]First to " + str(points) + " points wins![/color] [/b]\nTap numbers in the [b]math grid and combine them[/b] to reach the [b]goal[/b].\nYou'll use [color=yellow]addition[/color], [color=yellow]subtraction[/color], and occasional [color=yellow]multiplication[/color]."
+	
+	# Update hard mode ready screen text
+	if hardmode_ready_how_to_play:
+		hardmode_ready_how_to_play.text = "[b][color=orange]How to Play (Hard Mode):[/color] [color=yellow]First to " + str(points) + " points wins![/color][/b]\nTap numbers in the [b]math grid and combine them[/b] to reach the [b]goal[/b].\nYou'll use [color=yellow]multiplication[/color] and [color=yellow]division[/color] more often, with [color=yellow]addition[/color] and [color=yellow]subtraction[/color] appearing less frequently."

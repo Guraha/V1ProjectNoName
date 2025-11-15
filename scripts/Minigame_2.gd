@@ -17,7 +17,15 @@ const ANSWER_REVEAL_DELAY: float = 2.5
 const TRANSITION_DELAY: float = 0.8
 const INPUT_UNLOCK_DELAY: float = 0.5
 const TIMER_WARNING_THRESHOLD: int = 5
-const WINNING_SCORE: int = 15
+# WINNING_SCORE removed - now uses GameData.points_required
+
+# Speed Bonus System - Awards more points for faster correct answers
+const SPEED_BONUS_FAST_THRESHOLD: float = 12.0    # 3 seconds or less = 3 points
+const SPEED_BONUS_MEDIUM_THRESHOLD: float = 8.0   # 7 seconds or less = 2 points
+const SPEED_BONUS_SLOW: int = 1                    # More than 7 seconds = 1 point
+const SPEED_BONUS_MEDIUM: int = 2
+const SPEED_BONUS_FAST: int = 3
+
 const QUESTION_BASE_SCALE: float = 1.0
 const QUESTION_MIN_SCALE: float = 0.6   # More aggressive minimum for long questions
 const QUESTION_MAX_SCALE: float = 1.2
@@ -27,6 +35,7 @@ const OPTION_MAX_SCALE: float = 1.0
 
 const QUESTION_IDEAL_CHARS: int = 50  # Questions start scaling earlier
 const OPTION_IDEAL_CHARS: int = 20    # Options start scaling earlier (4-5 words)
+const HIGHLIGHT_Z_OFFSET: float = -1  # Move highlights this far along local Z when visible to avoid occluding players
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # STATE MACHINE
@@ -51,9 +60,6 @@ var overlapping_areas: Array[String] = []
 @onready var area_c: Area3D = $SubViewport/CLabel/Area3D
 @onready var area_d: Area3D = $SubViewport/DLabel/Area3D
 @onready var timer: Timer = $SubViewport/Timer
-@onready var skip_timer = $SubViewport/SkipTimer
-@onready var skip_hint_p1_ui = $SubViewport/Hint/Control_Hint/SkipHintP1
-@onready var skip_hint_p2_ui = $SubViewport/Hint/Control_Hint/SkipHintP2
 @onready var timer_value: Label3D = $SubViewport/TimerValue
 @onready var question_label: Label3D = $SubViewport/QuestionLabel
 @onready var labelA: Label3D = $SubViewport/ALabel/Area3D/ValueLabel
@@ -68,7 +74,13 @@ var overlapping_areas: Array[String] = []
 @onready var highlight_b: MeshInstance3D = $SubViewport/BLabel/Area3D/Highlight
 @onready var highlight_c: MeshInstance3D = $SubViewport/CLabel/Area3D/Highlight
 @onready var highlight_d: MeshInstance3D = $SubViewport/DLabel/Area3D/Highlight
-@onready var get_ready_overlay: Label3D = $SubViewport/GetReadyOverlay
+
+# We'll store the base/local Z for each highlight so we can set a stable offset
+var highlight_a_base_z: float = 0.0
+var highlight_b_base_z: float = 0.0
+var highlight_c_base_z: float = 0.0
+var highlight_d_base_z: float = 0.0
+
 @onready var optionA: Label3D = $SubViewport/ALabel/Area3D/OptionLabel
 @onready var optionB: Label3D = $SubViewport/BLabel/Area3D/OptionLabel
 @onready var optionC: Label3D = $SubViewport/CLabel/Area3D/OptionLabel
@@ -89,8 +101,9 @@ var overlapping_areas: Array[String] = []
 @onready var option: Button = $Control/MainMenu/MainMenu/VBoxContainer/Option
 @onready var return_to_main_menu: Button = $Control/MainMenu/MainMenu/VBoxContainer/ReturnToMainMenu
 @onready var option_screen: MarginContainer = $Control/MainMenu/OptionScreen
-@onready var background_music: HSlider = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer/HSlider
-@onready var sfx_music: HSlider = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer2/HSlider
+@onready var background_music: HSlider = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HSlider
+@onready var sfx_music: HSlider = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer2/HSlider
+
 @onready var back: Button = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer4/Back
 
 @onready var orange: ColorRect = $Panel/HBoxContainer/Orange #Player 1
@@ -98,14 +111,18 @@ var overlapping_areas: Array[String] = []
 
 @onready var Player2_animation_player: AnimationPlayer = $SubViewport/Player2/CollisionShape3D/Character_Female_1/AnimationPlayer
 @onready var Player1_animation_player: AnimationPlayer = $SubViewport/Player1/CollisionShape3D/Character_Male_1/AnimationPlayer
+@onready var get_ready_overlay: Label3D = $get_ready_overlay
+@onready var time_to_get_ready: Label3D = $TimeToGetReady
+
+@onready var bg_value: Label = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/BGValue
+@onready var sfx_value: Label = $Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer/SFXValue
+
+# How to Play labels
+@onready var menu_how_to_play: RichTextLabel = $Control/MainMenu/Panel/MarginContainer/MenuHowToPlay
+@onready var ready_how_to_play: Label3D = $ReadyHowToPlay
 
 var orange_tween = null
 var yellow_tween = null
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# PARTICLE SYSTEMS - REMOVED FOR PERFORMANCE
-# ═══════════════════════════════════════════════════════════════════════════════
-# Particle systems removed to eliminate lag during player switching
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # GAME STATE VARIABLES
@@ -117,11 +134,16 @@ var chosen_answer: String = ""
 var correct_answer: String = ""
 var current_question_index: int = 0
 var is_ready_for_input: bool = false
+var answer_locked_in: bool = false  # New flag to track if player confirmed answer
+var answer_time_remaining: float = 0.0  # Track time when answer was given for speed bonus
 
 # Initial lobby ready states
 var player1_ready: bool = false
 var player2_ready: bool = false
 var initial_lobby_completed: bool = false
+var countdown_active: bool = false
+var countdown_time_left: float = 5.0
+var ready_timer: Timer = null
 
 # Debug timing
 var debug_start_time: int = 0
@@ -157,13 +179,26 @@ var mat_border_yellow: StandardMaterial3D
 # INITIALIZATION
 # ═══════════════════════════════════════════════════════════════════════════════
 func _ready() -> void:
+	# Allow input to work even when game is paused (for menu toggle)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	print("[DEBUG MINIGAME2] process_mode set to PROCESS_MODE_ALWAYS")
+	
+	# Set pause mode for game elements to pause when tree is paused
+	if timer:
+		timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if player1:
+		player1.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if player2:
+		player2.process_mode = Node.PROCESS_MODE_PAUSABLE
+	
+	# Keep UI elements always processing so menu works when paused
+	if main_menu:
+		main_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	SFX.play_bgm("minigame_2")
 	debug_start_time = Time.get_ticks_msec()
 	print("[DEBUG] _ready() started at ", debug_start_time)
 	print("[DEBUG] Skipped material creation - will lazy load")
-	
-	skip_hint_p1_ui.visible = false
-	skip_hint_p2_ui.visible = false
 	
 	# Load from GameData if available
 	if GameData.imported_questions.size() > 0:
@@ -177,10 +212,6 @@ func _ready() -> void:
 			{"q":"What color do you get by mixing red and blue?", "A":"Green", "B":"Purple", "C":"Orange", "D":"Brown", "answer":"B"}
 		]
 
-	#Connect timeout signal
-	if not skip_timer.timeout.is_connected(_on_skip_timer_timeout):
-		skip_timer.timeout.connect(_on_skip_timer_timeout)
-
 
 	# Connect timer safely
 	if not timer.timeout.is_connected(_on_timer_timeout):
@@ -193,6 +224,16 @@ func _ready() -> void:
 
 	# Initial visual state
 	_hide_all_highlights()
+
+	# Record base Z positions for highlights so we can offset them without drifting
+	if is_instance_valid(highlight_a):
+		highlight_a_base_z = highlight_a.position.z
+	if is_instance_valid(highlight_b):
+		highlight_b_base_z = highlight_b.position.z
+	if is_instance_valid(highlight_c):
+		highlight_c_base_z = highlight_c.position.z
+	if is_instance_valid(highlight_d):
+		highlight_d_base_z = highlight_d.position.z
 	
 	# Only spawn player 1 initially - player 2 spawns when needed
 	var spawn_start := Time.get_ticks_msec()
@@ -207,8 +248,9 @@ func _ready() -> void:
 	print("[DEBUG] Player 1 spawned in ", Time.get_ticks_msec() - spawn_start, "ms")
 	
 	# Set score labels directly (no animations)
-	player1_score_label.text = str(player1_score)
-	player2_score_label.text = str(player2_score)
+	# Show scores as 'current/points_required'
+	player1_score_label.text = str(player1_score) + "/" + str(GameData.points_required)
+	player2_score_label.text = str(player2_score) + "/" + str(GameData.points_required)
 	_update_background_progress()
 
 	# Start with delay
@@ -220,6 +262,7 @@ func _ready() -> void:
 	
 	get_ready_overlay.visible = true
 	get_ready_overlay.text = "Player 1: Not Ready\nPlayer 2: Not Ready"
+	time_to_get_ready.visible = false  # Hide countdown timer initially
 	
 	print("[DEBUG] _ready() completed in ", Time.get_ticks_msec() - debug_start_time, "ms")
 		# === Main Menu Buttons ===
@@ -232,12 +275,20 @@ func _ready() -> void:
 		# === Sliders ===
 	background_music.value = SFX.music_volume * 100
 	sfx_music.value = SFX.sfx_volume * 100
+	
+	# Initialize value labels
+	bg_value.text = str(int(background_music.value))
+	sfx_value.text = str(int(sfx_music.value))
+	
 	background_music.value_changed.connect(_on_music_slider_changed)
 	sfx_music.value_changed.connect(_on_sfx_slider_changed)
 	# Initialize menu visibility
 	main_menu.visible = false
 	main_menu_screen.visible = true
 	option_screen.visible = false
+	
+	# Update "How to Play" text with dynamic points
+	_update_how_to_play_text()
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -271,6 +322,13 @@ func start_round() -> void:
 	if question_data.size() == 0:
 		print("No questions available.")
 		return
+	
+	# Clear collision state and highlights at the start of each round
+	overlapping_areas.clear()
+	chosen_answer = ""
+	answer_locked_in = false  # Reset lock flag for new round
+	answer_time_remaining = 0.0  # Reset answer time tracking
+	_hide_all_highlights()
 	
 	# Show all game labels when round starts (spread over frames to avoid spike)
 	var label_start := Time.get_ticks_msec()
@@ -308,7 +366,6 @@ func start_round() -> void:
 	var spawn_start := Time.get_ticks_msec()
 	_spawn_current_player()
 	print("[DEBUG] Player spawned in ", Time.get_ticks_msec() - spawn_start, "ms")
-	_update_skip_hint()
 	
 	# Set question text directly
 	question_label.text = data["q"]
@@ -333,7 +390,7 @@ func start_round() -> void:
 	_adjust_label3d_scale(optionD, OPTION_BASE_SCALE, OPTION_MIN_SCALE, OPTION_MAX_SCALE, OPTION_IDEAL_CHARS)
 
 	# Start countdown immediately
-	timer.start(10.0)
+	timer.start(15.0)
 	_set_state(GameState.WAITING_INPUT)
 	
 	print("[DEBUG] start_round() completed")
@@ -348,9 +405,6 @@ func _process(_delta: float) -> void:
 			var frame_time := _delta * 1000.0
 			print("[DEBUG] Time: ", elapsed, "ms | FPS: ", fps, " | Frame time: ", "%.2f" % frame_time, "ms")
 	
-	# Always check for skip buttons
-	_check_skip_input()
-	
 	if timer.is_stopped() or current_state != GameState.WAITING_INPUT:
 		return
 	
@@ -364,49 +418,7 @@ func _process(_delta: float) -> void:
 		if time_left <= TIMER_WARNING_THRESHOLD and not timer_value.modulate.is_equal_approx(Color.RED):
 			timer_value.modulate = Color.RED
 			SFX.play_5timer_warning()
-			
-			# 👇 Check for skip buttons each frame
-			_check_skip_input()
 
-# ══════════════════════════════════════════════════════════════════════════════
-# SKIP TIMER — PLAYER 1 (Left Ctrl) / PLAYER 2 (Right Ctrl)
-# ═══════════════════════════════════════════════════════════════════════════════
-func _check_skip_input() -> void:
-	if current_state != GameState.WAITING_INPUT:
-		return
-	if timer.is_stopped():
-		return
-
-	# Player 1 skip
-	if Input.is_action_just_pressed("player1_skip") and current_player == 1:
-		print("[DEBUG] ⏩ Player 1 pressed skip!")
-		_trigger_skip()
-
-	# Player 2 skip
-	elif Input.is_action_just_pressed("player2_skip") and current_player == 2:
-		print("[DEBUG] ⏩ Player 2 pressed skip!")
-		_trigger_skip()
-
-
-func _trigger_skip() -> void:
-	# Optional: small debounce so skip can't be spammed
-	if not skip_timer.is_stopped():
-		return
-	skip_timer.start(0.01)     # Start SkipTimer — fires its timeout() almost instantly
-	
-	# Hide skip hints initially
-	skip_hint_p1_ui.visible = false
-	skip_hint_p2_ui.visible = false
-
-
-func _on_skip_timer_timeout() -> void:
-	print("[DEBUG] ⏳ SkipTimer finished —
-	 skipping question!")
-	timer.stop()           # stop the main timer
-	# Stop countdown sound
-	SFX.stop_countdown()   # <- Make sure this function exists
-	_check_answer()        # call your existing answer-check logic
-	
 func _on_area_entered(body: Node, answer: String) -> void:
 	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
@@ -415,17 +427,48 @@ func _on_area_entered(body: Node, answer: String) -> void:
 		SFX.play_move() 
 	_update_highlight()
 
-func _update_skip_hint():
-	skip_hint_p1_ui.visible = (current_player == 1)
-	skip_hint_p2_ui.visible = (current_player == 2)
-
 func _on_area_exited(body: Node, answer: String) -> void:
 	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
 	overlapping_areas.erase(answer)
 	
 	_update_highlight()
-	
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEW: PUNCH TO CONFIRM ANSWER
+# ═══════════════════════════════════════════════════════════════════════════════
+func try_lock_in_answer() -> void:
+	"""Called by player when they punch - locks in answer and skips timer"""
+	if current_state != GameState.WAITING_INPUT or answer_locked_in:
+		return
+
+	if overlapping_areas.size() > 0:
+		# Player is on an answer, lock it in
+		chosen_answer = overlapping_areas[0]  # Use topmost answer
+		answer_locked_in = true
+		answer_time_remaining = timer.time_left  # Capture time for speed bonus
+		
+		# Stop the 5-second warning sound if it's playing
+		SFX.stop_5timer_warning()
+		
+		# Visual feedback - make the highlight more prominent
+		_highlight_selected(chosen_answer)
+		
+		print("⚡ Answer locked in: ", chosen_answer, " with ", "%.1f" % answer_time_remaining, "s remaining")
+		
+		# Get the animation player for the current player
+		var player := get_current_player()
+		var anim_player := _get_player_animation_player(player)
+		
+		if anim_player and anim_player.has_animation("Punch"):
+			# Wait for punch animation to finish
+			anim_player.play("Punch")
+			await anim_player.animation_finished
+		
+		# Stop timer and check answer after animation completes
+		timer.stop()
+		_check_answer()
+
 func _update_highlight() -> void:
 	if overlapping_areas.size() > 0:
 		var top_answer := overlapping_areas[overlapping_areas.size() - 1]
@@ -440,12 +483,16 @@ func _on_timer_timeout() -> void:
 		return
 
 	timer_value.text = "0"
+	answer_time_remaining = 0.0  # Time ran out, no speed bonus
 	_check_answer()
 
 
 func _check_answer() -> void:
 	_set_state(GameState.ANSWER_REVEAL)
 	timer.stop()
+
+	# Clear overlapping areas to prevent stale collision state
+	overlapping_areas.clear()
 
 	var player := get_current_player()
 	if player.has_method("set_velocity"):
@@ -497,7 +544,7 @@ func _check_answer() -> void:
 	# REMOVED: No extra delay - proceed immediately to next question
 
 	# Check for winner
-	if player1_score >= WINNING_SCORE or player2_score >= WINNING_SCORE:
+	if player1_score >= GameData.points_required or player2_score >= GameData.points_required:
 		_set_state(GameState.GAME_OVER)
 		_end_game()
 	else:
@@ -509,9 +556,12 @@ func _check_answer() -> void:
 		_next_turn()
 
 func _add_score() -> void:
+	# Calculate points based on speed
+	var points := _calculate_points_for_speed()
+	
 	if current_player == 1:
-		player1_score += 1
-		player1_score_label.text = str(player1_score)
+		player1_score += points
+		player1_score_label.text = str(player1_score) + "/" + str(GameData.points_required)
 
 		# Trigger wave animation for Player 1
 		# CRITICAL: Disable player's physics process to prevent animation override
@@ -534,8 +584,8 @@ func _add_score() -> void:
 			print("[DEBUG] ⚠️ Wave animation not available for Player 1")
 			player1.set_physics_process(true)  # Re-enable immediately if animation not found
 	else:
-		player2_score += 1
-		player2_score_label.text = str(player2_score)
+		player2_score += points
+		player2_score_label.text = str(player2_score) + "/" + str(GameData.points_required)
 
 		# Trigger wave animation for Player 2
 		# CRITICAL: Disable player's physics process to prevent animation override
@@ -568,12 +618,62 @@ func _show_feedback(is_correct: bool) -> void:
 	else:
 		print("❌ Wrong!")
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPEED BONUS SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+func _calculate_points_for_speed() -> int:
+	"""Calculate points based on how quickly the player answered"""
+	var time_remaining := answer_time_remaining
+	
+	if time_remaining >= SPEED_BONUS_FAST_THRESHOLD:
+		print("⚡ FAST ANSWER! +3 points (answered with ", "%.1f" % time_remaining, "s remaining)")
+		_show_speed_bonus_feedback(3)
+		return SPEED_BONUS_FAST  # Very fast (answered in 3 seconds or less)
+	elif time_remaining >= SPEED_BONUS_MEDIUM_THRESHOLD:
+		print("⏱️ Good speed! +2 points (answered with ", "%.1f" % time_remaining, "s remaining)")
+		_show_speed_bonus_feedback(2)
+		return SPEED_BONUS_MEDIUM  # Fast (answered in 7 seconds or less)
+	else:
+		print("🐢 Slow answer. +1 point (answered with ", "%.1f" % time_remaining, "s remaining)")
+		_show_speed_bonus_feedback(1)
+		return SPEED_BONUS_SLOW  # Slow (answered after 7 seconds or time ran out)
+
+func _show_speed_bonus_feedback(points: int) -> void:
+	"""Visual feedback showing the speed bonus earned"""
+	var bonus_text := ""
+	var bonus_color := Color.WHITE
+	
+	match points:
+		3:
+			bonus_text = "+3 FAST!"
+			bonus_color = Color.GOLD
+		2:
+			bonus_text = "+2 Good!"
+			bonus_color = Color.CYAN
+		1:
+			bonus_text = "+1"
+			bonus_color = Color.LIGHT_GRAY
+	
+	# Show bonus on timer display
+	timer_value.text = bonus_text
+	timer_value.modulate = bonus_color
+	
+	# Wait briefly to show the bonus
+	await get_tree().create_timer(0.8).timeout
+	
+
 func _next_turn() -> void:
 	# Advance to the next question index when moving to the next turn.
 	# This centralizes the progression so every turn reliably uses the next question.
 	current_question_index += 1
 	var old_player := get_current_player()
 	_despawn_player(old_player)
+
+	# Clear collision state from previous player to prevent highlight bugs
+	overlapping_areas.clear()
+	answer_locked_in = false  # Reset lock flag for new turn
+	answer_time_remaining = 0.0  # Reset speed bonus tracking
+	_hide_all_highlights()
 
 	# Switch to new player
 	current_player = 2 if current_player == 1 else 1
@@ -674,11 +774,14 @@ func _highlight_correct_answer() -> void:
 	# Show all highlights instantly (no animations)
 	for key in highlights.keys():
 		var h: MeshInstance3D = highlights[key]
+		# Reset scale & move highlight slightly back so it doesn't occlude players
 		h.scale = Vector3.ONE
-		
+		var base_z := highlight_a_base_z if key == "A" else (highlight_b_base_z if key == "B" else (highlight_c_base_z if key == "C" else highlight_d_base_z))
 		var is_correct: bool = (key == correct_answer)
 		h.set_surface_override_material(0, _get_border_green() if is_correct else _get_border_red())
 		h.visible = true
+		# Move back along local Z by configured offset
+		h.position = Vector3(h.position.x, h.position.y, base_z + HIGHLIGHT_Z_OFFSET)
 	
 	await get_tree().create_timer(ANSWER_REVEAL_DELAY).timeout
 	
@@ -690,16 +793,27 @@ func _highlight_selected(answer: String) -> void:
 	for k in highlights.keys():
 		var h: MeshInstance3D = highlights[k]
 		var is_selected: bool = (k == answer)
+		# Show only the selected highlight and move it back so it doesn't occlude the player
 		h.visible = is_selected
-		
+		var base_z := highlight_a_base_z if k == "A" else (highlight_b_base_z if k == "B" else (highlight_c_base_z if k == "C" else highlight_d_base_z))
 		if is_selected:
 			h.set_surface_override_material(0, _get_border_yellow())
 			h.scale = Vector3.ONE
+			# push the selected highlight backwards along Z
+			h.position = Vector3(h.position.x, h.position.y, base_z + HIGHLIGHT_Z_OFFSET)
+		else:
+			# restore non-selected highlights to their base Z so they don't accidentally drift
+			h.position = Vector3(h.position.x, h.position.y, base_z)
 
 func _hide_all_highlights() -> void:
 	for h in [highlight_a, highlight_b, highlight_c, highlight_d]:
+		# Hide and reset scale and Z position to their base values
+		if not is_instance_valid(h):
+			continue
+		var base_z := highlight_a_base_z if h == highlight_a else (highlight_b_base_z if h == highlight_b else (highlight_c_base_z if h == highlight_c else highlight_d_base_z))
 		h.visible = false
 		h.scale = Vector3.ONE
+		h.position = Vector3(h.position.x, h.position.y, base_z)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VISUAL EFFECTS - REMOVED FOR PERFORMANCE
@@ -779,6 +893,13 @@ func _spawn_current_player() -> void:
 	var spawn_point := spawn_p1 if current_player == 1 else spawn_p2
 	player.global_transform = spawn_point.global_transform
 	player.velocity = Vector3.ZERO
+	
+	# Wait for physics to update collision detection
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
+	# Manually check which areas the player spawned in and update highlights
+	_check_spawn_overlaps(player)
 
 
 
@@ -810,6 +931,31 @@ func _show_game_labels() -> void:
 	timer_value.visible = true
 
 
+func _check_spawn_overlaps(player: CharacterBody3D) -> void:
+	"""Manually check if player spawned inside any answer areas and update highlights"""
+	var areas := [
+		{"area": area_a, "id": "A"},
+		{"area": area_b, "id": "B"},
+		{"area": area_c, "id": "C"},
+		{"area": area_d, "id": "D"}
+	]
+	
+	for area_data in areas:
+		var area: Area3D = area_data["area"]
+		var answer_id: String = area_data["id"]
+		
+		# Check if player is overlapping this area
+		var overlapping_bodies := area.get_overlapping_bodies()
+		if player in overlapping_bodies:
+			# Add to overlapping areas if not already there
+			if not overlapping_areas.has(answer_id):
+				overlapping_areas.append(answer_id)
+				print("[DEBUG] Player spawned in area ", answer_id)
+	
+	# Update highlight based on detected overlaps
+	_update_highlight()
+
+
 func _despawn_player(player: CharacterBody3D) -> void:
 	# Disable controls
 	player.set_physics_process(false)
@@ -823,30 +969,50 @@ func _despawn_player(player: CharacterBody3D) -> void:
 	# Teleport to relocation point (off-camera)
 	var relocate_point := relocate_spawn_p_1 if player == player1 else relocate_spawn_p_2
 	player.global_transform = relocate_point.global_transform
+	
+	# Wait for physics to update so collision exit signals fire
+	await get_tree().physics_frame
 
 func _input(event: InputEvent) -> void:
 	# Toggle main menu on ESC (main_menu input)
-	if event.is_action_pressed("main_menu"):
+	if event.is_action_pressed("ui_cancel"):
+		print("[DEBUG MINIGAME2] ESC pressed! Current paused state: ", get_tree().paused)
+		print("[DEBUG MINIGAME2] Current main_menu.visible: ", main_menu.visible)
 		_toggle_main_menu()
+		get_viewport().set_input_as_handled()
+		print("[DEBUG MINIGAME2] After toggle - paused: ", get_tree().paused, " menu visible: ", main_menu.visible)
 		return  # Avoid further input handling while menu toggled
 
 	# Only allow gameplay input if main menu is not visible
 	if main_menu.visible:
 		return
 
+	# Punch to confirm answer during gameplay
+	if current_state == GameState.WAITING_INPUT and not answer_locked_in:
+		if current_player == 1 and event.is_action_pressed("ui_accept"):
+			try_lock_in_answer()
+			return
+		elif current_player == 2 and event.is_action_pressed("ui_accept_p2"):
+			try_lock_in_answer()
+			return
+
 	# Current logic for initial lobby
 	if current_state != GameState.PREPARE:
 		return
 
 	if not initial_lobby_completed:
-		if event.is_action_pressed("ui_accept") and not player1_ready:
-			player1_ready = true
+		# Player 1 toggle ready
+		if event.is_action_pressed("ui_accept"):
+			player1_ready = not player1_ready  # Toggle ready state
 			_update_ready_overlay()
-			_check_both_ready()
-		elif event.is_action_pressed("ui_accept_p2") and not player2_ready:
-			player2_ready = true
+			_handle_ready_check()  # Check if both ready or cancel countdown
+			get_viewport().set_input_as_handled()
+		# Player 2 toggle ready
+		elif event.is_action_pressed("ui_accept_p2"):
+			player2_ready = not player2_ready  # Toggle ready state
 			_update_ready_overlay()
-			_check_both_ready()
+			_handle_ready_check()  # Check if both ready or cancel countdown
+			get_viewport().set_input_as_handled()
 		return
 	
 	# Normal round input
@@ -862,22 +1028,93 @@ func _update_ready_overlay() -> void:
 	var p2_status := "Ready ✓" if player2_ready else "Not Ready"
 	get_ready_overlay.text = "Player 1: " + p1_status + "\nPlayer 2: " + p2_status
 
+func _handle_ready_check() -> void:
+	# Start countdown only when both are ready
+	if player1_ready and player2_ready and not countdown_active:
+		_start_ready_countdown()
+	# Cancel countdown if anyone is not ready
+	if (not player1_ready or not player2_ready) and countdown_active:
+		_cancel_ready_countdown()
+
+func _start_ready_countdown() -> void:
+	countdown_active = true
+	countdown_time_left = 5.0
+	time_to_get_ready.visible = true
+	time_to_get_ready.text = "5"
+	initial_lobby_completed = true
+	
+	# Hide the "How to Play" label when countdown starts
+	if ready_how_to_play:
+		ready_how_to_play.visible = false
+	
+	if ready_timer == null:
+		ready_timer = Timer.new()
+		add_child(ready_timer)
+	
+	ready_timer.wait_time = 1.0
+	ready_timer.one_shot = false
+	
+	var cb = Callable(self, "_on_ready_timer_tick")
+	if not ready_timer.timeout.is_connected(cb):
+		ready_timer.timeout.connect(cb)
+	
+	ready_timer.start()
+	SFX.play_5timer_warning()
+
+func _on_ready_timer_tick() -> void:
+	# If either player unreadies during countdown → cancel it
+	if not (player1_ready and player2_ready):
+		_cancel_ready_countdown()
+		return
+	
+	countdown_time_left -= 1.0
+	var countdown_display := int(countdown_time_left)
+	
+	if countdown_display > 0:
+		time_to_get_ready.text = str(countdown_display)
+	else:
+		# Countdown finished
+		ready_timer.stop()
+		_ready_countdown_finished()
+
+func _cancel_ready_countdown() -> void:
+	if ready_timer:
+		ready_timer.stop()
+	countdown_active = false
+	time_to_get_ready.visible = false
+	countdown_time_left = 5.0
+	initial_lobby_completed = false
+	SFX.stop_5timer_warning()
+	
+	# Show the "How to Play" label again when countdown is cancelled
+	if ready_how_to_play:
+		ready_how_to_play.visible = true
+
+func _ready_countdown_finished() -> void:
+	# Hide ready overlay and countdown
+	countdown_active = false
+	time_to_get_ready.visible = false
+	get_ready_overlay.visible = false
+	SFX.stop_5timer_warning()
+	
+	# Despawn player 2 and start with player 1
+	_despawn_player(player2)
+	current_player = 1
+	
+	# Start the first round
+	start_round()
+
 func _check_both_ready() -> void:
-	if player1_ready and player2_ready:
-		print("[DEBUG] Both players ready at ", Time.get_ticks_msec() - debug_start_time, "ms")
-		initial_lobby_completed = true
-		get_ready_overlay.text = "Starting Game..."
-		await get_tree().create_timer(1.0).timeout
-		get_ready_overlay.visible = false
-		
-		# **Relocate Player 2, keep Player 1 at spawn**
-		_despawn_player(player2)
-		
-		start_round()
+	# This function is now replaced by _handle_ready_check()
+	# Keeping it for compatibility but redirecting to new function
+	_handle_ready_check()
 
 
 func _toggle_main_menu() -> void:
+	print("[DEBUG MINIGAME2] _toggle_main_menu called")
 	var is_visible := main_menu.visible
+	print("[DEBUG MINIGAME2] BEFORE - menu.visible: ", is_visible, " tree.paused: ", get_tree().paused)
+	
 	main_menu.visible = not is_visible
 
 	if main_menu.visible:
@@ -885,10 +1122,14 @@ func _toggle_main_menu() -> void:
 		# _set_state(GameState.PREPARE) # optionally pause game state
 		_hide_game_labels()
 		get_tree().paused = true
+		print("[DEBUG MINIGAME2] PAUSING game - menu should be visible")
 	else:
 		# Resume game
 		_show_game_labels()
 		get_tree().paused = false
+		print("[DEBUG MINIGAME2] UNPAUSING game - menu should be hidden")
+	
+	print("[DEBUG MINIGAME2] AFTER - menu.visible: ", main_menu.visible, " tree.paused: ", get_tree().paused)
 
 # === Main Menu Button Actions ===
 func _on_return_to_game_pressed() -> void:
@@ -961,8 +1202,9 @@ func _reset_game_state() -> void:
 	# Reset scores & labels
 	player1_score = 0
 	player2_score = 0
-	player1_score_label.text = str(player1_score)
-	player2_score_label.text = str(player2_score)
+	# Show reset scores as '0/points_required'
+	player1_score_label.text = str(player1_score) + "/" + str(GameData.points_required)
+	player2_score_label.text = str(player2_score) + "/" + str(GameData.points_required)
 	
 	_update_background_progress()
 
@@ -972,13 +1214,25 @@ func _reset_game_state() -> void:
 	chosen_answer = ""
 	correct_answer = ""
 	is_ready_for_input = false
+	answer_locked_in = false  # Reset lock flag
+	answer_time_remaining = 0.0  # Reset speed bonus tracking
 
 	# Reset lobby / readiness
 	player1_ready = false
 	player2_ready = false
 	initial_lobby_completed = false
+	countdown_active = false
+	countdown_time_left = 5.0
+	if ready_timer:
+		ready_timer.stop()
 	get_ready_overlay.visible = true
 	get_ready_overlay.text = "Player 1: Not Ready\nPlayer 2: Not Ready"
+	time_to_get_ready.visible = false
+	SFX.stop_5timer_warning()  # Ensure countdown sound is stopped
+	
+	# Show the "How to Play" label when reset
+	if ready_how_to_play:
+		ready_how_to_play.visible = true
 
 	# Reset highlights & labels
 	_hide_all_highlights()
@@ -1109,8 +1363,25 @@ func _adjust_label3d_scale(label: Label3D, base_scale: float, min_scale: float, 
 	
 func _on_music_slider_changed(value: float):
 	SFX.set_music_volume(value / 100.0)
+	bg_value.text = str(int(value))
 	SFX.play_move()
 
 func _on_sfx_slider_changed(value: float):
 	SFX.set_sfx_volume(value / 100.0)
+	sfx_value.text = str(int(value))
 	SFX.play_move()
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# UPDATE HOW TO PLAY TEXT WITH DYNAMIC POINTS
+# ═══════════════════════════════════════════════════════════════════════════════
+func _update_how_to_play_text() -> void:
+	var points := GameData.points_required
+	
+	# Update main menu "How to Play" RichTextLabel
+	if menu_how_to_play:
+		menu_how_to_play.text = "[color=orange][b]How to Play:[/b][/color]\nWhen a question appears, [b]go to the area (A, B, C, or D)[/b] that matches your answer.\nEach correct choice earns a point — [color=yellow]reach " + str(points) + " points first to win![/color]"
+	
+	# Update ready screen "How to Play" Label3D
+	if ready_how_to_play:
+		ready_how_to_play.text = "How to Play:\nWhen a question appears, go to the area (A, B, C, or D) that matches your answer.\nEach correct choice earns a point — reach " + str(points) + " points first to win!"

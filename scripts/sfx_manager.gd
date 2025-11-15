@@ -43,6 +43,16 @@ func _ready():
 	bgm_player_minigame_1.process_mode = Node.PROCESS_MODE_ALWAYS
 	bgm_player_minigame_2.process_mode = Node.PROCESS_MODE_ALWAYS
 	
+	# Make SFX players also work when paused (for menu sounds)
+	var sfx_players = [
+		ui_accept_player, move_player, select_player, correct_sfx,
+		wrong_sfx, score_sfx, round_start_sfx, game_over_sfx, 
+		timer_warning_sfx, _5_seconds_timer_warning_sfx, footsteps, running, punch
+	]
+	for p in sfx_players:
+		if p:
+			p.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	_update_volumes()
 
 
@@ -112,6 +122,8 @@ func play_timer_warning(): timer_warning_sfx.play()
 func stop_timer_warning_sfx():
 	timer_warning_sfx.stop()
 func play_5timer_warning(): _5_seconds_timer_warning_sfx.play()
+func stop_5timer_warning():
+	_5_seconds_timer_warning_sfx.stop()
 
 func play_footsteps(): footsteps.play()
 func play_running(): running.play()
@@ -155,7 +167,3 @@ func linear_to_db(linear: float) -> float:
 	if linear <= 0:
 		return -80.0
 	return 20.0 * log(linear) / log(10.0)
-	
-#Countdown Music Skip Stops
-func stop_countdown(): 
-	_5_seconds_timer_warning_sfx.stop()  # This stops only the countdown sound

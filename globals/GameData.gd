@@ -11,8 +11,12 @@ var winner_id: int = 1
 # Track difficulty mode for minigame 1
 var minigame1_difficulty: String = "normal" # "normal" or "hard"
 
+# Points required to win (configurable from main menu)
+var points_required: int = 10
+
 func reset():
 	imported_questions.clear()
 	current_minimap = 1
 	winner_id = 1
 	minigame1_difficulty = "normal"
+	points_required = 10
