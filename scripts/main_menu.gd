@@ -246,8 +246,79 @@ func _on_file_selected(path: String):
 	# Normalize all line endings to \n (handles Windows CRLF)
 	content = content.replace("\r\n", "\n").replace("\r", "\n")
 	
-	# ✅ FIX 1.5: Detect and fix single-line format
-	# If questions are all on one line, add line breaks before each marker
+	# ✅ FIX 1.5: Handle line-wrapped format from AI-generated files
+	# AI-generated files often have hard line breaks mid-sentence
+	# We need to join continuation lines and then properly split on markers
+	print("📄 Preprocessing line-wrapped format...")
+	
+	# First, normalize the text by joining lines that are continuations
+	# A continuation line is one that doesn't start with a marker (Q:, A:, B:, C:, D:, ANSWER:)
+	var lines = content.split("\n")
+	var joined_lines: Array = []
+	var current_line = ""
+	
+	for line in lines:
+		var trimmed = line.strip_edges()
+		
+		# Check if this line starts with a marker (case-insensitive)
+		var is_marker_line = false
+		var line_upper = trimmed.to_upper()
+		for marker in ["Q:", "A:", "B:", "C:", "D:", "ANSWER:"]:
+			if line_upper.begins_with(marker):
+				is_marker_line = true
+				break
+		
+		if trimmed == "":
+			# Empty line - save current line and add blank line separator
+			if current_line != "":
+				joined_lines.append(current_line)
+				current_line = ""
+			joined_lines.append("")  # Preserve blank lines as separators
+		elif is_marker_line:
+			# New marker - save previous line and start new one
+			if current_line != "":
+				joined_lines.append(current_line)
+			current_line = trimmed
+		else:
+			# Continuation line - append to current line with space
+			if current_line == "":
+				current_line = trimmed
+			else:
+				current_line += " " + trimmed
+	
+	# Don't forget the last line
+	if current_line != "":
+		joined_lines.append(current_line)
+	
+	# Rejoin with newlines
+	content = "\n".join(joined_lines)
+	
+	# Now handle lines that have multiple markers on the same line
+	# Split them by adding newlines before each marker (except the first)
+	lines = content.split("\n")
+	var final_lines: Array = []
+	
+	for line in lines:
+		if line.strip_edges() == "":
+			final_lines.append(line)
+			continue
+		
+		# Check if line has multiple markers (split by spaces before markers)
+		var result_line = line
+		# Use regex-like approach: add newline before " A:", " B:", " C:", " D:", " ANSWER:"
+		# But NOT if it's at the beginning of the line
+		for marker in [" A:", " B:", " C:", " D:", " ANSWER:"]:
+			result_line = result_line.replace(marker, "\n" + marker.strip_edges())
+		
+		# Split and add all resulting lines
+		var split_lines = result_line.split("\n")
+		for split_line in split_lines:
+			if split_line.strip_edges() != "":
+				final_lines.append(split_line.strip_edges())
+	
+	content = "\n".join(final_lines)
+	
+	# Finally, handle the case where everything is on one continuous line (no newlines at all)
 	if not content.contains("\nQ:") and content.contains(" Q:"):
 		print("📄 Detected single-line format, reformatting...")
 		# Add line breaks before Q:, A:, B:, C:, D:, and ANSWER:
@@ -257,8 +328,9 @@ func _on_file_selected(path: String):
 		content = content.replace(" C:", "\nC:")
 		content = content.replace(" D:", "\nD:")
 		content = content.replace(" ANSWER:", "\nANSWER:")
-		# Clean up any double spaces or leading newlines
-		content = content.strip_edges()
+	
+	# Clean up
+	content = content.strip_edges()
 	
 	print("📄 File content length:", content.length())
 	print("📄 First 200 chars:", content.substr(0, 200))
