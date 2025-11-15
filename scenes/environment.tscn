@@ -1,10 +1,9 @@
-[gd_scene load_steps=62 format=4 uid="uid://npffo5xa1km3"]
+[gd_scene load_steps=61 format=4 uid="uid://npffo5xa1km3"]
 
+[ext_resource type="Script" path="res://scripts/minigame2_player.gd" id="1_38aar"]
 [ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="1_ww1bg"]
-[ext_resource type="Script" path="res://scripts/minigame_2_player1.gd" id="2_mgcya"]
 [ext_resource type="Texture2D" uid="uid://crbdpbj1862m4" path="res://assets/character/character1/Character_Male_1_Atlas.png" id="3_giui0"]
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="4_i1j35"]
-[ext_resource type="Script" path="res://scripts/minigame_2_player2.gd" id="4_xnjcy"]
 [ext_resource type="Texture2D" uid="uid://b7sptjn6ish45" path="res://assets/character/character2/Character_Female_1_Atlas.png" id="5_2ymli"]
 [ext_resource type="MeshLibrary" uid="uid://cd80i5pss0w31" path="res://assets/meshes/WorkingBlocksMeshPartial.tres" id="6_2plvu"]
 
@@ -8630,7 +8629,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5868, 22.8731, -7.6773)
 collision_layer = 129
 collision_mask = 130
-script = ExtResource("2_mgcya")
+script = ExtResource("1_38aar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -8839,7 +8838,7 @@ font_size = 92
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5868, 22.8731, -7.6773)
 collision_layer = 129
 collision_mask = 132
-script = ExtResource("4_xnjcy")
+script = ExtResource("1_38aar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
