@@ -155,7 +155,3 @@ func linear_to_db(linear: float) -> float:
 	if linear <= 0:
 		return -80.0
 	return 20.0 * log(linear) / log(10.0)
-	
-#Countdown Music Skip Stops
-func stop_countdown(): 
-	_5_seconds_timer_warning_sfx.stop()  # This stops only the countdown sound
