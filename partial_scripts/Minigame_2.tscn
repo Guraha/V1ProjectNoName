@@ -13994,6 +13994,7 @@ text = "Press right CTRL
 key to skip."
 
 [node name="SkipHintP2" type="Label" parent="SubViewport/Hint/Control_Hint"]
+layout_mode = 0
 offset_left = 911.0
 offset_top = 474.0
 offset_right = 1133.0
