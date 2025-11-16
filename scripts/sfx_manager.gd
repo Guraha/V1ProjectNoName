@@ -1,6 +1,4 @@
 extends Node
-class_name SFXManager
-
 # === Node references ===
 @onready var ui_accept_player: AudioStreamPlayer2D = $UIAcceptPlayer
 @onready var move_player: AudioStreamPlayer2D = $MovePlayer
@@ -191,7 +189,7 @@ func _update_volumes():
 
 	var sfx_players = [
 		ui_accept_player, move_player, select_player, correct_sfx,
-		wrong_sfx, score_sfx, round_start_sfx, game_over_sfx, timer_warning_sfx,_5_seconds_timer_warning_sfx, footsteps, running, punch
+		wrong_sfx, score_sfx, round_start_sfx, part_1cd_start, part_2cd_start, part_3cd_start, part_4cd_start, part_5cd_start, game_over_sfx, timer_warning_sfx,_5_seconds_timer_warning_sfx, footsteps, running, punch
 	]
 	for p in sfx_players:
 		if p:
