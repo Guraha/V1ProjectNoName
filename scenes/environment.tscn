@@ -1,25 +1,68 @@
 [gd_scene load_steps=62 format=4 uid="uid://npffo5xa1km3"]
 
-[ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="1_ww1bg"]
-[ext_resource type="Script" path="res://scripts/minigame_2_player1.gd" id="2_mgcya"]
+[ext_resource type="Texture2D" uid="uid://eipsxqnjuw5n" path="res://assets/backgrounds/sunflowers_puresky_4k.exr" id="1_56trv"]
+[ext_resource type="MeshLibrary" uid="uid://c4mur1la336vs" path="res://assets/meshes/All_Mesh_Library.tres" id="1_ww1bg"]
 [ext_resource type="Texture2D" uid="uid://crbdpbj1862m4" path="res://assets/character/character1/Character_Male_1_Atlas.png" id="3_giui0"]
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="4_i1j35"]
-[ext_resource type="Script" path="res://scripts/minigame_2_player2.gd" id="4_xnjcy"]
 [ext_resource type="Texture2D" uid="uid://b7sptjn6ish45" path="res://assets/character/character2/Character_Female_1_Atlas.png" id="5_2ymli"]
 [ext_resource type="MeshLibrary" uid="uid://cd80i5pss0w31" path="res://assets/meshes/WorkingBlocksMeshPartial.tres" id="6_2plvu"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h6w5h"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Shader" id="Shader_b7hbg"]
+code = "// Animated Panorama Sky Shader
+shader_type sky;
 
-[sub_resource type="Sky" id="Sky_phfi5"]
-sky_material = SubResource("ProceduralSkyMaterial_h6w5h")
+uniform sampler2D source_panorama : source_color, hint_default_black;
+uniform float exposure : hint_range(0, 128) = 1.0;
+uniform float speed = 0.001;
 
-[sub_resource type="Environment" id="Environment_87t1r"]
+void sky() {
+	// Move the panorama horizontally over time
+	vec2 skyCoords = vec2(mod(SKY_COORDS.x + TIME * speed, 1.0), SKY_COORDS.y);
+
+	// Sample the panorama with the adjusted coordinates
+	vec3 color = texture(source_panorama, skyCoords).rgb;
+
+	// Apply exposure
+	COLOR = color * exposure;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6ns4"]
+shader = SubResource("Shader_b7hbg")
+shader_parameter/exposure = 1.0
+shader_parameter/speed = 0.002
+shader_parameter/source_panorama = ExtResource("1_56trv")
+
+[sub_resource type="Sky" id="Sky_twaxd"]
+sky_material = SubResource("ShaderMaterial_h6ns4")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_r53xw"]
 background_mode = 2
-sky = SubResource("Sky_phfi5")
-tonemap_mode = 2
+background_energy_multiplier = 0.9
+sky = SubResource("Sky_twaxd")
+sky_rotation = Vector3(0, 1.78896, 0)
+ambient_light_sky_contribution = 0.8
+reflected_light_source = 1
+tonemap_white = 3.0
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 1.25
+ssao_detail = 0.75
+ssao_horizon = 0.0
+ssil_enabled = true
+sdfgi_bounce_feedback = 1.5
 glow_enabled = true
+glow_intensity = 0.0
+glow_strength = 0.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.0
+glow_map_strength = 0.0
+fog_enabled = true
+fog_light_energy = 0.2
+fog_sky_affect = 0.0
+fog_height = -1024.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dwolk"]
 size = Vector3(1.455, 2.5, 1)
@@ -8620,17 +8663,27 @@ size = Vector3(20.535, 1, 1)
 [node name="Background_Light" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Background_Light"]
-environment = SubResource("Environment_87t1r")
+environment = SubResource("Environment_r53xw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background_Light"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.794414, -0.386338, 0.468666, 0, 0.771624, 0.636079, -0.607375, 0.50531, -0.61299, 0, 0, 0)
+light_color = Color(0.999992, 0.947455, 0.938414, 1)
+light_energy = 1.2
+light_volumetric_fog_energy = 2.0
+light_angular_distance = 0.5
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_transmittance_bias = 16.0
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.012
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 17.6
+sky_mode = 1
 
 [node name="Player1" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5868, 22.8731, -7.6773)
 collision_layer = 129
 collision_mask = 130
-script = ExtResource("2_mgcya")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -8839,7 +8892,6 @@ font_size = 92
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5868, 22.8731, -7.6773)
 collision_layer = 129
 collision_mask = 132
-script = ExtResource("4_xnjcy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

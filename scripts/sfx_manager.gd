@@ -15,6 +15,11 @@ class_name SFXManager
 @onready var footsteps: AudioStreamPlayer2D = $Footsteps
 @onready var running: AudioStreamPlayer2D = $Running
 @onready var punch: AudioStreamPlayer2D = $Punch
+@onready var part_1cd_start: AudioStreamPlayer2D = $part1CDStart
+@onready var part_2cd_start: AudioStreamPlayer2D = $part2CDStart
+@onready var part_3cd_start: AudioStreamPlayer2D = $part3CDStart
+@onready var part_4cd_start: AudioStreamPlayer2D = $part4CDStart
+@onready var part_5cd_start: AudioStreamPlayer2D = $part5CDStart
 
 
 
@@ -124,6 +129,39 @@ func stop_timer_warning_sfx():
 func play_5timer_warning(): _5_seconds_timer_warning_sfx.play()
 func stop_5timer_warning():
 	_5_seconds_timer_warning_sfx.stop()
+	
+func play_5timer_warning_new() -> void:
+	# Play all 5 countdown parts simultaneously - they are designed to play together
+	# Each part is offset in its audio file to play at the right time
+	part_1cd_start.play()
+	part_2cd_start.play()
+	part_3cd_start.play()
+	part_4cd_start.play()
+	part_5cd_start.play()
+
+
+func stop_5timer_warning_new():
+	part_1cd_start.stop()
+	part_2cd_start.stop()
+	part_3cd_start.stop()
+	part_4cd_start.stop()
+	part_5cd_start.stop()
+
+func pause_5timer_warning_new():
+	# Set stream_paused to true for all countdown parts
+	part_1cd_start.stream_paused = true
+	part_2cd_start.stream_paused = true
+	part_3cd_start.stream_paused = true
+	part_4cd_start.stream_paused = true
+	part_5cd_start.stream_paused = true
+
+func resume_5timer_warning_new():
+	# Set stream_paused to false for all countdown parts
+	part_1cd_start.stream_paused = false
+	part_2cd_start.stream_paused = false
+	part_3cd_start.stream_paused = false
+	part_4cd_start.stream_paused = false
+	part_5cd_start.stream_paused = false
 
 func play_footsteps(): footsteps.play()
 func play_running(): running.play()

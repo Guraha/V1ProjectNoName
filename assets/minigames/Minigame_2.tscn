@@ -1,12 +1,13 @@
-[gd_scene load_steps=107 format=4 uid="uid://f7qxq7gburpx"]
+[gd_scene load_steps=109 format=4 uid="uid://f7qxq7gburpx"]
 
 [ext_resource type="Script" path="res://scripts/Minigame_2.gd" id="1_u3vyc"]
+[ext_resource type="Texture2D" uid="uid://eipsxqnjuw5n" path="res://assets/backgrounds/sunflowers_puresky_4k.exr" id="2_k6h88"]
 [ext_resource type="Script" path="res://scripts/minigame2_player.gd" id="2_pa28j"]
 [ext_resource type="Texture2D" uid="uid://crbdpbj1862m4" path="res://assets/character/character1/Character_Male_1_Atlas.png" id="3_pk5d3"]
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="4_hr45m"]
 [ext_resource type="Texture2D" uid="uid://b7sptjn6ish45" path="res://assets/character/character2/Character_Female_1_Atlas.png" id="5_ldjlu"]
 [ext_resource type="MeshLibrary" uid="uid://cd80i5pss0w31" path="res://assets/meshes/WorkingBlocksMeshPartial.tres" id="6_oynqj"]
-[ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="7_6gho5"]
+[ext_resource type="MeshLibrary" uid="uid://c4mur1la336vs" path="res://assets/meshes/All_Mesh_Library.tres" id="7_6gho5"]
 [ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="8_30gcj"]
 [ext_resource type="Texture2D" uid="uid://d1o5so2lykduj" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_d_outline.svg" id="9_cuio6"]
 [ext_resource type="Texture2D" uid="uid://26vrkyw8x6i6" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_w_outline.svg" id="10_b31cs"]
@@ -23,18 +24,65 @@
 [ext_resource type="Texture2D" uid="uid://chmau5yo4g2an" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_enter_outline.svg" id="21_mjnv3"]
 [ext_resource type="PackedScene" uid="uid://c5jqk12llv8mh" path="res://assets/character/character1/Character_Male_1.tscn" id="22_fjlf0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kdw77"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Shader" id="Shader_v45oh"]
+code = "// Animated Panorama Sky Shader
+shader_type sky;
 
-[sub_resource type="Sky" id="Sky_bp6ik"]
-sky_material = SubResource("ProceduralSkyMaterial_kdw77")
+uniform sampler2D source_panorama : source_color, hint_default_black;
+uniform float exposure : hint_range(0, 128) = 1.0;
+uniform float speed = 0.001;
 
-[sub_resource type="Environment" id="Environment_23wkl"]
+void sky() {
+	// Move the panorama horizontally over time
+	vec2 skyCoords = vec2(mod(SKY_COORDS.x + TIME * speed, 1.0), SKY_COORDS.y);
+
+	// Sample the panorama with the adjusted coordinates
+	vec3 color = texture(source_panorama, skyCoords).rgb;
+
+	// Apply exposure
+	COLOR = color * exposure;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cndhm"]
+shader = SubResource("Shader_v45oh")
+shader_parameter/exposure = 1.0
+shader_parameter/speed = 0.002
+shader_parameter/source_panorama = ExtResource("2_k6h88")
+
+[sub_resource type="Sky" id="Sky_2svbe"]
+sky_material = SubResource("ShaderMaterial_cndhm")
+
+[sub_resource type="Environment" id="Environment_8li2c"]
 background_mode = 2
-sky = SubResource("Sky_bp6ik")
-tonemap_mode = 2
+background_energy_multiplier = 0.7
+sky = SubResource("Sky_2svbe")
+sky_rotation = Vector3(0, 1.78896, 0)
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.8
+reflected_light_source = 1
+tonemap_white = 3.0
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 1.25
+ssao_detail = 0.75
+ssao_horizon = 0.0
+ssil_enabled = true
+sdfgi_bounce_feedback = 1.5
 glow_enabled = true
+glow_intensity = 0.0
+glow_strength = 0.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.0
+glow_map_strength = 0.0
+fog_enabled = true
+fog_light_energy = 0.2
+fog_sky_affect = 0.0
+fog_height = -1024.0
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.1
+volumetric_fog_sky_affect = 0.874
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xj6e8"]
 size = Vector3(1.455, 2.5, 1)
@@ -13271,11 +13319,20 @@ size = Vector2i(1152, 648)
 [node name="Background_Light" type="Node" parent="SubViewport"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Background_Light"]
-environment = SubResource("Environment_23wkl")
+environment = SubResource("Environment_8li2c")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Background_Light"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.794414, -0.386338, 0.468666, 0, 0.771624, 0.636079, -0.607375, 0.50531, -0.61299, 0, 0, 0)
+light_color = Color(0.999992, 0.947455, 0.938414, 1)
+light_energy = 1.3
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_transmittance_bias = 16.0
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.012
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 17.6
+sky_mode = 1
 
 [node name="Player1" type="CharacterBody3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 22.5798, -9.52939)
@@ -13475,7 +13532,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 shape = SubResource("SphereShape3D_jbq0v")
 
 [node name="Name" type="Label3D" parent="SubViewport/Player1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.0755157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.596)
 pixel_size = 0.02
 modulate = Color(0.854902, 0.635294, 0.321569, 1)
 text = "Player 1"
@@ -13681,7 +13738,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 shape = SubResource("SphereShape3D_jbq0v")
 
 [node name="Name" type="Label3D" parent="SubViewport/Player2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.0755157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.596)
 pixel_size = 0.02
 modulate = Color(0.921569, 0.321569, 0.160784, 1)
 text = "Player 2"

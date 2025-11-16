@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b4q6vvvomkdw2"]
+[gd_scene load_steps=52 format=3 uid="uid://b4q6vvvomkdw2"]
 
 [ext_resource type="Theme" uid="uid://bmsmkxoun7bxm" path="res://themes/Main_Theme.tres" id="1_56wnn"]
 [ext_resource type="FontFile" uid="uid://cs4n67qp3yj7h" path="res://assets/font/hello-headline-w00-regular.ttf" id="1_dlupe"]
@@ -24,8 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://wiapjhqxs6xl" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_left.svg" id="22_d18o6"]
 [ext_resource type="Texture2D" uid="uid://bknea6mrgvt7o" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_right.svg" id="23_1w7n2"]
 [ext_resource type="Texture2D" uid="uid://bha4or3bbmcmb" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_arrow_up.svg" id="24_mx50l"]
-[ext_resource type="MeshLibrary" uid="uid://bmnxjtg7pfomt" path="res://assets/meshes/All_Mesh_Library.tres" id="25_abelr"]
+[ext_resource type="MeshLibrary" uid="uid://c4mur1la336vs" path="res://assets/meshes/All_Mesh_Library.tres" id="25_abelr"]
 [ext_resource type="Theme" uid="uid://bfrnj6ndsa75s" path="res://themes/MainMenu.tres" id="25_h4ygi"]
+[ext_resource type="Texture2D" uid="uid://eipsxqnjuw5n" path="res://assets/backgrounds/sunflowers_puresky_4k.exr" id="26_2f20v"]
 [ext_resource type="AudioStream" uid="uid://dnfroo7ofstjg" path="res://assets/SFX/Background Music for the Math Game.mp3" id="26_ofqda"]
 [ext_resource type="AudioStream" uid="uid://bausdthbnnwtb" path="res://assets/SFX/Pops.wav" id="27_5c8lb"]
 [ext_resource type="AudioStream" uid="uid://cqgyttppyaugd" path="res://assets/SFX/Score.mp3" id="28_3122j"]
@@ -136,18 +137,62 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v7i8s"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Shader" id="Shader_qkqcs"]
+code = "// Animated Panorama Sky Shader
+shader_type sky;
 
-[sub_resource type="Sky" id="Sky_mitui"]
-sky_material = SubResource("ProceduralSkyMaterial_v7i8s")
+uniform sampler2D source_panorama : source_color, hint_default_black;
+uniform float exposure : hint_range(0, 128) = 1.0;
+uniform float speed = 0.001;
 
-[sub_resource type="Environment" id="Environment_v60cw"]
+void sky() {
+	// Move the panorama horizontally over time
+	vec2 skyCoords = vec2(mod(SKY_COORDS.x + TIME * speed, 1.0), SKY_COORDS.y);
+
+	// Sample the panorama with the adjusted coordinates
+	vec3 color = texture(source_panorama, skyCoords).rgb;
+
+	// Apply exposure
+	COLOR = color * exposure;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgk7s"]
+shader = SubResource("Shader_qkqcs")
+shader_parameter/exposure = 1.0
+shader_parameter/speed = 0.002
+shader_parameter/source_panorama = ExtResource("26_2f20v")
+
+[sub_resource type="Sky" id="Sky_pi12i"]
+sky_material = SubResource("ShaderMaterial_kgk7s")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_rayxa"]
 background_mode = 2
-sky = SubResource("Sky_mitui")
-tonemap_mode = 2
+background_energy_multiplier = 0.9
+sky = SubResource("Sky_pi12i")
+sky_rotation = Vector3(0, 1.78896, 0)
+ambient_light_sky_contribution = 0.8
+reflected_light_source = 1
+tonemap_white = 3.0
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 1.25
+ssao_detail = 0.75
+ssao_horizon = 0.0
+ssil_enabled = true
+sdfgi_bounce_feedback = 1.5
 glow_enabled = true
+glow_intensity = 0.0
+glow_strength = 0.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.0
+glow_map_strength = 0.0
+fog_enabled = true
+fog_light_energy = 0.2
+fog_sky_affect = 0.0
+fog_height = -1024.0
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -1230,11 +1275,22 @@ size = Vector2i(1162, 667)
 [node name="Background_Light" type="Node" parent="SubViewport"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Background_Light"]
-environment = SubResource("Environment_v60cw")
+environment = SubResource("Environment_rayxa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Background_Light"]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.794414, -0.386338, 0.468666, 0, 0.771624, 0.636079, -0.607375, 0.50531, -0.61299, 0, 0, 0)
+light_color = Color(0.999992, 0.947455, 0.938414, 1)
+light_energy = 1.2
+light_volumetric_fog_energy = 2.0
+light_angular_distance = 0.5
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_transmittance_bias = 16.0
+shadow_blur = 0.5
+directional_shadow_split_1 = 0.012
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 17.6
+sky_mode = 1
 
 [node name="Background" type="Node3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.635, 0, 235.565)

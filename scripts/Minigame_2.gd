@@ -152,6 +152,10 @@ var debug_frame_count: int = 0
 # Timer optimization
 var last_timer_value: int = -1
 
+# Timer countdown sound tracking
+var timer_countdown_playing: bool = false  # Track if countdown sound is active
+var timer_countdown_paused: bool = false   # Track if countdown was paused
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # QUESTION BANK
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -355,6 +359,10 @@ func start_round() -> void:
 	last_timer_value = 15
 	timer_value.modulate = Color(1, 1, 0)
 	
+	# Reset countdown sound tracking
+	timer_countdown_playing = false
+	timer_countdown_paused = false
+	
 	# Ensure question index wraps
 	if current_question_index >= question_data.size():
 		current_question_index = 0
@@ -414,11 +422,14 @@ func _process(_delta: float) -> void:
 		timer_value.text = str(time_left)
 		last_timer_value = time_left
 		
-		# Change timer color when time is running low (no animation)
+		# Change timer color when time is running low and start countdown sound
 		if time_left <= TIMER_WARNING_THRESHOLD and not timer_value.modulate.is_equal_approx(Color.RED):
 			timer_value.modulate = Color.RED
-			SFX.play_5timer_warning()
-
+			# Start the new countdown sound system (only if not already playing)
+			if not timer_countdown_playing:
+				SFX.play_5timer_warning_new()
+				timer_countdown_playing = true
+				timer_countdown_paused = false
 func _on_area_entered(body: Node, answer: String) -> void:
 	if body != get_current_player() or current_state != GameState.WAITING_INPUT:
 		return
@@ -448,8 +459,14 @@ func try_lock_in_answer() -> void:
 		answer_locked_in = true
 		answer_time_remaining = timer.time_left  # Capture time for speed bonus
 		
-		# Stop the 5-second warning sound if it's playing
+		# Stop the old 5-second lobby countdown warning sound if it's playing
 		SFX.stop_5timer_warning()
+		
+		# Stop the new timer countdown sound if it's playing
+		if timer_countdown_playing:
+			SFX.stop_5timer_warning_new()
+			timer_countdown_playing = false
+			timer_countdown_paused = false
 		
 		# Visual feedback - make the highlight more prominent
 		_highlight_selected(chosen_answer)
@@ -484,6 +501,13 @@ func _on_timer_timeout() -> void:
 
 	timer_value.text = "0"
 	answer_time_remaining = 0.0  # Time ran out, no speed bonus
+	
+	# Stop countdown sound when timer runs out
+	if timer_countdown_playing:
+		SFX.stop_5timer_warning_new()
+		timer_countdown_playing = false
+		timer_countdown_paused = false
+	
 	_check_answer()
 
 
@@ -731,17 +755,17 @@ func get_current_player() -> Node:
 # ═══════════════════════════════════════════════════════════════════════════════
 func _get_border_green() -> StandardMaterial3D:
 	if mat_border_green == null:
-		mat_border_green = _create_border_material(Color(0, 1, 0), Color(0, 3, 0))
+		mat_border_green = _create_border_material(Color(0, 1, 0), Color(0, 6, 0))
 	return mat_border_green
 
 func _get_border_red() -> StandardMaterial3D:
 	if mat_border_red == null:
-		mat_border_red = _create_border_material(Color(1, 0, 0), Color(3, 0, 0))
+		mat_border_red = _create_border_material(Color(1, 0, 0), Color(6, 0, 0))
 	return mat_border_red
 
 func _get_border_yellow() -> StandardMaterial3D:
 	if mat_border_yellow == null:
-		mat_border_yellow = _create_border_material(Color(1, 1, 0), Color(3, 3, 0))
+		mat_border_yellow = _create_border_material(Color(1, 1, 0), Color(6, 6, 0))
 	return mat_border_yellow
 
 func _create_material(albedo: Color, emission: Color) -> StandardMaterial3D:
@@ -1000,28 +1024,31 @@ func _input(event: InputEvent) -> void:
 	if current_state != GameState.PREPARE:
 		return
 
-	if not initial_lobby_completed:
+	# Allow players to toggle ready/unready during lobby AND countdown phase
+	if not initial_lobby_completed or countdown_active:
 		# Player 1 toggle ready
 		if event.is_action_pressed("ui_accept"):
 			player1_ready = not player1_ready  # Toggle ready state
 			_update_ready_overlay()
 			_handle_ready_check()  # Check if both ready or cancel countdown
 			get_viewport().set_input_as_handled()
+			return
 		# Player 2 toggle ready
 		elif event.is_action_pressed("ui_accept_p2"):
 			player2_ready = not player2_ready  # Toggle ready state
 			_update_ready_overlay()
 			_handle_ready_check()  # Check if both ready or cancel countdown
 			get_viewport().set_input_as_handled()
-		return
+			return
 	
-	# Normal round input
-	if current_player == 1 and event.is_action_pressed("ui_accept"):
-		get_ready_overlay.visible = false
-		start_round()
-	elif current_player == 2 and event.is_action_pressed("ui_accept_p2"):
-		get_ready_overlay.visible = false
-		start_round()
+	# Normal round input (only after countdown is finished and lobby completed)
+	if initial_lobby_completed and not countdown_active:
+		if current_player == 1 and event.is_action_pressed("ui_accept"):
+			get_ready_overlay.visible = false
+			start_round()
+		elif current_player == 2 and event.is_action_pressed("ui_accept_p2"):
+			get_ready_overlay.visible = false
+			start_round()
 		
 func _update_ready_overlay() -> void:
 	var p1_status := "Ready ✓" if player1_ready else "Not Ready"
@@ -1121,12 +1148,32 @@ func _toggle_main_menu() -> void:
 		# Pause game if needed
 		# _set_state(GameState.PREPARE) # optionally pause game state
 		_hide_game_labels()
+		
+		# Pause countdown sound if it's playing
+		if timer_countdown_playing and not timer_countdown_paused:
+			SFX.pause_5timer_warning_new()
+			timer_countdown_paused = true
+			print("[DEBUG] Timer countdown sound paused")
+		
+		# Stop 5-second countdown warning sound when pausing (for old lobby countdown)
+		if countdown_active:
+			SFX.stop_5timer_warning()
+		
 		get_tree().paused = true
 		print("[DEBUG MINIGAME2] PAUSING game - menu should be visible")
 	else:
 		# Resume game
 		_show_game_labels()
 		get_tree().paused = false
+		
+		# Resume countdown sound if it was paused
+		if timer_countdown_playing and timer_countdown_paused:
+			SFX.resume_5timer_warning_new()
+			timer_countdown_paused = false
+			print("[DEBUG] Timer countdown sound resumed")
+		
+		# Don't restart the lobby countdown sound - avoid overlapping/duplicate sounds
+		
 		print("[DEBUG MINIGAME2] UNPAUSING game - menu should be hidden")
 	
 	print("[DEBUG MINIGAME2] AFTER - menu.visible: ", main_menu.visible, " tree.paused: ", get_tree().paused)
@@ -1141,6 +1188,12 @@ func _on_return_to_game_pressed() -> void:
 	get_tree().paused = false
 	_show_game_labels()
 	_set_player_active(get_current_player(), true)
+	
+	# Resume countdown sound if it was paused
+	if timer_countdown_playing and timer_countdown_paused:
+		SFX.resume_5timer_warning_new()
+		timer_countdown_paused = false
+		print("[DEBUG] Timer countdown sound resumed via Return to Game button")
 
 func _on_restart_pressed() -> void:
 	print("Restart pressed")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpvbh42sjfb62"]
+[gd_scene load_steps=18 format=3 uid="uid://bpvbh42sjfb62"]
 
 [ext_resource type="Script" path="res://scripts/sfx_manager.gd" id="1_eak3u"]
 [ext_resource type="AudioStream" uid="uid://sj6gu2dmxu41" path="res://assets/SFX/Background Music for the Math Game.wav" id="2_i8ge4"]
@@ -13,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://cs4g4xt0fr2be" path="res://assets/SFX/Footsteps.mp3" id="11_2s1mg"]
 [ext_resource type="AudioStream" uid="uid://bii166c53lu1l" path="res://assets/SFX/running.mp3" id="12_atk1g"]
 [ext_resource type="AudioStream" uid="uid://6yuwn7vhh2ty" path="res://assets/SFX/punch.wav" id="13_5qdt6"]
+[ext_resource type="AudioStream" uid="uid://drdnoycaltxry" path="res://assets/SFX/part1CDStart.wav" id="14_uxauj"]
+[ext_resource type="AudioStream" uid="uid://chl2xmbyd8k8m" path="res://assets/SFX/part3CDStart.wav" id="15_fjph4"]
+[ext_resource type="AudioStream" uid="uid://7ucfcifegx23" path="res://assets/SFX/part4CDStart.wav" id="16_dx66i"]
+[ext_resource type="AudioStream" uid="uid://b2jaquntov7rs" path="res://assets/SFX/part5CDStart.wav" id="17_wo71r"]
 
 [node name="SFXManager" type="Node2D"]
 script = ExtResource("1_eak3u")
@@ -65,3 +69,18 @@ stream = ExtResource("12_atk1g")
 
 [node name="Punch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_5qdt6")
+
+[node name="part1CDStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_uxauj")
+
+[node name="part2CDStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_fjph4")
+
+[node name="part3CDStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_5qdt6")
+
+[node name="part4CDStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_dx66i")
+
+[node name="part5CDStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_wo71r")
