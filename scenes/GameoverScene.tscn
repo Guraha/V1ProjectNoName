@@ -64,9 +64,6 @@ fog_enabled = true
 fog_light_energy = 0.2
 fog_sky_affect = 0.0
 fog_height = -1024.0
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_gi_inject = 1.1
-volumetric_fog_sky_affect = 0.874
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sncp"]
 resource_name = "Atlas"
@@ -4867,12 +4864,14 @@ size = Vector2i(1162, 667)
 [node name="Background_Light" type="Node" parent="SubViewport"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Background_Light"]
-environment = SubResource("Environment_33c5b")
+environment = SubResource("Environment_5tkby")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Background_Light"]
 transform = Transform3D(-0.794414, -0.386338, 0.468666, 0, 0.771624, 0.636079, -0.607375, 0.50531, -0.61299, 0, 0, 0)
 light_color = Color(0.999992, 0.947455, 0.938414, 1)
-light_energy = 1.3
+light_energy = 1.2
+light_volumetric_fog_energy = 2.0
+light_angular_distance = 0.5
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_transmittance_bias = 16.0
