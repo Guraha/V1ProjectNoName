@@ -11734,7 +11734,6 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_u3m58")
 
 [node name="Part1" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 373.0
 offset_top = 342.0
@@ -11819,6 +11818,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Part2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "Background Music"
 horizontal_alignment = 1
@@ -11827,6 +11827,7 @@ vertical_alignment = 1
 [node name="BGValue" type="Label" parent="Part2/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "0
 "
@@ -11851,6 +11852,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "SFX VOLUME"
 horizontal_alignment = 1
@@ -11859,6 +11861,7 @@ vertical_alignment = 1
 [node name="SFXValue" type="Label" parent="Part2/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "0
 "
@@ -11883,6 +11886,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "Points ReQuired"
 horizontal_alignment = 1
@@ -11891,6 +11895,7 @@ vertical_alignment = 1
 [node name="PointsValue" type="Label" parent="Part2/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 20
 text = "0
 "
@@ -11918,7 +11923,6 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 
 [node name="Part3" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -12118,6 +12122,7 @@ theme_override_constants/margin_right = 10
 [node name="Label" type="Label" parent="Part3/TutorialForImport/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 11
 text = "How to Import Questionnaire?
 1. Copy Prompt
