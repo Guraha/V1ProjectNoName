@@ -414,29 +414,50 @@ func _on_tutorial_for_import_clicked():
 	if not options_game.visible:
 		return
 
-	var prompt_text := "TOPIC : Dinosaurs
+	var prompt_text := "Difficulty Level: [Elementary / Junior High / Senior High / College]
 
-	Generate a multiple-choice questionnaire based on the topic above and the provided material.
+TOPIC: [Insert topic here]
 
-	Follow these rules STRICTLY:
-	1. Output exactly 30 questions.
-	2. Use ONLY the following format — do not add titles, introductions, or explanations.
+Optional Output:
+[/] If 'TXT File' is selected, output ONLY a downloadable .txt file with the questions.
+[ ] If 'Chat Output' is selected, display the questions directly in chat in plain text.
 
-	FORMAT:
-	Q: [Question text]
-	A: [Choice 1]
-	B: [Choice 2]
-	C: [Choice 3]
-	D: [Choice 4]
-	ANSWER: [Letter of the correct answer]
+Generate a multiple-choice questionnaire based on the topic above and the provided material.
 
-	3. There must be ONE blank line between each question.
-	4. The ANSWER line must use the exact format: ANSWER: [A/B/C/D]
-	5. Each question must have exactly four choices labeled A, B, C, and D.
-	6. Do NOT use markdown, numbers, or bullet points.
-	7. Do NOT include explanations, hints, or extra text — only the questions in the exact format above.
-	8. Output a .txt file.
-	9. If you cannot follow this exact format, output nothing."
+Follow these rules STRICTLY:
+
+Output exactly 30 questions.
+
+Adjust question complexity based on difficulty:
+• Elementary – Simple vocabulary and basic facts.
+• Junior High – Moderate vocabulary, basic understanding.
+• Senior High – More detailed reasoning and concepts.
+• College – Analytical, higher-level conceptual questions.
+
+Use plain text ONLY — no markdown, no formatting symbols.
+
+Use ONLY the exact format below including spacing:
+
+Q: [Question text]
+A: [Choice 1]
+B: [Choice 2]
+C: [Choice 3]
+D: [Choice 4]
+ANSWER: [Letter]
+
+(Repeat this block 30 times with ONE blank line between each question.)
+
+The ANSWER line must use the exact format: ANSWER: [A/B/C/D]
+
+Each question must have exactly four choices labeled A–D.
+
+Do NOT include explanations, titles, numbering, or extra text.
+
+If TXT File output is selected and it fails, output the questions in chat instead.
+
+If you cannot follow these rules exactly, output nothing."
+
+
 
 	DisplayServer.clipboard_set(prompt_text)
 	if SFX:

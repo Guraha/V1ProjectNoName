@@ -14590,12 +14590,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.49, 1.97, 3.35)
 projection = 1
 size = 1.865
 
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.672, 2.66262, 6.40431)
+light_energy = 4.243
+omni_range = 12.9753
+
 [node name="Player1" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1.0
+offset_left = -18.0
 offset_top = 16.0
-offset_right = 249.0
+offset_right = 230.0
 offset_bottom = 97.0
 
 [node name="Sprite2D4" type="Sprite2D" parent="Player1"]
