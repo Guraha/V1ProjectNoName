@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://chmau5yo4g2an" path="res://assets/materials/Kenney_Assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_enter_outline.svg" id="21_mjnv3"]
 [ext_resource type="PackedScene" uid="uid://c5jqk12llv8mh" path="res://assets/character/character1/Character_Male_1.tscn" id="22_fjlf0"]
 
-[sub_resource type="Shader" id="Shader_v45oh"]
+[sub_resource type="Shader" id="Shader_krsie"]
 code = "// Animated Panorama Sky Shader
 shader_type sky;
 
@@ -45,18 +45,18 @@ void sky() {
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cndhm"]
-shader = SubResource("Shader_v45oh")
+shader = SubResource("Shader_krsie")
 shader_parameter/exposure = 1.0
 shader_parameter/speed = 0.002
 shader_parameter/source_panorama = ExtResource("2_k6h88")
 
-[sub_resource type="Sky" id="Sky_2svbe"]
+[sub_resource type="Sky" id="Sky_i3sdm"]
 sky_material = SubResource("ShaderMaterial_cndhm")
 
 [sub_resource type="Environment" id="Environment_8li2c"]
 background_mode = 2
 background_energy_multiplier = 0.7
-sky = SubResource("Sky_2svbe")
+sky = SubResource("Sky_i3sdm")
 sky_rotation = Vector3(0, 1.78896, 0)
 ambient_light_source = 3
 ambient_light_sky_contribution = 0.8
@@ -14292,6 +14292,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_hr45m")
 theme_override_font_sizes/font_size = 22
 text = "Background Music"
@@ -14301,6 +14302,7 @@ vertical_alignment = 1
 [node name="BGValue" type="Label" parent="Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_hr45m")
 theme_override_font_sizes/font_size = 22
 text = "0"
@@ -14324,6 +14326,7 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_hr45m")
 theme_override_font_sizes/font_size = 22
 text = "SFX VOLUME"
@@ -14333,6 +14336,7 @@ vertical_alignment = 1
 [node name="SFXValue" type="Label" parent="Control/MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_hr45m")
 theme_override_font_sizes/font_size = 22
 text = "0"
@@ -14605,6 +14609,7 @@ offset_top = 7.21
 offset_right = 202.4
 offset_bottom = 72.21
 theme = ExtResource("15_rfe6b")
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 22
 text = "Score:"
 horizontal_alignment = 1
@@ -14616,6 +14621,7 @@ offset_top = 7.21
 offset_right = 202.4
 offset_bottom = 72.21
 theme = ExtResource("15_rfe6b")
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 35
 text = "15"
 horizontal_alignment = 1
@@ -14640,6 +14646,7 @@ offset_top = 8.325
 offset_right = 103.165
 offset_bottom = 73.325
 theme = ExtResource("15_rfe6b")
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 22
 text = "Score:"
 horizontal_alignment = 1
@@ -14651,6 +14658,7 @@ offset_top = 8.325
 offset_right = 103.165
 offset_bottom = 73.325
 theme = ExtResource("15_rfe6b")
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 35
 text = "15"
 horizontal_alignment = 1

@@ -18,7 +18,6 @@ extends Control
 @onready var ready_not_ready: Label = $ReadyScreen/HBoxContainer/Player1ReadyScreen/VBoxContainer/ReadyNotReady
 @onready var press_enter_to_continue: RichTextLabel = $ReadyScreen/HBoxContainer/Player2ReadyScreen/VBoxContainer/PressEnterToContinue
 @onready var ready_not_ready_p2: Label = $ReadyScreen/HBoxContainer/Player2ReadyScreen/VBoxContainer/ReadyNotReady
-
 #Main Menu Screen
 @onready var main_menu: ColorRect = $MainMenu
 @onready var return_to_game: Button = $MainMenu/MainMenu/VBoxContainer/ReturnToGame
@@ -28,16 +27,12 @@ extends Control
 @onready var option_screen: MarginContainer = $MainMenu/OptionScreen
 @onready var background_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HSlider
 @onready var sfx_music: HSlider = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer/HSlider
-
-
 @onready var back: Button = $MainMenu/OptionScreen/VBoxContainer/MarginContainer4/Back
 @onready var main_menu_Screen: MarginContainer = $MainMenu/MainMenu
 @onready var normal_mode: MarginContainer = $ReadyScreen/NormalMode
 @onready var hardmode: MarginContainer = $ReadyScreen/Hardmode
 @onready var bg_value: Label = $MainMenu/OptionScreen/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/BGValue
 @onready var sfx_value: Label = $MainMenu/OptionScreen/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/SFXValue
-
-
 @onready var menu_how_to_play: RichTextLabel = $MainMenu/Panel/MarginContainer/MenuHowToPlay
 @onready var normalmode_ready_how_to_play: RichTextLabel = $ReadyScreen/NormalMode/Panel/MarginContainer/ReadyHowToPlay
 @onready var hardmode_ready_how_to_play: RichTextLabel = $ReadyScreen/Hardmode/Panel/MarginContainer/ReadyHowToPlay
